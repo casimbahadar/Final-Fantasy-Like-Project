@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="Actor" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Actor.gd" id="1_script"]
+[ext_resource type="Resource" path="res://data/classes/mage.tres" id="2_mage"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"lyra"
+display_name = "Lyra"
+bio = "A scholar of forgotten magics, searching for the missing prince."
+char_class = ExtResource("2_mage")
+starting_level = 1
+base_max_hp = 80
+base_max_mp = 30
+base_atk = 6
+base_def = 6
+base_mag = 14
+base_res = 10
+base_spd = 9
+base_luk = 6
+grow_max_hp = 6
+grow_max_mp = 4
+grow_atk = 1
+grow_def = 1
+grow_mag = 3
+grow_res = 2
+grow_spd = 1
+grow_luk = 1

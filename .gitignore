@@ -1,0 +1,30 @@
+# Godot 4+ specific ignores
+.godot/
+.import/
+
+# Imported translations (Godot generates these)
+*.translation
+
+# Mono/C# build artifacts (we use GDScript, but ignore just in case)
+.mono/
+data_*/
+mono_crash.*.json
+
+# Exported builds
+build/
+exports/
+*.apk
+*.aab
+*.ipa
+*.zip
+
+# Editor / OS junk
+.vscode/
+.idea/
+*.swp
+*~
+.DS_Store
+Thumbs.db
+
+# Local-only export presets (the .cfg can be committed; encryption keys must not)
+export_presets.cfg.local

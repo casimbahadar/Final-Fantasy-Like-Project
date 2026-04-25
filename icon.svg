@@ -1,0 +1,7 @@
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <rect width="128" height="128" fill="#1a1033"/>
+  <path d="M64 18 L78 54 L114 58 L86 82 L94 116 L64 96 L34 116 L42 82 L14 58 L50 54 Z"
+        fill="#f5d76e" stroke="#7a4a00" stroke-width="3" stroke-linejoin="round"/>
+  <text x="64" y="74" font-family="monospace" font-size="22" font-weight="bold"
+        text-anchor="middle" fill="#1a1033">FF</text>
+</svg>

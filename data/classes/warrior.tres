@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CharClass" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/CharClass.gd" id="1_script"]
+[ext_resource type="Script" path="res://scripts/resources/LearnEntry.gd" id="2_learn"]
+[ext_resource type="Resource" path="res://data/skills/attack.tres" id="3_attack"]
+
+[sub_resource type="Resource" id="LearnAttack"]
+script = ExtResource("2_learn")
+level = 1
+skill = ExtResource("3_attack")
+
+[resource]
+script = ExtResource("1_script")
+id = &"warrior"
+display_name = "Warrior"
+description = "Front-line fighter. High HP and physical attack."
+learnset = Array[Resource]([SubResource("LearnAttack")])
+xp_curve = PackedInt32Array()

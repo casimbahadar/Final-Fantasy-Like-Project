@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Enemy.gd" id="1_script"]
+[ext_resource type="Resource" path="res://data/skills/attack.tres" id="2_attack"]
+[ext_resource type="Resource" path="res://data/items/potion.tres" id="3_potion"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"goblin"
+display_name = "Goblin"
+max_hp = 36
+max_mp = 0
+atk = 9
+def = 5
+mag = 2
+res = 3
+spd = 7
+luk = 2
+xp_reward = 8
+gold_reward = 6
+drop_item = ExtResource("3_potion")
+drop_chance = 0.2
+skills = Array[Resource]([ExtResource("2_attack")])
