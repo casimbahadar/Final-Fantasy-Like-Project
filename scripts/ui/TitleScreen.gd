@@ -38,9 +38,17 @@ func _any_save_exists() -> bool:
 func _on_new_game() -> void:
 	GameState.reset()
 	Party.clear()
-	# Phase 1 will hook this up to the starting map.
-	# For now: print so we know the wiring works.
-	print("[TitleScreen] New Game pressed. World scene not yet implemented (Phase 1).")
+	Party.add_member(&"aldric")
+	Party.add_member(&"lyra")
+	Party.add_gold(100)
+	Party.add_item(&"potion", 3)
+	# Equip starter gear so newcomers see equipment in action.
+	if Party.members.size() >= 1:
+		Party.members[0].equip_weapon = &"bronze_sword"
+		Party.members[0].equip_armor = &"leather_armor"
+	if Party.members.size() >= 2:
+		Party.members[1].equip_weapon = &"oak_staff"
+	await SceneRouter.go_to_map(&"plaza", &"default")
 
 
 func _on_continue() -> void:

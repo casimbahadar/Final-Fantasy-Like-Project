@@ -67,13 +67,13 @@ class PartyMember extends RefCounted:
 		xp += amount
 		var levels_gained := 0
 		var cls: CharClass = actor_data().char_class
-		while true:
+		while level < 99:
 			var needed: int
 			if cls != null and cls.xp_curve.size() > level + 1:
 				needed = cls.xp_curve[level + 1]
 			else:
 				needed = Database.default_xp_to_next(level)
-			if xp < needed:
+			if needed <= 0 or xp < needed:
 				break
 			xp -= needed
 			level += 1

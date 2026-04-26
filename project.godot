@@ -19,6 +19,7 @@ Party="*res://scripts/globals/Party.gd"
 SaveSystem="*res://scripts/globals/SaveSystem.gd"
 AudioManager="*res://scripts/globals/AudioManager.gd"
 SceneRouter="*res://scripts/globals/SceneRouter.gd"
+Dialogue="*res://scripts/ui/DialogueController.gd"
 
 [display]
 

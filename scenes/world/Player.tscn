@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/PlayerController.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/player_warrior.svg" id="2_sprite"]
+
+[node name="Player" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(8, 4)
+texture = ExtResource("2_sprite")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(8, 8)
+zoom = Vector2(1, 1)
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0

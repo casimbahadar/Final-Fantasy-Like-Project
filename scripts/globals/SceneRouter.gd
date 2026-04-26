@@ -13,6 +13,10 @@ signal transition_finished
 var pending_troop_id: StringName = &""
 var battle_return_map: StringName = &""
 
+# True from the start of fade-out until fade-in completes. Gameplay code reads
+# this to suppress input during transitions.
+var is_transitioning: bool = false
+
 var _fade: ColorRect
 
 
@@ -29,12 +33,16 @@ func _ready() -> void:
 
 
 func go_to_scene(scene_path: String) -> void:
+	if is_transitioning:
+		return
+	is_transitioning = true
 	transition_started.emit()
 	await _fade_to(1.0)
 	var err := get_tree().change_scene_to_file(scene_path)
 	if err != OK:
 		push_error("SceneRouter: change_scene_to_file failed for %s (err %d)" % [scene_path, err])
 	await _fade_to(0.0)
+	is_transitioning = false
 	transition_finished.emit()
 
 

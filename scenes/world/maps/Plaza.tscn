@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/OverworldMap.gd" id="1_map"]
+[ext_resource type="Script" path="res://scripts/world/SpawnPoint.gd" id="2_spawn"]
+[ext_resource type="Script" path="res://scripts/world/WarpTrigger.gd" id="3_warp"]
+[ext_resource type="PackedScene" path="res://scenes/world/NPC.tscn" id="4_npc"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/npc_sage.svg" id="5_sage_tex"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/npc_innkeeper.svg" id="6_inn_tex"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/npc_villager.svg" id="7_villager_tex"]
+
+[node name="Plaza" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_map")
+grid_string = "####################
+#,,,####....####,,,#
+#,,,####....####,,,#
+#,,......++......,,#
+#,,......++......,,#
+#,,...++++++++...,,#
+#,,...++++++++...,,#
+#,,...++++++++...,,#
+#,,......++......,,#
+#,,......++......,,#
+#,,......++......,,#
+#,,,####....####,,,#
+#,,,####.DD.####,,,#
+####################"
+map_id = &"plaza"
+
+[node name="SpawnDefault" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+spawn_id = &"default"
+grid_position = Vector2i(10, 8)
+facing = 3
+
+[node name="SpawnSouthReturn" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+spawn_id = &"south_return"
+grid_position = Vector2i(10, 11)
+facing = 3
+
+[node name="Sage" parent="." instance=ExtResource("4_npc")]
+npc_name = "Old Sage"
+grid_position = Vector2i(10, 4)
+lines = PackedStringArray("So you are the ones the prophecy spoke of...", "Aldric, Lyra — the Crystal Plague spreads each day.", "Beyond this plaza, the road south leads to ruin.", "Tread carefully, young ones.")
+lines_after_first = PackedStringArray("The crystals grow restless. Time is short.")
+conversation_flag = &"talked_to_sage"
+sprite_texture = ExtResource("5_sage_tex")
+
+[node name="Innkeeper" parent="." instance=ExtResource("4_npc")]
+npc_name = "Brenna"
+grid_position = Vector2i(4, 6)
+lines = PackedStringArray("Welcome to the Wandering Boar Inn!", "We'll be open soon — the carpenters are still finishing the upstairs.", "Come back when you need a rest.")
+sprite_texture = ExtResource("6_inn_tex")
+
+[node name="Villager" parent="." instance=ExtResource("4_npc")]
+npc_name = "Villager"
+grid_position = Vector2i(15, 7)
+lines = PackedStringArray("Did you hear? Goblins were sighted on the south road.", "Don't go alone — bring a friend who can swing a sword!")
+sprite_texture = ExtResource("7_villager_tex")
+
+[node name="SouthExit" type="Node2D" parent="."]
+script = ExtResource("3_warp")
+grid_position = Vector2i(9, 12)
+grid_size = Vector2i(2, 1)
+target_map_id = &"outskirts"
+target_spawn_id = &"north_arrival"

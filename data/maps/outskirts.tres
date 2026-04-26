@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MapData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/MapData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"outskirts"
+display_name = "Outskirts Road"
+scene_path = "res://scenes/world/maps/Outskirts.tscn"
+encounter_troops = Array[StringName]([&"two_slimes"])
+encounter_steps = 12
