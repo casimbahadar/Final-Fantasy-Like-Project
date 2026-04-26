@@ -2,7 +2,7 @@
 
 A Final Fantasy–inspired JRPG built in **Godot 4**, designed to ship to **itch.io (Web)**, **Android**, and **iOS** from a single codebase. Visual style targets the GBA era (FF1–6, FFTA) with a clear upgrade path to 2D-HD (Octopath, FF Pixel Remaster).
 
-> **Status:** Phase 1 — overworld, NPCs, dialogue, and map transitions are working. New Game drops you on the Town Plaza with a 2-character party. Battles come in Phase 2.
+> **Status:** Phase 2 — battles work. Walk south from the plaza into the grassy Outskirts and you'll trigger random encounters (slimes or a goblin). Pick Attack / Skill / Item / Defend / Run. Win → XP + gold + level-ups. Lose → game over → title.
 
 ## Roadmap
 
@@ -10,7 +10,7 @@ A Final Fantasy–inspired JRPG built in **Godot 4**, designed to ship to **itch
 |-------|-------|--------|
 | 0 | Project skeleton, autoloads, resource schemas, title screen | ✅ done |
 | 1 | Tile-based overworld, player movement, NPCs, dialogue, map transitions | ✅ done |
-| 2 | ATB battle scene, skills, items, status effects, victory/defeat | ⏳ |
+| 2 | ATB battle scene, skills, items, victory/defeat, encounters | ✅ done |
 | 3 | Pause menu, inventory, equipment, save/load (3 slots) | ⏳ |
 | 4 | Vertical slice content: town, shop, inn, dungeon, boss | ⏳ |
 | 5 | Mobile touch controls, Android export, iOS prep | ⏳ |
@@ -29,7 +29,13 @@ See [`/root/.claude/plans/i-want-to-create-enchanted-nygaard.md`](../../root/.cl
 1. Install Godot 4.2+.
 2. Open Godot, click **Import**, pick this folder's `project.godot`.
 3. Click the **Play** button (▶) in the top-right, or press <kbd>F5</kbd>.
-4. Title screen → **New Game** → drops you in the Town Plaza. Talk to the three NPCs, walk south through the door to reach the Outskirts Road, walk back through the north door to return.
+4. Title screen → **New Game** → drops you in the Town Plaza. Talk to NPCs, walk south through the door to reach the Outskirts Road. Walk on the grass for a bit — you'll trigger a battle.
+
+### Battle controls
+- Arrows: move cursor / select target
+- <kbd>Enter</kbd> / <kbd>Z</kbd>: confirm
+- <kbd>Esc</kbd> / <kbd>X</kbd>: cancel (back out of submenu / target picker)
+- Lyra learns **Cure** at level 3 — keep her alive!
 
 On first import Godot will:
 - Generate `.godot/` (cached imports — gitignored)

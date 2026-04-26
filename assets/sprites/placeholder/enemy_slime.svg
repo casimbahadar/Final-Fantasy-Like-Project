@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges">
+  <!-- Body shadow -->
+  <rect x="6" y="22" width="20" height="6" fill="#1a1015" opacity="0.3"/>
+  <!-- Body -->
+  <rect x="8" y="14" width="16" height="4" fill="#3a8050"/>
+  <rect x="6" y="18" width="20" height="6" fill="#509060"/>
+  <rect x="4" y="22" width="24" height="4" fill="#3a7050"/>
+  <rect x="6" y="26" width="20" height="2" fill="#2a5040"/>
+  <!-- Highlights -->
+  <rect x="10" y="16" width="12" height="2" fill="#7ab080"/>
+  <rect x="9" y="20" width="2" height="2" fill="#a8d090"/>
+  <!-- Eyes -->
+  <rect x="11" y="20" width="2" height="3" fill="#1a1033"/>
+  <rect x="19" y="20" width="2" height="3" fill="#1a1033"/>
+  <rect x="11" y="20" width="1" height="1" fill="#ffffff"/>
+  <rect x="19" y="20" width="1" height="1" fill="#ffffff"/>
+  <!-- Mouth -->
+  <rect x="13" y="25" width="6" height="1" fill="#1a1033"/>
+</svg>

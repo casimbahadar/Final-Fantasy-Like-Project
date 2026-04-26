@@ -40,6 +40,7 @@ const TILE_ENCOUNTER := {
 @export var bgm: AudioStream
 
 const PLAYER_SCENE := preload("res://scenes/world/Player.tscn")
+const BATTLE_RETURN_SPAWN_ID := &"_battle_return"
 
 var grid: Array = []        # grid[y][x] -> int tile type
 var width: int = 0
@@ -48,6 +49,11 @@ var player: Node = null
 
 # Vector2i grid_pos -> Node currently standing there (player, NPC, etc.)
 var _occupants: Dictionary = {}
+
+# Encounter step counter (decrements only on encounter tiles). Reset to a
+# randomized value around MapData.encounter_steps after every encounter.
+var _step_counter: int = 0
+var _map_data: MapData
 
 
 func _ready() -> void:
@@ -64,15 +70,22 @@ func _ready() -> void:
 
 
 func _post_setup() -> void:
-	var spawn := _find_spawn(GameState.spawn_point_id)
+	_map_data = Database.map(map_id)
+	_reset_step_counter()
+
 	var spawn_pos: Vector2i
 	var spawn_facing: int = 0
-	if spawn != null:
-		spawn_pos = spawn.grid_position
-		spawn_facing = spawn.facing
+	if GameState.spawn_point_id == BATTLE_RETURN_SPAWN_ID and SceneRouter.battle_return_map == map_id:
+		spawn_pos = SceneRouter.battle_return_grid_pos
+		spawn_facing = SceneRouter.battle_return_facing
 	else:
-		spawn_pos = Vector2i(width / 2, height / 2)
-		push_warning("OverworldMap '%s': no SpawnPoint matched id '%s'; using map center" % [map_id, GameState.spawn_point_id])
+		var spawn := _find_spawn(GameState.spawn_point_id)
+		if spawn != null:
+			spawn_pos = spawn.grid_position
+			spawn_facing = spawn.facing
+		else:
+			spawn_pos = Vector2i(width / 2, height / 2)
+			push_warning("OverworldMap '%s': no SpawnPoint matched id '%s'; using map center" % [map_id, GameState.spawn_point_id])
 
 	player = PLAYER_SCENE.instantiate()
 	add_child(player)
@@ -82,10 +95,42 @@ func _post_setup() -> void:
 		if actor != null and actor.overworld_sprite != null:
 			sprite_tex = actor.overworld_sprite
 	player.setup(self, spawn_pos, spawn_facing, sprite_tex)
+	player.moved.connect(_on_player_step)
 
 	for warp in get_tree().get_nodes_in_group("warps"):
 		if is_ancestor_of(warp) and warp.has_method("attach_player"):
 			warp.attach_player(player)
+
+
+func _on_player_step(_from_pos: Vector2i, to_pos: Vector2i) -> void:
+	if _map_data == null or _map_data.encounter_steps <= 0 or _map_data.encounter_troops.is_empty():
+		return
+	if not is_encounter_tile(to_pos):
+		return
+	_step_counter -= 1
+	if _step_counter > 0:
+		return
+	_trigger_encounter()
+
+
+func _reset_step_counter() -> void:
+	if _map_data == null or _map_data.encounter_steps <= 0:
+		_step_counter = 0
+		return
+	var avg := _map_data.encounter_steps
+	_step_counter = randi_range(maxi(1, avg / 2), maxi(2, avg + avg / 2))
+
+
+func _trigger_encounter() -> void:
+	if _map_data == null or _map_data.encounter_troops.is_empty():
+		return
+	var troop_id: StringName = _map_data.encounter_troops.pick_random()
+	# Save where to drop the player back when battle ends.
+	SceneRouter.battle_return_map = map_id
+	SceneRouter.battle_return_grid_pos = player.grid_pos
+	SceneRouter.battle_return_facing = player.facing
+	_reset_step_counter()
+	SceneRouter.go_to_battle(troop_id, map_id)
 
 
 func _find_spawn(spawn_id: StringName):

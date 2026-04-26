@@ -12,6 +12,8 @@ signal transition_finished
 # Transient handoff for battle scene (not persisted in saves).
 var pending_troop_id: StringName = &""
 var battle_return_map: StringName = &""
+var battle_return_grid_pos: Vector2i = Vector2i.ZERO
+var battle_return_facing: int = 0
 
 # True from the start of fade-out until fade-in completes. Gameplay code reads
 # this to suppress input during transitions.

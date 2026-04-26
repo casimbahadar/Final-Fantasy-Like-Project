@@ -7,5 +7,5 @@ script = ExtResource("1_script")
 id = &"outskirts"
 display_name = "Outskirts Road"
 scene_path = "res://scenes/world/maps/Outskirts.tscn"
-encounter_troops = Array[StringName]([&"two_slimes"])
-encounter_steps = 12
+encounter_troops = Array[StringName]([&"two_slimes", &"two_slimes", &"lone_goblin"])
+encounter_steps = 10

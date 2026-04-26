@@ -1,7 +1,9 @@
-[gd_resource type="Resource" script_class="Actor" load_steps=3 format=3]
+[gd_resource type="Resource" script_class="Actor" load_steps=5 format=3]
 
 [ext_resource type="Script" path="res://scripts/resources/Actor.gd" id="1_script"]
 [ext_resource type="Resource" path="res://data/classes/mage.tres" id="2_mage"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/player_mage.svg" id="3_overworld"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/player_mage.svg" id="4_battle"]
 
 [resource]
 script = ExtResource("1_script")
@@ -26,3 +28,5 @@ grow_mag = 3
 grow_res = 2
 grow_spd = 1
 grow_luk = 1
+overworld_sprite = ExtResource("3_overworld")
+battle_sprite = ExtResource("4_battle")
