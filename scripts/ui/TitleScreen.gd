@@ -52,12 +52,23 @@ func _on_new_game() -> void:
 
 
 func _on_continue() -> void:
+	# Pick the most recently saved slot.
+	var best_slot := -1
+	var best_ts := 0
 	for slot in SaveSystem.SLOT_COUNT:
-		if SaveSystem.slot_exists(slot):
-			if SaveSystem.load_from(slot):
-				if GameState.current_map_id != &"":
-					await SceneRouter.go_to_map(GameState.current_map_id, GameState.spawn_point_id)
-			return
+		if not SaveSystem.slot_exists(slot):
+			continue
+		var s := SaveSystem.slot_summary(slot)
+		var ts := int(s.get("timestamp", 0))
+		if ts >= best_ts:
+			best_ts = ts
+			best_slot = slot
+	if best_slot < 0:
+		return
+	if not SaveSystem.load_from(best_slot):
+		return
+	if GameState.current_map_id != &"":
+		await SceneRouter.go_to_map(GameState.current_map_id, GameState.spawn_point_id)
 
 
 func _on_quit() -> void:

@@ -11,6 +11,13 @@ var spawn_point_id: StringName = &""  # id of WarpTrigger / SpawnPoint to land o
 var playtime_seconds: float = 0.0
 var last_save_slot: int = -1
 
+# When a save is loaded, these hold the exact tile position to drop the player
+# at (overrides spawn_point_id if has_loaded_position is true). Cleared by
+# OverworldMap after consumption.
+var loaded_player_grid_pos: Vector2i = Vector2i.ZERO
+var loaded_player_facing: int = 0
+var has_loaded_position: bool = false
+
 
 func _process(delta: float) -> void:
 	playtime_seconds += delta

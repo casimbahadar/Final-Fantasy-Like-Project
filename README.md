@@ -2,7 +2,7 @@
 
 A Final Fantasy–inspired JRPG built in **Godot 4**, designed to ship to **itch.io (Web)**, **Android**, and **iOS** from a single codebase. Visual style targets the GBA era (FF1–6, FFTA) with a clear upgrade path to 2D-HD (Octopath, FF Pixel Remaster).
 
-> **Status:** Phase 2 — battles work. Walk south from the plaza into the grassy Outskirts and you'll trigger random encounters (slimes or a goblin). Pick Attack / Skill / Item / Defend / Run. Win → XP + gold + level-ups. Lose → game over → title.
+> **Status:** Phase 3 — pause menu (Items / Equip / Status / Save / Load / Title), 3 save slots, exact-position save/load. Press <kbd>Q</kbd> on the overworld to open. Game-over screen now offers Continue (loads most recent save) or Return to Title.
 
 ## Roadmap
 
@@ -11,7 +11,7 @@ A Final Fantasy–inspired JRPG built in **Godot 4**, designed to ship to **itch
 | 0 | Project skeleton, autoloads, resource schemas, title screen | ✅ done |
 | 1 | Tile-based overworld, player movement, NPCs, dialogue, map transitions | ✅ done |
 | 2 | ATB battle scene, skills, items, victory/defeat, encounters | ✅ done |
-| 3 | Pause menu, inventory, equipment, save/load (3 slots) | ⏳ |
+| 3 | Pause menu, inventory, equipment, save/load (3 slots) | ✅ done |
 | 4 | Vertical slice content: town, shop, inn, dungeon, boss | ⏳ |
 | 5 | Mobile touch controls, Android export, iOS prep | ⏳ |
 | 6+ | Story chapters, party expansion, optional 2D-HD upgrade | ⏳ |
@@ -36,6 +36,14 @@ See [`/root/.claude/plans/i-want-to-create-enchanted-nygaard.md`](../../root/.cl
 - <kbd>Enter</kbd> / <kbd>Z</kbd>: confirm
 - <kbd>Esc</kbd> / <kbd>X</kbd>: cancel (back out of submenu / target picker)
 - Lyra learns **Cure** at level 3 — keep her alive!
+
+### Pause menu (overworld only)
+- <kbd>Q</kbd>: open / close
+- **Items** — use Potions / Ethers on a party member
+- **Equip** — swap weapons / armor / accessories with stat preview
+- **Status** — see full stats, level, XP-to-next, equipment summary
+- **Save** / **Load** — three slots, each card shows playtime and timestamp
+- **Title** — return to title screen (with confirmation)
 
 On first import Godot will:
 - Generate `.godot/` (cached imports — gitignored)

@@ -17,7 +17,9 @@ var _layer: CanvasLayer
 
 func _ready() -> void:
 	_layer = CanvasLayer.new()
-	_layer.layer = 50
+	# Above the pause menu (60) so confirmations from pause-menu screens stay
+	# on top, but below the SceneRouter fade (100).
+	_layer.layer = 80
 	add_child(_layer)
 	_box = DIALOGUE_BOX_SCENE.instantiate()
 	_layer.add_child(_box)

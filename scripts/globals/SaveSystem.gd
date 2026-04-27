@@ -17,12 +17,17 @@ func slot_exists(slot: int) -> bool:
 
 
 func save_to(slot: int) -> bool:
+	var pp := _current_player_position()
 	var data := {
 		"version": 1,
 		"timestamp": Time.get_unix_time_from_system(),
 		"playtime": GameState.playtime_seconds,
 		"current_map_id": String(GameState.current_map_id),
 		"spawn_point_id": String(GameState.spawn_point_id),
+		"player_grid_x": pp.get("x", 0),
+		"player_grid_y": pp.get("y", 0),
+		"player_facing": pp.get("facing", 0),
+		"has_position": pp.has("x"),
 		"flags": _stringify_keys(GameState.flags),
 		"gold": Party.gold,
 		"inventory": _stringify_keys(Party.inventory),
@@ -59,6 +64,12 @@ func load_from(slot: int) -> bool:
 	GameState.playtime_seconds = float(parsed.get("playtime", 0.0))
 	GameState.current_map_id = StringName(parsed.get("current_map_id", ""))
 	GameState.spawn_point_id = StringName(parsed.get("spawn_point_id", ""))
+	if parsed.get("has_position", false):
+		GameState.loaded_player_grid_pos = Vector2i(int(parsed.get("player_grid_x", 0)), int(parsed.get("player_grid_y", 0)))
+		GameState.loaded_player_facing = int(parsed.get("player_facing", 0))
+		GameState.has_loaded_position = true
+	else:
+		GameState.has_loaded_position = false
 	for k in parsed.get("flags", {}):
 		GameState.flags[StringName(k)] = parsed["flags"][k]
 
@@ -112,6 +123,19 @@ func _stringify_keys(d: Dictionary) -> Dictionary:
 	for k in d:
 		out[String(k)] = d[k]
 	return out
+
+
+func _current_player_position() -> Dictionary:
+	# Looks up the active player on the current scene (if it's an OverworldMap)
+	# so saves capture the exact tile, not just the most recent spawn point.
+	var scene := get_tree().current_scene
+	if scene != null and scene is OverworldMap and scene.player != null:
+		return {
+			"x": scene.player.grid_pos.x,
+			"y": scene.player.grid_pos.y,
+			"facing": scene.player.facing,
+		}
+	return {}
 
 
 func _serialize_members() -> Array:

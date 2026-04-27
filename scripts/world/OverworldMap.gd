@@ -75,7 +75,12 @@ func _post_setup() -> void:
 
 	var spawn_pos: Vector2i
 	var spawn_facing: int = 0
-	if GameState.spawn_point_id == BATTLE_RETURN_SPAWN_ID and SceneRouter.battle_return_map == map_id:
+	if GameState.has_loaded_position:
+		# Just loaded a save — drop player at the exact saved tile.
+		spawn_pos = GameState.loaded_player_grid_pos
+		spawn_facing = GameState.loaded_player_facing
+		GameState.has_loaded_position = false
+	elif GameState.spawn_point_id == BATTLE_RETURN_SPAWN_ID and SceneRouter.battle_return_map == map_id:
 		spawn_pos = SceneRouter.battle_return_grid_pos
 		spawn_facing = SceneRouter.battle_return_facing
 	else:

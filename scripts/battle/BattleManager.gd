@@ -33,6 +33,8 @@ enum State { INTRO, ACTIVE, INPUT, RESOLVE, VICTORY, DEFEAT, EXITING }
 @onready var reward_screen: Control = $UI/RewardScreen
 @onready var reward_label: Label = $UI/RewardScreen/Panel/Label
 @onready var game_over_screen: Control = $UI/GameOverScreen
+@onready var continue_button: Button = %ContinueButton
+@onready var title_button: Button = %TitleButton
 
 var state: State = State.INTRO
 var allies: Array = []     # Array[BattleUnit]
@@ -359,10 +361,72 @@ func _enter_victory() -> void:
 func _enter_defeat() -> void:
 	_change_state(State.DEFEAT)
 	game_over_screen.show()
-	await _await_confirm()
-	GameState.reset()
-	Party.clear()
-	await SceneRouter.go_to_scene("res://scenes/ui/TitleScreen.tscn")
+	# Continue is only available if there's at least one save slot.
+	var any_save := false
+	for slot in SaveSystem.SLOT_COUNT:
+		if SaveSystem.slot_exists(slot):
+			any_save = true
+			break
+	continue_button.disabled = not any_save
+	if any_save:
+		continue_button.grab_focus()
+	else:
+		title_button.grab_focus()
+	var picked_continue := await _await_game_over_choice()
+	if picked_continue:
+		await _load_most_recent_save()
+	else:
+		GameState.reset()
+		Party.clear()
+		await SceneRouter.go_to_scene("res://scenes/ui/TitleScreen.tscn")
+
+
+func _await_game_over_choice() -> bool:
+	# Race the two buttons; whichever fires first wins.
+	var result := [false, false]  # [picked, picked_continue]
+	var on_continue := func():
+		if not result[0]:
+			result[0] = true
+			result[1] = true
+	var on_title := func():
+		if not result[0]:
+			result[0] = true
+			result[1] = false
+	continue_button.pressed.connect(on_continue)
+	title_button.pressed.connect(on_title)
+	while not result[0]:
+		await get_tree().process_frame
+	# Tear down the listeners so we don't fire twice if the scene lingers.
+	if continue_button.pressed.is_connected(on_continue):
+		continue_button.pressed.disconnect(on_continue)
+	if title_button.pressed.is_connected(on_title):
+		title_button.pressed.disconnect(on_title)
+	return result[1]
+
+
+func _load_most_recent_save() -> void:
+	var best_slot := -1
+	var best_ts := 0
+	for slot in SaveSystem.SLOT_COUNT:
+		if not SaveSystem.slot_exists(slot):
+			continue
+		var s := SaveSystem.slot_summary(slot)
+		var ts := int(s.get("timestamp", 0))
+		if ts >= best_ts:
+			best_ts = ts
+			best_slot = slot
+	if best_slot < 0:
+		GameState.reset()
+		Party.clear()
+		await SceneRouter.go_to_scene("res://scenes/ui/TitleScreen.tscn")
+		return
+	if not SaveSystem.load_from(best_slot):
+		await SceneRouter.go_to_scene("res://scenes/ui/TitleScreen.tscn")
+		return
+	if GameState.current_map_id != &"":
+		await SceneRouter.go_to_map(GameState.current_map_id, GameState.spawn_point_id)
+	else:
+		await SceneRouter.go_to_scene("res://scenes/ui/TitleScreen.tscn")
 
 
 func _attempt_escape() -> void:
