@@ -12,14 +12,15 @@ var _current_stream: AudioStream
 
 
 func _ready() -> void:
-	_bgm_a = _make_player(-6.0)
-	_bgm_b = _make_player(-6.0)
-	_sfx = _make_player(0.0)
+	_bgm_a = _make_player(-6.0, "Music")
+	_bgm_b = _make_player(-6.0, "Music")
+	_sfx = _make_player(0.0, "SFX")
 
 
-func _make_player(default_db: float) -> AudioStreamPlayer:
+func _make_player(default_db: float, bus_name: String) -> AudioStreamPlayer:
 	var p := AudioStreamPlayer.new()
 	p.volume_db = default_db
+	p.bus = bus_name
 	add_child(p)
 	return p
 

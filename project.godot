@@ -22,6 +22,8 @@ SceneRouter="*res://scripts/globals/SceneRouter.gd"
 Dialogue="*res://scripts/ui/DialogueController.gd"
 PauseMenu="*res://scripts/globals/PauseMenu.gd"
 Shop="*res://scripts/globals/Shop.gd"
+Settings="*res://scripts/globals/Settings.gd"
+TouchControls="*res://scripts/globals/TouchControls.gd"
 
 [display]
 
@@ -96,3 +98,7 @@ renderer/rendering_method.mobile="gl_compatibility"
 textures/canvas_textures/default_texture_filter=0
 2d/snap/snap_2d_transforms_to_pixel=true
 2d/snap/snap_2d_vertices_to_pixel=true
+
+[audio]
+
+buses/default_bus_layout="res://default_bus_layout.tres"

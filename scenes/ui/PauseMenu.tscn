@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3]
+[gd_scene load_steps=9 format=3]
 
 [ext_resource type="Script" path="res://scripts/ui/PauseMenuRoot.gd" id="1_root"]
 [ext_resource type="Script" path="res://scripts/ui/PartySummary.gd" id="2_summary"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://scripts/ui/EquipSubview.gd" id="4_equip"]
 [ext_resource type="Script" path="res://scripts/ui/StatusSubview.gd" id="5_status"]
 [ext_resource type="Script" path="res://scripts/ui/SaveLoadSubview.gd" id="6_saveload"]
+[ext_resource type="Script" path="res://scripts/ui/SettingsSubview.gd" id="7_settings"]
 
 [sub_resource type="StyleBoxFlat" id="PanelStyle"]
 bg_color = Color(0.058, 0.043, 0.117, 0.94)
@@ -88,6 +89,11 @@ text = "Save"
 layout_mode = 2
 theme_override_font_sizes/font_size = 11
 text = "Load"
+
+[node name="Settings" type="Button" parent="MainHBox/LeftPanel/CommandList"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "Settings"
 
 [node name="Title" type="Button" parent="MainHBox/LeftPanel/CommandList"]
 layout_mode = 2
@@ -288,6 +294,119 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.6, 0.95, 0.6, 1)
 theme_override_font_sizes/font_size = 10
 text = ""
+
+[node name="SettingsView" type="Control" parent="MainHBox/RightPanel/ContentArea"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("7_settings")
+
+[node name="VBox" type="VBoxContainer" parent="MainHBox/RightPanel/ContentArea/SettingsView"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 6
+
+[node name="BGMRow" type="HBoxContainer" parent="MainHBox/RightPanel/ContentArea/SettingsView/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="MainHBox/RightPanel/ContentArea/SettingsView/VBox/BGMRow"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "BGM"
+
+[node name="BGMSlider" type="HSlider" parent="MainHBox/RightPanel/ContentArea/SettingsView/VBox/BGMRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.0
+max_value = 1.0
+step = 0.05
+
+[node name="BGMValue" type="Label" parent="MainHBox/RightPanel/ContentArea/SettingsView/VBox/BGMRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "0%"
+horizontal_alignment = 2
+
+[node name="SFXRow" type="HBoxContainer" parent="MainHBox/RightPanel/ContentArea/SettingsView/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="MainHBox/RightPanel/ContentArea/SettingsView/VBox/SFXRow"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "SFX"
+
+[node name="SFXSlider" type="HSlider" parent="MainHBox/RightPanel/ContentArea/SettingsView/VBox/SFXRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.0
+max_value = 1.0
+step = 0.05
+
+[node name="SFXValue" type="Label" parent="MainHBox/RightPanel/ContentArea/SettingsView/VBox/SFXRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "0%"
+horizontal_alignment = 2
+
+[node name="TextRow" type="HBoxContainer" parent="MainHBox/RightPanel/ContentArea/SettingsView/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="MainHBox/RightPanel/ContentArea/SettingsView/VBox/TextRow"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Text speed"
+
+[node name="TextSlider" type="HSlider" parent="MainHBox/RightPanel/ContentArea/SettingsView/VBox/TextRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 10.0
+max_value = 240.0
+step = 5.0
+
+[node name="TextValue" type="Label" parent="MainHBox/RightPanel/ContentArea/SettingsView/VBox/TextRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "0 / sec"
+horizontal_alignment = 2
+
+[node name="TouchRow" type="HBoxContainer" parent="MainHBox/RightPanel/ContentArea/SettingsView/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="MainHBox/RightPanel/ContentArea/SettingsView/VBox/TouchRow"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Touch UI"
+
+[node name="TouchOption" type="OptionButton" parent="MainHBox/RightPanel/ContentArea/SettingsView/VBox/TouchRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 10
 
 [node name="PartySummary" type="PanelContainer" parent="."]
 unique_name_in_owner = true

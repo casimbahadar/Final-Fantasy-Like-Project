@@ -10,7 +10,7 @@ extends Control
 signal finished
 signal choice_made(index: int)
 
-const CHARS_PER_SECOND := 60.0
+const FALLBACK_CHARS_PER_SECOND := 60.0
 const INDICATOR_BLINK_HZ := 2.0
 
 @onready var _name_panel: Panel = %NamePanel
@@ -38,7 +38,8 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if _typing:
-		_typing_progress += delta * CHARS_PER_SECOND
+		var cps: float = Settings.text_cps if Settings != null else FALLBACK_CHARS_PER_SECOND
+		_typing_progress += delta * cps
 		var vis_chars := mini(int(_typing_progress), _full_text_len)
 		_body_label.visible_characters = vis_chars
 		if vis_chars >= _full_text_len:

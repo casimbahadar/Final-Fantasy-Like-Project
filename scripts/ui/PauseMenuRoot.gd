@@ -12,6 +12,7 @@ signal close_requested
 @onready var _equip_view = %EquipView
 @onready var _status_view = %StatusView
 @onready var _saveload_view = %SaveLoadView
+@onready var _settings_view = %SettingsView
 @onready var _summary: Control = %PartySummary
 
 var _last_focused_command: Button = null
@@ -19,7 +20,7 @@ var _all_subviews: Array = []
 
 
 func _ready() -> void:
-	_all_subviews = [_items_view, _equip_view, _status_view, _saveload_view]
+	_all_subviews = [_items_view, _equip_view, _status_view, _saveload_view, _settings_view]
 	for s in _all_subviews:
 		s.hide()
 		if s.has_signal("back_requested"):
@@ -61,6 +62,9 @@ func _on_command_pressed(command: String) -> void:
 		"Load":
 			_saveload_view.show()
 			_saveload_view.activate(false) # load mode
+		"Settings":
+			_settings_view.show()
+			_settings_view.activate()
 		"Title":
 			_request_title()
 

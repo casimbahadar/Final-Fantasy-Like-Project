@@ -2,7 +2,7 @@
 
 A Final Fantasy–inspired JRPG built in **Godot 4**, designed to ship to **itch.io (Web)**, **Android**, and **iOS** from a single codebase. Visual style targets the GBA era (FF1–6, FFTA) with a clear upgrade path to 2D-HD (Octopath, FF Pixel Remaster).
 
-> **Status:** Phase 4 — vertical slice content. Intro cutscene → Plaza (shop, inn) → Outskirts → Crystal Cave (chests, encounters) → boss fight (Crystal Wraith) → ending. Roughly a 20–30 minute playthrough.
+> **Status:** Phase 5 — mobile-ready. Audio bus layout (Music + SFX with sliders), text-speed setting, on-screen touch controls (D-pad + A/B/Menu), settings persisted to disk. Export targets documented for Web (itch), Android, and iOS.
 
 ## Roadmap
 
@@ -13,9 +13,7 @@ A Final Fantasy–inspired JRPG built in **Godot 4**, designed to ship to **itch
 | 2 | ATB battle scene, skills, items, victory/defeat, encounters | ✅ done |
 | 3 | Pause menu, inventory, equipment, save/load (3 slots) | ✅ done |
 | 4 | Vertical slice: town, shop, inn, dungeon with chests, boss, ending | ✅ done |
-| 5 | Mobile touch controls, Android export, iOS prep | ⏳ |
-| 4 | Vertical slice content: town, shop, inn, dungeon, boss | ⏳ |
-| 5 | Mobile touch controls, Android export, iOS prep | ⏳ |
+| 5 | Mobile touch controls, audio settings, export targets | ✅ done |
 | 6+ | Story chapters, party expansion, optional 2D-HD upgrade | ⏳ |
 
 See [`/root/.claude/plans/i-want-to-create-enchanted-nygaard.md`](../../root/.claude/plans/i-want-to-create-enchanted-nygaard.md) for the full plan (local file).
@@ -45,7 +43,11 @@ See [`/root/.claude/plans/i-want-to-create-enchanted-nygaard.md`](../../root/.cl
 - **Equip** — swap weapons / armor / accessories with stat preview
 - **Status** — see full stats, level, XP-to-next, equipment summary
 - **Save** / **Load** — three slots, each card shows playtime and timestamp
+- **Settings** — BGM / SFX volume sliders, text speed, touch UI mode (auto / on / off). Persists to `user://settings.json`.
 - **Title** — return to title screen (with confirmation)
+
+### Touch controls
+On mobile (or any device with a touchscreen) on-screen buttons appear automatically: a D-pad in the lower-left, A / B in the lower-right, and a MENU button in the upper-right. Force on or off in **Pause → Settings → Touch UI**.
 
 On first import Godot will:
 - Generate `.godot/` (cached imports — gitignored)
@@ -109,6 +111,48 @@ Game content lives as **`.tres` files in `data/`** — no code changes needed to
 4. Drop in `NPC.tscn` instances; set `npc_name`, `grid_position`, `lines`, and `sprite_texture`.
 5. Create a `data/maps/<your_map>.tres` (`MapData` resource) with the same `id` and the scene's path. Database autoloads it on next run.
 6. Wire it from another map via `WarpTrigger.target_map_id`.
+
+## Exporting (Phase 5)
+
+Godot generates `export_presets.cfg` interactively in the export dialog, so the project deliberately doesn't ship a hand-written one. Walk through the export dialog once per platform and Godot writes it for you.
+
+### Common to every export
+
+1. Open the project in Godot 4.2+.
+2. **Project → Export...**
+3. **Manage Export Templates...** the first time, then **Download and Install**.
+
+### Web (itch.io)
+
+1. **Add → Web** in the export dialog.
+2. Set **Export Path** to `exports/web/index.html`.
+3. **Export Project** (uncheck "Export with Debug").
+4. On itch.io: New project → Kind **HTML**. Zip the contents of `exports/web/` (not the folder itself) and upload as a Web build. **Set viewport size 480×270** in itch.io's project page or it'll show at 1×1.
+
+### Android
+
+1. Install **Android Studio** + an Android SDK + JDK 17.
+2. In Godot: **Editor Settings → Export → Android** — point to the SDK and the debug keystore (Editor Settings has a one-click "Generate Debug Keystore" button).
+3. **Add → Android** in the export dialog.
+4. Fill in **Package → Unique Name** (e.g. `com.yourname.crystalplague`), **Name**, version code/name.
+5. Under **Display**, **uncheck Immersive Mode** for the first build (easier debugging).
+6. Plug in an Android phone with USB debugging on. Click the small **device icon** in Godot's top bar to one-click run on device. Or **Export Project** to write an APK / AAB to `exports/android/`.
+7. For Google Play: build an **AAB** (Android App Bundle), set up a release keystore, upload to the Play Console internal testing track first.
+
+### iOS
+
+iOS requires a **Mac**, **Xcode 14+**, and an **Apple Developer account** ($99/year for App Store). The Godot side:
+
+1. **Add → iOS** in the export dialog.
+2. Fill in **Application → Bundle Identifier**, app name, signing team ID, provisioning profile.
+3. **Export Project** writes an Xcode project to `exports/ios/`.
+4. Open that `.xcodeproj` in Xcode, set the signing team, build to a connected device or to TestFlight.
+
+### Performance notes for mobile
+
+- The viewport (480×270) is intentionally small so SVG sprites rasterize cheaply on mid-range Android.
+- Renderer is **GL Compatibility** (set in `project.godot`) — works on all but the oldest devices and exports to Web cleanly.
+- Touch-control detection uses `OS.has_feature("mobile") || DisplayServer.is_touchscreen_available()`. Override in **Settings**.
 
 ## Branch policy
 
