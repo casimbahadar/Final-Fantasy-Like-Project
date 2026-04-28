@@ -59,7 +59,7 @@ sprite_texture = ExtResource("6_inn_tex")
 npc_name = "Garrick the Trader"
 grid_position = Vector2i(15, 7)
 lines = PackedStringArray("Adventurers, eh? I've potions and a few sturdy bits of gear. Care to look?")
-shop_inventory = Array[StringName]([&"potion", &"hi_potion", &"ether", &"bronze_sword", &"iron_sword", &"oak_staff", &"silver_wand", &"leather_armor", &"chain_mail", &"silk_robe"])
+shop_inventory = Array[StringName]([&"potion", &"hi_potion", &"ether", &"antidote", &"bronze_sword", &"iron_sword", &"oak_staff", &"silver_wand", &"leather_armor", &"chain_mail", &"silk_robe"])
 sprite_texture = ExtResource("7_shop_tex")
 
 [node name="SouthExit" type="Node2D" parent="."]

@@ -42,8 +42,14 @@ var enemies: Array = []    # Array[BattleUnit]
 var pending_action_unit: BattleUnit = null
 var troop: Troop = null
 
+# Screen shake state.
+var _shake_amount: float = 0.0
+var _shake_remaining: float = 0.0
+var _foreground_origin: Vector2 = Vector2.ZERO
+
 
 func _ready() -> void:
+	_foreground_origin = $Foreground.position
 	troop = Database.troop(SceneRouter.pending_troop_id)
 	if troop == null:
 		push_error("Battle: no troop set in SceneRouter")
@@ -79,6 +85,7 @@ func _change_state(new_state: int) -> void:
 
 
 func _process(delta: float) -> void:
+	_tick_screen_shake(delta)
 	if state != State.ACTIVE:
 		return
 	# If anyone already at full gauge, wait for handler to consume them.
@@ -88,7 +95,7 @@ func _process(delta: float) -> void:
 	for u in allies + enemies:
 		if not u.is_alive():
 			continue
-		var rate := ATB_BASE_RATE * (float(u.stat("spd")) / 10.0)
+		var rate := ATB_BASE_RATE * (float(u.stat("spd")) / 10.0) * u.atb_rate_multiplier()
 		u.atb = minf(1.0, u.atb + rate * delta)
 		if u.atb >= 1.0:
 			_on_unit_ready(u)
@@ -96,15 +103,59 @@ func _process(delta: float) -> void:
 	party_panel.refresh()
 
 
+func _screen_shake(amount: float, duration: float) -> void:
+	_shake_amount = maxf(_shake_amount, amount)
+	_shake_remaining = maxf(_shake_remaining, duration)
+
+
+func _tick_screen_shake(delta: float) -> void:
+	if _shake_remaining <= 0.0:
+		return
+	_shake_remaining -= delta
+	if _shake_remaining <= 0.0:
+		$Foreground.position = _foreground_origin
+		_shake_amount = 0.0
+		return
+	var ox := randf_range(-_shake_amount, _shake_amount)
+	var oy := randf_range(-_shake_amount, _shake_amount)
+	$Foreground.position = _foreground_origin + Vector2(ox, oy)
+
+
 func _on_unit_ready(unit: BattleUnit) -> void:
 	pending_action_unit = unit
 	party_panel.refresh()
+	# Tick start-of-turn statuses BEFORE the action: poison drain,
+	# sleep wake-roll, expirations.
+	await _tick_turn_start_statuses(unit)
+	if not unit.is_alive():
+		# Poison killed them.
+		_post_action()
+		return
+	if unit.is_skipping_turn():
+		_log("%s is unable to act!" % unit.display_name())
+		_change_state(State.RESOLVE)
+		await get_tree().create_timer(RESOLVE_HOLD).timeout
+		_post_action()
+		return
 	if unit.is_ally():
 		_change_state(State.INPUT)
 		party_panel.highlight_unit(unit)
 		action_menu.open(unit)
 	else:
 		await _resolve_enemy_turn(unit)
+
+
+func _tick_turn_start_statuses(unit: BattleUnit) -> void:
+	if unit.active_statuses.is_empty():
+		return
+	var summary := unit.tick_statuses()
+	if summary.hp_drained > 0:
+		_spawn_popup(unit, "-%d" % summary.hp_drained, Color(0.6, 0.85, 0.3))
+		await get_tree().create_timer(0.25).timeout
+	for status_id in summary.woke_up:
+		_log("%s wakes up!" % unit.display_name())
+		await get_tree().create_timer(0.25).timeout
+	party_panel.refresh()
 
 
 # ----------------------------- Action resolution ------------------------------
@@ -212,6 +263,11 @@ func _begin_item_resolve(item_id: StringName, item: Item, target: BattleUnit) ->
 	if item.heal_mp > 0:
 		var got_mp := target.restore_mp(item.heal_mp)
 		_spawn_popup(target, "+%d MP" % got_mp, Color(0.5, 0.7, 1.0))
+	if item.cures_status != &"":
+		if target.remove_status(item.cures_status):
+			var status: StatusEffect = Database.status(item.cures_status)
+			var label := status.display_name if status != null else String(item.cures_status)
+			_spawn_popup(target, "-%s" % label, Color(0.85, 0.95, 1.0))
 	await get_tree().create_timer(RESOLVE_HOLD).timeout
 	_post_action()
 
@@ -229,7 +285,7 @@ func _resolve_skill(actor: BattleUnit, skill: Skill, target: BattleUnit) -> void
 	var targets := _resolve_targets(skill, actor, target)
 	for t: BattleUnit in targets:
 		var r := DamageCalculator.compute(actor, t, skill)
-		_apply_result(t, r)
+		_apply_result(t, r, skill)
 		await get_tree().create_timer(0.12).timeout
 	await get_tree().create_timer(RESOLVE_HOLD).timeout
 
@@ -246,7 +302,7 @@ func _resolve_targets(skill: Skill, actor: BattleUnit, primary: BattleUnit) -> A
 			return [primary] if primary != null and primary.is_alive() else []
 
 
-func _apply_result(target: BattleUnit, r: Dictionary) -> void:
+func _apply_result(target: BattleUnit, r: Dictionary, skill: Skill = null) -> void:
 	if r.miss:
 		_spawn_popup(target, "MISS", Color(0.95, 0.85, 0.4))
 		return
@@ -256,6 +312,7 @@ func _apply_result(target: BattleUnit, r: Dictionary) -> void:
 		var label := str(dealt)
 		if r.crit:
 			label += "!"
+			_screen_shake(2.0, 0.18)
 		_spawn_popup(target, label, col)
 	elif r.damage < 0:
 		var amt := -r.damage
@@ -263,6 +320,13 @@ func _apply_result(target: BattleUnit, r: Dictionary) -> void:
 		var col2 := Color(0.4, 0.6, 1.0) if r.absorbed else Color(0.4, 0.95, 0.4)
 		var prefix := "" if r.absorbed else "+"
 		_spawn_popup(target, "%s%d" % [prefix, amt], col2)
+	# Status application (skills with inflicts_status). Misses don't apply.
+	if skill != null and skill.inflicts_status != &"" and skill.status_chance > 0.0:
+		if randf() < skill.status_chance and target.is_alive():
+			var status: StatusEffect = Database.status(skill.inflicts_status)
+			if status != null:
+				target.apply_status(skill.inflicts_status)
+				_spawn_popup(target, status.display_name, status.color)
 
 
 func _post_action() -> void:
@@ -299,8 +363,9 @@ func _pick_target(skill: Skill, actor: BattleUnit):
 
 
 func _pick_item_target(item: Item, actor: BattleUnit):
-	# Most items target allies (potions). Damage-items would target enemies.
-	var pool: Array = _alive_on(_same_side(actor)) if (item.heal_hp > 0 or item.heal_mp > 0 or item.revives) else _alive_on(_opposite_side(actor))
+	# Most items target allies (potions, antidotes). Damage-items target enemies.
+	var ally_targeted := item.heal_hp > 0 or item.heal_mp > 0 or item.revives or item.cures_status != &""
+	var pool: Array = _alive_on(_same_side(actor)) if ally_targeted else _alive_on(_opposite_side(actor))
 	if pool.is_empty():
 		return null
 	return await target_cursor.pick(pool)

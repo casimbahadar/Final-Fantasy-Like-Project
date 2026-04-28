@@ -42,6 +42,7 @@ func _on_new_game() -> void:
 	Party.add_member(&"lyra")
 	Party.add_gold(100)
 	Party.add_item(&"potion", 3)
+	Party.add_item(&"antidote", 1)
 	# Equip starter gear so newcomers see equipment in action.
 	if Party.members.size() >= 1:
 		Party.members[0].equip_weapon = &"bronze_sword"

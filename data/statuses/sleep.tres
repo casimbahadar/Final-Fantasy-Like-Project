@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="StatusEffect" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/StatusEffect.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"sleep"
+display_name = "Sleep"
+description = "Skips the unit's turn. Damage wakes it up."
+glyph = "Z"
+color = Color(0.7, 0.7, 1.0, 1)
+skip_turn = true
+wake_chance_per_turn = 0.25
+remove_on_damage = true
+duration_turns = 5

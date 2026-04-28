@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Skill.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"sleep"
+display_name = "Sleep"
+description = "Lulls one foe into slumber."
+mp_cost = 6
+target_kind = 0
+damage_kind = 3
+element = 0
+power = 0
+accuracy = 0.85
+inflicts_status = &"sleep"
+status_chance = 0.7

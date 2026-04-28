@@ -12,6 +12,7 @@ var items: Dictionary = {}     # StringName -> Item
 var enemies: Dictionary = {}   # StringName -> Enemy
 var troops: Dictionary = {}    # StringName -> Troop
 var maps: Dictionary = {}      # StringName -> MapData
+var statuses: Dictionary = {}  # StringName -> StatusEffect
 
 
 func _ready() -> void:
@@ -22,9 +23,10 @@ func _ready() -> void:
 	_load_folder("enemies", enemies)
 	_load_folder("troops", troops)
 	_load_folder("maps", maps)
-	print("[Database] loaded: %d actors, %d classes, %d skills, %d items, %d enemies, %d troops, %d maps" % [
+	_load_folder("statuses", statuses)
+	print("[Database] loaded: %d actors, %d classes, %d skills, %d items, %d enemies, %d troops, %d maps, %d statuses" % [
 		actors.size(), classes.size(), skills.size(),
-		items.size(), enemies.size(), troops.size(), maps.size()
+		items.size(), enemies.size(), troops.size(), maps.size(), statuses.size()
 	])
 
 
@@ -66,6 +68,10 @@ func troop(id: StringName) -> Troop:
 
 func map(id: StringName) -> MapData:
 	return maps.get(id)
+
+
+func status(id: StringName) -> StatusEffect:
+	return statuses.get(id)
 
 
 ## Default XP-to-next-level if a class doesn't define a curve.

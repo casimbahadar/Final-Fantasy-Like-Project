@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="StatusEffect" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/StatusEffect.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"slow"
+display_name = "Slow"
+description = "ATB fills at half speed."
+glyph = "↓"
+color = Color(0.5, 0.6, 0.85, 1)
+atb_rate_mult = 0.5
+duration_turns = 5

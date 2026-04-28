@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="StatusEffect" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/StatusEffect.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"poison"
+display_name = "Poison"
+description = "Drains a fraction of max HP each turn."
+glyph = "▼"
+color = Color(0.6, 0.85, 0.3, 1)
+hp_drain_percent = 0.08
+duration_turns = 4
