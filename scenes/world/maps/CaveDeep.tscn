@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/OverworldMap.gd" id="1_map"]
+[ext_resource type="Script" path="res://scripts/world/SpawnPoint.gd" id="2_spawn"]
+[ext_resource type="Script" path="res://scripts/world/WarpTrigger.gd" id="3_warp"]
+[ext_resource type="Script" path="res://scripts/world/EncounterTrigger.gd" id="4_encounter"]
+[ext_resource type="Script" path="res://scripts/world/EndingTrigger.gd" id="5_ending"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/crystal_heart.svg" id="6_crystal"]
+
+[node name="CaveDeep" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_map")
+grid_string = "####################
+#,,,,,,,,,,,,,,,,,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,,,,,,,,,,,,,,,#
+#DD................#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,,,,,,,,,,,,,,,#
+####################"
+map_id = &"cave_deep"
+
+[node name="SpawnFromEntrance" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+spawn_id = &"from_entrance"
+grid_position = Vector2i(2, 6)
+facing = 2
+
+[node name="ExitToEntrance" type="Node2D" parent="."]
+script = ExtResource("3_warp")
+grid_position = Vector2i(1, 6)
+grid_size = Vector2i(1, 1)
+target_map_id = &"cave_entrance"
+target_spawn_id = &"from_deep"
+
+[node name="BossTrigger" type="Node2D" parent="."]
+script = ExtResource("4_encounter")
+grid_position = Vector2i(10, 6)
+troop_id = &"crystal_wraith_boss"
+defeated_flag = &"crystal_wraith_defeated"
+intro_lines = PackedStringArray("A figure of robe and crystal turns to face you.", "\"You... you would steal what gives this land its breath?\"", "\"Then come, doomed ones — let the Plague have its keepers!\"")
+intro_speaker = "Crystal Wraith"
+
+[node name="EndingCrystal" type="Node2D" parent="."]
+script = ExtResource("5_ending")
+grid_position = Vector2i(17, 6)
+requires_flag = &"crystal_wraith_defeated"
+speaker = "Crystal Heart"
+lines = PackedStringArray("Aldric and Lyra place their hands upon the heart of the cavern.", "Light spreads outward — slowly at first, then in a rush.", "Across the kingdom, withered crystals begin to bloom anew.", "The Plague is over. The road back will be long.", "But for now — the silence after a song.", "", "— END OF DEMO —", "Press confirm to return to the title.")
+
+[node name="EndingSprite" type="Sprite2D" parent="EndingCrystal"]
+texture_filter = 1
+position = Vector2(8, 0)
+texture = ExtResource("6_crystal")

@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="CharClass" load_steps=6 format=3]
+[gd_resource type="Resource" script_class="CharClass" load_steps=7 format=3]
 
 [ext_resource type="Script" path="res://scripts/resources/CharClass.gd" id="1_script"]
 [ext_resource type="Script" path="res://scripts/resources/LearnEntry.gd" id="2_learn"]
 [ext_resource type="Resource" path="res://data/skills/attack.tres" id="3_attack"]
 [ext_resource type="Resource" path="res://data/skills/fire.tres" id="4_fire"]
 [ext_resource type="Resource" path="res://data/skills/cure.tres" id="5_cure"]
+[ext_resource type="Resource" path="res://data/skills/blizzard.tres" id="6_blizzard"]
 
 [sub_resource type="Resource" id="LearnAttack"]
 script = ExtResource("2_learn")
@@ -21,10 +22,15 @@ script = ExtResource("2_learn")
 level = 3
 skill = ExtResource("5_cure")
 
+[sub_resource type="Resource" id="LearnBlizzard"]
+script = ExtResource("2_learn")
+level = 5
+skill = ExtResource("6_blizzard")
+
 [resource]
 script = ExtResource("1_script")
 id = &"mage"
 display_name = "Mage"
 description = "Arcane caster. Low HP, high magic. Learns spells with level."
-learnset = Array[Resource]([SubResource("LearnAttack"), SubResource("LearnFire"), SubResource("LearnCure")])
+learnset = Array[Resource]([SubResource("LearnAttack"), SubResource("LearnFire"), SubResource("LearnCure"), SubResource("LearnBlizzard")])
 xp_curve = PackedInt32Array()

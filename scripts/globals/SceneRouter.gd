@@ -14,6 +14,9 @@ var pending_troop_id: StringName = &""
 var battle_return_map: StringName = &""
 var battle_return_grid_pos: Vector2i = Vector2i.ZERO
 var battle_return_facing: int = 0
+## If set, BattleManager sets this GameState flag true on victory.
+## Used by EncounterTrigger to mark a fixed/boss battle as defeated.
+var battle_victory_flag: StringName = &""
 
 # True from the start of fade-out until fade-in completes. Gameplay code reads
 # this to suppress input during transitions.

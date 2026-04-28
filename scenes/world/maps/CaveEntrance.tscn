@@ -1,0 +1,69 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/OverworldMap.gd" id="1_map"]
+[ext_resource type="Script" path="res://scripts/world/SpawnPoint.gd" id="2_spawn"]
+[ext_resource type="Script" path="res://scripts/world/WarpTrigger.gd" id="3_warp"]
+[ext_resource type="PackedScene" path="res://scenes/world/Chest.tscn" id="4_chest"]
+
+[node name="CaveEntrance" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_map")
+grid_string = "####################
+#,,,,,,,,,,,,,,,,,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,~~,,,,,,~~,,,,#
+#,,,,~~,,,,,,~~,,,,#
+#,,,,,,,,,,,,,,,,,,#
+#DD++++++++++++++DD#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,~~,,,,,,~~,,,,#
+#,,,,~~,,,,,,~~,,,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,,,,,,,,,,,,,,,#
+####################"
+map_id = &"cave_entrance"
+
+[node name="SpawnFromOutskirts" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+spawn_id = &"from_outskirts"
+grid_position = Vector2i(2, 6)
+facing = 2
+
+[node name="SpawnFromDeep" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+spawn_id = &"from_deep"
+grid_position = Vector2i(17, 6)
+facing = 1
+
+[node name="ExitToOutskirts" type="Node2D" parent="."]
+script = ExtResource("3_warp")
+grid_position = Vector2i(1, 6)
+grid_size = Vector2i(1, 1)
+target_map_id = &"outskirts"
+target_spawn_id = &"from_cave"
+
+[node name="ExitToDeep" type="Node2D" parent="."]
+script = ExtResource("3_warp")
+grid_position = Vector2i(18, 6)
+grid_size = Vector2i(1, 1)
+target_map_id = &"cave_deep"
+target_spawn_id = &"from_entrance"
+
+[node name="ChestSword" parent="." instance=ExtResource("4_chest")]
+chest_id = &"cave_iron_sword"
+grid_position = Vector2i(14, 1)
+item_id = &"iron_sword"
+item_count = 1
+
+[node name="ChestPotion" parent="." instance=ExtResource("4_chest")]
+chest_id = &"cave_hi_potion"
+grid_position = Vector2i(5, 11)
+item_id = &"hi_potion"
+item_count = 2
+
+[node name="ChestRobe" parent="." instance=ExtResource("4_chest")]
+chest_id = &"cave_silk_robe"
+grid_position = Vector2i(15, 11)
+item_id = &"silk_robe"
+item_count = 1

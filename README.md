@@ -2,7 +2,7 @@
 
 A Final Fantasy–inspired JRPG built in **Godot 4**, designed to ship to **itch.io (Web)**, **Android**, and **iOS** from a single codebase. Visual style targets the GBA era (FF1–6, FFTA) with a clear upgrade path to 2D-HD (Octopath, FF Pixel Remaster).
 
-> **Status:** Phase 3 — pause menu (Items / Equip / Status / Save / Load / Title), 3 save slots, exact-position save/load. Press <kbd>Q</kbd> on the overworld to open. Game-over screen now offers Continue (loads most recent save) or Return to Title.
+> **Status:** Phase 4 — vertical slice content. Intro cutscene → Plaza (shop, inn) → Outskirts → Crystal Cave (chests, encounters) → boss fight (Crystal Wraith) → ending. Roughly a 20–30 minute playthrough.
 
 ## Roadmap
 
@@ -12,6 +12,8 @@ A Final Fantasy–inspired JRPG built in **Godot 4**, designed to ship to **itch
 | 1 | Tile-based overworld, player movement, NPCs, dialogue, map transitions | ✅ done |
 | 2 | ATB battle scene, skills, items, victory/defeat, encounters | ✅ done |
 | 3 | Pause menu, inventory, equipment, save/load (3 slots) | ✅ done |
+| 4 | Vertical slice: town, shop, inn, dungeon with chests, boss, ending | ✅ done |
+| 5 | Mobile touch controls, Android export, iOS prep | ⏳ |
 | 4 | Vertical slice content: town, shop, inn, dungeon, boss | ⏳ |
 | 5 | Mobile touch controls, Android export, iOS prep | ⏳ |
 | 6+ | Story chapters, party expansion, optional 2D-HD upgrade | ⏳ |

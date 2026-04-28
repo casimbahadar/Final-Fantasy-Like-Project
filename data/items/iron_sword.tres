@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Item.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"iron_sword"
+display_name = "Iron Sword"
+description = "A well-balanced blade. Stronger than bronze."
+kind = 1
+equip_slot = 1
+stackable = false
+max_stack = 1
+buy_price = 240
+sell_price = 120
+bonus_atk = 9

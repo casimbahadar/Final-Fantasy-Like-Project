@@ -40,7 +40,7 @@ func setup(map: OverworldMap, start_grid: Vector2i, start_facing: int = Facing.D
 func _process(_delta: float) -> void:
 	if _moving or _map == null:
 		return
-	if Dialogue.is_active or SceneRouter.is_transitioning or PauseMenu.is_open:
+	if Dialogue.is_active or SceneRouter.is_transitioning or PauseMenu.is_open or Shop.is_open:
 		return
 
 	var dir := Vector2i.ZERO
@@ -73,11 +73,11 @@ func _input(event: InputEvent) -> void:
 	if _map == null or _moving or Dialogue.is_active or SceneRouter.is_transitioning:
 		return
 	# Pause menu only opens when nothing else is taking input.
-	if event.is_action_pressed("menu") and not PauseMenu.is_open:
+	if event.is_action_pressed("menu") and not PauseMenu.is_open and not Shop.is_open:
 		PauseMenu.open()
 		get_viewport().set_input_as_handled()
 		return
-	if PauseMenu.is_open:
+	if PauseMenu.is_open or Shop.is_open:
 		return
 	if event.is_action_pressed("ui_accept"):
 		var ahead := grid_pos + FACING_DIRS[facing]

@@ -21,6 +21,7 @@ AudioManager="*res://scripts/globals/AudioManager.gd"
 SceneRouter="*res://scripts/globals/SceneRouter.gd"
 Dialogue="*res://scripts/ui/DialogueController.gd"
 PauseMenu="*res://scripts/globals/PauseMenu.gd"
+Shop="*res://scripts/globals/Shop.gd"
 
 [display]
 

@@ -320,6 +320,11 @@ func _check_outcome() -> bool:
 
 func _enter_victory() -> void:
 	_change_state(State.VICTORY)
+	# Story / boss battles: set the linked flag so the EncounterTrigger that
+	# spawned us knows to stay dormant.
+	if SceneRouter.battle_victory_flag != &"":
+		GameState.set_flag(SceneRouter.battle_victory_flag, true)
+		SceneRouter.battle_victory_flag = &""
 	var xp_total := 0
 	var gold_total := 0
 	var drops: Array[StringName] = []

@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Enemy.gd" id="1_script"]
+[ext_resource type="Resource" path="res://data/skills/attack.tres" id="2_attack"]
+[ext_resource type="Resource" path="res://data/skills/crystal_shard.tres" id="3_shard"]
+[ext_resource type="Resource" path="res://data/skills/dark_pulse.tres" id="4_dark"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/enemy_crystal_wraith.svg" id="5_sprite"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"crystal_wraith"
+display_name = "Crystal Wraith"
+battle_sprite = ExtResource("5_sprite")
+max_hp = 240
+max_mp = 60
+atk = 16
+def = 8
+mag = 18
+res = 12
+spd = 9
+luk = 5
+xp_reward = 80
+gold_reward = 200
+drop_chance = 0.0
+skills = Array[Resource]([ExtResource("2_attack"), ExtResource("3_shard"), ExtResource("4_dark")])
+element_modifiers = {1: 1.5, 7: 1.75}

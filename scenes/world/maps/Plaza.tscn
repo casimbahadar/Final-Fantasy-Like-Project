@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3]
+[gd_scene load_steps=9 format=3]
 
 [ext_resource type="Script" path="res://scripts/world/OverworldMap.gd" id="1_map"]
 [ext_resource type="Script" path="res://scripts/world/SpawnPoint.gd" id="2_spawn"]
@@ -6,7 +6,8 @@
 [ext_resource type="PackedScene" path="res://scenes/world/NPC.tscn" id="4_npc"]
 [ext_resource type="Texture2D" path="res://assets/sprites/placeholder/npc_sage.svg" id="5_sage_tex"]
 [ext_resource type="Texture2D" path="res://assets/sprites/placeholder/npc_innkeeper.svg" id="6_inn_tex"]
-[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/npc_villager.svg" id="7_villager_tex"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/npc_shopkeeper.svg" id="7_shop_tex"]
+[ext_resource type="Script" path="res://scripts/world/IntroTrigger.gd" id="8_intro"]
 
 [node name="Plaza" type="Node2D"]
 y_sort_enabled = true
@@ -42,22 +43,24 @@ facing = 3
 [node name="Sage" parent="." instance=ExtResource("4_npc")]
 npc_name = "Old Sage"
 grid_position = Vector2i(10, 4)
-lines = PackedStringArray("So you are the ones the prophecy spoke of...", "Aldric, Lyra — the Crystal Plague spreads each day.", "Beyond this plaza, the road south leads to ruin.", "Tread carefully, young ones.")
-lines_after_first = PackedStringArray("The crystals grow restless. Time is short.")
+lines = PackedStringArray("So you are the ones the prophecy spoke of...", "Aldric, Lyra — the Crystal Plague spreads each day.", "South of here, beyond the road, lies a cavern where a wraith has nested at the heart of the crystal.", "End it, and the Plague ends with it.")
+lines_after_first = PackedStringArray("The wraith waits. Time is short.")
 conversation_flag = &"talked_to_sage"
 sprite_texture = ExtResource("5_sage_tex")
 
 [node name="Innkeeper" parent="." instance=ExtResource("4_npc")]
 npc_name = "Brenna"
 grid_position = Vector2i(4, 6)
-lines = PackedStringArray("Welcome to the Wandering Boar Inn!", "We'll be open soon — the carpenters are still finishing the upstairs.", "Come back when you need a rest.")
+lines = PackedStringArray("Welcome to the Wandering Boar Inn. A bed for 20 gold restores all HP and MP.")
+inn_cost = 20
 sprite_texture = ExtResource("6_inn_tex")
 
-[node name="Villager" parent="." instance=ExtResource("4_npc")]
-npc_name = "Villager"
+[node name="Shopkeeper" parent="." instance=ExtResource("4_npc")]
+npc_name = "Garrick the Trader"
 grid_position = Vector2i(15, 7)
-lines = PackedStringArray("Did you hear? Goblins were sighted on the south road.", "Don't go alone — bring a friend who can swing a sword!")
-sprite_texture = ExtResource("7_villager_tex")
+lines = PackedStringArray("Adventurers, eh? I've potions and a few sturdy bits of gear. Care to look?")
+shop_inventory = Array[StringName]([&"potion", &"hi_potion", &"ether", &"bronze_sword", &"iron_sword", &"oak_staff", &"silver_wand", &"leather_armor", &"chain_mail", &"silk_robe"])
+sprite_texture = ExtResource("7_shop_tex")
 
 [node name="SouthExit" type="Node2D" parent="."]
 script = ExtResource("3_warp")
@@ -65,3 +68,8 @@ grid_position = Vector2i(9, 12)
 grid_size = Vector2i(2, 1)
 target_map_id = &"outskirts"
 target_spawn_id = &"north_arrival"
+
+[node name="Intro" type="Node" parent="."]
+script = ExtResource("8_intro")
+seen_flag = &"seen_intro"
+lines = PackedStringArray("(Year 248 of the Crystal Calendar.)", "The kingdom of Eyl has stood for two centuries. The Crystals that gave it life are dying.", "Crystals that once sang now wither. Towns fall silent. The king sleeps.", "Two travelers reach the last whole town.", "Aldric, a knight without a kingdom. Lyra, a scholar of forgotten magics.", "They alone know the source of the Plague — and the only way to end it.")

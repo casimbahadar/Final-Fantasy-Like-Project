@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/Chest.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/chest_closed.svg" id="2_sprite"]
+
+[node name="Chest" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(8, 8)
+texture = ExtResource("2_sprite")
