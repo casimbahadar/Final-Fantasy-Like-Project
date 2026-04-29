@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Item.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"mythril_plate"
+display_name = "Mythril Plate"
+description = "Light yet sturdy. Sky-folk armor of woven metal scales."
+kind = 2
+equip_slot = 2
+stackable = false
+max_stack = 1
+buy_price = 540
+sell_price = 270
+bonus_def = 12
+bonus_max_hp = 50
+bonus_res = 4

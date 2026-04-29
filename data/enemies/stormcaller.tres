@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Enemy.gd" id="1_script"]
+[ext_resource type="Resource" path="res://data/skills/attack.tres" id="2_attack"]
+[ext_resource type="Resource" path="res://data/skills/bolt.tres" id="3_bolt"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/enemy_stormcaller.svg" id="4_sprite"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"stormcaller"
+display_name = "Stormcaller"
+battle_sprite = ExtResource("4_sprite")
+max_hp = 95
+max_mp = 50
+atk = 8
+def = 6
+mag = 18
+res = 12
+spd = 12
+luk = 4
+xp_reward = 36
+gold_reward = 28
+drop_chance = 0.15
+skills = Array[Resource]([ExtResource("2_attack"), ExtResource("3_bolt")])
+element_modifiers = {6: 0.5, 3: 0.5, 5: 1.5}

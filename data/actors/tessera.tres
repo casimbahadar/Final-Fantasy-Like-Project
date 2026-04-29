@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="Actor" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Actor.gd" id="1_script"]
+[ext_resource type="Resource" path="res://data/classes/dragoon.tres" id="2_dragoon"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/player_dragoon.svg" id="3_overworld"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/player_dragoon.svg" id="4_battle"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"tessera"
+display_name = "Tessera"
+bio = "A mercenary of the Skyfolk, hired by the late Sovereign to ward against the Plague's third root. Late, but not too late."
+char_class = ExtResource("2_dragoon")
+starting_level = 6
+base_max_hp = 130
+base_max_mp = 18
+base_atk = 14
+base_def = 10
+base_mag = 5
+base_res = 7
+base_spd = 11
+base_luk = 6
+grow_max_hp = 11
+grow_max_mp = 1
+grow_atk = 3
+grow_def = 2
+grow_mag = 1
+grow_res = 1
+grow_spd = 2
+grow_luk = 1
+overworld_sprite = ExtResource("3_overworld")
+battle_sprite = ExtResource("4_battle")

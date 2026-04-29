@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Skill.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"aerial_strike"
+display_name = "Aerial Strike"
+description = "Leap into the sky and crash down on one foe. Double damage to airborne enemies."
+mp_cost = 6
+target_kind = 0
+damage_kind = 0
+element = 6
+power = 22
+accuracy = 0.92
+crit_bonus = 0.1

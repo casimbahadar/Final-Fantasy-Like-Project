@@ -58,6 +58,10 @@ func _fire() -> void:
 			locked = PackedStringArray(["The crystal flickers, but does not respond."])
 		await Dialogue.say(Array(locked), speaker)
 		return
+	# One-shot guard: if the trigger has already fired (sets_flag is set),
+	# don't replay the dialogue or re-warp on re-entry.
+	if sets_flag != &"" and GameState.get_flag(sets_flag, false):
+		return
 	_firing = true
 	if lines.size() > 0:
 		await Dialogue.say(Array(lines), speaker)

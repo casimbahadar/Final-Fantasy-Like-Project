@@ -1,0 +1,70 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/OverworldMap.gd" id="1_map"]
+[ext_resource type="Script" path="res://scripts/world/SpawnPoint.gd" id="2_spawn"]
+[ext_resource type="Script" path="res://scripts/world/WarpTrigger.gd" id="3_warp"]
+[ext_resource type="Script" path="res://scripts/world/EncounterTrigger.gd" id="4_encounter"]
+[ext_resource type="Script" path="res://scripts/world/EndingTrigger.gd" id="5_story"]
+[ext_resource type="PackedScene" path="res://scenes/world/Chest.tscn" id="6_chest"]
+
+[node name="StormAerie" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_map")
+grid_string = "####################
+#,,,,,,,,,,,,,,,,,,#
+#,,##############,,#
+#,,#............#,,#
+#,,#............#,,#
+#,,#............#,,#
+#,,#............#,,#
+#,,#............#,,#
+#,,######..######,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,####,,,,,,,,,,#
+#,,,,,,,,,,,,####,,#
+#,,,,,,,,DD,,,,,,,,#
+####################"
+map_id = &"storm_aerie"
+
+[node name="SpawnFromPass" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+spawn_id = &"from_pass"
+grid_position = Vector2i(9, 11)
+facing = 3
+
+[node name="ExitToPass" type="Node2D" parent="."]
+script = ExtResource("3_warp")
+grid_position = Vector2i(8, 12)
+grid_size = Vector2i(2, 1)
+target_map_id = &"mountain_pass"
+target_spawn_id = &"from_aerie"
+
+[node name="ChestPlate" parent="." instance=ExtResource("6_chest")]
+chest_id = &"aerie_plate"
+grid_position = Vector2i(2, 11)
+item_id = &"mythril_plate"
+item_count = 1
+
+[node name="ChestSword" parent="." instance=ExtResource("6_chest")]
+chest_id = &"aerie_mythril_sword"
+grid_position = Vector2i(17, 11)
+item_id = &"mythril_sword"
+item_count = 1
+
+[node name="StormwyrmTrigger" type="Node2D" parent="."]
+script = ExtResource("4_encounter")
+grid_position = Vector2i(9, 5)
+troop_id = &"stormwyrm_boss"
+defeated_flag = &"stormwyrm_defeated"
+intro_lines = PackedStringArray("Wind tears through the broken aerie. Lightning glances off cold stone.", "Then it lifts — slow, vast, scaled the colour of the storm itself.", "The Stormwyrm fixes a single yellow eye on you, and somewhere far below, the world holds its breath.", "\"...little one. So you reached me.\"", "\"Then sing.\"")
+intro_speaker = "Stormwyrm"
+
+[node name="EndingMonument" type="Node2D" parent="."]
+script = ExtResource("5_story")
+grid_position = Vector2i(9, 3)
+requires_flag = &"stormwyrm_defeated"
+sets_flag = &"chapter_4_complete"
+is_ending = true
+speaker = "The Wind"
+lines = PackedStringArray("As the Stormwyrm settles, the wind takes on a softer voice — almost a song.", "All across Auren, the dimming Crystals flicker. Some catch. A few — far below, in the old places — begin to glow again.", "Tessera kneels beside the great wyrm and lays a hand on its skull. \"Sleep,\" she murmurs. \"You did your work.\"", "Aldric looks east. Lyra looks west. Kael grins. Mira closes her eyes.", "Three roots, cut. The Plague is broken. But Auren is wide, and a kingdom does not heal in a single season.", "", "— END OF DEMO (Phase 9: through Chapter 4) —", "Press confirm to return to the title.")
+lines_locked = PackedStringArray("The wind howls. There is nothing more to be said until the Wyrm is dealt with.")

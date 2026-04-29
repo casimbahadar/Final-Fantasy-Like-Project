@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="CharClass" load_steps=14 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/CharClass.gd" id="1_script"]
+[ext_resource type="Script" path="res://scripts/resources/LearnEntry.gd" id="2_learn"]
+[ext_resource type="Resource" path="res://data/skills/attack.tres" id="3_attack"]
+[ext_resource type="Resource" path="res://data/skills/lance_charge.tres" id="4_charge"]
+[ext_resource type="Resource" path="res://data/skills/aerial_strike.tres" id="5_aerial"]
+[ext_resource type="Resource" path="res://data/skills/battle_cry.tres" id="6_cry"]
+[ext_resource type="Resource" path="res://data/skills/sky_strike.tres" id="7_sky"]
+
+[sub_resource type="Resource" id="LearnAttack"]
+script = ExtResource("2_learn")
+level = 1
+skill = ExtResource("3_attack")
+
+[sub_resource type="Resource" id="LearnCharge"]
+script = ExtResource("2_learn")
+level = 1
+skill = ExtResource("4_charge")
+
+[sub_resource type="Resource" id="LearnAerial"]
+script = ExtResource("2_learn")
+level = 3
+skill = ExtResource("5_aerial")
+
+[sub_resource type="Resource" id="LearnCry"]
+script = ExtResource("2_learn")
+level = 5
+skill = ExtResource("6_cry")
+
+[sub_resource type="Resource" id="LearnSky"]
+script = ExtResource("2_learn")
+level = 6
+skill = ExtResource("7_sky")
+
+[resource]
+script = ExtResource("1_script")
+id = &"dragoon"
+display_name = "Dragoon"
+description = "Sky-folk warrior. High HP and ATK; aerial-style polearm strikes and a rallying cry."
+learnset = Array[Resource]([SubResource("LearnAttack"), SubResource("LearnCharge"), SubResource("LearnAerial"), SubResource("LearnCry"), SubResource("LearnSky")])
+xp_curve = PackedInt32Array()

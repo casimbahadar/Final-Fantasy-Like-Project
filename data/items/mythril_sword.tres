@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Item.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"mythril_sword"
+display_name = "Mythril Sword"
+description = "A pale, sky-forged blade — light, sharp, and faintly humming."
+kind = 1
+equip_slot = 1
+stackable = false
+max_stack = 1
+buy_price = 600
+sell_price = 300
+bonus_atk = 14

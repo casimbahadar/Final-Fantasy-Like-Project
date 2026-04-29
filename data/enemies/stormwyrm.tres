@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Enemy.gd" id="1_script"]
+[ext_resource type="Resource" path="res://data/skills/attack.tres" id="2_attack"]
+[ext_resource type="Resource" path="res://data/skills/bolt.tres" id="3_bolt"]
+[ext_resource type="Resource" path="res://data/skills/tornado.tres" id="4_tornado"]
+[ext_resource type="Resource" path="res://data/skills/tail_swipe.tres" id="5_tail"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/enemy_stormwyrm.svg" id="6_sprite"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"stormwyrm"
+display_name = "Stormwyrm"
+battle_sprite = ExtResource("6_sprite")
+max_hp = 880
+max_mp = 200
+atk = 26
+def = 16
+mag = 24
+res = 14
+spd = 12
+luk = 6
+xp_reward = 480
+gold_reward = 1200
+drop_chance = 0.0
+skills = Array[Resource]([ExtResource("2_attack"), ExtResource("3_bolt"), ExtResource("4_tornado"), ExtResource("5_tail")])
+element_modifiers = {2: 1.75, 6: 0.0, 3: 0.0}

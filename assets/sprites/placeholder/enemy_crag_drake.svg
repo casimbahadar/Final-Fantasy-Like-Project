@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges">
+  <!-- Shadow -->
+  <rect x="4" y="29" width="24" height="2" fill="#1a1015" opacity="0.5"/>
+  <!-- Stone-like body (back hump) -->
+  <rect x="6" y="14" width="20" height="10" fill="#705038"/>
+  <rect x="8" y="12" width="16" height="3" fill="#806040"/>
+  <rect x="10" y="10" width="12" height="3" fill="#806040"/>
+  <rect x="9" y="11" width="4" height="2" fill="#a07050"/>
+  <!-- Spikes along back -->
+  <rect x="11" y="9" width="2" height="3" fill="#3a2010"/>
+  <rect x="15" y="9" width="2" height="3" fill="#3a2010"/>
+  <rect x="19" y="9" width="2" height="3" fill="#3a2010"/>
+  <!-- Head -->
+  <rect x="0" y="14" width="8" height="6" fill="#806040"/>
+  <rect x="2" y="13" width="6" height="2" fill="#a07050"/>
+  <!-- Horns -->
+  <rect x="2" y="10" width="2" height="3" fill="#3a2010"/>
+  <rect x="6" y="10" width="2" height="3" fill="#3a2010"/>
+  <!-- Eye -->
+  <rect x="3" y="15" width="2" height="2" fill="#ff6030"/>
+  <rect x="3" y="15" width="1" height="1" fill="#fff8a0"/>
+  <!-- Teeth -->
+  <rect x="0" y="17" width="6" height="2" fill="#3a2010"/>
+  <rect x="1" y="18" width="1" height="1" fill="#e8e0d0"/>
+  <rect x="3" y="18" width="1" height="1" fill="#e8e0d0"/>
+  <rect x="5" y="18" width="1" height="1" fill="#e8e0d0"/>
+  <!-- Front legs -->
+  <rect x="6" y="22" width="4" height="6" fill="#604028"/>
+  <rect x="14" y="22" width="4" height="6" fill="#604028"/>
+  <!-- Back legs -->
+  <rect x="22" y="22" width="4" height="6" fill="#604028"/>
+  <!-- Claws -->
+  <rect x="5" y="28" width="6" height="1" fill="#1a1015"/>
+  <rect x="13" y="28" width="6" height="1" fill="#1a1015"/>
+  <rect x="21" y="28" width="6" height="1" fill="#1a1015"/>
+  <!-- Tail -->
+  <rect x="26" y="16" width="6" height="3" fill="#705038"/>
+  <rect x="28" y="13" width="3" height="3" fill="#705038"/>
+  <rect x="29" y="11" width="3" height="2" fill="#3a2010"/>
+</svg>

@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/OverworldMap.gd" id="1_map"]
+[ext_resource type="Script" path="res://scripts/world/SpawnPoint.gd" id="2_spawn"]
+[ext_resource type="Script" path="res://scripts/world/WarpTrigger.gd" id="3_warp"]
+[ext_resource type="PackedScene" path="res://scenes/world/NPC.tscn" id="4_npc"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/player_dragoon.svg" id="5_tessera_tex"]
+[ext_resource type="PackedScene" path="res://scenes/world/Chest.tscn" id="6_chest"]
+
+[node name="MountainPass" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_map")
+grid_string = "####################
+#,,,,,,,,DD,,,,,,,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,####,,,,,,,####,#
+#,,####,,,,,,,####,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,####,,,,####,,#
+#,,,,####,,,,####,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,,,,,,,,,,,,,,,#
+####################"
+map_id = &"mountain_pass"
+
+[node name="SpawnFromTemple" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+spawn_id = &"from_temple"
+grid_position = Vector2i(9, 12)
+facing = 3
+
+[node name="SpawnFromAerie" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+spawn_id = &"from_aerie"
+grid_position = Vector2i(9, 2)
+facing = 0
+
+[node name="ExitToAerie" type="Node2D" parent="."]
+script = ExtResource("3_warp")
+grid_position = Vector2i(8, 1)
+grid_size = Vector2i(2, 1)
+target_map_id = &"storm_aerie"
+target_spawn_id = &"from_pass"
+
+[node name="Tessera" parent="." instance=ExtResource("4_npc")]
+npc_name = "Tessera"
+grid_position = Vector2i(7, 6)
+lines = PackedStringArray("A figure in pale blue armor stands at the trailhead, spear planted.", "\"You're the ones the Crystal Heart sang for, then. The wind told me you'd come.\"", "\"My queen sent me to deal with the Storm — but I came too late, or too early. Either way, I'm the wrong number alone.\"", "\"Five against a Wyrm, though. That sounds about right.\"", "(Tessera the Dragoon has joined the party!)")
+lines_after_first = PackedStringArray("Up the pass. Don't dawdle — the wind shifts.")
+conversation_flag = &"tessera_joined"
+recruit_actor_id = &"tessera"
+sprite_texture = ExtResource("5_tessera_tex")
+
+[node name="ChestTincture" parent="." instance=ExtResource("6_chest")]
+chest_id = &"pass_tincture"
+grid_position = Vector2i(3, 11)
+item_id = &"tincture"
+item_count = 3
+
+[node name="ChestSpear" parent="." instance=ExtResource("6_chest")]
+chest_id = &"pass_spear"
+grid_position = Vector2i(16, 11)
+item_id = &"steel_spear"
+item_count = 1

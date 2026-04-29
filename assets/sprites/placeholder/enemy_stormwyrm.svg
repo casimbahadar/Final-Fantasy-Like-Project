@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" shape-rendering="crispEdges">
+  <!-- Storm cloud aura -->
+  <rect x="0" y="20" width="64" height="32" fill="#3a4060" opacity="0.3"/>
+  <rect x="2" y="14" width="60" height="44" fill="#3a4060" opacity="0.2"/>
+  <!-- Lightning bolts -->
+  <rect x="3" y="8" width="2" height="6" fill="#fff8a0"/>
+  <rect x="2" y="14" width="3" height="3" fill="#fff8a0"/>
+  <rect x="59" y="6" width="2" height="8" fill="#fff8a0"/>
+  <rect x="60" y="14" width="3" height="3" fill="#fff8a0"/>
+  <rect x="32" y="2" width="2" height="6" fill="#fff8a0"/>
+  <!-- Wings spread (huge) -->
+  <rect x="2" y="20" width="14" height="6" fill="#3050a0"/>
+  <rect x="0" y="24" width="16" height="5" fill="#3050a0"/>
+  <rect x="4" y="29" width="12" height="3" fill="#3050a0"/>
+  <rect x="4" y="22" width="10" height="2" fill="#5070c0"/>
+  <rect x="48" y="20" width="14" height="6" fill="#3050a0"/>
+  <rect x="48" y="24" width="16" height="5" fill="#3050a0"/>
+  <rect x="48" y="29" width="12" height="3" fill="#3050a0"/>
+  <rect x="50" y="22" width="10" height="2" fill="#5070c0"/>
+  <!-- Scaled body -->
+  <rect x="16" y="22" width="32" height="20" fill="#2a4880"/>
+  <rect x="18" y="24" width="28" height="3" fill="#4a68a0"/>
+  <rect x="20" y="28" width="24" height="2" fill="#1a3060"/>
+  <rect x="20" y="32" width="24" height="2" fill="#1a3060"/>
+  <rect x="20" y="36" width="24" height="2" fill="#1a3060"/>
+  <!-- Spikes along spine -->
+  <rect x="20" y="20" width="2" height="3" fill="#1a3060"/>
+  <rect x="26" y="18" width="2" height="5" fill="#1a3060"/>
+  <rect x="32" y="16" width="2" height="7" fill="#1a3060"/>
+  <rect x="38" y="18" width="2" height="5" fill="#1a3060"/>
+  <rect x="44" y="20" width="2" height="3" fill="#1a3060"/>
+  <!-- Head (left side, large) -->
+  <rect x="14" y="34" width="14" height="14" fill="#2a4880"/>
+  <rect x="12" y="36" width="14" height="2" fill="#4a68a0"/>
+  <!-- Horns -->
+  <rect x="16" y="30" width="3" height="5" fill="#1a3060"/>
+  <rect x="22" y="30" width="3" height="5" fill="#1a3060"/>
+  <rect x="15" y="28" width="2" height="3" fill="#1a3060"/>
+  <rect x="24" y="28" width="2" height="3" fill="#1a3060"/>
+  <!-- Eye (glowing) -->
+  <rect x="18" y="40" width="4" height="3" fill="#fff8a0"/>
+  <rect x="19" y="41" width="2" height="2" fill="#1a1033"/>
+  <!-- Maw -->
+  <rect x="10" y="44" width="14" height="3" fill="#1a1015"/>
+  <rect x="13" y="45" width="2" height="2" fill="#fff8a0"/>
+  <rect x="17" y="45" width="2" height="2" fill="#fff8a0"/>
+  <rect x="21" y="45" width="2" height="2" fill="#fff8a0"/>
+  <!-- Teeth -->
+  <rect x="11" y="44" width="1" height="2" fill="#e8e0d0"/>
+  <rect x="14" y="44" width="1" height="2" fill="#e8e0d0"/>
+  <rect x="17" y="44" width="1" height="2" fill="#e8e0d0"/>
+  <rect x="20" y="44" width="1" height="2" fill="#e8e0d0"/>
+  <rect x="23" y="44" width="1" height="2" fill="#e8e0d0"/>
+  <!-- Tail curling right -->
+  <rect x="48" y="36" width="10" height="4" fill="#2a4880"/>
+  <rect x="52" y="40" width="8" height="3" fill="#2a4880"/>
+  <rect x="56" y="43" width="6" height="3" fill="#2a4880"/>
+  <rect x="58" y="46" width="3" height="2" fill="#1a3060"/>
+  <!-- Underbelly highlight -->
+  <rect x="22" y="42" width="20" height="3" fill="#5070c0"/>
+  <!-- Claws under body -->
+  <rect x="22" y="48" width="3" height="6" fill="#3a2010"/>
+  <rect x="36" y="48" width="3" height="6" fill="#3a2010"/>
+  <rect x="20" y="54" width="6" height="2" fill="#1a1015"/>
+  <rect x="34" y="54" width="6" height="2" fill="#1a1015"/>
+</svg>

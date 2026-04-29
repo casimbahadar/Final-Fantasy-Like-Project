@@ -2,7 +2,7 @@
 
 A Final Fantasy–inspired JRPG built in **Godot 4**, designed to ship to **itch.io (Web)**, **Android**, and **iOS** from a single codebase. Visual style targets the GBA era (FF1–6, FFTA) with a clear upgrade path to 2D-HD (Octopath, FF Pixel Remaster).
 
-> **Status:** Phase 8 — three full chapters. Plaza → Outskirts → Crystal Cave (Crystal Wraith boss + Kael recruit) → Whispering Wood → Brighthollow (shop / inn / Mira recruit) → Sunken Temple (Hollow King boss + Aila reunion). 17 status effects, 27 skills, 4 playable characters across 3 classes, 9 enemies. See [`CONTENT.md`](CONTENT.md) to keep building.
+> **Status:** Phase 9 — four full chapters end-to-end. The party of five (Aldric warrior, Lyra mage, Kael rogue, Mira cleric, Tessera dragoon) takes on the three roots of the Crystal Plague culminating in the Stormwyrm. 18 status effects, 35+ skills, 5 playable characters across 4 classes, 13 enemies, 4 bosses. See [`CONTENT.md`](CONTENT.md) to keep building.
 
 ## Chapter map
 
@@ -11,31 +11,41 @@ A Final Fantasy–inspired JRPG built in **Godot 4**, designed to ship to **itch
                |
             (south)
                |
-         [Outskirts] ─(grass encounters: slime, goblin)─
+         [Outskirts] ─(slime, goblin)─
                |
             (east)
                |
-       [Crystal Cave Entrance] ─(chests: iron sword, hi-potions, silk robe)─
+       [Crystal Cave Entrance] ─(iron sword, hi-potions, silk robe)─
                |
             (east)
                |
         [Crystal Cave Deep] ─── BOSS: Crystal Wraith
-               |             └─ Kael (Rogue) joins here
+               |             └─ Kael (Rogue) joins
             (north — opens after boss)
                |
        [Whispering Wood] ─(forest_pair, wisp_trio, bandit_pair)─
                |
             (north)
                |
-         [Brighthollow] ─(shop: full Chapter 3 gear; inn 50g)─
-               |       └─ Sister Mira (Cleric) joins here
+         [Brighthollow] ─(full chapter 3 shop; inn 50g)─
+               |       └─ Sister Mira (Cleric) joins
             (north — opens after Mira joins)
                |
-       [Sunken Temple] ─(skeleton, wraith, animated armor; chests: phoenix down, ether, ribbon)─
+       [Sunken Temple] ─(skeleton, wraith, animated armor; chests inc. ribbon)─
                |
             BOSS: Hollow King
                |
-            ENDING: Aila reunion → "to be continued"
+       (Aila found → warps party east through cracked-crystal charm)
+               |
+       [Mountain Pass] ─(harpy, stormcaller, crag drake; chests: tincture, steel spear)─
+               |       └─ Tessera (Dragoon) joins
+            (north)
+               |
+        [Storm Aerie] ─(chests: mythril sword, mythril plate)─
+               |
+            BOSS: Stormwyrm  (HP 880, weak to Ice, immune to Wind / Thunder)
+               |
+            ENDING: three roots cut → "to be continued"
 ```
 
 ## Roadmap
@@ -51,7 +61,8 @@ A Final Fantasy–inspired JRPG built in **Godot 4**, designed to ship to **itch
 | 6 | Status effects + battle polish (hit flash, screen shake, status badges) | ✅ done |
 | 7 | Chapter 2: Rogue class, Kael, Whispering Wood, status framework deepening | ✅ done |
 | 8 | Chapter 3: Cleric class, Mira, Brighthollow, Sunken Temple, Hollow King | ✅ done |
-| 9+ | Music & SFX, Chapter 4+, real art swap (see [`CONTENT.md`](CONTENT.md) and [`assets/audio/README.md`](assets/audio/README.md)) | ⏳ |
+| 9 | Chapter 4: Dragoon class, Tessera, Mountain Pass, Storm Aerie, Stormwyrm | ✅ done |
+| 10+ | Music & SFX, Chapter 5+, real art swap (see [`CONTENT.md`](CONTENT.md) and [`assets/audio/README.md`](assets/audio/README.md)) | ⏳ |
 
 See [`/root/.claude/plans/i-want-to-create-enchanted-nygaard.md`](../../root/.claude/plans/i-want-to-create-enchanted-nygaard.md) for the full plan (local file).
 
