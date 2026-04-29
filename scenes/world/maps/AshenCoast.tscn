@@ -31,9 +31,9 @@ spawn_id = &"from_reef"
 grid_position = Vector2i(9, 12)
 facing = 3
 
-[node name="SpawnFromGate" type="Node2D" parent="."]
+[node name="SpawnFromMarsh" type="Node2D" parent="."]
 script = ExtResource("2_spawn")
-spawn_id = &"from_gate"
+spawn_id = &"from_marsh"
 grid_position = Vector2i(9, 7)
 facing = 0
 
@@ -62,7 +62,7 @@ script = ExtResource("4_story")
 grid_position = Vector2i(9, 3)
 requires_flag = &"drowned_choir_defeated"
 sets_flag = &"chapter_5_complete"
-warp_target_map = &"hollow_gate"
+warp_target_map = &"cinder_marsh"
 warp_target_spawn = &"from_coast"
 speaker = "Tessera"
 lines = PackedStringArray("As the Choir collapses, a different song rises — older, slower, and very far away.", "Tessera turns north. \"That's coming from Auren proper. The old Royal Capital. We never went there because no one's gone there in a hundred years.\"", "Mira says, very quietly: \"The Plague was a lid. We took the lid off.\"", "Aldric stares north. \"Then we go to the lid's source.\"", "(The party heads inland, toward the Hollow Court.)")

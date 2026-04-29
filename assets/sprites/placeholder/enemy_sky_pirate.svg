@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges">
+  <!-- Cape catching wind -->
+  <rect x="2" y="14" width="28" height="10" fill="#5a3060"/>
+  <rect x="0" y="16" width="32" height="3" fill="#7a4080"/>
+  <!-- Tricorn hat -->
+  <rect x="8" y="2" width="16" height="4" fill="#1a1015"/>
+  <rect x="6" y="3" width="20" height="2" fill="#1a1015"/>
+  <rect x="14" y="2" width="2" height="2" fill="#f5d76e"/>
+  <!-- Face -->
+  <rect x="10" y="6" width="12" height="6" fill="#d8a878"/>
+  <rect x="11" y="7" width="10" height="2" fill="#e8b888"/>
+  <!-- Eyepatch -->
+  <rect x="11" y="8" width="4" height="2" fill="#1a1015"/>
+  <rect x="9" y="9" width="6" height="1" fill="#1a1015"/>
+  <!-- Other eye -->
+  <rect x="17" y="8" width="2" height="2" fill="#1a1015"/>
+  <rect x="17" y="8" width="1" height="1" fill="#ffffff"/>
+  <!-- Grin -->
+  <rect x="13" y="10" width="6" height="1" fill="#3a2010"/>
+  <!-- Coat (sky blue, gold buttons) -->
+  <rect x="9" y="12" width="14" height="14" fill="#3a5078"/>
+  <rect x="10" y="13" width="12" height="2" fill="#5a7090"/>
+  <rect x="15" y="14" width="2" height="2" fill="#f5d76e"/>
+  <rect x="15" y="18" width="2" height="2" fill="#f5d76e"/>
+  <rect x="15" y="22" width="2" height="2" fill="#f5d76e"/>
+  <!-- Belt -->
+  <rect x="9" y="22" width="14" height="2" fill="#1a1015"/>
+  <!-- Cutlass at hip -->
+  <rect x="22" y="14" width="3" height="2" fill="#a0a0b0"/>
+  <rect x="25" y="13" width="2" height="3" fill="#5a3210"/>
+  <!-- Blunderbuss in left hand -->
+  <rect x="0" y="18" width="6" height="3" fill="#3a2010"/>
+  <rect x="2" y="17" width="3" height="1" fill="#3a2010"/>
+  <rect x="0" y="21" width="2" height="2" fill="#1a1015"/>
+  <!-- Trousers -->
+  <rect x="11" y="24" width="3" height="6" fill="#1a1015"/>
+  <rect x="18" y="24" width="3" height="6" fill="#1a1015"/>
+  <rect x="10" y="30" width="5" height="2" fill="#3a2010"/>
+  <rect x="17" y="30" width="5" height="2" fill="#3a2010"/>
+</svg>

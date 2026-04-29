@@ -25,7 +25,7 @@ func _ready() -> void:
 	else:
 		continue_button.grab_focus()
 
-	version_label.text = "v0.1.1 — Ch 1–8 with mini-boss middles"
+	version_label.text = "v0.1.2 — 12 chapters total (8 main + 4 inserted)"
 
 
 func _any_save_exists() -> bool:

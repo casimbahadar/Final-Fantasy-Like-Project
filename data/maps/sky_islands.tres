@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MapData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/MapData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"sky_islands"
+display_name = "Sky Islands"
+scene_path = "res://scenes/world/maps/SkyIslands.tscn"
+encounter_troops = Array[StringName]([&"cloud_strider_pair", &"sky_pirate_pair", &"cloud_pirate_mix", &"cloud_strider_pair"])
+encounter_steps = 7

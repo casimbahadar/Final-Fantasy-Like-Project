@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" shape-rendering="crispEdges">
+  <!-- Spectral aura (purple) -->
+  <rect x="0" y="14" width="64" height="50" fill="#5a2080" opacity="0.3"/>
+  <rect x="6" y="6" width="52" height="56" fill="#7a30a0" opacity="0.2"/>
+  <!-- Spiked crown -->
+  <rect x="20" y="0" width="24" height="3" fill="#a06028"/>
+  <rect x="22" y="0" width="2" height="6" fill="#a06028"/>
+  <rect x="28" y="0" width="2" height="8" fill="#a06028"/>
+  <rect x="34" y="0" width="2" height="8" fill="#a06028"/>
+  <rect x="40" y="0" width="2" height="6" fill="#a06028"/>
+  <rect x="22" y="0" width="2" height="2" fill="#7ce0ec"/>
+  <rect x="28" y="0" width="2" height="3" fill="#a8e8ff"/>
+  <rect x="34" y="0" width="2" height="3" fill="#a8e8ff"/>
+  <rect x="40" y="0" width="2" height="2" fill="#7ce0ec"/>
+  <!-- Long pale hair -->
+  <rect x="14" y="6" width="36" height="4" fill="#e8d8f0"/>
+  <rect x="12" y="10" width="4" height="14" fill="#e8d8f0"/>
+  <rect x="48" y="10" width="4" height="14" fill="#e8d8f0"/>
+  <!-- Face (bone-pale) -->
+  <rect x="22" y="6" width="20" height="14" fill="#e0d0d8"/>
+  <rect x="24" y="7" width="16" height="2" fill="#f0e0e8"/>
+  <!-- Hollow black eyes -->
+  <rect x="25" y="11" width="5" height="4" fill="#0a0510"/>
+  <rect x="34" y="11" width="5" height="4" fill="#0a0510"/>
+  <rect x="26" y="12" width="3" height="2" fill="#a8e8ff"/>
+  <rect x="35" y="12" width="3" height="2" fill="#a8e8ff"/>
+  <rect x="27" y="13" width="1" height="1" fill="#ffffff"/>
+  <rect x="36" y="13" width="1" height="1" fill="#ffffff"/>
+  <!-- Cracked black lips -->
+  <rect x="28" y="17" width="8" height="1" fill="#3a1030"/>
+  <!-- High collar -->
+  <rect x="14" y="20" width="36" height="6" fill="#3a1058"/>
+  <rect x="20" y="20" width="24" height="2" fill="#5a2080"/>
+  <rect x="14" y="20" width="2" height="6" fill="#7050a0"/>
+  <rect x="48" y="20" width="2" height="6" fill="#7050a0"/>
+  <!-- Royal gown (deep purple, white trim) -->
+  <rect x="14" y="26" width="36" height="22" fill="#3a1058"/>
+  <rect x="16" y="28" width="32" height="3" fill="#5a2080"/>
+  <rect x="14" y="26" width="36" height="2" fill="#e8d8f0"/>
+  <!-- Necklace (skull pendant) -->
+  <rect x="29" y="24" width="6" height="4" fill="#a08020"/>
+  <rect x="30" y="25" width="4" height="3" fill="#1a1015"/>
+  <rect x="31" y="26" width="1" height="1" fill="#ffffff"/>
+  <rect x="33" y="26" width="1" height="1" fill="#ffffff"/>
+  <!-- Sleeves -->
+  <rect x="6" y="26" width="8" height="14" fill="#3a1058"/>
+  <rect x="50" y="26" width="8" height="14" fill="#3a1058"/>
+  <rect x="6" y="26" width="8" height="2" fill="#e8d8f0"/>
+  <rect x="50" y="26" width="8" height="2" fill="#e8d8f0"/>
+  <!-- Pale spectral hands -->
+  <rect x="2" y="36" width="6" height="6" fill="#e8d8f0"/>
+  <rect x="56" y="36" width="6" height="6" fill="#e8d8f0"/>
+  <!-- Bone scepter -->
+  <rect x="58" y="22" width="2" height="22" fill="#e8d8f0"/>
+  <rect x="56" y="20" width="6" height="3" fill="#a8e8ff"/>
+  <rect x="57" y="22" width="4" height="2" fill="#7ce0ec"/>
+  <!-- Belt with sigil -->
+  <rect x="14" y="44" width="36" height="3" fill="#1a1015"/>
+  <rect x="28" y="43" width="8" height="5" fill="#a08020"/>
+  <!-- Lower gown -->
+  <rect x="14" y="47" width="36" height="11" fill="#3a1058"/>
+  <rect x="14" y="56" width="36" height="2" fill="#e8d8f0"/>
+  <!-- Floating skull motes -->
+  <rect x="2" y="20" width="1" height="1" fill="#ffffff"/>
+  <rect x="60" y="14" width="1" height="1" fill="#ffffff"/>
+  <rect x="6" y="50" width="1" height="1" fill="#a8e8ff"/>
+  <rect x="56" y="46" width="1" height="1" fill="#a8e8ff"/>
+  <!-- Spectral pool below -->
+  <rect x="10" y="60" width="44" height="3" fill="#7050a0" opacity="0.6"/>
+  <rect x="6" y="63" width="52" height="1" fill="#a890c0" opacity="0.5"/>
+</svg>

@@ -2,7 +2,7 @@
 
 A Final Fantasy–inspired JRPG built in **Godot 4**, designed to ship to **itch.io (Web)**, **Android**, and **iOS** from a single codebase. Visual style targets the GBA era (FF1–6, FFTA) with a clear upgrade path to 2D-HD (Octopath, FF Pixel Remaster).
 
-> **Status:** Phase 11 — **deepening pass.** Every chapter now has a mid-floor with a mini-boss, doubling each dungeon's length and turning the main story from ~3 hours into ~5–6. 28 enemies, 15 bosses (8 main + 7 mini), 20 maps. The full main-story arc (Chapters 1–8) is intact; this pass added intermediate dungeons inside each chapter rather than new chapters. See [`CONTENT.md`](CONTENT.md) for side-content authoring.
+> **Status:** Phase 12 — **insertion pass.** Four entirely new chapter regions slotted between existing ones (Sun-Dried Wastes, Sky Islands, Cinder Marsh, Royal Crypt), each with its own boss, gear tier, and theme. The main story is now **12 distinct dungeon regions** (8 original + 4 new) plus 7 mini-boss middle floors, running ~8–9 hours. 40 enemies, 19 bosses (12 main + 7 mini), 27 maps. See [`CONTENT.md`](CONTENT.md) for side-content authoring.
 
 ## Chapter map
 
@@ -45,7 +45,7 @@ A Final Fantasy–inspired JRPG built in **Godot 4**, designed to ship to **itch
 | 9 | Chapter 4: Dragoon class, Tessera, Mountain Pass, Storm Aerie, Stormwyrm | ✅ done |
 | 10 | Chapters 5–8: full main story arc (Drowned Choir → Pretender → First Plague → Sovereign Eternal) | ✅ done |
 | 11 | Deepening pass: mid-floor mini-boss in every chapter (Sentinel, Treant, Champion, Wyvern, Tide Beast, Inquisitor, Hollow Twin) | ✅ done |
-| 12 | Insert mid-game chapters between existing ones (desert, sub-aquatic, etc.) | ⏳ |
+| 12 | Insertion pass: 4 new chapters (Sun-Dried Wastes, Sky Islands, Cinder Marsh, Royal Crypt) | ✅ done |
 | 13 | Side-content layer: town quests, optional dungeons, hunt log, postgame | ⏳ |
 | 14+ | Music & SFX, real art swap (see [`CONTENT.md`](CONTENT.md) and [`assets/audio/README.md`](assets/audio/README.md)) | ⏳ |
 

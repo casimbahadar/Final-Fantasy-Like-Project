@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MapData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/MapData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"cinder_marsh"
+display_name = "Cinder Marsh"
+scene_path = "res://scenes/world/maps/CinderMarsh.tscn"
+encounter_troops = Array[StringName]([&"mire_pair", &"ember_crow_trio", &"wretch_crow_mix", &"mire_pair"])
+encounter_steps = 7

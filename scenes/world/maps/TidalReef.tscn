@@ -25,9 +25,9 @@ grid_string = "####################
 ####################"
 map_id = &"tidal_reef"
 
-[node name="SpawnFromAerie" type="Node2D" parent="."]
+[node name="SpawnFromIslands" type="Node2D" parent="."]
 script = ExtResource("2_spawn")
-spawn_id = &"from_aerie"
+spawn_id = &"from_islands"
 grid_position = Vector2i(9, 12)
 facing = 3
 
@@ -37,11 +37,11 @@ spawn_id = &"from_coast"
 grid_position = Vector2i(9, 2)
 facing = 0
 
-[node name="ExitToAerie" type="Node2D" parent="."]
+[node name="ExitToIslands" type="Node2D" parent="."]
 script = ExtResource("3_warp")
 grid_position = Vector2i(8, 12)
 grid_size = Vector2i(2, 1)
-target_map_id = &"storm_aerie"
+target_map_id = &"sky_islands"
 target_spawn_id = &"from_reef"
 
 [node name="ExitToCoast" type="Node2D" parent="."]

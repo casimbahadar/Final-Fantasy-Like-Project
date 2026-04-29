@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="Troop" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Troop.gd" id="1_script"]
+[ext_resource type="Script" path="res://scripts/resources/TroopMember.gd" id="2_member"]
+[ext_resource type="Resource" path="res://data/enemies/last_queen.tres" id="3_queen"]
+[ext_resource type="Resource" path="res://data/enemies/spectral_maiden.tres" id="4_maiden"]
+
+[sub_resource type="Resource" id="Member1"]
+script = ExtResource("2_member")
+enemy = ExtResource("3_queen")
+screen_position = Vector2(110, 100)
+
+[sub_resource type="Resource" id="Member2"]
+script = ExtResource("2_member")
+enemy = ExtResource("4_maiden")
+screen_position = Vector2(60, 150)
+
+[sub_resource type="Resource" id="Member3"]
+script = ExtResource("2_member")
+enemy = ExtResource("4_maiden")
+screen_position = Vector2(170, 150)
+
+[resource]
+script = ExtResource("1_script")
+members = Array[Resource]([SubResource("Member1"), SubResource("Member2"), SubResource("Member3")])
+id = &"last_queen_boss"
+no_escape = true

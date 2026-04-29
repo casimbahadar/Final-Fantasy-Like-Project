@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Troop" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Troop.gd" id="1_script"]
+[ext_resource type="Script" path="res://scripts/resources/TroopMember.gd" id="2_member"]
+[ext_resource type="Resource" path="res://data/enemies/sun_skeleton.tres" id="3_skel"]
+[ext_resource type="Resource" path="res://data/enemies/sand_drifter.tres" id="4_drifter"]
+
+[sub_resource type="Resource" id="Member1"]
+script = ExtResource("2_member")
+enemy = ExtResource("3_skel")
+screen_position = Vector2(120, 100)
+
+[sub_resource type="Resource" id="Member2"]
+script = ExtResource("2_member")
+enemy = ExtResource("4_drifter")
+screen_position = Vector2(170, 130)
+
+[resource]
+script = ExtResource("1_script")
+members = Array[Resource]([SubResource("Member1"), SubResource("Member2")])
+id = &"skeleton_drifter"
+no_escape = false

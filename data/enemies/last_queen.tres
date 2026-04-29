@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Enemy.gd" id="1_script"]
+[ext_resource type="Resource" path="res://data/skills/attack.tres" id="2_attack"]
+[ext_resource type="Resource" path="res://data/skills/queen_curse.tres" id="3_curse"]
+[ext_resource type="Resource" path="res://data/skills/grave_call.tres" id="4_grave"]
+[ext_resource type="Resource" path="res://data/skills/dark_pulse.tres" id="5_dark"]
+[ext_resource type="Resource" path="res://data/skills/decree.tres" id="6_decree"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/enemy_last_queen.svg" id="7_sprite"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"last_queen"
+display_name = "The Last Queen"
+battle_sprite = ExtResource("7_sprite")
+max_hp = 1900
+max_mp = 280
+atk = 22
+def = 16
+mag = 30
+res = 18
+spd = 12
+luk = 6
+xp_reward = 880
+gold_reward = 920
+drop_chance = 0.0
+skills = Array[Resource]([ExtResource("2_attack"), ExtResource("3_curse"), ExtResource("4_grave"), ExtResource("5_dark"), ExtResource("6_decree")])
+element_modifiers = {7: 1.75, 8: 0.0, 1: 1.25}

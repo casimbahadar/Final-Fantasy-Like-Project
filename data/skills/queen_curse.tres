@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Skill.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"queen_curse"
+display_name = "Queen's Curse"
+description = "An old hex. Single foe — heavy dark damage and a chance to Confuse."
+mp_cost = 0
+target_kind = 0
+damage_kind = 1
+element = 8
+power = 28
+accuracy = 0.9
+inflicts_status = &"confuse"
+status_chance = 0.5

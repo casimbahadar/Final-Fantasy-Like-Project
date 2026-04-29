@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges">
+  <!-- Bleached skull -->
+  <rect x="9" y="3" width="14" height="9" fill="#f8e0c0"/>
+  <rect x="10" y="4" width="12" height="2" fill="#ffffff"/>
+  <!-- Sun-bleached cracks -->
+  <rect x="14" y="5" width="1" height="3" fill="#a08850"/>
+  <rect x="17" y="5" width="1" height="2" fill="#a08850"/>
+  <!-- Eye sockets -->
+  <rect x="11" y="7" width="3" height="3" fill="#1a1015"/>
+  <rect x="18" y="7" width="3" height="3" fill="#1a1015"/>
+  <rect x="12" y="8" width="1" height="1" fill="#f8d878"/>
+  <rect x="19" y="8" width="1" height="1" fill="#f8d878"/>
+  <!-- Teeth -->
+  <rect x="12" y="10" width="8" height="2" fill="#1a1015"/>
+  <rect x="13" y="10" width="1" height="2" fill="#f8e0c0"/>
+  <rect x="15" y="10" width="1" height="2" fill="#f8e0c0"/>
+  <rect x="17" y="10" width="1" height="2" fill="#f8e0c0"/>
+  <rect x="19" y="10" width="1" height="2" fill="#f8e0c0"/>
+  <!-- Sunbleached spine -->
+  <rect x="15" y="12" width="2" height="11" fill="#f8e0c0"/>
+  <rect x="11" y="14" width="10" height="1" fill="#f8e0c0"/>
+  <rect x="11" y="17" width="10" height="1" fill="#f8e0c0"/>
+  <!-- Faded leather wraps -->
+  <rect x="8" y="14" width="16" height="2" fill="#806040" opacity="0.7"/>
+  <!-- Arms -->
+  <rect x="6" y="13" width="2" height="6" fill="#f8e0c0"/>
+  <rect x="24" y="13" width="2" height="6" fill="#f8e0c0"/>
+  <rect x="2" y="16" width="6" height="1" fill="#f8e0c0"/>
+  <!-- Curved sword -->
+  <rect x="0" y="14" width="3" height="2" fill="#a0a0b0"/>
+  <rect x="0" y="16" width="2" height="3" fill="#a0a0b0"/>
+  <rect x="3" y="14" width="2" height="1" fill="#5a3210"/>
+  <!-- Hip bones -->
+  <rect x="11" y="22" width="10" height="3" fill="#f8e0c0"/>
+  <!-- Legs (just bones) -->
+  <rect x="12" y="25" width="2" height="6" fill="#f8e0c0"/>
+  <rect x="18" y="25" width="2" height="6" fill="#f8e0c0"/>
+</svg>

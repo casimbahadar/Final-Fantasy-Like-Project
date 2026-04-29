@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Skill.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"ember_burst"
+display_name = "Ember Burst"
+description = "Showering coals — fire damage to one foe with a Burn chance."
+mp_cost = 0
+target_kind = 0
+damage_kind = 1
+element = 1
+power = 16
+accuracy = 0.95
+inflicts_status = &"burn"
+status_chance = 0.5

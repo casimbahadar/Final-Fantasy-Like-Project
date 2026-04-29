@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Item.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"sandblasted_blade"
+display_name = "Sandblasted Blade"
+description = "Pitted by a hundred years of dry wind. Still bites."
+kind = 1
+equip_slot = 1
+stackable = false
+max_stack = 1
+buy_price = 320
+sell_price = 160
+bonus_atk = 10

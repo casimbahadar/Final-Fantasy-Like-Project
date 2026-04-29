@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Item.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"spectral_veil"
+display_name = "Spectral Veil"
+description = "Cloth thinner than air, somehow strong as steel."
+kind = 2
+equip_slot = 2
+stackable = false
+max_stack = 1
+buy_price = 1300
+sell_price = 650
+bonus_def = 15
+bonus_res = 18
+bonus_max_mp = 22
+bonus_spd = 2

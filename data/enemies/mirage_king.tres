@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Enemy.gd" id="1_script"]
+[ext_resource type="Resource" path="res://data/skills/attack.tres" id="2_attack"]
+[ext_resource type="Resource" path="res://data/skills/mirage_split.tres" id="3_split"]
+[ext_resource type="Resource" path="res://data/skills/sand_choke.tres" id="4_sand"]
+[ext_resource type="Resource" path="res://data/skills/silence_spell.tres" id="5_silence"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/enemy_mirage_king.svg" id="6_sprite"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"mirage_king"
+display_name = "The Mirage King"
+battle_sprite = ExtResource("6_sprite")
+max_hp = 1300
+max_mp = 200
+atk = 22
+def = 14
+mag = 24
+res = 14
+spd = 11
+luk = 6
+xp_reward = 480
+gold_reward = 460
+drop_chance = 0.0
+skills = Array[Resource]([ExtResource("2_attack"), ExtResource("3_split"), ExtResource("4_sand"), ExtResource("5_silence")])
+element_modifiers = {4: 1.75, 7: 1.25, 5: 0.5}

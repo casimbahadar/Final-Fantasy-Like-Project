@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Enemy.gd" id="1_script"]
+[ext_resource type="Resource" path="res://data/skills/attack.tres" id="2_attack"]
+[ext_resource type="Resource" path="res://data/skills/grave_call.tres" id="3_grave"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/enemy_spectral_maiden.svg" id="4_sprite"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"spectral_maiden"
+display_name = "Spectral Maiden"
+battle_sprite = ExtResource("4_sprite")
+max_hp = 220
+max_mp = 60
+atk = 14
+def = 10
+mag = 24
+res = 18
+spd = 14
+luk = 5
+xp_reward = 145
+gold_reward = 80
+drop_chance = 0.0
+skills = Array[Resource]([ExtResource("2_attack"), ExtResource("3_grave")])
+element_modifiers = {7: 2.0, 8: 0.0, 1: 1.5}

@@ -31,9 +31,9 @@ spawn_id = &"from_coast"
 grid_position = Vector2i(9, 12)
 facing = 3
 
-[node name="SpawnFromDescent" type="Node2D" parent="."]
+[node name="SpawnFromCrypt" type="Node2D" parent="."]
 script = ExtResource("2_spawn")
-spawn_id = &"from_descent"
+spawn_id = &"from_crypt"
 grid_position = Vector2i(9, 7)
 facing = 0
 
@@ -62,7 +62,7 @@ script = ExtResource("4_story")
 grid_position = Vector2i(9, 3)
 requires_flag = &"pretender_king_defeated"
 sets_flag = &"chapter_6_complete"
-warp_target_map = &"wound_descent"
+warp_target_map = &"royal_crypt"
 warp_target_spawn = &"from_court"
 speaker = "Lyra"
 lines = PackedStringArray("As the Pretender's mask cracks open, no face is beneath it — only a long, deep darkness, like a well dug clean through the world.", "From within, a voice that nearly whispers: \"...come down, then. Come and see what you have actually been fighting.\"", "Lyra puts her hand on the throne. The stone is warm. \"It's a wound. Not a place. We have to go in.\"", "Kael laughs once, without humour. \"Of course we do.\"", "(The party climbs down into the World's Wound.)")

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges">
+  <!-- Body -->
+  <rect x="11" y="10" width="10" height="14" fill="#1a1010"/>
+  <rect x="10" y="14" width="12" height="6" fill="#1a1010"/>
+  <!-- Head -->
+  <rect x="12" y="6" width="8" height="6" fill="#1a1010"/>
+  <rect x="13" y="7" width="6" height="2" fill="#3a2010"/>
+  <!-- Beak -->
+  <rect x="14" y="10" width="4" height="3" fill="#e8a050"/>
+  <rect x="15" y="13" width="3" height="1" fill="#a06030"/>
+  <!-- Burning eyes -->
+  <rect x="13" y="8" width="2" height="2" fill="#ff6030"/>
+  <rect x="17" y="8" width="2" height="2" fill="#ff6030"/>
+  <rect x="13" y="8" width="1" height="1" fill="#ffe080"/>
+  <rect x="17" y="8" width="1" height="1" fill="#ffe080"/>
+  <!-- Wings (spread, ember-edged) -->
+  <rect x="3" y="14" width="8" height="3" fill="#1a1010"/>
+  <rect x="0" y="16" width="6" height="4" fill="#1a1010"/>
+  <rect x="2" y="20" width="6" height="2" fill="#3a2010"/>
+  <rect x="21" y="14" width="8" height="3" fill="#1a1010"/>
+  <rect x="26" y="16" width="6" height="4" fill="#1a1010"/>
+  <rect x="24" y="20" width="6" height="2" fill="#3a2010"/>
+  <!-- Ember edges on wings -->
+  <rect x="0" y="14" width="2" height="2" fill="#ff6030"/>
+  <rect x="0" y="20" width="2" height="2" fill="#ff6030"/>
+  <rect x="30" y="14" width="2" height="2" fill="#ff6030"/>
+  <rect x="30" y="20" width="2" height="2" fill="#ff6030"/>
+  <!-- Tail feathers -->
+  <rect x="13" y="22" width="6" height="4" fill="#3a2010"/>
+  <rect x="14" y="24" width="4" height="2" fill="#5a3010"/>
+  <!-- Talons -->
+  <rect x="11" y="26" width="3" height="4" fill="#5a3010"/>
+  <rect x="18" y="26" width="3" height="4" fill="#5a3010"/>
+  <rect x="10" y="30" width="5" height="1" fill="#1a1010"/>
+  <rect x="17" y="30" width="5" height="1" fill="#1a1010"/>
+  <!-- Embers floating around -->
+  <rect x="6" y="6" width="1" height="1" fill="#ffe080"/>
+  <rect x="25" y="9" width="1" height="1" fill="#ff6030"/>
+  <rect x="29" y="11" width="1" height="1" fill="#ffe080"/>
+</svg>

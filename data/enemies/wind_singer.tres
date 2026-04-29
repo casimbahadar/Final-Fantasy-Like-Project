@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Enemy.gd" id="1_script"]
+[ext_resource type="Resource" path="res://data/skills/attack.tres" id="2_attack"]
+[ext_resource type="Resource" path="res://data/skills/sky_song.tres" id="3_song"]
+[ext_resource type="Resource" path="res://data/skills/tornado.tres" id="4_tornado"]
+[ext_resource type="Resource" path="res://data/skills/bolt.tres" id="5_bolt"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/enemy_wind_singer.svg" id="6_sprite"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"wind_singer"
+display_name = "The Wind That Sings"
+battle_sprite = ExtResource("6_sprite")
+max_hp = 1500
+max_mp = 240
+atk = 22
+def = 14
+mag = 28
+res = 16
+spd = 14
+luk = 7
+xp_reward = 580
+gold_reward = 540
+drop_chance = 0.0
+skills = Array[Resource]([ExtResource("2_attack"), ExtResource("3_song"), ExtResource("4_tornado"), ExtResource("5_bolt")])
+element_modifiers = {3: 1.75, 6: 0.0, 5: 1.5}

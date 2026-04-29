@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" shape-rendering="crispEdges">
+  <!-- Heat aura -->
+  <rect x="0" y="14" width="64" height="48" fill="#ff6030" opacity="0.2"/>
+  <rect x="6" y="6" width="52" height="56" fill="#ff8030" opacity="0.15"/>
+  <!-- Crown of flame -->
+  <rect x="22" y="0" width="20" height="3" fill="#ff6030"/>
+  <rect x="20" y="2" width="24" height="4" fill="#ff8030"/>
+  <rect x="22" y="0" width="2" height="4" fill="#ffe080"/>
+  <rect x="28" y="0" width="2" height="4" fill="#ffe080"/>
+  <rect x="34" y="0" width="2" height="4" fill="#ffe080"/>
+  <rect x="40" y="0" width="2" height="4" fill="#ffe080"/>
+  <!-- Skull-face (charred) -->
+  <rect x="22" y="6" width="20" height="14" fill="#3a1810"/>
+  <rect x="24" y="7" width="16" height="2" fill="#5a2810"/>
+  <!-- Burning eyes -->
+  <rect x="25" y="11" width="5" height="4" fill="#1a0a08"/>
+  <rect x="34" y="11" width="5" height="4" fill="#1a0a08"/>
+  <rect x="26" y="12" width="3" height="2" fill="#ff6030"/>
+  <rect x="35" y="12" width="3" height="2" fill="#ff6030"/>
+  <rect x="27" y="13" width="1" height="1" fill="#ffe080"/>
+  <rect x="36" y="13" width="1" height="1" fill="#ffe080"/>
+  <!-- Burning mouth -->
+  <rect x="24" y="17" width="16" height="3" fill="#1a0a08"/>
+  <rect x="26" y="18" width="2" height="2" fill="#ff6030"/>
+  <rect x="30" y="18" width="2" height="2" fill="#ffe080"/>
+  <rect x="34" y="18" width="2" height="2" fill="#ff6030"/>
+  <rect x="38" y="18" width="2" height="2" fill="#ff6030"/>
+  <!-- Body (smoldering coals) -->
+  <rect x="14" y="20" width="36" height="22" fill="#3a1810"/>
+  <rect x="16" y="22" width="32" height="3" fill="#5a2810"/>
+  <rect x="18" y="20" width="28" height="2" fill="#a04030"/>
+  <!-- Glowing fissures -->
+  <rect x="14" y="26" width="36" height="2" fill="#ff6030"/>
+  <rect x="14" y="32" width="36" height="2" fill="#ff6030"/>
+  <rect x="14" y="38" width="36" height="2" fill="#ff6030"/>
+  <!-- Sleeves dripping fire -->
+  <rect x="6" y="22" width="8" height="14" fill="#3a1810"/>
+  <rect x="50" y="22" width="8" height="14" fill="#3a1810"/>
+  <rect x="8" y="24" width="6" height="2" fill="#ff6030"/>
+  <rect x="50" y="24" width="6" height="2" fill="#ff6030"/>
+  <!-- Burning hands -->
+  <rect x="2" y="32" width="6" height="6" fill="#ff8030"/>
+  <rect x="56" y="32" width="6" height="6" fill="#ff8030"/>
+  <rect x="3" y="33" width="4" height="4" fill="#ffe080"/>
+  <rect x="57" y="33" width="4" height="4" fill="#ffe080"/>
+  <!-- Belt -->
+  <rect x="14" y="42" width="36" height="3" fill="#1a0a08"/>
+  <rect x="28" y="41" width="8" height="5" fill="#ff6030"/>
+  <!-- Lower robe -->
+  <rect x="14" y="45" width="36" height="13" fill="#3a1810"/>
+  <rect x="14" y="56" width="36" height="2" fill="#ff6030"/>
+  <!-- Fire pool below -->
+  <rect x="10" y="60" width="44" height="3" fill="#ff6030" opacity="0.7"/>
+  <rect x="6" y="63" width="52" height="1" fill="#ffe080" opacity="0.6"/>
+  <!-- Floating embers -->
+  <rect x="2" y="22" width="1" height="1" fill="#ffe080"/>
+  <rect x="60" y="20" width="1" height="1" fill="#ffe080"/>
+  <rect x="2" y="48" width="1" height="1" fill="#ff6030"/>
+  <rect x="60" y="50" width="1" height="1" fill="#ff6030"/>
+</svg>

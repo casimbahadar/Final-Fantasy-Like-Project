@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/OverworldMap.gd" id="1_map"]
+[ext_resource type="Script" path="res://scripts/world/SpawnPoint.gd" id="2_spawn"]
+[ext_resource type="Script" path="res://scripts/world/WarpTrigger.gd" id="3_warp"]
+[ext_resource type="Script" path="res://scripts/world/EncounterTrigger.gd" id="4_encounter"]
+[ext_resource type="PackedScene" path="res://scenes/world/Chest.tscn" id="5_chest"]
+
+[node name="SkyIslands" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_map")
+grid_string = "####################
+#~~~~~~,,DD,,~~~~~~#
+#~~~~~,,,,,,,,~~~~~#
+#~~~,,,,,,,,,,,,~~~#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,,~~~,,~~~,,,,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,,~~~,,~~~,,,,,#
+#,,,,,,,,,,,,,,,,,,#
+#~~~,,,,,,,,,,,,~~~#
+#~~~~~,,,,,,,,~~~~~#
+#~~~~~~,,DD,,~~~~~~#
+####################"
+map_id = &"sky_islands"
+
+[node name="SpawnFromAerie" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+spawn_id = &"from_aerie"
+grid_position = Vector2i(9, 12)
+facing = 3
+
+[node name="SpawnFromReef" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+spawn_id = &"from_reef"
+grid_position = Vector2i(9, 2)
+facing = 0
+
+[node name="ExitToAerie" type="Node2D" parent="."]
+script = ExtResource("3_warp")
+grid_position = Vector2i(8, 12)
+grid_size = Vector2i(2, 1)
+target_map_id = &"storm_aerie"
+target_spawn_id = &"from_islands"
+
+[node name="ExitToReef" type="Node2D" parent="."]
+script = ExtResource("3_warp")
+grid_position = Vector2i(8, 1)
+grid_size = Vector2i(2, 1)
+target_map_id = &"tidal_reef"
+target_spawn_id = &"from_islands"
+requires_flag = &"wind_singer_defeated"
+
+[node name="ChestLance" parent="." instance=ExtResource("5_chest")]
+chest_id = &"sky_aetherite_lance"
+grid_position = Vector2i(2, 7)
+item_id = &"aetherite_lance"
+item_count = 1
+
+[node name="ChestCloak" parent="." instance=ExtResource("5_chest")]
+chest_id = &"sky_storm_cloak"
+grid_position = Vector2i(17, 7)
+item_id = &"storm_cloak"
+item_count = 1
+
+[node name="WindSingerTrigger" type="Node2D" parent="."]
+script = ExtResource("4_encounter")
+grid_position = Vector2i(9, 6)
+troop_id = &"wind_singer_boss"
+defeated_flag = &"wind_singer_defeated"
+intro_lines = PackedStringArray("Between the cliffs and the sea hangs a chain of stones, kept aloft by old wind-magic that hums for no one anymore.", "On the highest island a figure waits — robed in vapor, faceless, singing.", "It sings in the language Auren spoke before the kingdom was named. Tessera goes very still.", "\"...go back, child. The ones who came after broke the seal. Go back and unlearn knowing me.\"", "Lyra, gently: \"We came forward. Forgive us.\"")
+intro_speaker = "The Wind That Sings"

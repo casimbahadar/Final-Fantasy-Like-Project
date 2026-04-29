@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Enemy.gd" id="1_script"]
+[ext_resource type="Resource" path="res://data/skills/attack.tres" id="2_attack"]
+[ext_resource type="Resource" path="res://data/skills/dagger_throw.tres" id="3_throw"]
+[ext_resource type="Resource" path="res://data/skills/smoke_bomb.tres" id="4_smoke"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/enemy_sky_pirate.svg" id="5_sprite"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"sky_pirate"
+display_name = "Sky Pirate"
+battle_sprite = ExtResource("5_sprite")
+max_hp = 195
+max_mp = 12
+atk = 22
+def = 12
+mag = 6
+res = 6
+spd = 14
+luk = 8
+xp_reward = 75
+gold_reward = 80
+drop_chance = 0.3
+skills = Array[Resource]([ExtResource("2_attack"), ExtResource("3_throw"), ExtResource("4_smoke")])
+element_modifiers = {7: 1.5}
