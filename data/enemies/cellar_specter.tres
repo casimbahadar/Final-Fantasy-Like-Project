@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Enemy.gd" id="1_script"]
+[ext_resource type="Resource" path="res://data/skills/attack.tres" id="2_attack"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/enemy_cellar_specter.svg" id="3_sprite"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"cellar_specter"
+display_name = "Cellar Specter"
+battle_sprite = ExtResource("3_sprite")
+max_hp = 95
+max_mp = 25
+atk = 13
+def = 6
+mag = 14
+res = 12
+spd = 10
+luk = 3
+xp_reward = 32
+gold_reward = 18
+drop_chance = 0.0
+skills = Array[Resource]([ExtResource("2_attack")])
+element_modifiers = {7: 2.0, 8: 0.0}

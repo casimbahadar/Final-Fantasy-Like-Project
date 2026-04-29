@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/OverworldMap.gd" id="1_map"]
+[ext_resource type="Script" path="res://scripts/world/SpawnPoint.gd" id="2_spawn"]
+[ext_resource type="Script" path="res://scripts/world/WarpTrigger.gd" id="3_warp"]
+[ext_resource type="Script" path="res://scripts/world/EncounterTrigger.gd" id="4_encounter"]
+[ext_resource type="Script" path="res://scripts/world/EndingTrigger.gd" id="5_story"]
+
+[node name="EternalArena" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_map")
+grid_string = "####################
+#..................#
+#..................#
+#..................#
+#..................#
+#..................#
+#..................#
+#..................#
+#..................#
+#..................#
+#..................#
+#..................#
+#,,,,,,,,DD,,,,,,,,#
+####################"
+map_id = &"eternal_arena"
+
+[node name="SpawnFromPlaza" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+spawn_id = &"from_plaza"
+grid_position = Vector2i(9, 12)
+facing = 3
+
+[node name="ExitToPlaza" type="Node2D" parent="."]
+script = ExtResource("3_warp")
+grid_position = Vector2i(8, 12)
+grid_size = Vector2i(2, 1)
+target_map_id = &"plaza"
+target_spawn_id = &"from_arena"
+
+[node name="EchoTrigger" type="Node2D" parent="."]
+script = ExtResource("4_encounter")
+grid_position = Vector2i(9, 5)
+troop_id = &"eternal_echo_boss"
+defeated_flag = &"eternal_echo_defeated"
+intro_lines = PackedStringArray("The plain has not entirely closed.", "At its centre, the Sovereign stands again — but there is more of him this time, and less. The mask is back on. The crown is glass. The light leaks at the seams.", "\"You ended me. Yet I remember being ended.\" His voice is doubled, tripled, four-and-five-fold. \"Memory is a kind of standing. So I stand.\"", "Lyra, gripping her staff: \"This isn't him.\"", "Aldric: \"It doesn't have to be him.\"", "Tessera: \"Then we put him down again. Properly.\"", "The Echo answers them all at once: \"Try.\"")
+intro_speaker = "The Eternal Echo"
+
+[node name="RemembranceReward" type="Node2D" parent="."]
+script = ExtResource("5_story")
+grid_position = Vector2i(9, 3)
+requires_flag = &"eternal_echo_defeated"
+sets_flag = &"eternal_echo_remembrance_claimed"
+grants_item = &"aurens_remembrance"
+grants_item_count = 1
+speaker = "Lyra"
+lines = PackedStringArray("As the Echo collapses, the air leaves a single object on the ground — a small, dark medallion that glows faintly even in shadow.", "Lyra picks it up. It is warm. \"This is... all of them. Everyone we lost. Everyone we saved.\"", "Aldric closes her hand around it. \"Then carry it. The next time the world tries to end, we'll have a head start.\"", "(Got Auren's Remembrance!)")
+lines_locked = PackedStringArray("The plain is silent. The Echo waits at its centre.")

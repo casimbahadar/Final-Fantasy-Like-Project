@@ -429,6 +429,7 @@ func _enter_victory() -> void:
 		var ed: Enemy = e.enemy
 		xp_total += ed.xp_reward
 		gold_total += ed.gold_reward
+		Hunt.record_kill(ed.id)
 		if ed.drop_item != null and randf() < ed.drop_chance:
 			drops.append(ed.drop_item.id)
 	Party.add_gold(gold_total)

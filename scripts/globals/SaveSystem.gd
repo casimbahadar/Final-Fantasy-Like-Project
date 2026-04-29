@@ -33,6 +33,7 @@ func save_to(slot: int) -> bool:
 		"inventory": _stringify_keys(Party.inventory),
 		"key_items": _stringify_keys(Party.key_items),
 		"members": _serialize_members(),
+		"hunt": Hunt.to_dict(),
 	}
 	var f := FileAccess.open(slot_path(slot), FileAccess.WRITE)
 	if f == null:
@@ -60,6 +61,7 @@ func load_from(slot: int) -> bool:
 
 	GameState.reset()
 	Party.clear()
+	Hunt.clear()
 
 	GameState.playtime_seconds = float(parsed.get("playtime", 0.0))
 	GameState.current_map_id = StringName(parsed.get("current_map_id", ""))
@@ -95,6 +97,8 @@ func load_from(slot: int) -> bool:
 		for s in m.get("statuses", []):
 			pm.statuses.append(StringName(s))
 		Party.members.append(pm)
+
+	Hunt.from_dict(parsed.get("hunt", {}))
 
 	GameState.last_save_slot = slot
 	loaded.emit(slot)

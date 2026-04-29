@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges">
+  <!-- Robes (water-soaked, dark blue) -->
+  <rect x="8" y="10" width="16" height="18" fill="#1c3858"/>
+  <rect x="6" y="14" width="2" height="14" fill="#1c3858"/>
+  <rect x="24" y="14" width="2" height="14" fill="#1c3858"/>
+  <!-- Belt -->
+  <rect x="8" y="19" width="16" height="2" fill="#0c1e30"/>
+  <!-- Drips -->
+  <rect x="9" y="28" width="2" height="2" fill="#3a78b0" opacity="0.7"/>
+  <rect x="14" y="28" width="2" height="2" fill="#3a78b0" opacity="0.7"/>
+  <rect x="19" y="28" width="2" height="2" fill="#3a78b0" opacity="0.7"/>
+  <!-- Hood -->
+  <rect x="10" y="4" width="12" height="8" fill="#0a1a30"/>
+  <rect x="12" y="3" width="8" height="2" fill="#0a1a30"/>
+  <!-- Pale face inside hood -->
+  <rect x="12" y="7" width="8" height="5" fill="#a0b8a0"/>
+  <!-- Sunken eyes -->
+  <rect x="13" y="9" width="2" height="1" fill="#000000"/>
+  <rect x="17" y="9" width="2" height="1" fill="#000000"/>
+  <!-- Open mouth (water pours) -->
+  <rect x="14" y="11" width="4" height="1" fill="#3a78b0"/>
+  <!-- Hands clasped -->
+  <rect x="13" y="20" width="3" height="3" fill="#a0b8a0"/>
+  <rect x="16" y="20" width="3" height="3" fill="#a0b8a0"/>
+</svg>

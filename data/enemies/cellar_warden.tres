@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Enemy.gd" id="1_script"]
+[ext_resource type="Resource" path="res://data/skills/attack.tres" id="2_attack"]
+[ext_resource type="Resource" path="res://data/skills/dark_pulse.tres" id="3_dark"]
+[ext_resource type="Resource" path="res://data/skills/silence_spell.tres" id="4_silence"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/enemy_cellar_warden.svg" id="5_sprite"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"cellar_warden"
+display_name = "Cellar Warden"
+battle_sprite = ExtResource("5_sprite")
+max_hp = 850
+max_mp = 200
+atk = 22
+def = 14
+mag = 22
+res = 16
+spd = 11
+luk = 5
+xp_reward = 480
+gold_reward = 320
+drop_chance = 0.0
+skills = Array[Resource]([ExtResource("2_attack"), ExtResource("3_dark"), ExtResource("4_silence")])
+element_modifiers = {7: 1.5, 8: 0.5}

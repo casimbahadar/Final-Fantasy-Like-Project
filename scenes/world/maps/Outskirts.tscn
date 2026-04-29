@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=5 format=3]
 
 [ext_resource type="Script" path="res://scripts/world/OverworldMap.gd" id="1_map"]
 [ext_resource type="Script" path="res://scripts/world/SpawnPoint.gd" id="2_spawn"]
 [ext_resource type="Script" path="res://scripts/world/WarpTrigger.gd" id="3_warp"]
+[ext_resource type="PackedScene" path="res://scenes/world/Chest.tscn" id="4_chest"]
 
 [node name="Outskirts" type="Node2D"]
 y_sort_enabled = true
@@ -48,3 +49,10 @@ grid_position = Vector2i(18, 6)
 grid_size = Vector2i(1, 1)
 target_map_id = &"cave_entrance"
 target_spawn_id = &"from_outskirts"
+
+[node name="LocketChest" parent="." instance=ExtResource("4_chest")]
+chest_id = &"outskirts_brenna_locket"
+grid_position = Vector2i(3, 11)
+item_id = &"brenna_locket"
+item_count = 1
+sets_flag = &"brenna_locket_found"

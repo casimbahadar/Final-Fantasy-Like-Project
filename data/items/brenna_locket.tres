@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Item.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"brenna_locket"
+display_name = "Brenna's Locket"
+description = "A silver locket with a portrait of a young man inside. Tarnished but cared for."
+kind = 4
+equip_slot = 0
+stackable = false
+max_stack = 1
+buy_price = 0
+sell_price = 0

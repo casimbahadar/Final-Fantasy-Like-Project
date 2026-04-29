@@ -25,6 +25,10 @@ extends Node2D
 ## When true and no warp_target_map is set, this is the "true ending" — resets
 ## state and returns to the title screen.
 @export var is_ending: bool = false
+## Optional item granted when the trigger fires successfully.
+@export var grants_item: StringName = &""
+@export var grants_item_count: int = 1
+@export var grants_gold: int = 0
 
 var _map: OverworldMap
 var _firing: bool = false
@@ -74,6 +78,10 @@ func _fire() -> void:
 				break
 		if not already:
 			Party.add_member(recruit_actor_id)
+	if grants_item != &"":
+		Party.add_item(grants_item, grants_item_count)
+	if grants_gold > 0:
+		Party.add_gold(grants_gold)
 	if sets_flag != &"":
 		GameState.set_flag(sets_flag, true)
 	if warp_target_map != &"":

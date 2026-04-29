@@ -25,7 +25,7 @@ func _ready() -> void:
 	else:
 		continue_button.grab_focus()
 
-	version_label.text = "v0.1.2 — 12 chapters total (8 main + 4 inserted)"
+	version_label.text = "v0.1.3 — 12 chapters + sidequests + bonus dungeon + postgame"
 
 
 func _any_save_exists() -> bool:
@@ -38,6 +38,7 @@ func _any_save_exists() -> bool:
 func _on_new_game() -> void:
 	GameState.reset()
 	Party.clear()
+	Hunt.clear()
 	Party.add_member(&"aldric")
 	Party.add_member(&"lyra")
 	Party.add_gold(100)

@@ -12,6 +12,8 @@ const TEX_OPEN := preload("res://assets/sprites/placeholder/chest_open.svg")
 @export var gold: int = 0
 ## Used to remember "already opened" state. MUST be unique per chest.
 @export var chest_id: StringName = &""
+## Optional: also set this flag when opened. Used by quest-objective chests.
+@export var sets_flag: StringName = &""
 
 @onready var sprite: Sprite2D = $Sprite2D
 
@@ -41,6 +43,8 @@ func interact(_player) -> void:
 		return
 	_opened = true
 	GameState.set_flag(_flag(), true)
+	if sets_flag != &"":
+		GameState.set_flag(sets_flag, true)
 	sprite.texture = TEX_OPEN
 
 	var lines: Array[String] = []

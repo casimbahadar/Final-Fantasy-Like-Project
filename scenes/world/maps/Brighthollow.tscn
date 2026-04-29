@@ -74,6 +74,45 @@ sprite_texture = ExtResource("6_inn_tex")
 npc_name = "Old Maren"
 grid_position = Vector2i(15, 11)
 lines = PackedStringArray("They say the King's tomb breathes again. Hollow as an empty barrel and twice as cold.", "If you mean to go in there, take Sister Mira from the chapel. She has cause.")
+sprite_texture = ExtResource("7_villager_tex")
+
+[node name="FatherCinric" parent="." instance=ExtResource("4_npc")]
+npc_name = "Father Cinric"
+grid_position = Vector2i(9, 6)
+lines = PackedStringArray("Brighthollow's chapel is the kingdom's last whole one. We light the lamps every dusk, in case any of you make it home.")
+sprite_texture = ExtResource("7_villager_tex")
+quest_required_flag = &"crystal_wraith_defeated"
+quest_accept_flag = &"cinric_quest_accepted"
+quest_objective_flag = &"cellar_warden_defeated"
+quest_required_item = &"votive_chime"
+quest_required_item_count = 1
+quest_reward_flag = &"cinric_quest_done"
+quest_reward_item = &"cleric_circlet"
+quest_reward_item_count = 1
+quest_reward_gold = 800
+quest_unlock_flag = &"cinric_blessing"
+quest_offer_lines = PackedStringArray("Stay a moment. There is a thing I must ask.", "Beneath the Plaza chapel lies an old under-sanctum, flooded years ago. Lately the bell rings on its own. Lately people who go down do not come back up.", "I cannot leave my post. But on its altar there is a votive chime that has rung since the kingdom was founded. If you can bring it to me — and silence whatever has settled below — I will see Auren bless you for it.")
+quest_progress_lines = PackedStringArray("The chime, child. From the cellar's altar. And whatever guards it — silence it.", "Be careful below.")
+quest_complete_lines = PackedStringArray("...you brought the chime. And the warden no longer rings the bell.", "Then accept this circlet. And carry the chapel's blessing with you, wherever the road takes you next.")
+quest_done_lines = PackedStringArray("Walk softly, but walk forward. The chapel remembers you.")
+
+[node name="BountyClerk" parent="." instance=ExtResource("4_npc")]
+npc_name = "Bounty Clerk Edda"
+grid_position = Vector2i(15, 7)
+lines = PackedStringArray("Brighthollow's bounty office. We pay coin for kills the kingdom can't afford to forget.", "Garrick of the Plaza handles the small bounties. Bring me proof of larger work — say, a dozen forest wisps, or a dozen drowned sailors — and I'll pay what they're worth.", "(See Garrick in the Plaza for the slime contract.)")
+sprite_texture = ExtResource("7_villager_tex")
+quest_required_flag = &"hollow_king_defeated"
+quest_accept_flag = &"edda_bounty_accepted"
+quest_required_kill_enemy = &"forest_wisp"
+quest_required_kill_count = 8
+quest_reward_flag = &"edda_bounty_done"
+quest_reward_item = &"phoenix_down"
+quest_reward_item_count = 3
+quest_reward_gold = 1200
+quest_offer_lines = PackedStringArray("New posting. Eight forest wisps, north of the Whispering Wood — they're spooking the trade caravans bad enough to choke the road.", "Bring me eight kills and I'll cover three Phoenix Downs out of the chapel stores, and twelve hundred gold besides.")
+quest_progress_lines = PackedStringArray("Eight forest wisps. The road's still choked.")
+quest_complete_lines = PackedStringArray("Eight on the dot. The caravans will breathe easier.", "Three Phoenix Downs and twelve hundred. Spend it on something hard-edged.")
+quest_done_lines = PackedStringArray("Bounty's settled. Check back if a new contract's posted.")
 
 [node name="Mira" parent="." instance=ExtResource("4_npc")]
 npc_name = "Sister Mira"

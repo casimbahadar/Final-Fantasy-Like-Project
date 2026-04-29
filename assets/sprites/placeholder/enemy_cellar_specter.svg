@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges">
+  <!-- Drifting white shroud -->
+  <rect x="8" y="6" width="16" height="20" fill="#a8b8c8" opacity="0.85"/>
+  <rect x="6" y="10" width="4" height="14" fill="#a8b8c8" opacity="0.7"/>
+  <rect x="22" y="10" width="4" height="14" fill="#a8b8c8" opacity="0.7"/>
+  <!-- Tattered hem -->
+  <rect x="8" y="24" width="2" height="3" fill="#a8b8c8" opacity="0.5"/>
+  <rect x="12" y="25" width="2" height="3" fill="#a8b8c8" opacity="0.5"/>
+  <rect x="18" y="25" width="2" height="3" fill="#a8b8c8" opacity="0.5"/>
+  <rect x="22" y="24" width="2" height="3" fill="#a8b8c8" opacity="0.5"/>
+  <!-- Inner shadow -->
+  <rect x="11" y="9" width="10" height="6" fill="#3a4050"/>
+  <!-- Hollow eyes -->
+  <rect x="13" y="11" width="2" height="2" fill="#e8f0ff"/>
+  <rect x="17" y="11" width="2" height="2" fill="#e8f0ff"/>
+  <!-- Faint mouth -->
+  <rect x="14" y="14" width="4" height="1" fill="#1a1a25"/>
+</svg>

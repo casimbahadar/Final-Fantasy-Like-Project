@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3]
+[gd_scene load_steps=10 format=3]
 
 [ext_resource type="Script" path="res://scripts/world/OverworldMap.gd" id="1_map"]
 [ext_resource type="Script" path="res://scripts/world/SpawnPoint.gd" id="2_spawn"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" path="res://assets/sprites/placeholder/npc_innkeeper.svg" id="6_inn_tex"]
 [ext_resource type="Texture2D" path="res://assets/sprites/placeholder/npc_shopkeeper.svg" id="7_shop_tex"]
 [ext_resource type="Script" path="res://scripts/world/IntroTrigger.gd" id="8_intro"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/npc_villager.svg" id="9_villager_tex"]
 
 [node name="Plaza" type="Node2D"]
 y_sort_enabled = true
@@ -54,6 +55,19 @@ grid_position = Vector2i(4, 6)
 lines = PackedStringArray("Welcome to the Wandering Boar Inn. A bed for 20 gold restores all HP and MP.")
 inn_cost = 20
 sprite_texture = ExtResource("6_inn_tex")
+quest_required_flag = &"talked_to_sage"
+quest_accept_flag = &"brenna_quest_accepted"
+quest_objective_flag = &"brenna_locket_found"
+quest_required_item = &"brenna_locket"
+quest_required_item_count = 1
+quest_reward_flag = &"brenna_quest_done"
+quest_reward_item = &"silver_pendant"
+quest_reward_item_count = 1
+quest_reward_gold = 200
+quest_offer_lines = PackedStringArray("...oh — you're going south, aren't you. To the road.", "Could I ask a favour? My boy Tomas — gone with the levy, two summers now — gave me a silver locket. I lost it on the path past the Outskirts. I went looking, but the goblins came back.", "If you find it on your travels — please. Bring it home.")
+quest_progress_lines = PackedStringArray("If you spot a small silver locket on the Outskirts road, bring it back to me.")
+quest_complete_lines = PackedStringArray("Oh — oh, you found it. Oh, child.", "Take this in return. It was Tomas's, and he'd have wanted you to wear it on the road south.")
+quest_done_lines = PackedStringArray("Welcome back. The room's always warm if you need it.")
 
 [node name="Shopkeeper" parent="." instance=ExtResource("4_npc")]
 npc_name = "Garrick the Trader"
@@ -61,6 +75,18 @@ grid_position = Vector2i(15, 7)
 lines = PackedStringArray("Adventurers, eh? I've potions and a few sturdy bits of gear. Care to look?")
 shop_inventory = Array[StringName]([&"potion", &"hi_potion", &"ether", &"antidote", &"eye_drops", &"echo_herb", &"soft", &"phoenix_down", &"bronze_sword", &"iron_sword", &"oak_staff", &"silver_wand", &"leather_armor", &"chain_mail", &"silk_robe"])
 sprite_texture = ExtResource("7_shop_tex")
+quest_required_flag = &"crystal_wraith_defeated"
+quest_accept_flag = &"garrick_bounty_accepted"
+quest_required_kill_enemy = &"slime"
+quest_required_kill_count = 5
+quest_reward_flag = &"garrick_bounty_done"
+quest_reward_item = &"hunters_band"
+quest_reward_item_count = 1
+quest_reward_gold = 500
+quest_offer_lines = PackedStringArray("Hold up, I've got business if you're hunting south of the road.", "The Outskirts crawl with slimes since the cave broke open. They're eating my caravan tarpaulins. Five of the things, by my count, would be five fewer.", "Bring me five slime kills — any I can verify by the smell on your gloves — and I'll cut you a Hunter's Band and a fair price besides.")
+quest_progress_lines = PackedStringArray("Five slime kills. Trust me, you'll lose count.")
+quest_complete_lines = PackedStringArray("Five down, by the slime-stink alone. Good work.", "Here — Hunter's Band. Stamped by Brighthollow's bounty office. And five hundred for your trouble.")
+quest_done_lines = PackedStringArray("Bounty's settled. Come back if I post another.")
 
 [node name="SouthExit" type="Node2D" parent="."]
 script = ExtResource("3_warp")
@@ -68,6 +94,46 @@ grid_position = Vector2i(9, 12)
 grid_size = Vector2i(2, 1)
 target_map_id = &"outskirts"
 target_spawn_id = &"north_arrival"
+
+[node name="SpawnFromCellar" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+spawn_id = &"from_cellar"
+grid_position = Vector2i(15, 9)
+facing = 3
+
+[node name="SpawnFromArena" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+spawn_id = &"from_arena"
+grid_position = Vector2i(4, 9)
+facing = 3
+
+[node name="CellarEntrance" type="Node2D" parent="."]
+script = ExtResource("3_warp")
+grid_position = Vector2i(15, 10)
+grid_size = Vector2i(1, 1)
+target_map_id = &"sunken_cellar"
+target_spawn_id = &"from_plaza"
+requires_flag = &"crystal_wraith_defeated"
+
+[node name="ArenaPortal" type="Node2D" parent="."]
+script = ExtResource("3_warp")
+grid_position = Vector2i(4, 10)
+grid_size = Vector2i(1, 1)
+target_map_id = &"eternal_arena"
+target_spawn_id = &"from_plaza"
+requires_flag = &"game_complete"
+
+[node name="Huntmaster" parent="." instance=ExtResource("4_npc")]
+npc_name = "Huntmaster Roen"
+grid_position = Vector2i(13, 4)
+lines = PackedStringArray("I keep tally for the bounty board. The kingdom may be falling — but the work goes on.", "If you've been bringing down monsters, the office in Brighthollow knows.", "Keep your blade sharp and your kill-count higher.")
+sprite_texture = ExtResource("9_villager_tex")
+
+[node name="Townie" parent="." instance=ExtResource("4_npc")]
+npc_name = "Old Hild"
+grid_position = Vector2i(7, 4)
+lines = PackedStringArray("There used to be a cellar under the Plaza chapel — flooded years ago when the river shifted.", "Nobody goes down there anymore. Nobody who comes back, anyway.")
+sprite_texture = ExtResource("9_villager_tex")
 
 [node name="Intro" type="Node" parent="."]
 script = ExtResource("8_intro")

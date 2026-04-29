@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges">
+  <!-- Tall body -->
+  <rect x="6" y="2" width="20" height="28" fill="#202028"/>
+  <rect x="4" y="6" width="2" height="20" fill="#202028"/>
+  <rect x="26" y="6" width="2" height="20" fill="#202028"/>
+  <!-- Robes detail -->
+  <rect x="7" y="10" width="18" height="2" fill="#3a3a4a"/>
+  <rect x="7" y="22" width="18" height="1" fill="#3a3a4a"/>
+  <!-- Pale, hollow head -->
+  <rect x="9" y="3" width="14" height="9" fill="#d8d0b8"/>
+  <rect x="11" y="2" width="10" height="2" fill="#d8d0b8"/>
+  <!-- Eyes (twin red embers) -->
+  <rect x="11" y="6" width="3" height="2" fill="#a02020"/>
+  <rect x="18" y="6" width="3" height="2" fill="#a02020"/>
+  <rect x="12" y="7" width="1" height="1" fill="#ff8080"/>
+  <rect x="19" y="7" width="1" height="1" fill="#ff8080"/>
+  <!-- Crack across forehead -->
+  <rect x="15" y="3" width="1" height="3" fill="#1a1a1a"/>
+  <rect x="14" y="5" width="1" height="1" fill="#1a1a1a"/>
+  <!-- Censer in hand -->
+  <rect x="3" y="14" width="3" height="3" fill="#a8782a"/>
+  <rect x="4" y="13" width="1" height="1" fill="#ffd040"/>
+  <!-- Long staff -->
+  <rect x="27" y="2" width="2" height="22" fill="#5a3a20"/>
+  <rect x="26" y="2" width="4" height="3" fill="#a8782a"/>
+</svg>

@@ -2,7 +2,7 @@
 
 A Final Fantasy–inspired JRPG built in **Godot 4**, designed to ship to **itch.io (Web)**, **Android**, and **iOS** from a single codebase. Visual style targets the GBA era (FF1–6, FFTA) with a clear upgrade path to 2D-HD (Octopath, FF Pixel Remaster).
 
-> **Status:** Phase 12 — **insertion pass.** Four entirely new chapter regions slotted between existing ones (Sun-Dried Wastes, Sky Islands, Cinder Marsh, Royal Crypt), each with its own boss, gear tier, and theme. The main story is now **12 distinct dungeon regions** (8 original + 4 new) plus 7 mini-boss middle floors, running ~8–9 hours. 40 enemies, 19 bosses (12 main + 7 mini), 27 maps. See [`CONTENT.md`](CONTENT.md) for side-content authoring.
+> **Status:** Phase 13 — **side-content layer.** Town sidequests (Brenna's locket, Garrick's slime bounty, Father Cinric's chime, Edda's wisp contract), an optional bonus dungeon (Sunken Cellar with the Cellar Warden), kill-tracking Hunt log feeding the bounty system, and a postgame superboss (the Eternal Echo) reachable via a portal that opens in the Plaza after the credits roll. The main story remains 12 chapters (~8–9 h). With sidequests and postgame, a completionist run lands at **~14–18 hours**. 44 enemies, 20 bosses (12 main + 7 mini + 1 postgame) plus the Cellar Warden, 29 maps. See [`CONTENT.md`](CONTENT.md) for side-content authoring.
 
 ## Chapter map
 
@@ -27,6 +27,19 @@ A Final Fantasy–inspired JRPG built in **Godot 4**, designed to ship to **itch
    Ch 8: Where the King Waits
                                                        └─ FINAL BOSS: The Sovereign Eternal
                                                               ENDING: a sunrise across Auren
+                                                       (post-credits: a portal hums in the Plaza...)
+
+   POSTGAME (after the credits flag is set):
+       Plaza west portal → ETERNAL ARENA
+                                                       └─ SUPERBOSS: The Eternal Echo  +  Auren's Remembrance
+   SIDE (any time after Chapter 1):
+       Plaza east trapdoor → SUNKEN CELLAR
+                                                       └─ BOSS: Cellar Warden  +  Votive Chime (Father Cinric)
+   QUESTS (turn-in NPCs in Plaza / Brighthollow):
+       Brenna's Locket (Plaza Inn)            → Silver Pendant + 200 gold
+       Garrick's Slime Bounty (Plaza Trader)  → Hunter's Band + 500 gold (kill 5 Slimes)
+       Father Cinric's Chime (Brighthollow)   → Cleric's Circlet + 800 gold (clear Sunken Cellar)
+       Edda's Wisp Contract (Brighthollow)    → 3× Phoenix Down + 1200 gold (kill 8 Forest Wisps)
 ```
 
 ## Roadmap
@@ -46,7 +59,7 @@ A Final Fantasy–inspired JRPG built in **Godot 4**, designed to ship to **itch
 | 10 | Chapters 5–8: full main story arc (Drowned Choir → Pretender → First Plague → Sovereign Eternal) | ✅ done |
 | 11 | Deepening pass: mid-floor mini-boss in every chapter (Sentinel, Treant, Champion, Wyvern, Tide Beast, Inquisitor, Hollow Twin) | ✅ done |
 | 12 | Insertion pass: 4 new chapters (Sun-Dried Wastes, Sky Islands, Cinder Marsh, Royal Crypt) | ✅ done |
-| 13 | Side-content layer: town quests, optional dungeons, hunt log, postgame | ⏳ |
+| 13 | Side-content layer: town sidequests (4), Sunken Cellar bonus dungeon, Hunt log + bounty system, Eternal Echo postgame superboss | ✅ done |
 | 14+ | Music & SFX, real art swap (see [`CONTENT.md`](CONTENT.md) and [`assets/audio/README.md`](assets/audio/README.md)) | ⏳ |
 
 See [`/root/.claude/plans/i-want-to-create-enchanted-nygaard.md`](../../root/.claude/plans/i-want-to-create-enchanted-nygaard.md) for the full plan (local file).
