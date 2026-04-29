@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Enemy.gd" id="1_script"]
+[ext_resource type="Resource" path="res://data/skills/attack.tres" id="2_attack"]
+[ext_resource type="Resource" path="res://data/skills/sleep.tres" id="3_sleep"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/enemy_forest_wisp.svg" id="4_sprite"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"forest_wisp"
+display_name = "Forest Wisp"
+battle_sprite = ExtResource("4_sprite")
+max_hp = 60
+max_mp = 30
+atk = 6
+def = 4
+mag = 14
+res = 10
+spd = 11
+luk = 4
+xp_reward = 14
+gold_reward = 9
+drop_chance = 0.0
+skills = Array[Resource]([ExtResource("2_attack"), ExtResource("3_sleep")])
+element_modifiers = {1: 1.5, 7: 1.75}

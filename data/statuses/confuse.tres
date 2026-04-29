@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="StatusEffect" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/StatusEffect.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"confuse"
+display_name = "Confuse"
+description = "Acts on its own, attacking random combatants — friend or foe."
+glyph = "?"
+color = Color(0.95, 0.55, 0.95, 1)
+confuse = true
+remove_on_damage = true
+duration_turns = 4

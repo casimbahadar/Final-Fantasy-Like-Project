@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="Actor" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Actor.gd" id="1_script"]
+[ext_resource type="Resource" path="res://data/classes/rogue.tres" id="2_rogue"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/player_rogue.svg" id="3_overworld"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/player_rogue.svg" id="4_battle"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"kael"
+display_name = "Kael"
+bio = "A rogue with a debt to the Crystal Heart, and reasons of his own."
+char_class = ExtResource("2_rogue")
+starting_level = 3
+base_max_hp = 90
+base_max_mp = 20
+base_atk = 11
+base_def = 7
+base_mag = 6
+base_res = 6
+base_spd = 13
+base_luk = 8
+grow_max_hp = 8
+grow_max_mp = 2
+grow_atk = 2
+grow_def = 1
+grow_mag = 1
+grow_res = 1
+grow_spd = 2
+grow_luk = 2
+overworld_sprite = ExtResource("3_overworld")
+battle_sprite = ExtResource("4_battle")

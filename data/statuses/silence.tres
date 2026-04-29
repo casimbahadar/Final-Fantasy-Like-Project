@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="StatusEffect" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/StatusEffect.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"silence"
+display_name = "Silence"
+description = "Magic and skills with MP cost cannot be used."
+glyph = "M"
+color = Color(0.6, 0.5, 0.85, 1)
+silence = true
+duration_turns = 4

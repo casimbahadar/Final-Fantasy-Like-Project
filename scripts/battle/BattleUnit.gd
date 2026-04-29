@@ -221,6 +221,27 @@ func is_skipping_turn() -> bool:
 	return false
 
 
+func is_silenced() -> bool:
+	for s in active_statuses:
+		if s.effect.silence:
+			return true
+	return false
+
+
+func is_attack_only() -> bool:
+	for s in active_statuses:
+		if s.effect.attack_only:
+			return true
+	return false
+
+
+func is_confused() -> bool:
+	for s in active_statuses:
+		if s.effect.confuse:
+			return true
+	return false
+
+
 func atb_rate_multiplier() -> float:
 	var m := 1.0
 	for s in active_statuses:
@@ -228,14 +249,30 @@ func atb_rate_multiplier() -> float:
 	return m
 
 
-## Called at start of this unit's turn. Applies HP drain, decrements duration,
-## checks wake_chance for skip-turn statuses, removes expired ones. Returns a
-## summary dictionary so the BattleManager can show the appropriate log lines
-## and damage popups.
+func accuracy_multiplier() -> float:
+	var m := 1.0
+	for s in active_statuses:
+		m *= s.effect.accuracy_mult
+	return m
+
+
+func incoming_damage_multiplier() -> float:
+	var m := 1.0
+	for s in active_statuses:
+		m *= s.effect.incoming_damage_mult
+	return m
+
+
+## Called at start of this unit's turn. Applies HP drain / regen, decrements
+## duration, checks wake_chance for skip-turn statuses, removes expired ones.
+## Returns a summary dictionary so the BattleManager can show the appropriate
+## log lines and damage popups.
 func tick_statuses() -> Dictionary:
 	var result := {
 		"hp_drained": 0,
+		"hp_regened": 0,
 		"mp_drained": 0,
+		"mp_regened": 0,
 		"woke_up": [],     # status ids that recovered via wake_chance
 		"expired": [],     # status ids that hit duration 0
 	}
@@ -244,19 +281,26 @@ func tick_statuses() -> Dictionary:
 		var s = active_statuses[i]
 		var effect: StatusEffect = s.effect
 
-		# HP drain.
+		# HP drain (poison, burn).
 		var drain := 0
 		if effect.hp_drain_percent > 0.0:
 			drain += int(round(float(max_hp()) * effect.hp_drain_percent))
 		drain += effect.hp_drain_flat
 		if drain > 0:
-			# Apply directly without flash to avoid stacking with the upcoming
-			# action animation; we still emit hp_changed.
 			hp = maxi(0, hp - drain)
 			if party_member != null:
 				party_member.hp = hp
 			hp_changed.emit(hp, max_hp())
 			result.hp_drained += drain
+
+		# HP regen.
+		var regen := 0
+		if effect.hp_regen_percent > 0.0:
+			regen += int(round(float(max_hp()) * effect.hp_regen_percent))
+		regen += effect.hp_regen_flat
+		if regen > 0 and hp > 0 and hp < max_hp():
+			heal(regen)
+			result.hp_regened += regen
 
 		# MP drain.
 		if effect.mp_drain_percent > 0.0:
@@ -268,21 +312,30 @@ func tick_statuses() -> Dictionary:
 				mp_changed.emit(mp, max_mp())
 				result.mp_drained += mp_drain
 
+		# MP regen.
+		if effect.mp_regen_percent > 0.0:
+			var mp_regen := int(round(float(max_mp()) * effect.mp_regen_percent))
+			if mp_regen > 0:
+				var got := restore_mp(mp_regen)
+				result.mp_regened += got
+
 		# Wake-from-sleep early roll.
 		if effect.skip_turn and effect.wake_chance_per_turn > 0.0:
 			if randf() < effect.wake_chance_per_turn:
 				result.woke_up.append(effect.id)
 				active_statuses.remove_at(i)
 				status_removed.emit(effect.id)
+				queue_redraw()
 				continue
 
-		# Decrement duration. -1 = until battle end (skip).
+		# Decrement duration. -1 = until battle end / cured by item only.
 		if s.turns_left > 0:
 			s.turns_left -= 1
 			if s.turns_left <= 0:
 				result.expired.append(effect.id)
 				active_statuses.remove_at(i)
 				status_removed.emit(effect.id)
+				queue_redraw()
 
 	if hp == 0:
 		died.emit()

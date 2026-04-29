@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Skill.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"dagger_throw"
+display_name = "Dagger Throw"
+description = "Hurls a dagger at one foe."
+mp_cost = 0
+target_kind = 0
+damage_kind = 0
+element = 0
+power = 11
+accuracy = 0.95

@@ -1,18 +1,42 @@
-[gd_resource type="Resource" script_class="CharClass" load_steps=4 format=3]
+[gd_resource type="Resource" script_class="CharClass" load_steps=13 format=3]
 
 [ext_resource type="Script" path="res://scripts/resources/CharClass.gd" id="1_script"]
 [ext_resource type="Script" path="res://scripts/resources/LearnEntry.gd" id="2_learn"]
 [ext_resource type="Resource" path="res://data/skills/attack.tres" id="3_attack"]
+[ext_resource type="Resource" path="res://data/skills/power_strike.tres" id="4_power"]
+[ext_resource type="Resource" path="res://data/skills/iron_wall.tres" id="5_wall"]
+[ext_resource type="Resource" path="res://data/skills/provoke.tres" id="6_provoke"]
+[ext_resource type="Resource" path="res://data/skills/cleave.tres" id="7_cleave"]
 
 [sub_resource type="Resource" id="LearnAttack"]
 script = ExtResource("2_learn")
 level = 1
 skill = ExtResource("3_attack")
 
+[sub_resource type="Resource" id="LearnPower"]
+script = ExtResource("2_learn")
+level = 3
+skill = ExtResource("4_power")
+
+[sub_resource type="Resource" id="LearnWall"]
+script = ExtResource("2_learn")
+level = 5
+skill = ExtResource("5_wall")
+
+[sub_resource type="Resource" id="LearnProvoke"]
+script = ExtResource("2_learn")
+level = 7
+skill = ExtResource("6_provoke")
+
+[sub_resource type="Resource" id="LearnCleave"]
+script = ExtResource("2_learn")
+level = 9
+skill = ExtResource("7_cleave")
+
 [resource]
 script = ExtResource("1_script")
 id = &"warrior"
 display_name = "Warrior"
 description = "Front-line fighter. High HP and physical attack."
-learnset = Array[Resource]([SubResource("LearnAttack")])
+learnset = Array[Resource]([SubResource("LearnAttack"), SubResource("LearnPower"), SubResource("LearnWall"), SubResource("LearnProvoke"), SubResource("LearnCleave")])
 xp_curve = PackedInt32Array()

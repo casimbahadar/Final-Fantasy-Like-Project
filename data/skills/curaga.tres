@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Skill.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"curaga"
+display_name = "Curaga"
+description = "Heals all party members."
+mp_cost = 18
+target_kind = 3
+damage_kind = 2
+element = 0
+power = 50
+accuracy = 1.0

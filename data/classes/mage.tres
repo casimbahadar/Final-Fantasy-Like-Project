@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CharClass" load_steps=10 format=3]
+[gd_resource type="Resource" script_class="CharClass" load_steps=25 format=3]
 
 [ext_resource type="Script" path="res://scripts/resources/CharClass.gd" id="1_script"]
 [ext_resource type="Script" path="res://scripts/resources/LearnEntry.gd" id="2_learn"]
@@ -6,9 +6,13 @@
 [ext_resource type="Resource" path="res://data/skills/fire.tres" id="4_fire"]
 [ext_resource type="Resource" path="res://data/skills/cure.tres" id="5_cure"]
 [ext_resource type="Resource" path="res://data/skills/sleep.tres" id="6_sleep"]
-[ext_resource type="Resource" path="res://data/skills/blizzard.tres" id="7_blizzard"]
-[ext_resource type="Resource" path="res://data/skills/haste.tres" id="8_haste"]
-[ext_resource type="Resource" path="res://data/skills/slow.tres" id="9_slow"]
+[ext_resource type="Resource" path="res://data/skills/silence_spell.tres" id="7_silence"]
+[ext_resource type="Resource" path="res://data/skills/blizzard.tres" id="8_blizzard"]
+[ext_resource type="Resource" path="res://data/skills/cura.tres" id="9_cura"]
+[ext_resource type="Resource" path="res://data/skills/haste.tres" id="10_haste"]
+[ext_resource type="Resource" path="res://data/skills/slow.tres" id="11_slow"]
+[ext_resource type="Resource" path="res://data/skills/regen_spell.tres" id="12_regen"]
+[ext_resource type="Resource" path="res://data/skills/curaga.tres" id="13_curaga"]
 
 [sub_resource type="Resource" id="LearnAttack"]
 script = ExtResource("2_learn")
@@ -30,25 +34,45 @@ script = ExtResource("2_learn")
 level = 4
 skill = ExtResource("6_sleep")
 
+[sub_resource type="Resource" id="LearnSilence"]
+script = ExtResource("2_learn")
+level = 5
+skill = ExtResource("7_silence")
+
 [sub_resource type="Resource" id="LearnBlizzard"]
 script = ExtResource("2_learn")
 level = 5
-skill = ExtResource("7_blizzard")
+skill = ExtResource("8_blizzard")
+
+[sub_resource type="Resource" id="LearnCura"]
+script = ExtResource("2_learn")
+level = 6
+skill = ExtResource("9_cura")
 
 [sub_resource type="Resource" id="LearnHaste"]
 script = ExtResource("2_learn")
 level = 7
-skill = ExtResource("8_haste")
+skill = ExtResource("10_haste")
 
 [sub_resource type="Resource" id="LearnSlow"]
 script = ExtResource("2_learn")
 level = 8
-skill = ExtResource("9_slow")
+skill = ExtResource("11_slow")
+
+[sub_resource type="Resource" id="LearnRegen"]
+script = ExtResource("2_learn")
+level = 9
+skill = ExtResource("12_regen")
+
+[sub_resource type="Resource" id="LearnCuraga"]
+script = ExtResource("2_learn")
+level = 12
+skill = ExtResource("13_curaga")
 
 [resource]
 script = ExtResource("1_script")
 id = &"mage"
 display_name = "Mage"
 description = "Arcane caster. Low HP, high magic. Learns spells with level."
-learnset = Array[Resource]([SubResource("LearnAttack"), SubResource("LearnFire"), SubResource("LearnCure"), SubResource("LearnSleep"), SubResource("LearnBlizzard"), SubResource("LearnHaste"), SubResource("LearnSlow")])
+learnset = Array[Resource]([SubResource("LearnAttack"), SubResource("LearnFire"), SubResource("LearnCure"), SubResource("LearnSleep"), SubResource("LearnSilence"), SubResource("LearnBlizzard"), SubResource("LearnCura"), SubResource("LearnHaste"), SubResource("LearnSlow"), SubResource("LearnRegen"), SubResource("LearnCuraga")])
 xp_curve = PackedInt32Array()

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="StatusEffect" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/StatusEffect.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"stun"
+display_name = "Stun"
+description = "Reels for one turn."
+glyph = "*"
+color = Color(0.95, 0.95, 0.55, 1)
+skip_turn = true
+duration_turns = 1

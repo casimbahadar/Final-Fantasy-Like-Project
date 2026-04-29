@@ -35,11 +35,17 @@ static func compute(attacker: BattleUnit, target: BattleUnit, skill: Skill) -> D
 		result.damage = -amt
 		return result
 
-	if skill.damage_kind == Skill.DamageKind.NONE:
+	# Roll for miss before NONE-damage skills too, so Sleep / Stop / etc. respect
+	# their accuracy field. Physical attacks also factor in attacker accuracy
+	# (Blind cuts physical hit rate in half).
+	var hit_chance: float = skill.accuracy
+	if skill.damage_kind == Skill.DamageKind.PHYSICAL:
+		hit_chance *= attacker.accuracy_multiplier()
+	if randf() > hit_chance:
+		result.miss = true
 		return result
 
-	if randf() > skill.accuracy:
-		result.miss = true
+	if skill.damage_kind == Skill.DamageKind.NONE:
 		return result
 
 	var atk_stat: int
@@ -75,6 +81,9 @@ static func compute(attacker: BattleUnit, target: BattleUnit, skill: Skill) -> D
 		if mod == 0.0:
 			result.damage = 0
 			return result
+
+	# Petrify / stoneskin scale incoming damage.
+	raw *= target.incoming_damage_multiplier()
 
 	result.damage = maxi(1, int(raw))
 	return result

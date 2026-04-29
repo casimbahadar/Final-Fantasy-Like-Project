@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="StatusEffect" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/StatusEffect.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"blind"
+display_name = "Blind"
+description = "Physical attacks miss far more often."
+glyph = "X"
+color = Color(0.4, 0.4, 0.45, 1)
+accuracy_mult = 0.5
+duration_turns = 5

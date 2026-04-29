@@ -11,13 +11,25 @@ static func choose_action(unit: BattleUnit, allies: Array, enemies: Array) -> Di
 	# own side; enemies = the player party.
 	var skills := unit.available_skills()
 	var usable: Array[Skill] = []
+	var attack_only := unit.is_attack_only()
+	var silenced := unit.is_silenced()
 	for s in skills:
 		if s == null:
+			continue
+		if attack_only and s.id != &"attack":
+			continue
+		if silenced and s.mp_cost > 0:
 			continue
 		if unit.mp >= s.mp_cost:
 			usable.append(s)
 	if usable.is_empty():
-		return {}
+		# Last-ditch fallback to global Attack so the unit always has *something*
+		# to do. Avoids a turn-skipping deadlock if all of its skills are gated.
+		var atk: Skill = Database.skill(&"attack")
+		if atk != null:
+			usable.append(atk)
+		else:
+			return {}
 
 	var pick: Skill = usable.pick_random()
 	var target: BattleUnit = _pick_target(pick, unit, allies, enemies)

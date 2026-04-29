@@ -124,8 +124,7 @@ func _tick_screen_shake(delta: float) -> void:
 func _on_unit_ready(unit: BattleUnit) -> void:
 	pending_action_unit = unit
 	party_panel.refresh()
-	# Tick start-of-turn statuses BEFORE the action: poison drain,
-	# sleep wake-roll, expirations.
+	# Tick start-of-turn statuses BEFORE the action: poison / regen / wake / expire.
 	await _tick_turn_start_statuses(unit)
 	if not unit.is_alive():
 		# Poison killed them.
@@ -137,12 +136,45 @@ func _on_unit_ready(unit: BattleUnit) -> void:
 		await get_tree().create_timer(RESOLVE_HOLD).timeout
 		_post_action()
 		return
+	# Confuse: act on its own, target chosen randomly across the whole field.
+	if unit.is_confused():
+		await _resolve_confused_turn(unit)
+		return
 	if unit.is_ally():
+		# Berserk forces a basic Attack on a random enemy.
+		if unit.is_attack_only():
+			var pool := _alive_on(_opposite_side(unit))
+			if pool.is_empty():
+				_post_action()
+				return
+			var atk := Database.skill(&"attack")
+			_change_state(State.RESOLVE)
+			_log("%s is berserk!" % unit.display_name())
+			await _resolve_skill(unit, atk, pool.pick_random())
+			_post_action()
+			return
 		_change_state(State.INPUT)
 		party_panel.highlight_unit(unit)
 		action_menu.open(unit)
 	else:
 		await _resolve_enemy_turn(unit)
+
+
+func _resolve_confused_turn(unit: BattleUnit) -> void:
+	_change_state(State.RESOLVE)
+	_log("%s is confused!" % unit.display_name())
+	await get_tree().create_timer(ENEMY_TURN_DELAY).timeout
+	# Pick any alive combatant other than self.
+	var all_units: Array = []
+	for u in allies + enemies:
+		if u.is_alive() and u != unit:
+			all_units.append(u)
+	if all_units.is_empty():
+		_post_action()
+		return
+	var atk := Database.skill(&"attack")
+	await _resolve_skill(unit, atk, all_units.pick_random())
+	_post_action()
 
 
 func _tick_turn_start_statuses(unit: BattleUnit) -> void:

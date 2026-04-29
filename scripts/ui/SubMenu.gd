@@ -30,6 +30,7 @@ func _input(event: InputEvent) -> void:
 func open_skills(unit) -> void:
 	_kind = &"skill"
 	_clear()
+	var silenced := unit.is_silenced()
 	for s in unit.available_skills():
 		if s == null or s.id == &"attack":
 			continue
@@ -38,7 +39,7 @@ func open_skills(unit) -> void:
 		if s.mp_cost > 0:
 			label += "  (MP %d)" % s.mp_cost
 		btn.text = label
-		btn.disabled = unit.mp < s.mp_cost
+		btn.disabled = unit.mp < s.mp_cost or (silenced and s.mp_cost > 0)
 		btn.focus_mode = Control.FOCUS_ALL
 		btn.pressed.connect(func(): entry_chosen.emit(&"skill", s))
 		_list.add_child(btn)

@@ -1,12 +1,30 @@
 extends Node2D
 
-## Touched after the final boss is defeated. Plays the ending dialogue, then
-## resets state and routes to the title screen.
+## Story trigger fired by walking onto / interacting with a tile after a
+## prerequisite flag is set. Plays dialogue, optionally recruits a party
+## member, optionally sets a flag, and either:
+##   - warps to another map (chapter transition), OR
+##   - resets state and goes back to the title screen (true end-of-game).
+##
+## Despite the legacy name, this script handles both intermediate story
+## beats (recruit + warp) and the final ending (no warp specified).
 
 @export var grid_position: Vector2i = Vector2i.ZERO
+## If set, only fires when this GameState flag is true.
 @export var requires_flag: StringName = &""
+## If set, this flag is set to true when the trigger fires successfully.
+@export var sets_flag: StringName = &""
 @export var lines: PackedStringArray = PackedStringArray()
+@export var lines_locked: PackedStringArray = PackedStringArray()
 @export var speaker: String = ""
+## If set, adds this actor id to the party when the trigger fires.
+@export var recruit_actor_id: StringName = &""
+## If set, warps to this map after firing instead of returning to title.
+@export var warp_target_map: StringName = &""
+@export var warp_target_spawn: StringName = &"default"
+## When true and no warp_target_map is set, this is the "true ending" — resets
+## state and returns to the title screen.
+@export var is_ending: bool = false
 
 var _map: OverworldMap
 var _firing: bool = false
@@ -35,11 +53,32 @@ func _fire() -> void:
 	if _firing:
 		return
 	if requires_flag != &"" and not GameState.get_flag(requires_flag, false):
-		await Dialogue.say(["The crystal flickers, but does not respond."], speaker)
+		var locked := lines_locked
+		if locked.is_empty():
+			locked = PackedStringArray(["The crystal flickers, but does not respond."])
+		await Dialogue.say(Array(locked), speaker)
 		return
 	_firing = true
 	if lines.size() > 0:
 		await Dialogue.say(Array(lines), speaker)
-	GameState.reset()
-	Party.clear()
-	await SceneRouter.go_to_scene("res://scenes/ui/TitleScreen.tscn")
+	if recruit_actor_id != &"":
+		# Don't add the same actor twice (e.g. on save/load reentry).
+		var already := false
+		for pm in Party.members:
+			if pm.actor_id == recruit_actor_id:
+				already = true
+				break
+		if not already:
+			Party.add_member(recruit_actor_id)
+	if sets_flag != &"":
+		GameState.set_flag(sets_flag, true)
+	if warp_target_map != &"":
+		# Chapter transition — keep state, go to the next map.
+		await SceneRouter.go_to_map(warp_target_map, warp_target_spawn)
+	elif is_ending:
+		GameState.reset()
+		Party.clear()
+		await SceneRouter.go_to_scene("res://scenes/ui/TitleScreen.tscn")
+	else:
+		# Plain story trigger — leave the player where they are.
+		_firing = false

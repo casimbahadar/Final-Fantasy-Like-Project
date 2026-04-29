@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Item.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"eye_drops"
+display_name = "Eye Drops"
+description = "Cures Blind."
+kind = 0
+equip_slot = 0
+stackable = true
+max_stack = 99
+buy_price = 50
+sell_price = 25
+cures_status = &"blind"

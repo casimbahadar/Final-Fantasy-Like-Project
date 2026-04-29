@@ -28,12 +28,16 @@ func _ready() -> void:
 
 func open(unit) -> void:
 	_unit = unit
-	# Disable Skill if the unit has no skills beyond plain Attack.
+	# Skill is enabled if the unit has at least one usable non-Attack skill.
+	# Silence makes mp_cost > 0 skills unusable.
 	var has_real_skills := false
 	for s in unit.available_skills():
-		if s != null and s.id != &"attack":
-			has_real_skills = true
-			break
+		if s == null or s.id == &"attack":
+			continue
+		if unit.is_silenced() and s.mp_cost > 0:
+			continue
+		has_real_skills = true
+		break
 	_buttons[1].disabled = not has_real_skills
 	_buttons[2].disabled = Party.inventory.is_empty()
 	show()

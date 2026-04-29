@@ -2,7 +2,7 @@
 
 A Final Fantasy–inspired JRPG built in **Godot 4**, designed to ship to **itch.io (Web)**, **Android**, and **iOS** from a single codebase. Visual style targets the GBA era (FF1–6, FFTA) with a clear upgrade path to 2D-HD (Octopath, FF Pixel Remaster).
 
-> **Status:** Phase 6 — status effects + battle polish. Poison / Sleep / Haste / Slow as data-driven `.tres` resources, status badges drawn under each fighter, hit-flash on damage, screen shake on critical hits. Lyra learns Sleep / Haste / Slow with level. Goblins inflict Poison; Antidote cures it.
+> **Status:** Phase 7 — content expansion. 16 status effects, 13 new skills, a Rogue class, third party member (Kael), Chapter 2 starter area (Whispering Wood), 3 new enemies. See [`CONTENT.md`](CONTENT.md) for the content-authoring guide.
 
 ## Roadmap
 
@@ -15,7 +15,8 @@ A Final Fantasy–inspired JRPG built in **Godot 4**, designed to ship to **itch
 | 4 | Vertical slice: town, shop, inn, dungeon with chests, boss, ending | ✅ done |
 | 5 | Mobile touch controls, audio settings, export targets | ✅ done |
 | 6 | Status effects + battle polish (hit flash, screen shake, status badges) | ✅ done |
-| 7+ | Story chapters, party expansion, optional 2D-HD upgrade | ⏳ |
+| 7 | Content expansion: 16 statuses, 22 skills, Rogue class, third party member, Chapter 2 starter | ✅ done |
+| 8+ | More chapters / dungeons / bosses / story (data-driven; see [`CONTENT.md`](CONTENT.md)) | ⏳ |
 
 See [`/root/.claude/plans/i-want-to-create-enchanted-nygaard.md`](../../root/.claude/plans/i-want-to-create-enchanted-nygaard.md) for the full plan (local file).
 

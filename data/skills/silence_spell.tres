@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Skill.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"silence_spell"
+display_name = "Silence"
+description = "Stoppers a foe's tongue. They cannot cast."
+mp_cost = 4
+target_kind = 0
+damage_kind = 3
+element = 0
+power = 0
+accuracy = 0.85
+inflicts_status = &"silence"
+status_chance = 0.8

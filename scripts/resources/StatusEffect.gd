@@ -27,8 +27,13 @@ extends Resource
 ## Fraction of max HP lost at start of turn. 0.08 = 8%.
 @export_range(0.0, 1.0, 0.01) var hp_drain_percent: float = 0.0
 @export var hp_drain_flat: int = 0
+## Fraction of max HP recovered at start of turn (Regen).
+@export_range(0.0, 1.0, 0.01) var hp_regen_percent: float = 0.0
+@export var hp_regen_flat: int = 0
 ## Fraction of max MP lost at start of turn (for spells that drain mana).
 @export_range(0.0, 1.0, 0.01) var mp_drain_percent: float = 0.0
+## Fraction of max MP recovered at start of turn.
+@export_range(0.0, 1.0, 0.01) var mp_regen_percent: float = 0.0
 
 @export_group("Action Restrictions")
 @export var skip_turn: bool = false
@@ -36,6 +41,21 @@ extends Resource
 @export_range(0.0, 1.0, 0.05) var wake_chance_per_turn: float = 0.0
 ## If true, taking damage immediately removes this status (sleep convention).
 @export var remove_on_damage: bool = false
+## If true, only basic Attack is allowed (no Skill / Item / Defend / Run). Berserk.
+@export var attack_only: bool = false
+## If true, MP-cost skills are unusable. Silence.
+@export var silence: bool = false
+## If true, the unit's command is replaced by a random valid action against a
+## random target (could be ally or enemy). Confuse.
+@export var confuse: bool = false
+## Multiplier on the attacker's hit roll for physical damage. 0.5 = blind.
+@export_range(0.0, 2.0, 0.05) var accuracy_mult: float = 1.0
+## Multiplier on incoming damage (0.5 = stoneskin, petrify), 1.0 = normal.
+@export_range(0.0, 4.0, 0.05) var incoming_damage_mult: float = 1.0
+## If true, unit cannot be cured by ordinary status removal — only specific
+## items (e.g. Soft cures Petrify). When set, items must list cures_status to
+## the same id.
+@export var only_cured_by_item: bool = false
 
 @export_group("ATB Modifier")
 ## Multiplier on the unit's ATB fill rate (1.5 = haste, 0.5 = slow).

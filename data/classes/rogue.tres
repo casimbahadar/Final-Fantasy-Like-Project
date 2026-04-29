@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="CharClass" load_steps=11 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/CharClass.gd" id="1_script"]
+[ext_resource type="Script" path="res://scripts/resources/LearnEntry.gd" id="2_learn"]
+[ext_resource type="Resource" path="res://data/skills/attack.tres" id="3_attack"]
+[ext_resource type="Resource" path="res://data/skills/dagger_throw.tres" id="4_throw"]
+[ext_resource type="Resource" path="res://data/skills/sneak_attack.tres" id="5_sneak"]
+[ext_resource type="Resource" path="res://data/skills/smoke_bomb.tres" id="6_smoke"]
+
+[sub_resource type="Resource" id="LearnAttack"]
+script = ExtResource("2_learn")
+level = 1
+skill = ExtResource("3_attack")
+
+[sub_resource type="Resource" id="LearnThrow"]
+script = ExtResource("2_learn")
+level = 1
+skill = ExtResource("4_throw")
+
+[sub_resource type="Resource" id="LearnSneak"]
+script = ExtResource("2_learn")
+level = 4
+skill = ExtResource("5_sneak")
+
+[sub_resource type="Resource" id="LearnSmoke"]
+script = ExtResource("2_learn")
+level = 6
+skill = ExtResource("6_smoke")
+
+[resource]
+script = ExtResource("1_script")
+id = &"rogue"
+display_name = "Rogue"
+description = "Quick and nimble. High SPD, modest HP, accuracy debuffs."
+learnset = Array[Resource]([SubResource("LearnAttack"), SubResource("LearnThrow"), SubResource("LearnSneak"), SubResource("LearnSmoke")])
+xp_curve = PackedInt32Array()

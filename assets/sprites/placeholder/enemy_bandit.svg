@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges">
+  <!-- Shadow -->
+  <rect x="6" y="29" width="20" height="2" fill="#1a1015" opacity="0.4"/>
+  <!-- Bandana / hood -->
+  <rect x="9" y="2" width="14" height="3" fill="#702030"/>
+  <rect x="8" y="5" width="16" height="2" fill="#502030"/>
+  <!-- Face mask covers lower face -->
+  <rect x="10" y="7" width="12" height="3" fill="#d0a880"/>
+  <rect x="11" y="9" width="10" height="3" fill="#3a2030"/>
+  <!-- Eyes (slits) -->
+  <rect x="12" y="8" width="3" height="1" fill="#1a1033"/>
+  <rect x="17" y="8" width="3" height="1" fill="#1a1033"/>
+  <!-- Body / dark coat -->
+  <rect x="9" y="12" width="14" height="11" fill="#403040"/>
+  <rect x="10" y="13" width="12" height="2" fill="#604050"/>
+  <!-- Belt -->
+  <rect x="9" y="20" width="14" height="2" fill="#1a1015"/>
+  <!-- Daggers crossed at belt -->
+  <rect x="6" y="18" width="3" height="2" fill="#a0a0b0"/>
+  <rect x="23" y="18" width="3" height="2" fill="#a0a0b0"/>
+  <!-- Legs -->
+  <rect x="10" y="23" width="4" height="6" fill="#2a2030"/>
+  <rect x="18" y="23" width="4" height="6" fill="#2a2030"/>
+  <rect x="9" y="28" width="6" height="1" fill="#1a1015"/>
+  <rect x="17" y="28" width="6" height="1" fill="#1a1015"/>
+</svg>

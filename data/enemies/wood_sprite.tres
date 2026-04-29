@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Enemy.gd" id="1_script"]
+[ext_resource type="Resource" path="res://data/skills/attack.tres" id="2_attack"]
+[ext_resource type="Resource" path="res://data/skills/poison_sting.tres" id="3_sting"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/enemy_wood_sprite.svg" id="4_sprite"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"wood_sprite"
+display_name = "Wood Sprite"
+battle_sprite = ExtResource("4_sprite")
+max_hp = 80
+max_mp = 0
+atk = 12
+def = 7
+mag = 5
+res = 6
+spd = 12
+luk = 5
+xp_reward = 16
+gold_reward = 10
+drop_chance = 0.15
+skills = Array[Resource]([ExtResource("2_attack"), ExtResource("3_sting")])
+element_modifiers = {1: 2.0}
