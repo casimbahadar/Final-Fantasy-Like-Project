@@ -34,6 +34,7 @@ func save_to(slot: int) -> bool:
 		"key_items": _stringify_keys(Party.key_items),
 		"members": _serialize_members(),
 		"hunt": Hunt.to_dict(),
+		"mastery": Mastery.to_dict(),
 		"ng_plus_count": GameState.ng_plus_count,
 		"difficulty": GameState.difficulty,
 	}
@@ -64,6 +65,7 @@ func load_from(slot: int) -> bool:
 	GameState.reset()
 	Party.clear()
 	Hunt.clear()
+	Mastery.clear()
 
 	GameState.playtime_seconds = float(parsed.get("playtime", 0.0))
 	GameState.current_map_id = StringName(parsed.get("current_map_id", ""))
@@ -103,6 +105,7 @@ func load_from(slot: int) -> bool:
 		Party.members.append(pm)
 
 	Hunt.from_dict(parsed.get("hunt", {}))
+	Mastery.from_dict(parsed.get("mastery", {}))
 	GameState.ng_plus_count = int(parsed.get("ng_plus_count", 0))
 	GameState.difficulty = int(parsed.get("difficulty", 1))
 

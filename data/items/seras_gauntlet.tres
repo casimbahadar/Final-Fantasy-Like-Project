@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Item.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"seras_gauntlet"
+display_name = "Sera's Bracer"
+description = "A leather bracer Sera trained with — every callus on it is hers."
+kind = 1
+equip_slot = 1
+stackable = false
+max_stack = 1
+buy_price = 0
+sell_price = 1000
+bonus_max_hp = 30
+bonus_max_mp = 0
+bonus_atk = 24
+bonus_def = 4
+bonus_mag = 0
+bonus_res = 0
+bonus_spd = 6
+bonus_luk = 4

@@ -2,7 +2,7 @@
 
 A Final Fantasy–inspired JRPG built in **Godot 4**, designed to ship to **itch.io (Web)**, **Android**, and **iOS** from a single codebase. Visual style targets the GBA era (FF1–6, FFTA) with a clear upgrade path to 2D-HD (Octopath, FF Pixel Remaster).
 
-> **Status:** Phase 15 — **massive job and postgame expansion.** **23 classes** total (the 5 originals plus all the FF classics — Berserker, Monk, Necromancer, Paladin, Bard, Ranger, Samurai, Geomancer, Beastmaster, Time Mage, Spellblade, Assassin, Dark Knight, Summoner, Chemist, Dancer — and two unique twists, Crystal Knight and Grave Singer). **Subclass system** lets each character merge a second class's learnset into their action menu. **7 new recruitable characters** (Bram, Sera, Vael, Lios, Wren, Nyx, Calen) wait at the Wayhouse east of Brighthollow, each gated by their own chapter milestone. Postgame adds the **5-floor Glass Tower** (Tomb Mix → Crypt Lord echo → Hollow Lyra echo → Sovereign Reborn echo → **The First Day** apex; rewards Sun Blade and Glass Crown) and **Boss Rush** (all 12 main bosses back to back; rewards Champion's Wreath). **Difficulty selector** (Easy/Normal/Hard/Sovereign) layers on top of NG+. A completionist run with NG+ now lands at **~30–40 hours**. 51 enemies, 24 bosses, 34 maps, 23 classes, 12 playable characters.
+> **Status:** Phase 16 — **post-postgame: trials, region, rifts, true ending.** **23 Class Trials** in the Trial Hall (all unlocked at credits) — each clear awards a class-exclusive **capstone skill** that auto-merges into the action menu of any character primary- or sub-classed into it. The **Far Shore** region is a fourth open postgame area: a small town with its own inn/shop and three sequential dungeons — **Glass Hollow** (Glass Wyrm) → **Drowned Cathedral** (Drowned Choir Reborn) → **Throne of Names** (**Auren the First** — the kingdom's pre-coronation founder, the actual root cause). The **Riftgate** is a randomized-pool postgame dungeon with high encounter rate. The **True Ending** at the Last Page is gated by clearing the Far Shore arc. Plus **7 personal storylines** — one per Wayhouse recruit — each rewarding a unique personal weapon. A completionist run with NG+ + true ending now lands at **~40–55 hours**. 55 enemies, 28 bosses, 41 maps, 23 classes, 12 playable characters, and **23 capstone skills**.
 
 ## Chapter map
 
@@ -36,6 +36,13 @@ A Final Fantasy–inspired JRPG built in **Godot 4**, designed to ship to **itch
                                                        └─ Tomb Mix → Crypt Lord echo → Hollow Lyra echo → Sovereign Reborn echo → THE FIRST DAY  +  Sun Blade + Glass Crown
        Plaza rush portal  → BOSS RUSH (all 12 main bosses back-to-back)
                                                        └─ Wraith → Treant → Hollow King → Mirage King → Stormwyrm → Wind Singer → Drowned Choir → Pyre Lord → Pretender → Last Queen → First Plague → Sovereign Eternal  +  Champion's Wreath
+       Plaza trial portal → THE TRIAL HALL (23 class trials, one capstone skill per win)
+       Plaza shore portal → FAR SHORE town
+                                  └─ GLASS HOLLOW (Glass Wyrm)
+                                      └─ DROWNED CATHEDRAL (Drowned Choir Reborn)
+                                          └─ THRONE OF NAMES (Auren the First) → unlocks TRUE ENDING
+       Plaza rift portal  → THE RIFTGATE (randomized postgame encounters + loot)
+       Plaza last-page    → THE LAST PAGE (true ending, gated by Throne of Names clear)
    SIDE (any time after Chapter 1):
        Plaza east trapdoor → SUNKEN CELLAR (Cellar Warden + Votive Chime)
        Mountain Peak east door → SEALED AERIE (Sealed Cyclone + Cyclone Ring) — post-Stormwyrm
@@ -76,7 +83,8 @@ A Final Fantasy–inspired JRPG built in **Godot 4**, designed to ship to **itch
 | 13 | Side-content layer: town sidequests (4), Sunken Cellar bonus dungeon, Hunt log + bounty system, Eternal Echo postgame superboss | ✅ done |
 | 14 | Rebalance pass + 2 more bonus dungeons + Bounty Pit + 3-stage postgame + NG+ + class change + 3 more sidequests | ✅ done |
 | 15 | 18 new classes (23 total) + subclass + 7 new recruits at the Wayhouse + Glass Tower postgame + Boss Rush + difficulty selector | ✅ done |
-| 16+ | Music & SFX, real art swap (see [`CONTENT.md`](CONTENT.md) and [`assets/audio/README.md`](assets/audio/README.md)) | ⏳ |
+| 16 | 23 Class Trials + 23 capstone skills + Far Shore region (3 dungeons) + Riftgate + True Ending + 7 personal recruit storylines | ✅ done |
+| 17+ | Music & SFX, real art swap (see [`CONTENT.md`](CONTENT.md) and [`assets/audio/README.md`](assets/audio/README.md)) | ⏳ |
 
 ## Class roster (23)
 

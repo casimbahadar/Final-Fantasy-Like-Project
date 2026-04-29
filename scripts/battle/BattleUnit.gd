@@ -195,6 +195,22 @@ func available_skills() -> Array[Skill]:
 					if entry.level <= party_member.level and not seen.has(entry.skill.id):
 						seen[entry.skill.id] = true
 						out.append(entry.skill)
+		# Capstone merge — if the player has cleared the Class Trial for either
+		# their primary or subclass, the capstone skill for that class joins
+		# their action menu.
+		var primary_id: StringName = cls.id if cls != null else &""
+		for class_id in [primary_id, party_member.subclass]:
+			if class_id == &"":
+				continue
+			if not Mastery.is_mastered(class_id):
+				continue
+			var cap_id: StringName = Mastery.capstone_for(class_id)
+			if cap_id == &"" or seen.has(cap_id):
+				continue
+			var cap: Skill = Database.skill(cap_id)
+			if cap != null:
+				seen[cap_id] = true
+				out.append(cap)
 		return out
 	for sk in enemy.skills:
 		if sk != null:

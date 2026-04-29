@@ -17,6 +17,10 @@ var battle_return_facing: int = 0
 ## If set, BattleManager sets this GameState flag true on victory.
 ## Used by EncounterTrigger to mark a fixed/boss battle as defeated.
 var battle_victory_flag: StringName = &""
+## If set, BattleManager calls Mastery.unlock(this) on victory. Used by the
+## Class Trials Hall so beating a trial automatically unlocks that class's
+## capstone skill.
+var battle_mastery_class: StringName = &""
 
 # True from the start of fade-out until fade-in completes. Gameplay code reads
 # this to suppress input during transitions.

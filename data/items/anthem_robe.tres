@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Item.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"anthem_robe"
+display_name = "Anthem Robe"
+description = "A robe stitched together from drowned hymns. Warm against the cold."
+kind = 2
+equip_slot = 2
+stackable = false
+max_stack = 1
+buy_price = 0
+sell_price = 1500
+bonus_max_hp = 70
+bonus_max_mp = 40
+bonus_atk = 0
+bonus_def = 12
+bonus_mag = 0
+bonus_res = 14
+bonus_spd = 0
+bonus_luk = 0

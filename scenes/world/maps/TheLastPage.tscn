@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/OverworldMap.gd" id="1_map"]
+[ext_resource type="Script" path="res://scripts/world/SpawnPoint.gd" id="2_spawn"]
+[ext_resource type="Script" path="res://scripts/world/WarpTrigger.gd" id="3_warp"]
+[ext_resource type="Script" path="res://scripts/world/EndingTrigger.gd" id="4_story"]
+
+[node name="TheLastPage" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_map")
+grid_string = "####################
+#..................#
+#..................#
+#..................#
+#..................#
+#..................#
+#..................#
+#..................#
+#..................#
+#..................#
+#..................#
+#..................#
+#,,,,,,,,DD,,,,,,,,#
+####################"
+map_id = &"the_last_page"
+
+[node name="SpawnFromPlaza" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+spawn_id = &"from_plaza"
+grid_position = Vector2i(9, 12)
+facing = 3
+
+[node name="ExitToPlaza" type="Node2D" parent="."]
+script = ExtResource("3_warp")
+grid_position = Vector2i(8, 12)
+grid_size = Vector2i(2, 1)
+target_map_id = &"plaza"
+target_spawn_id = &"from_true_ending"
+
+[node name="LastWord" type="Node2D" parent="."]
+script = ExtResource("4_story")
+grid_position = Vector2i(9, 5)
+requires_flag = &"true_ending_unlocked"
+sets_flag = &"true_ending_seen"
+speaker = "Aldric"
+lines = PackedStringArray("The Last Page is open ground under an open sky. There is no boss waiting. There is no door beyond.", "The five of you — six, seven, twelve, however many of you there are by now — stand on the page and look at each other.", "Lyra, eventually: \"He never was crowned. The kingdom never was. So the Plague never was. So we never were the ones who ended it.\"", "Aldric: \"...so what are we?\"", "Mira, very softly: \"The kingdom that should have been.\"", "Tessera grins, sharp and brittle. \"Then let's be it. Properly, this time.\"", "Kael, raising a glass that wasn't there a moment ago: \"To the kingdom that was made by the people who knew what it cost.\"", "(All of you, in turn:)", "\"To the kingdom.\"", "\"To the kingdom.\"", "\"To the kingdom.\"", "", "— THE LAST PAGE —", "(true ending. thank you for finishing the book.)")
+lines_locked = PackedStringArray("The page is blank. There is more to read first.")

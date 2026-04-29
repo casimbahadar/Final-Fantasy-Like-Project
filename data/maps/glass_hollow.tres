@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MapData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/MapData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"glass_hollow"
+display_name = "Glass Hollow"
+scene_path = "res://scenes/world/maps/GlassHollow.tscn"
+encounter_troops = Array[StringName]([&"wraith_trio", &"spectral_pair", &"twin_pair"])
+encounter_steps = 7

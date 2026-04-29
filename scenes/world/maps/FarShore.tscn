@@ -1,0 +1,102 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/OverworldMap.gd" id="1_map"]
+[ext_resource type="Script" path="res://scripts/world/SpawnPoint.gd" id="2_spawn"]
+[ext_resource type="Script" path="res://scripts/world/WarpTrigger.gd" id="3_warp"]
+[ext_resource type="PackedScene" path="res://scenes/world/NPC.tscn" id="4_npc"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/npc_innkeeper.svg" id="5_inn"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/npc_shopkeeper.svg" id="6_shop"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/npc_sage.svg" id="7_sage"]
+
+[node name="FarShore" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_map")
+grid_string = "####################
+#,,,,,,,,,,,,,,,,,,#
+#,,####,,,,,,####,,#
+#,,####,,,,,,####,,#
+#,,####,,,,,,####,,#
+#,,,,,,,D,D,D,,,,,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,~~~,,,,,,,,~~~,,#
+#,,~~~~~~~~~~~~~~,,#
+#,,~~~~~~~~~~~~~~,,#
+#,,,,,,,,DD,,,,,,,,#
+####################"
+map_id = &"far_shore"
+
+[node name="SpawnFromPlaza" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+spawn_id = &"from_plaza"
+grid_position = Vector2i(9, 12)
+facing = 3
+
+[node name="ExitToPlaza" type="Node2D" parent="."]
+script = ExtResource("3_warp")
+grid_position = Vector2i(8, 12)
+grid_size = Vector2i(2, 1)
+target_map_id = &"plaza"
+target_spawn_id = &"from_shore"
+
+[node name="SpawnFromHollow" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+spawn_id = &"from_hollow"
+grid_position = Vector2i(7, 6)
+facing = 0
+
+[node name="HollowEntrance" type="Node2D" parent="."]
+script = ExtResource("3_warp")
+grid_position = Vector2i(7, 5)
+grid_size = Vector2i(1, 1)
+target_map_id = &"glass_hollow"
+target_spawn_id = &"from_shore"
+
+[node name="SpawnFromCathedral" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+spawn_id = &"from_cathedral"
+grid_position = Vector2i(11, 6)
+facing = 0
+
+[node name="CathedralEntrance" type="Node2D" parent="."]
+script = ExtResource("3_warp")
+grid_position = Vector2i(11, 5)
+grid_size = Vector2i(1, 1)
+target_map_id = &"drowned_cathedral"
+target_spawn_id = &"from_shore"
+requires_flag = &"glass_wyrm_defeated"
+
+[node name="SpawnFromThrone" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+spawn_id = &"from_throne"
+grid_position = Vector2i(9, 6)
+facing = 0
+
+[node name="ThroneEntrance" type="Node2D" parent="."]
+script = ExtResource("3_warp")
+grid_position = Vector2i(9, 5)
+grid_size = Vector2i(1, 1)
+target_map_id = &"throne_of_names"
+target_spawn_id = &"from_shore"
+requires_flag = &"drowned_choir_reborn_defeated"
+
+[node name="Innkeeper" parent="." instance=ExtResource("4_npc")]
+npc_name = "Hostess Vana"
+grid_position = Vector2i(4, 3)
+lines = PackedStringArray("The Far Shore inn — sixty gold a bed. The sea takes care of the rest.")
+inn_cost = 60
+sprite_texture = ExtResource("5_inn")
+
+[node name="Shopkeeper" parent="." instance=ExtResource("4_npc")]
+npc_name = "Merchant Owain"
+grid_position = Vector2i(15, 3)
+lines = PackedStringArray("Nothing common — only what the sea brings up after a long winter.", "Take a look. The prices are fair, the gear is not.")
+shop_inventory = Array[StringName]([&"hi_potion", &"ether", &"phoenix_down", &"tincture", &"echo_herb", &"soft", &"crystal_edge", &"tide_sword", &"royal_saber", &"reflective_robe", &"ceremonial_plate", &"spectral_veil"])
+sprite_texture = ExtResource("6_shop")
+
+[node name="Sage" parent="." instance=ExtResource("4_npc")]
+npc_name = "Greybeard Issa"
+grid_position = Vector2i(9, 7)
+lines = PackedStringArray("This is the Far Shore. The kingdom does not know it exists. Only those who have already ended a kingdom may find their way here.", "There are three deep places south of here. The Glass Hollow — a wyrm sleeps in it. The Drowned Cathedral — a choir sings beneath it. And the Throne of Names — the kingdom's first king, before he was anyone, sits there.", "End them all and the kingdom may finally rest.")
+sprite_texture = ExtResource("7_sage")

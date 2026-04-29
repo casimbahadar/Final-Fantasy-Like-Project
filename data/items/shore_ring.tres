@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Item.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"shore_ring"
+display_name = "Shore Ring"
+description = "Worn at the Far Shore. Cool to the touch — and the cold spreads inward."
+kind = 3
+equip_slot = 3
+stackable = false
+max_stack = 1
+buy_price = 0
+sell_price = 600
+bonus_max_hp = 40
+bonus_max_mp = 30
+bonus_atk = 0
+bonus_def = 6
+bonus_mag = 0
+bonus_res = 4
+bonus_spd = 4
+bonus_luk = 0

@@ -32,7 +32,7 @@ func _ready() -> void:
 	else:
 		continue_button.grab_focus()
 
-	version_label.text = "v0.1.5 — 23 classes, subclass, 7 recruits, Boss Rush, Glass Tower, difficulty"
+	version_label.text = "v0.1.6 — Trial Hall, Far Shore, Riftgate, true ending, personal storylines"
 
 
 func _any_save_exists() -> bool:
@@ -72,6 +72,7 @@ func _on_new_game() -> void:
 	GameState.reset()
 	Party.clear()
 	Hunt.clear()
+	Mastery.clear()
 	Party.add_member(&"aldric")
 	Party.add_member(&"lyra")
 	Party.add_gold(100)

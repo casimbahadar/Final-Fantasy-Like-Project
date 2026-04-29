@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/OverworldMap.gd" id="1_map"]
+[ext_resource type="Script" path="res://scripts/world/SpawnPoint.gd" id="2_spawn"]
+[ext_resource type="Script" path="res://scripts/world/WarpTrigger.gd" id="3_warp"]
+[ext_resource type="Script" path="res://scripts/world/EncounterTrigger.gd" id="4_encounter"]
+[ext_resource type="PackedScene" path="res://scenes/world/Chest.tscn" id="5_chest"]
+
+[node name="GlassHollow" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_map")
+grid_string = "####################
+#,,,,,,,,,,,,,,,,,,#
+#,,####,,,,,,####,,#
+#,,####,,,,,,####,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,####,,,,,,####,,#
+#,,####,,,,,,####,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,####,,,,,,####,,#
+#,,####,,,,,,####,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,,,,,DD,,,,,,,,#
+####################"
+map_id = &"glass_hollow"
+
+[node name="SpawnFromShore" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+spawn_id = &"from_shore"
+grid_position = Vector2i(9, 12)
+facing = 3
+
+[node name="ExitToShore" type="Node2D" parent="."]
+script = ExtResource("3_warp")
+grid_position = Vector2i(8, 12)
+grid_size = Vector2i(2, 1)
+target_map_id = &"far_shore"
+target_spawn_id = &"from_hollow"
+
+[node name="ChestRing" parent="." instance=ExtResource("5_chest")]
+chest_id = &"hollow_shore_ring"
+grid_position = Vector2i(2, 8)
+item_id = &"shore_ring"
+item_count = 1
+
+[node name="ChestEthers" parent="." instance=ExtResource("5_chest")]
+chest_id = &"hollow_ethers"
+grid_position = Vector2i(17, 8)
+item_id = &"ether"
+item_count = 8
+
+[node name="WyrmTrigger" type="Node2D" parent="."]
+script = ExtResource("4_encounter")
+grid_position = Vector2i(9, 5)
+troop_id = &"glass_wyrm_boss"
+defeated_flag = &"glass_wyrm_defeated"
+intro_lines = PackedStringArray("Past glass-bone pillars the chamber widens.", "From the floor itself a long shape uncoils — translucent, edged, eyes like wet stones.", "\"You did not climb here for a fight,\" the Wyrm says, in a voice that scrapes. \"You climbed because there is nowhere else.\"", "It opens its mouth, and the air becomes glass.")
+intro_speaker = "The Glass Wyrm"

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MapData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/MapData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"riftgate"
+display_name = "The Riftgate"
+scene_path = "res://scenes/world/maps/Riftgate.tscn"
+encounter_troops = Array[StringName]([&"spawn_swarm", &"twin_pair", &"tomb_mix", &"wraith_trio", &"ember_crow_trio"])
+encounter_steps = 5

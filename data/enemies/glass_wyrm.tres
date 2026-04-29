@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Enemy.gd" id="1_script"]
+[ext_resource type="Resource" path="res://data/skills/attack.tres" id="2_sk0"]
+[ext_resource type="Resource" path="res://data/skills/glass_wyrm_breath.tres" id="3_sk1"]
+[ext_resource type="Resource" path="res://data/skills/wave.tres" id="4_sk2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/enemy_glass_wyrm.svg" id="5_sprite"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"glass_wyrm"
+display_name = "Glass Wyrm"
+battle_sprite = ExtResource("5_sprite")
+max_hp = 4500
+max_mp = 400
+atk = 40
+def = 28
+mag = 36
+res = 24
+spd = 14
+luk = 8
+xp_reward = 9999
+gold_reward = 9999
+drop_chance = 0.0
+skills = Array[Resource]([ExtResource("2_sk0"), ExtResource("3_sk1"), ExtResource("4_sk2")])
+element_modifiers = {1: 1.5, 5: 1.25, 4: 0.5, 6: 0.0}

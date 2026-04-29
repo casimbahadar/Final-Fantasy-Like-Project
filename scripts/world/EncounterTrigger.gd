@@ -7,6 +7,9 @@ extends Node2D
 @export var grid_position: Vector2i = Vector2i.ZERO
 @export var troop_id: StringName = &""
 @export var defeated_flag: StringName = &""
+## If set, beating this troop calls Mastery.unlock(this), unlocking the
+## capstone skill for the named class. Used by the Class Trials Hall.
+@export var mastery_class: StringName = &""
 ## Optional pre-fight dialogue. Lines are read sequentially.
 @export var intro_lines: PackedStringArray = PackedStringArray()
 @export var intro_speaker: String = ""
@@ -57,4 +60,5 @@ func _fire() -> void:
 		SceneRouter.battle_return_facing = _map.player.facing
 	# Tag the troop run so BattleManager can mark this trigger defeated on win.
 	SceneRouter.battle_victory_flag = defeated_flag
+	SceneRouter.battle_mastery_class = mastery_class
 	SceneRouter.go_to_battle(troop_id, _map.map_id)

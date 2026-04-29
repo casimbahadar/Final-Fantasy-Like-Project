@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Skill.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"capstone_pack_lord"
+display_name = "Pack Lord"
+description = "A phantom pack tears through every foe and rallies the wielder."
+mp_cost = 16
+target_kind = 1
+damage_kind = 0
+element = 0
+power = 28
+accuracy = 0.92
+crit_bonus = 0.1
+inflicts_status = &"atk_up"
+status_chance = 1.0

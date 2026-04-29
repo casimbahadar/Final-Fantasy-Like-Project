@@ -151,6 +151,62 @@ target_map_id = &"boss_rush"
 target_spawn_id = &"from_plaza"
 requires_flag = &"game_complete"
 
+[node name="SpawnFromTrialHall" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+spawn_id = &"from_trial_hall"
+grid_position = Vector2i(5, 9)
+facing = 3
+
+[node name="TrialHallPortal" type="Node2D" parent="."]
+script = ExtResource("3_warp")
+grid_position = Vector2i(5, 10)
+grid_size = Vector2i(1, 1)
+target_map_id = &"trial_hall"
+target_spawn_id = &"from_plaza"
+requires_flag = &"game_complete"
+
+[node name="SpawnFromShore" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+spawn_id = &"from_shore"
+grid_position = Vector2i(3, 9)
+facing = 3
+
+[node name="ShorePortal" type="Node2D" parent="."]
+script = ExtResource("3_warp")
+grid_position = Vector2i(3, 10)
+grid_size = Vector2i(1, 1)
+target_map_id = &"far_shore"
+target_spawn_id = &"from_plaza"
+requires_flag = &"game_complete"
+
+[node name="SpawnFromRift" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+spawn_id = &"from_rift"
+grid_position = Vector2i(8, 9)
+facing = 3
+
+[node name="RiftPortal" type="Node2D" parent="."]
+script = ExtResource("3_warp")
+grid_position = Vector2i(8, 10)
+grid_size = Vector2i(1, 1)
+target_map_id = &"riftgate"
+target_spawn_id = &"from_plaza"
+requires_flag = &"game_complete"
+
+[node name="SpawnFromTrueEnding" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+spawn_id = &"from_true_ending"
+grid_position = Vector2i(10, 5)
+facing = 0
+
+[node name="TrueEndingPortal" type="Node2D" parent="."]
+script = ExtResource("3_warp")
+grid_position = Vector2i(9, 5)
+grid_size = Vector2i(2, 1)
+target_map_id = &"the_last_page"
+target_spawn_id = &"from_plaza"
+requires_flag = &"true_ending_unlocked"
+
 [node name="Huntmaster" parent="." instance=ExtResource("4_npc")]
 npc_name = "Huntmaster Roen"
 grid_position = Vector2i(13, 4)

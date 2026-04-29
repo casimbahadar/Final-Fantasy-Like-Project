@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Enemy.gd" id="1_script"]
+[ext_resource type="Resource" path="res://data/skills/attack.tres" id="2_sk0"]
+[ext_resource type="Resource" path="res://data/skills/drowned_anthem.tres" id="3_sk1"]
+[ext_resource type="Resource" path="res://data/skills/wave.tres" id="4_sk2"]
+[ext_resource type="Resource" path="res://data/skills/blizzard.tres" id="5_sk3"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/enemy_drowned_choir_reborn.svg" id="6_sprite"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"drowned_choir_reborn"
+display_name = "Drowned Choir Reborn"
+battle_sprite = ExtResource("6_sprite")
+max_hp = 5800
+max_mp = 800
+atk = 36
+def = 26
+mag = 44
+res = 30
+spd = 13
+luk = 8
+xp_reward = 9999
+gold_reward = 9999
+drop_chance = 0.0
+skills = Array[Resource]([ExtResource("2_sk0"), ExtResource("3_sk1"), ExtResource("4_sk2"), ExtResource("5_sk3")])
+element_modifiers = {4: 0.0, 1: 1.5, 3: 1.25}

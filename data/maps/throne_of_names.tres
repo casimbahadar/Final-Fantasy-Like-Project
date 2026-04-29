@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MapData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/MapData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"throne_of_names"
+display_name = "Throne of Names"
+scene_path = "res://scenes/world/maps/ThroneOfNames.tscn"
+encounter_troops = Array[StringName]([&"courtier_knight", &"tomb_champion_pair", &"tomb_mix"])
+encounter_steps = 6

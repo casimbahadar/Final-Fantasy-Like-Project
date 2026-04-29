@@ -1,0 +1,245 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/OverworldMap.gd" id="1_map"]
+[ext_resource type="Script" path="res://scripts/world/SpawnPoint.gd" id="2_spawn"]
+[ext_resource type="Script" path="res://scripts/world/WarpTrigger.gd" id="3_warp"]
+[ext_resource type="Script" path="res://scripts/world/EncounterTrigger.gd" id="4_encounter"]
+
+[node name="TrialHall" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_map")
+grid_string = "########################
+#......................#
+#......................#
+#......................#
+#......................#
+#......................#
+#......................#
+#......................#
+#......................#
+#......................#
+#......................#
+#......................#
+#..........,,..........#
+###########DD###########"
+map_id = &"trial_hall"
+
+[node name="SpawnFromPlaza" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+spawn_id = &"from_plaza"
+grid_position = Vector2i(12, 12)
+facing = 3
+
+[node name="ExitToPlaza" type="Node2D" parent="."]
+script = ExtResource("3_warp")
+grid_position = Vector2i(11, 13)
+grid_size = Vector2i(2, 1)
+target_map_id = &"plaza"
+target_spawn_id = &"from_trial_hall"
+
+[node name="Trial1_warrior" type="Node2D" parent="."]
+script = ExtResource("4_encounter")
+grid_position = Vector2i(3, 3)
+troop_id = &"skeletal_champion_mini"
+defeated_flag = &"trial_warrior_done"
+mastery_class = &"warrior"
+intro_lines = PackedStringArray("A challenge for warriors only — take down the Skeletal Champion's reflection.", "(A trial of the warrior.)")
+intro_speaker = "The Trial Master"
+
+[node name="Trial2_mage" type="Node2D" parent="."]
+script = ExtResource("4_encounter")
+grid_position = Vector2i(6, 3)
+troop_id = &"wraith_trio"
+defeated_flag = &"trial_mage_done"
+mastery_class = &"mage"
+intro_lines = PackedStringArray("Three wraiths drawn from old spells. Show the mage's discipline.", "(A trial of the mage.)")
+intro_speaker = "The Trial Master"
+
+[node name="Trial3_rogue" type="Node2D" parent="."]
+script = ExtResource("4_encounter")
+grid_position = Vector2i(9, 3)
+troop_id = &"bandit_pair"
+defeated_flag = &"trial_rogue_done"
+mastery_class = &"rogue"
+intro_lines = PackedStringArray("Bandits in a back alley. Show the rogue's footwork.", "(A trial of the rogue.)")
+intro_speaker = "The Trial Master"
+
+[node name="Trial4_cleric" type="Node2D" parent="."]
+script = ExtResource("4_encounter")
+grid_position = Vector2i(12, 3)
+troop_id = &"drowned_acolyte_pair"
+defeated_flag = &"trial_cleric_done"
+mastery_class = &"cleric"
+intro_lines = PackedStringArray("Drowned acolytes who lost the prayer. Sing it back, cleric.", "(A trial of the cleric.)")
+intro_speaker = "The Trial Master"
+
+[node name="Trial5_dragoon" type="Node2D" parent="."]
+script = ExtResource("4_encounter")
+grid_position = Vector2i(15, 3)
+troop_id = &"wyvern_mini"
+defeated_flag = &"trial_dragoon_done"
+mastery_class = &"dragoon"
+intro_lines = PackedStringArray("A wyvern that remembered the high passes. Land on it cleanly.", "(A trial of the dragoon.)")
+intro_speaker = "The Trial Master"
+
+[node name="Trial6_berserker" type="Node2D" parent="."]
+script = ExtResource("4_encounter")
+grid_position = Vector2i(18, 3)
+troop_id = &"mire_pair"
+defeated_flag = &"trial_berserker_done"
+mastery_class = &"berserker"
+intro_lines = PackedStringArray("Two wretches that rage at the world. Rage harder.", "(A trial of the berserker.)")
+intro_speaker = "The Trial Master"
+
+[node name="Trial7_monk" type="Node2D" parent="."]
+script = ExtResource("4_encounter")
+grid_position = Vector2i(3, 6)
+troop_id = &"harpy_pair"
+defeated_flag = &"trial_monk_done"
+mastery_class = &"monk"
+intro_lines = PackedStringArray("Harpies move quickly. Move quicker.", "(A trial of the monk.)")
+intro_speaker = "The Trial Master"
+
+[node name="Trial8_necromancer" type="Node2D" parent="."]
+script = ExtResource("4_encounter")
+grid_position = Vector2i(6, 6)
+troop_id = &"wraith_skeleton"
+defeated_flag = &"trial_necromancer_done"
+mastery_class = &"necromancer"
+intro_lines = PackedStringArray("Whisper to them, listener. They forget very fast.", "(A trial of the necromancer.)")
+intro_speaker = "The Trial Master"
+
+[node name="Trial9_paladin" type="Node2D" parent="."]
+script = ExtResource("4_encounter")
+grid_position = Vector2i(9, 6)
+troop_id = &"spectral_pair"
+defeated_flag = &"trial_paladin_done"
+mastery_class = &"paladin"
+intro_lines = PackedStringArray("Two spectres unbound. Bind them in light.", "(A trial of the paladin.)")
+intro_speaker = "The Trial Master"
+
+[node name="Trial10_bard" type="Node2D" parent="."]
+script = ExtResource("4_encounter")
+grid_position = Vector2i(12, 6)
+troop_id = &"courtier_pair"
+defeated_flag = &"trial_bard_done"
+mastery_class = &"bard"
+intro_lines = PackedStringArray("Court ghosts hum in the wrong key. Drown them in the right one.", "(A trial of the bard.)")
+intro_speaker = "The Trial Master"
+
+[node name="Trial11_ranger" type="Node2D" parent="."]
+script = ExtResource("4_encounter")
+grid_position = Vector2i(15, 6)
+troop_id = &"wisp_trio"
+defeated_flag = &"trial_ranger_done"
+mastery_class = &"ranger"
+intro_lines = PackedStringArray("Three wisps in a wood that should not be wooded. Mark them.", "(A trial of the ranger.)")
+intro_speaker = "The Trial Master"
+
+[node name="Trial12_samurai" type="Node2D" parent="."]
+script = ExtResource("4_encounter")
+grid_position = Vector2i(18, 6)
+troop_id = &"lone_dead_knight"
+defeated_flag = &"trial_samurai_done"
+mastery_class = &"samurai"
+intro_lines = PackedStringArray("A dead knight, finely armoured. End him in one cut, samurai.", "(A trial of the samurai.)")
+intro_speaker = "The Trial Master"
+
+[node name="Trial13_geomancer" type="Node2D" parent="."]
+script = ExtResource("4_encounter")
+grid_position = Vector2i(3, 9)
+troop_id = &"forest_pair"
+defeated_flag = &"trial_geomancer_done"
+mastery_class = &"geomancer"
+intro_lines = PackedStringArray("The wood disagrees with you. Disagree harder.", "(A trial of the geomancer.)")
+intro_speaker = "The Trial Master"
+
+[node name="Trial14_beastmaster" type="Node2D" parent="."]
+script = ExtResource("4_encounter")
+grid_position = Vector2i(6, 9)
+troop_id = &"lone_goblin"
+defeated_flag = &"trial_beastmaster_done"
+mastery_class = &"beastmaster"
+intro_lines = PackedStringArray("A pack-leader goblin with too many followers. Be the bigger pack.", "(A trial of the beastmaster.)")
+intro_speaker = "The Trial Master"
+
+[node name="Trial15_time_mage" type="Node2D" parent="."]
+script = ExtResource("4_encounter")
+grid_position = Vector2i(9, 9)
+troop_id = &"harpy_pair"
+defeated_flag = &"trial_time_mage_done"
+mastery_class = &"time_mage"
+intro_lines = PackedStringArray("Two harpies very fast. Be faster than them with no movement at all.", "(A trial of the time mage.)")
+intro_speaker = "The Trial Master"
+
+[node name="Trial16_spellblade" type="Node2D" parent="."]
+script = ExtResource("4_encounter")
+grid_position = Vector2i(12, 9)
+troop_id = &"courtier_knight"
+defeated_flag = &"trial_spellblade_done"
+mastery_class = &"spellblade"
+intro_lines = PackedStringArray("A knight who reads spells. Cut through both.", "(A trial of the spellblade.)")
+intro_speaker = "The Trial Master"
+
+[node name="Trial17_assassin" type="Node2D" parent="."]
+script = ExtResource("4_encounter")
+grid_position = Vector2i(15, 9)
+troop_id = &"twin_pair"
+defeated_flag = &"trial_assassin_done"
+mastery_class = &"assassin"
+intro_lines = PackedStringArray("Two twins of yourselves. End them before they end you.", "(A trial of the assassin.)")
+intro_speaker = "The Trial Master"
+
+[node name="Trial18_dark_knight" type="Node2D" parent="."]
+script = ExtResource("4_encounter")
+grid_position = Vector2i(18, 9)
+troop_id = &"lone_dead_knight"
+defeated_flag = &"trial_dark_knight_done"
+mastery_class = &"dark_knight"
+intro_lines = PackedStringArray("A dead knight; black blade. Show him a darker one.", "(A trial of the dark knight.)")
+intro_speaker = "The Trial Master"
+
+[node name="Trial19_summoner" type="Node2D" parent="."]
+script = ExtResource("4_encounter")
+grid_position = Vector2i(3, 12)
+troop_id = &"wraith_trio"
+defeated_flag = &"trial_summoner_done"
+mastery_class = &"summoner"
+intro_lines = PackedStringArray("Three wraiths to call against. Call back.", "(A trial of the summoner.)")
+intro_speaker = "The Trial Master"
+
+[node name="Trial20_chemist" type="Node2D" parent="."]
+script = ExtResource("4_encounter")
+grid_position = Vector2i(6, 12)
+troop_id = &"ember_crow_trio"
+defeated_flag = &"trial_chemist_done"
+mastery_class = &"chemist"
+intro_lines = PackedStringArray("Crows who have tasted ash. Remind them of water.", "(A trial of the chemist.)")
+intro_speaker = "The Trial Master"
+
+[node name="Trial21_dancer" type="Node2D" parent="."]
+script = ExtResource("4_encounter")
+grid_position = Vector2i(9, 12)
+troop_id = &"ember_crow_trio"
+defeated_flag = &"trial_dancer_done"
+mastery_class = &"dancer"
+intro_lines = PackedStringArray("Three crows. Set their rhythm and they will fall.", "(A trial of the dancer.)")
+intro_speaker = "The Trial Master"
+
+[node name="Trial22_crystal_knight" type="Node2D" parent="."]
+script = ExtResource("4_encounter")
+grid_position = Vector2i(12, 12)
+troop_id = &"crystal_sentinel_mini"
+defeated_flag = &"trial_crystal_knight_done"
+mastery_class = &"crystal_knight"
+intro_lines = PackedStringArray("The Sentinel walks again, crystal-cracked. Reset it.", "(A trial of the crystal knight.)")
+intro_speaker = "The Trial Master"
+
+[node name="Trial23_grave_singer" type="Node2D" parent="."]
+script = ExtResource("4_encounter")
+grid_position = Vector2i(15, 12)
+troop_id = &"wraith_skeleton"
+defeated_flag = &"trial_grave_singer_done"
+mastery_class = &"grave_singer"
+intro_lines = PackedStringArray("Two who are not finished dying. Finish the song for them.", "(A trial of the grave singer.)")
+intro_speaker = "The Trial Master"

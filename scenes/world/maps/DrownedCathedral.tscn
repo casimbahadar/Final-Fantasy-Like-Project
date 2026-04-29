@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/OverworldMap.gd" id="1_map"]
+[ext_resource type="Script" path="res://scripts/world/SpawnPoint.gd" id="2_spawn"]
+[ext_resource type="Script" path="res://scripts/world/WarpTrigger.gd" id="3_warp"]
+[ext_resource type="Script" path="res://scripts/world/EncounterTrigger.gd" id="4_encounter"]
+[ext_resource type="PackedScene" path="res://scenes/world/Chest.tscn" id="5_chest"]
+
+[node name="DrownedCathedral" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_map")
+grid_string = "####################
+#,,,,,,,,,,,,,,,,,,#
+#,,~~~~,,,,,,~~~~,,#
+#,,~~~~,,,,,,~~~~,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,~~~~,,,,,,~~~~,,#
+#,,~~~~,,,,,,~~~~,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,~~~~,,,,,,~~~~,,#
+#,,~~~~,,,,,,~~~~,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,,,,,DD,,,,,,,,#
+####################"
+map_id = &"drowned_cathedral"
+
+[node name="SpawnFromShore" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+spawn_id = &"from_shore"
+grid_position = Vector2i(9, 12)
+facing = 3
+
+[node name="ExitToShore" type="Node2D" parent="."]
+script = ExtResource("3_warp")
+grid_position = Vector2i(8, 12)
+grid_size = Vector2i(2, 1)
+target_map_id = &"far_shore"
+target_spawn_id = &"from_cathedral"
+
+[node name="ChestRobe" parent="." instance=ExtResource("5_chest")]
+chest_id = &"cathedral_anthem_robe"
+grid_position = Vector2i(9, 8)
+item_id = &"anthem_robe"
+item_count = 1
+
+[node name="ChestPhoenix" parent="." instance=ExtResource("5_chest")]
+chest_id = &"cathedral_phoenix"
+grid_position = Vector2i(2, 4)
+item_id = &"phoenix_down"
+item_count = 6
+
+[node name="ChoirTrigger" type="Node2D" parent="."]
+script = ExtResource("4_encounter")
+grid_position = Vector2i(9, 5)
+troop_id = &"drowned_choir_reborn_boss"
+defeated_flag = &"drowned_choir_reborn_defeated"
+intro_lines = PackedStringArray("The cathedral floor is half-flooded — knee-deep saltwater that does not move.", "From every pew a robed figure stands. The hood at the centre opens, and the Choir is not one voice but every voice that ever sang here.", "Mira, very softly: \"They never stopped.\"", "Lyra: \"Then we make them stop.\"")
+intro_speaker = "The Drowned Choir Reborn"

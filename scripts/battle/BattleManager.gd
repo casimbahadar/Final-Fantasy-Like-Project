@@ -422,6 +422,9 @@ func _enter_victory() -> void:
 	if SceneRouter.battle_victory_flag != &"":
 		GameState.set_flag(SceneRouter.battle_victory_flag, true)
 		SceneRouter.battle_victory_flag = &""
+	if SceneRouter.battle_mastery_class != &"":
+		Mastery.unlock(SceneRouter.battle_mastery_class)
+		SceneRouter.battle_mastery_class = &""
 	var xp_total := 0
 	var gold_total := 0
 	var drops: Array[StringName] = []

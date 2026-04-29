@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Enemy.gd" id="1_script"]
+[ext_resource type="Resource" path="res://data/skills/attack.tres" id="2_sk0"]
+[ext_resource type="Resource" path="res://data/skills/name_strike.tres" id="3_sk1"]
+[ext_resource type="Resource" path="res://data/skills/first_word.tres" id="4_sk2"]
+[ext_resource type="Resource" path="res://data/skills/judgment.tres" id="5_sk3"]
+[ext_resource type="Resource" path="res://data/skills/holy.tres" id="6_sk4"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/enemy_auren_first.svg" id="7_sprite"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"auren_first"
+display_name = "Auren First"
+battle_sprite = ExtResource("7_sprite")
+max_hp = 9000
+max_mp = 1200
+atk = 52
+def = 38
+mag = 48
+res = 34
+spd = 17
+luk = 12
+xp_reward = 9999
+gold_reward = 9999
+drop_chance = 0.0
+skills = Array[Resource]([ExtResource("2_sk0"), ExtResource("3_sk1"), ExtResource("4_sk2"), ExtResource("5_sk3"), ExtResource("6_sk4")])
+element_modifiers = {7: 0.5, 8: 0.5, 1: 0.75, 5: 0.75}

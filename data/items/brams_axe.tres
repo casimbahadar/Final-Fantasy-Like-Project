@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Item.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"brams_axe"
+display_name = "Bram's Axe"
+description = "A two-headed axe Bram lost in the cave-in years ago. He's pleased to have it back."
+kind = 1
+equip_slot = 1
+stackable = false
+max_stack = 1
+buy_price = 0
+sell_price = 1200
+bonus_max_hp = 28
+bonus_max_mp = 0
+bonus_atk = 30
+bonus_def = 0
+bonus_mag = 4
+bonus_res = 0
+bonus_spd = 0
+bonus_luk = 4

@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/OverworldMap.gd" id="1_map"]
+[ext_resource type="Script" path="res://scripts/world/SpawnPoint.gd" id="2_spawn"]
+[ext_resource type="Script" path="res://scripts/world/WarpTrigger.gd" id="3_warp"]
+[ext_resource type="Script" path="res://scripts/world/EndingTrigger.gd" id="5_reward"]
+[ext_resource type="PackedScene" path="res://scenes/world/NPC.tscn" id="6_npc"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/npc_sage.svg" id="7_sage"]
+
+[node name="Riftgate" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_map")
+grid_string = "####################
+#,,,,,,,,,,,,,,,,,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,,,,,DD,,,,,,,,#
+####################"
+map_id = &"riftgate"
+
+[node name="SpawnFromPlaza" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+spawn_id = &"from_plaza"
+grid_position = Vector2i(9, 12)
+facing = 3
+
+[node name="ExitToPlaza" type="Node2D" parent="."]
+script = ExtResource("3_warp")
+grid_position = Vector2i(8, 12)
+grid_size = Vector2i(2, 1)
+target_map_id = &"plaza"
+target_spawn_id = &"from_rift"
+
+[node name="Riftkeeper" parent="." instance=ExtResource("6_npc")]
+npc_name = "The Riftkeeper"
+grid_position = Vector2i(9, 3)
+lines = PackedStringArray("This is the Riftgate. Each step on the grass behind me draws a different troop from a different corner of the kingdom.", "Walk it long enough and the rifts pay you in coin and gear. Walk it too long and they take it back.")
+sprite_texture = ExtResource("7_sage")
+
+[node name="RiftLoot" type="Node2D" parent="."]
+script = ExtResource("5_reward")
+grid_position = Vector2i(2, 6)
+sets_flag = &"rift_loot_claimed_once"
+grants_gold = 8000
+grants_item = &"phoenix_down"
+grants_item_count = 6
+speaker = "The Riftkeeper"
+lines = PackedStringArray("A small purse sits on the bare floor — a gift from whichever rift you crossed last.", "(Got 6 Phoenix Downs and 8000 gold!)")
