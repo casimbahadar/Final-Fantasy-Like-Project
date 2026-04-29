@@ -72,4 +72,4 @@ target_spawn_id = &"north_arrival"
 [node name="Intro" type="Node" parent="."]
 script = ExtResource("8_intro")
 seen_flag = &"seen_intro"
-lines = PackedStringArray("(Year 248 of the Crystal Calendar.)", "The kingdom of Eyl has stood for two centuries. The Crystals that gave it life are dying.", "Crystals that once sang now wither. Towns fall silent. The king sleeps.", "Two travelers reach the last whole town.", "Aldric, a knight without a kingdom. Lyra, a scholar of forgotten magics.", "They alone know the source of the Plague — and the only way to end it.")
+lines = PackedStringArray("(Year 248 of the Crystal Calendar.)", "The kingdom of Auren has stood for two centuries. The Crystals that gave it life are dying.", "Crystals that once sang now wither. Towns fall silent. The king sleeps.", "Two travelers reach the last whole town.", "Aldric, a knight without a kingdom. Lyra, a scholar of forgotten magics.", "They alone know the source of the Plague — and the only way to end it.")

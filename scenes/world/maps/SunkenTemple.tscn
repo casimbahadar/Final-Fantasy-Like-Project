@@ -62,7 +62,7 @@ script = ExtResource("4_encounter")
 grid_position = Vector2i(9, 5)
 troop_id = &"hollow_king_boss"
 defeated_flag = &"hollow_king_defeated"
-intro_lines = PackedStringArray("On a throne of bone-white stone sits the long-dead king of Eyl.", "He raises his head as you enter. His eyes are two pits of cold green light.", "\"You found me. The Heart found me. I have been waiting so long...\"", "\"Then come. Come and lay your sovereign down.\"")
+intro_lines = PackedStringArray("On a throne of bone-white stone sits the long-dead king of Auren.", "He raises his head as you enter. His eyes are two pits of cold green light.", "\"You found me. The Heart found me. I have been waiting so long...\"", "\"Then come. Come and lay your sovereign down.\"")
 intro_speaker = "The Hollow King"
 
 [node name="Aila" type="Node2D" parent="."]

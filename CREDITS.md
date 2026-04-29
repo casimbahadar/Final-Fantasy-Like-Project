@@ -1,6 +1,6 @@
 # Credits & Attributions
 
-**Last Light of Eyl** is built on a foundation of free / open-licensed assets. This file lists every piece of media used and the license terms under which it ships. If you replace placeholders with new content, **update this file at the same time** — license compliance is much easier when you do it as you go.
+**Last Light of Auren** is built on a foundation of free / open-licensed assets. This file lists every piece of media used and the license terms under which it ships. If you replace placeholders with new content, **update this file at the same time** — license compliance is much easier when you do it as you go.
 
 ---
 
@@ -62,7 +62,7 @@ Godot's bundled default font (Noto Sans). License: SIL Open Font License 1.1.
 
 ## Story / writing
 
-© 2026 (project author). All character names, place names, and dialogue: original work for this project. Names of note: *Aldric, Lyra, Kael, Sister Mira, Garrick, Brenna, the Crystal Wraith, the Hollow King, the kingdom of Eyl, Brighthollow, the Whispering Wood, the Sunken Temple, the Crystal Plague, the Crystal Heart*.
+© 2026 (project author). All character names, place names, and dialogue: original work for this project. Names of note: *Aldric, Lyra, Kael, Sister Mira, Garrick, Brenna, the Crystal Wraith, the Hollow King, the kingdom of Auren, Brighthollow, the Whispering Wood, the Sunken Temple, the Crystal Plague, the Crystal Heart*.
 
 ---
 
