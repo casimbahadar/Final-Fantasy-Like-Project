@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges">
+  <!-- Reflection shimmer -->
+  <rect x="6" y="6" width="20" height="22" fill="#5a3a78" opacity="0.3"/>
+  <!-- Body (humanoid silhouette, dark) -->
+  <rect x="10" y="4" width="12" height="6" fill="#1a0820"/>
+  <rect x="9" y="6" width="14" height="4" fill="#2a1030"/>
+  <!-- "Hollow" face (white emptiness) -->
+  <rect x="11" y="5" width="10" height="4" fill="#e8e0f0"/>
+  <rect x="13" y="6" width="2" height="2" fill="#1a0820"/>
+  <rect x="17" y="6" width="2" height="2" fill="#1a0820"/>
+  <!-- No mouth (smooth blank) -->
+  <!-- Body / inverse-color cloak -->
+  <rect x="9" y="10" width="14" height="14" fill="#2a1030"/>
+  <rect x="10" y="11" width="12" height="2" fill="#5a3a78"/>
+  <!-- Inverted-color sword (dark/light flip) -->
+  <rect x="2" y="14" width="2" height="10" fill="#5a3a78"/>
+  <rect x="0" y="13" width="6" height="2" fill="#3a2050"/>
+  <!-- Mirror crack on chest -->
+  <rect x="14" y="14" width="1" height="3" fill="#a0a0c0"/>
+  <rect x="15" y="17" width="2" height="1" fill="#a0a0c0"/>
+  <rect x="17" y="14" width="1" height="2" fill="#a0a0c0"/>
+  <!-- Tendrils trailing -->
+  <rect x="6" y="22" width="2" height="6" fill="#2a1030" opacity="0.7"/>
+  <rect x="24" y="22" width="2" height="6" fill="#2a1030" opacity="0.7"/>
+  <!-- Legs -->
+  <rect x="11" y="24" width="3" height="6" fill="#1a0820"/>
+  <rect x="18" y="24" width="3" height="6" fill="#1a0820"/>
+  <!-- Floor reflection -->
+  <rect x="8" y="30" width="16" height="2" fill="#5a3a78" opacity="0.4"/>
+</svg>

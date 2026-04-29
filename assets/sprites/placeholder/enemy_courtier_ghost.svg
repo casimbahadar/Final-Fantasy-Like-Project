@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges">
+  <!-- Trail (translucent) -->
+  <rect x="10" y="24" width="12" height="6" fill="#a0a8c0" opacity="0.4"/>
+  <rect x="12" y="28" width="8" height="2" fill="#a0a8c0" opacity="0.3"/>
+  <!-- Powdered wig -->
+  <rect x="10" y="2" width="12" height="4" fill="#e0e0d0"/>
+  <rect x="9" y="3" width="2" height="6" fill="#e0e0d0"/>
+  <rect x="21" y="3" width="2" height="6" fill="#e0e0d0"/>
+  <!-- Hollow face -->
+  <rect x="11" y="6" width="10" height="6" fill="#c0a890"/>
+  <rect x="13" y="8" width="2" height="2" fill="#1a1015"/>
+  <rect x="17" y="8" width="2" height="2" fill="#1a1015"/>
+  <rect x="13" y="8" width="1" height="1" fill="#a8e860"/>
+  <rect x="17" y="8" width="1" height="1" fill="#a8e860"/>
+  <!-- Painted smile -->
+  <rect x="13" y="11" width="6" height="1" fill="#a04060"/>
+  <!-- Aristocratic ruff -->
+  <rect x="9" y="12" width="14" height="3" fill="#e0e0d0"/>
+  <rect x="10" y="13" width="12" height="1" fill="#a0a0c0"/>
+  <!-- Coat (purple noble) -->
+  <rect x="10" y="15" width="12" height="11" fill="#5a3070"/>
+  <rect x="11" y="16" width="10" height="2" fill="#7a5090"/>
+  <!-- Gold trim -->
+  <rect x="14" y="15" width="4" height="11" fill="#f5d76e"/>
+  <rect x="15" y="15" width="2" height="11" fill="#a08020"/>
+  <!-- Sleeves -->
+  <rect x="6" y="16" width="4" height="8" fill="#5a3070"/>
+  <rect x="22" y="16" width="4" height="8" fill="#5a3070"/>
+  <!-- Skeletal hand -->
+  <rect x="3" y="21" width="3" height="3" fill="#e8e0d0"/>
+  <rect x="26" y="21" width="3" height="3" fill="#e8e0d0"/>
+  <!-- Rapier -->
+  <rect x="0" y="22" width="3" height="1" fill="#a0a0b0"/>
+  <rect x="0" y="20" width="2" height="1" fill="#5a3210"/>
+  <!-- Tail of coat -->
+  <rect x="10" y="26" width="12" height="2" fill="#3a2050"/>
+</svg>

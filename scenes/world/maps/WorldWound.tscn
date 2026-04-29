@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/OverworldMap.gd" id="1_map"]
+[ext_resource type="Script" path="res://scripts/world/SpawnPoint.gd" id="2_spawn"]
+[ext_resource type="Script" path="res://scripts/world/EncounterTrigger.gd" id="3_encounter"]
+[ext_resource type="Script" path="res://scripts/world/EndingTrigger.gd" id="4_story"]
+[ext_resource type="PackedScene" path="res://scenes/world/Chest.tscn" id="5_chest"]
+
+[node name="WorldWound" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_map")
+grid_string = "####################
+#,,,,,,,,,,,,,,,,,,#
+#,,##############,,#
+#,,#............#,,#
+#,,#............#,,#
+#,,#............#,,#
+#,,#............#,,#
+#,,#............#,,#
+#,,######..######,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,~~~~,,,,~~~~,,#
+#,,,,~~~~,,,,~~~~,,#
+#,,,,,,,,,,,,,,,,,,#
+####################"
+map_id = &"world_wound"
+
+[node name="SpawnFromCourt" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+spawn_id = &"from_court"
+grid_position = Vector2i(9, 12)
+facing = 3
+
+[node name="ChestCrystalEdge" parent="." instance=ExtResource("5_chest")]
+chest_id = &"wound_crystal_edge"
+grid_position = Vector2i(2, 9)
+item_id = &"crystal_edge"
+item_count = 1
+
+[node name="ChestRobe" parent="." instance=ExtResource("5_chest")]
+chest_id = &"wound_reflective_robe"
+grid_position = Vector2i(17, 9)
+item_id = &"reflective_robe"
+item_count = 1
+
+[node name="PlagueTrigger" type="Node2D" parent="."]
+script = ExtResource("3_encounter")
+grid_position = Vector2i(9, 5)
+troop_id = &"first_plague_boss"
+defeated_flag = &"first_plague_defeated"
+intro_lines = PackedStringArray("The wound opens beneath you and goes on, and on, and on.", "At the bottom — at the deepest, last bottom — something with too many eyes lifts itself toward you.", "It speaks with the voice of the Wraith, and the Hollow King, and the Stormwyrm, and the Choir.", "\"You broke me into pieces and you killed each piece. Charming. Now meet the source. There is no breaking it. There is only feeding it, or being fed.\"", "Mira whispers, voice steady: \"There's a third option.\"")
+intro_speaker = "The First Plague"
+
+[node name="ToSurface" type="Node2D" parent="."]
+script = ExtResource("4_story")
+grid_position = Vector2i(9, 3)
+requires_flag = &"first_plague_defeated"
+sets_flag = &"chapter_7_complete"
+warp_target_map = &"sovereign_arena"
+warp_target_spawn = &"from_wound"
+speaker = "Aldric"
+lines = PackedStringArray("As the First Plague unspools, what is left is a single, very small voice — a child's voice, almost.", "\"...thank you. Tell him. Tell him I am tired.\"", "Aldric closes his eyes a long moment. \"Him?\"", "Tessera, looking up: \"Someone is waiting for us at the top of the wound.\"", "(The party climbs back to the surface — to a place they did not put on any map.)")
+lines_locked = PackedStringArray("Below you, the wound goes on. There is no upward path until the source is dealt with.")

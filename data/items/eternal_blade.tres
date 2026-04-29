@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Item.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"eternal_blade"
+display_name = "Eternal Blade"
+description = "A weapon older than the kingdom. It does not so much cut as remember."
+kind = 1
+equip_slot = 1
+stackable = false
+max_stack = 1
+buy_price = 0
+sell_price = 1500
+bonus_atk = 32
+bonus_mag = 8
+bonus_max_hp = 50
+bonus_luk = 5

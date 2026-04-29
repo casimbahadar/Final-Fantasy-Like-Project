@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Skill.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"eternal_judgment"
+display_name = "Eternal Judgment"
+description = "Pure, ancient light. Massive holy damage to one foe."
+mp_cost = 0
+target_kind = 0
+damage_kind = 1
+element = 7
+power = 38
+accuracy = 0.95
+crit_bonus = 0.1

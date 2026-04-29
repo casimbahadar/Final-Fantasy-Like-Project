@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/OverworldMap.gd" id="1_map"]
+[ext_resource type="Script" path="res://scripts/world/SpawnPoint.gd" id="2_spawn"]
+[ext_resource type="Script" path="res://scripts/world/EncounterTrigger.gd" id="3_encounter"]
+[ext_resource type="Script" path="res://scripts/world/EndingTrigger.gd" id="4_story"]
+[ext_resource type="PackedScene" path="res://scenes/world/Chest.tscn" id="5_chest"]
+
+[node name="HollowCourt" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_map")
+grid_string = "####################
+#,,,,,,,,,,,,,,,,,,#
+#,,##############,,#
+#,,#............#,,#
+#,,#............#,,#
+#,,#............#,,#
+#,,#............#,,#
+#,,#............#,,#
+#,,######..######,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,####,,,,####,,,#
+#,,,####,,,,####,,,#
+#,,,,,,,,,,,,,,,,,,#
+####################"
+map_id = &"hollow_court"
+
+[node name="SpawnFromCoast" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+spawn_id = &"from_coast"
+grid_position = Vector2i(9, 12)
+facing = 3
+
+[node name="ChestRoyal" parent="." instance=ExtResource("5_chest")]
+chest_id = &"court_royal_saber"
+grid_position = Vector2i(2, 9)
+item_id = &"royal_saber"
+item_count = 1
+
+[node name="ChestPlate" parent="." instance=ExtResource("5_chest")]
+chest_id = &"court_ceremonial_plate"
+grid_position = Vector2i(17, 9)
+item_id = &"ceremonial_plate"
+item_count = 1
+
+[node name="PretenderTrigger" type="Node2D" parent="."]
+script = ExtResource("3_encounter")
+grid_position = Vector2i(9, 5)
+troop_id = &"pretender_king_boss"
+defeated_flag = &"pretender_king_defeated"
+intro_lines = PackedStringArray("The throne room of old Auren — colder than the temple, wider than memory.", "On the throne sits a figure in a king's mask. Two knights kneel before him.", "The mask turns to you. The voice that comes out is not one voice.", "\"You opened my door. You came so I would not have to walk far. Sit, my children. Sit and let me anoint you.\"", "Aldric draws his sword. \"You are not the king of Auren. The king of Auren is dead.\"", "\"...so am I,\" the Pretender says, and rises.")
+intro_speaker = "The Pretender"
+
+[node name="WoundDescent" type="Node2D" parent="."]
+script = ExtResource("4_story")
+grid_position = Vector2i(9, 3)
+requires_flag = &"pretender_king_defeated"
+sets_flag = &"chapter_6_complete"
+warp_target_map = &"world_wound"
+warp_target_spawn = &"from_court"
+speaker = "Lyra"
+lines = PackedStringArray("As the Pretender's mask cracks open, no face is beneath it — only a long, deep darkness, like a well dug clean through the world.", "From within, a voice that nearly whispers: \"...come down, then. Come and see what you have actually been fighting.\"", "Lyra puts her hand on the throne. The stone is warm. \"It's a wound. Not a place. We have to go in.\"", "Kael laughs once, without humour. \"Of course we do.\"", "(The party climbs down into the World's Wound.)")
+lines_locked = PackedStringArray("The throne hums. The mask watches. There is no path down yet.")

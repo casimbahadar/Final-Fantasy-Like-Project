@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" shape-rendering="crispEdges">
+  <!-- Underwater glow -->
+  <rect x="0" y="20" width="64" height="44" fill="#2a4868" opacity="0.4"/>
+  <rect x="0" y="40" width="64" height="24" fill="#1a3858" opacity="0.5"/>
+  <!-- Many heads in a vertical column (the "choir") -->
+  <!-- Top head -->
+  <rect x="26" y="2" width="12" height="9" fill="#a0b8c0"/>
+  <rect x="27" y="3" width="10" height="2" fill="#c0d0d8"/>
+  <rect x="28" y="6" width="2" height="2" fill="#1a1015"/>
+  <rect x="34" y="6" width="2" height="2" fill="#1a1015"/>
+  <rect x="28" y="6" width="1" height="1" fill="#a8e860"/>
+  <rect x="34" y="6" width="1" height="1" fill="#a8e860"/>
+  <rect x="28" y="9" width="8" height="1" fill="#1a1015"/>
+  <!-- Second row of heads (left and right) -->
+  <rect x="14" y="14" width="12" height="9" fill="#90a0a8"/>
+  <rect x="38" y="14" width="12" height="9" fill="#90a0a8"/>
+  <rect x="16" y="18" width="2" height="2" fill="#1a1015"/>
+  <rect x="22" y="18" width="2" height="2" fill="#1a1015"/>
+  <rect x="40" y="18" width="2" height="2" fill="#1a1015"/>
+  <rect x="46" y="18" width="2" height="2" fill="#1a1015"/>
+  <rect x="16" y="18" width="1" height="1" fill="#a8e860"/>
+  <rect x="46" y="18" width="1" height="1" fill="#a8e860"/>
+  <rect x="16" y="21" width="8" height="1" fill="#1a1015"/>
+  <rect x="40" y="21" width="8" height="1" fill="#1a1015"/>
+  <!-- Third row (center, larger) -->
+  <rect x="22" y="26" width="20" height="14" fill="#a0b8c0"/>
+  <rect x="24" y="28" width="16" height="3" fill="#c0d0d8"/>
+  <rect x="26" y="32" width="4" height="3" fill="#1a1015"/>
+  <rect x="34" y="32" width="4" height="3" fill="#1a1015"/>
+  <rect x="27" y="33" width="2" height="2" fill="#a8e860"/>
+  <rect x="35" y="33" width="2" height="2" fill="#a8e860"/>
+  <!-- Wide singing maw -->
+  <rect x="24" y="36" width="16" height="3" fill="#1a1015"/>
+  <rect x="26" y="37" width="2" height="2" fill="#e8e0d0"/>
+  <rect x="30" y="37" width="2" height="2" fill="#e8e0d0"/>
+  <rect x="34" y="37" width="2" height="2" fill="#e8e0d0"/>
+  <rect x="38" y="37" width="1" height="2" fill="#e8e0d0"/>
+  <!-- Coral / encrusted body -->
+  <rect x="14" y="40" width="36" height="18" fill="#3a6878"/>
+  <rect x="12" y="44" width="40" height="12" fill="#3a6878"/>
+  <rect x="16" y="42" width="32" height="3" fill="#5a8898"/>
+  <!-- Reaching arms -->
+  <rect x="2" y="44" width="10" height="3" fill="#a0b8c0"/>
+  <rect x="0" y="46" width="4" height="3" fill="#a0b8c0"/>
+  <rect x="52" y="44" width="10" height="3" fill="#a0b8c0"/>
+  <rect x="60" y="46" width="4" height="3" fill="#a0b8c0"/>
+  <!-- Encrusted barnacles -->
+  <rect x="20" y="48" width="3" height="3" fill="#806848"/>
+  <rect x="28" y="50" width="3" height="3" fill="#806848"/>
+  <rect x="36" y="48" width="3" height="3" fill="#806848"/>
+  <rect x="40" y="52" width="3" height="3" fill="#806848"/>
+  <!-- Bubbles -->
+  <rect x="4" y="20" width="2" height="2" fill="#a0c0e0" opacity="0.7"/>
+  <rect x="58" y="24" width="2" height="2" fill="#a0c0e0" opacity="0.7"/>
+  <rect x="2" y="36" width="1" height="1" fill="#a0c0e0"/>
+  <rect x="60" y="38" width="1" height="1" fill="#a0c0e0"/>
+</svg>

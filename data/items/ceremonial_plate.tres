@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Item.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"ceremonial_plate"
+display_name = "Ceremonial Plate"
+description = "Once worn by Auren's royal guard. Threaded with old prayers."
+kind = 2
+equip_slot = 2
+stackable = false
+max_stack = 1
+buy_price = 1100
+sell_price = 550
+bonus_def = 17
+bonus_max_hp = 80
+bonus_res = 8

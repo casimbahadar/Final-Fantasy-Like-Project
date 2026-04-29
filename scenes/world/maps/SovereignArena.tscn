@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/OverworldMap.gd" id="1_map"]
+[ext_resource type="Script" path="res://scripts/world/SpawnPoint.gd" id="2_spawn"]
+[ext_resource type="Script" path="res://scripts/world/EncounterTrigger.gd" id="3_encounter"]
+[ext_resource type="Script" path="res://scripts/world/EndingTrigger.gd" id="4_story"]
+[ext_resource type="PackedScene" path="res://scenes/world/Chest.tscn" id="5_chest"]
+
+[node name="SovereignArena" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_map")
+grid_string = "####################
+#..................#
+#..................#
+#..................#
+#..................#
+#..................#
+#..................#
+#..................#
+#..................#
+#..................#
+#..................#
+#..................#
+#..................#
+####################"
+map_id = &"sovereign_arena"
+
+[node name="SpawnFromWound" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+spawn_id = &"from_wound"
+grid_position = Vector2i(9, 12)
+facing = 3
+
+[node name="ChestBlade" parent="." instance=ExtResource("5_chest")]
+chest_id = &"arena_eternal_blade"
+grid_position = Vector2i(2, 11)
+item_id = &"eternal_blade"
+item_count = 1
+
+[node name="ChestCrown" parent="." instance=ExtResource("5_chest")]
+chest_id = &"arena_crown"
+grid_position = Vector2i(17, 11)
+item_id = &"crown_of_light"
+item_count = 1
+
+[node name="SovereignTrigger" type="Node2D" parent="."]
+script = ExtResource("3_encounter")
+grid_position = Vector2i(9, 5)
+troop_id = &"sovereign_eternal_boss"
+defeated_flag = &"sovereign_defeated"
+intro_lines = PackedStringArray("You stand on a plain that cannot exist — open sky, a horizon of light, the kingdom of Auren spread out below in a way no map ever showed.", "At its center, a figure waits. He is not crowned, but everything about him is the act of being crowned.", "\"I made the Plague.\" He says it gently, the way one admits a small, old wound. \"I was the first king of Auren. I saw what I would become if I lived too long. I became the seal on myself.\"", "\"You broke the seal. I cannot ask you to put it back. So end me, my children. End me cleanly, and let Auren begin again.\"", "Lyra, soft: \"You don't have to fight us.\"", "He smiles, almost sadly. \"I do. Or you wouldn't be sure.\"")
+intro_speaker = "The Sovereign Eternal"
+
+[node name="TheLastLight" type="Node2D" parent="."]
+script = ExtResource("4_story")
+grid_position = Vector2i(9, 3)
+requires_flag = &"sovereign_defeated"
+sets_flag = &"game_complete"
+is_ending = true
+speaker = "Aldric"
+lines = PackedStringArray("The Sovereign Eternal kneels. He looks, at the last, like a tired old man.", "\"Thank you,\" he says. \"It was very long.\"", "Light spreads across Auren. Slow. Not a flash, but a sunrise.", "Down in the Crystal Cave, a heart begins to beat that has not beaten in two centuries. In the Plaza, Brenna's lamp lights itself. In Brighthollow, Aila opens her eyes for the first time without something else looking out.", "Aldric looks at the four of them — Lyra, Kael, Mira, Tessera — and at himself.", "\"...we did it.\"", "Lyra: \"We did it.\"", "Kael: \"We did it.\"", "Mira, quietly: \"We did it.\"", "Tessera, hand on her spear: \"And you'll keep on doing it. There's a kingdom to put back together, and only we know what it cost.\"", "", "— THE LAST LIGHT OF AUREN —", "(thanks for playing)", "", "Press confirm to return to the title.")
+lines_locked = PackedStringArray("The plain is silent. The Sovereign waits, and so must you.")

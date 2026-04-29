@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/OverworldMap.gd" id="1_map"]
+[ext_resource type="Script" path="res://scripts/world/SpawnPoint.gd" id="2_spawn"]
+[ext_resource type="Script" path="res://scripts/world/EncounterTrigger.gd" id="3_encounter"]
+[ext_resource type="Script" path="res://scripts/world/EndingTrigger.gd" id="4_story"]
+[ext_resource type="PackedScene" path="res://scenes/world/Chest.tscn" id="5_chest"]
+
+[node name="AshenCoast" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_map")
+grid_string = "####################
+#~~~~~~~~~~~~~~~~~~#
+#,,##############,,#
+#,,#............#,,#
+#,,#............#,,#
+#,,#............#,,#
+#,,#............#,,#
+#,,#............#,,#
+#,,######..######,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,####,,,,####,,#
+#,,,,####,,,,####,,#
+#,,,,,,,,,,,,,,,,,,#
+####################"
+map_id = &"ashen_coast"
+
+[node name="SpawnFromAerie" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+spawn_id = &"from_aerie"
+grid_position = Vector2i(9, 12)
+facing = 3
+
+[node name="ChestTideSword" parent="." instance=ExtResource("5_chest")]
+chest_id = &"coast_tide_sword"
+grid_position = Vector2i(2, 9)
+item_id = &"tide_sword"
+item_count = 1
+
+[node name="ChestPhoenix" parent="." instance=ExtResource("5_chest")]
+chest_id = &"coast_phoenix"
+grid_position = Vector2i(17, 9)
+item_id = &"phoenix_down"
+item_count = 2
+
+[node name="ChoirTrigger" type="Node2D" parent="."]
+script = ExtResource("3_encounter")
+grid_position = Vector2i(9, 5)
+troop_id = &"drowned_choir_boss"
+defeated_flag = &"drowned_choir_defeated"
+intro_lines = PackedStringArray("Black water laps at black sand. Across it, voices rise — a hundred voices, none alive.", "A pillar of bound corpses lifts itself from the surf. Its many heads sing in a single tongue you almost understand.", "\"...the seal is broken... the seal is broken... thank you, sweet things, for breaking the seal...\"", "(The chapter 4 ending was a lie. Something the Plague was holding back has begun to wake.)")
+intro_speaker = "Drowned Choir"
+
+[node name="HollowDoor" type="Node2D" parent="."]
+script = ExtResource("4_story")
+grid_position = Vector2i(9, 3)
+requires_flag = &"drowned_choir_defeated"
+sets_flag = &"chapter_5_complete"
+warp_target_map = &"hollow_court"
+warp_target_spawn = &"from_coast"
+speaker = "Tessera"
+lines = PackedStringArray("As the Choir collapses, a different song rises — older, slower, and very far away.", "Tessera turns north. \"That's coming from Auren proper. The old Royal Capital. We never went there because no one's gone there in a hundred years.\"", "Mira says, very quietly: \"The Plague was a lid. We took the lid off.\"", "Aldric stares north. \"Then we go to the lid's source.\"", "(The party heads inland, toward the Hollow Court.)")
+lines_locked = PackedStringArray("The water is too deep. Too cold. Too many voices.")

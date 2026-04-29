@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Skill.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"guard_break"
+display_name = "Guard Break"
+description = "A heavy strike that shatters armor. Inflicts Break."
+mp_cost = 0
+target_kind = 0
+damage_kind = 0
+element = 0
+power = 16
+accuracy = 0.95
+inflicts_status = &"def_down"
+status_chance = 0.5

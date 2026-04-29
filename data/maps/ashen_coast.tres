@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MapData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/MapData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"ashen_coast"
+display_name = "Ashen Coast"
+scene_path = "res://scenes/world/maps/AshenCoast.tscn"
+encounter_troops = Array[StringName]([&"sailor_pair", &"wraith_sailor", &"wraith_trio_ash", &"sailor_pair"])
+encounter_steps = 8

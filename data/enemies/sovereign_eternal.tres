@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Enemy.gd" id="1_script"]
+[ext_resource type="Resource" path="res://data/skills/attack.tres" id="2_attack"]
+[ext_resource type="Resource" path="res://data/skills/eclipse.tres" id="3_eclipse"]
+[ext_resource type="Resource" path="res://data/skills/sovereign_decree.tres" id="4_decree"]
+[ext_resource type="Resource" path="res://data/skills/eternal_judgment.tres" id="5_judgment"]
+[ext_resource type="Resource" path="res://data/skills/holy.tres" id="6_holy"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/enemy_sovereign_eternal.svg" id="7_sprite"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"sovereign_eternal"
+display_name = "The Sovereign Eternal"
+battle_sprite = ExtResource("7_sprite")
+max_hp = 3600
+max_mp = 600
+atk = 32
+def = 22
+mag = 32
+res = 22
+spd = 13
+luk = 8
+xp_reward = 9999
+gold_reward = 9999
+drop_chance = 0.0
+skills = Array[Resource]([ExtResource("2_attack"), ExtResource("3_eclipse"), ExtResource("4_decree"), ExtResource("5_judgment"), ExtResource("6_holy")])
+element_modifiers = {7: 1.0, 8: 1.0, 1: 1.0, 2: 1.0, 3: 1.0, 4: 1.0, 5: 1.0, 6: 1.0}

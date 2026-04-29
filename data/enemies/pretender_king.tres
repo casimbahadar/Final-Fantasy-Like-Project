@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Enemy.gd" id="1_script"]
+[ext_resource type="Resource" path="res://data/skills/attack.tres" id="2_attack"]
+[ext_resource type="Resource" path="res://data/skills/decree.tres" id="3_decree"]
+[ext_resource type="Resource" path="res://data/skills/judgment.tres" id="4_judgment"]
+[ext_resource type="Resource" path="res://data/skills/holy.tres" id="5_holy"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/enemy_pretender_king.svg" id="6_sprite"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"pretender_king"
+display_name = "The Pretender"
+battle_sprite = ExtResource("6_sprite")
+max_hp = 1500
+max_mp = 300
+atk = 28
+def = 18
+mag = 28
+res = 18
+spd = 11
+luk = 6
+xp_reward = 800
+gold_reward = 2200
+drop_chance = 0.0
+skills = Array[Resource]([ExtResource("2_attack"), ExtResource("3_decree"), ExtResource("4_judgment"), ExtResource("5_holy")])
+element_modifiers = {8: 1.75, 7: 0.0}

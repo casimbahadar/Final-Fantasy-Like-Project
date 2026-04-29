@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Enemy.gd" id="1_script"]
+[ext_resource type="Resource" path="res://data/skills/attack.tres" id="2_attack"]
+[ext_resource type="Resource" path="res://data/skills/contagion.tres" id="3_contagion"]
+[ext_resource type="Resource" path="res://data/skills/world_devour.tres" id="4_devour"]
+[ext_resource type="Resource" path="res://data/skills/dark_pulse.tres" id="5_dark"]
+[ext_resource type="Resource" path="res://data/skills/dirge.tres" id="6_dirge"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/enemy_first_plague.svg" id="7_sprite"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"first_plague"
+display_name = "The First Plague"
+battle_sprite = ExtResource("7_sprite")
+max_hp = 2200
+max_mp = 400
+atk = 30
+def = 20
+mag = 30
+res = 20
+spd = 12
+luk = 7
+xp_reward = 1500
+gold_reward = 4000
+drop_chance = 0.0
+skills = Array[Resource]([ExtResource("2_attack"), ExtResource("3_contagion"), ExtResource("4_devour"), ExtResource("5_dark"), ExtResource("6_dirge")])
+element_modifiers = {7: 2.0, 1: 1.25, 8: 0.0}

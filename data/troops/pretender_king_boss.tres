@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="Troop" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Troop.gd" id="1_script"]
+[ext_resource type="Script" path="res://scripts/resources/TroopMember.gd" id="2_member"]
+[ext_resource type="Resource" path="res://data/enemies/pretender_king.tres" id="3_pretender"]
+[ext_resource type="Resource" path="res://data/enemies/dead_knight.tres" id="4_knight"]
+
+[sub_resource type="Resource" id="Member1"]
+script = ExtResource("2_member")
+enemy = ExtResource("3_pretender")
+screen_position = Vector2(110, 100)
+
+[sub_resource type="Resource" id="Member2"]
+script = ExtResource("2_member")
+enemy = ExtResource("4_knight")
+screen_position = Vector2(60, 150)
+
+[sub_resource type="Resource" id="Member3"]
+script = ExtResource("2_member")
+enemy = ExtResource("4_knight")
+screen_position = Vector2(170, 150)
+
+[resource]
+script = ExtResource("1_script")
+members = Array[Resource]([SubResource("Member1"), SubResource("Member2"), SubResource("Member3")])
+id = &"pretender_king_boss"
+no_escape = true

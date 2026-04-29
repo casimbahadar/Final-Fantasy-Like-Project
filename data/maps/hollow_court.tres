@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MapData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/MapData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"hollow_court"
+display_name = "Hollow Court"
+scene_path = "res://scenes/world/maps/HollowCourt.tscn"
+encounter_troops = Array[StringName]([&"courtier_pair", &"courtier_knight", &"lone_dead_knight", &"courtier_pair"])
+encounter_steps = 7

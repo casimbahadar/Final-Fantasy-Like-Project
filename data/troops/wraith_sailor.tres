@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Troop" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Troop.gd" id="1_script"]
+[ext_resource type="Script" path="res://scripts/resources/TroopMember.gd" id="2_member"]
+[ext_resource type="Resource" path="res://data/enemies/ash_wraith.tres" id="3_wraith"]
+[ext_resource type="Resource" path="res://data/enemies/drowned_sailor.tres" id="4_sailor"]
+
+[sub_resource type="Resource" id="Member1"]
+script = ExtResource("2_member")
+enemy = ExtResource("3_wraith")
+screen_position = Vector2(120, 100)
+
+[sub_resource type="Resource" id="Member2"]
+script = ExtResource("2_member")
+enemy = ExtResource("4_sailor")
+screen_position = Vector2(170, 130)
+
+[resource]
+script = ExtResource("1_script")
+members = Array[Resource]([SubResource("Member1"), SubResource("Member2")])
+id = &"wraith_sailor"
+no_escape = false

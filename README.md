@@ -2,50 +2,34 @@
 
 A Final Fantasy–inspired JRPG built in **Godot 4**, designed to ship to **itch.io (Web)**, **Android**, and **iOS** from a single codebase. Visual style targets the GBA era (FF1–6, FFTA) with a clear upgrade path to 2D-HD (Octopath, FF Pixel Remaster).
 
-> **Status:** Phase 9 — four full chapters end-to-end. The party of five (Aldric warrior, Lyra mage, Kael rogue, Mira cleric, Tessera dragoon) takes on the three roots of the Crystal Plague culminating in the Stormwyrm. 18 status effects, 35+ skills, 5 playable characters across 4 classes, 13 enemies, 4 bosses. See [`CONTENT.md`](CONTENT.md) to keep building.
+> **Status:** Phase 10 — **the main story is complete.** All 8 chapters playable end-to-end with a real final boss and ending. The party of five takes on the three roots of the Plague (Chs 1–4), discovers the seal it was holding back (Chs 5–6), descends into the world's wound (Ch 7), and finally faces the Sovereign Eternal — Auren's first king, who created the Plague to seal himself away. 19 statuses, 50+ skills, 5 playable characters across 4 classes, 21 enemies, 8 bosses, 13 maps. See [`CONTENT.md`](CONTENT.md) for side-content authoring.
 
 ## Chapter map
 
 ```
-            [Plaza]
-               |
-            (south)
-               |
-         [Outskirts] ─(slime, goblin)─
-               |
-            (east)
-               |
-       [Crystal Cave Entrance] ─(iron sword, hi-potions, silk robe)─
-               |
-            (east)
-               |
-        [Crystal Cave Deep] ─── BOSS: Crystal Wraith
-               |             └─ Kael (Rogue) joins
-            (north — opens after boss)
-               |
-       [Whispering Wood] ─(forest_pair, wisp_trio, bandit_pair)─
-               |
-            (north)
-               |
-         [Brighthollow] ─(full chapter 3 shop; inn 50g)─
-               |       └─ Sister Mira (Cleric) joins
-            (north — opens after Mira joins)
-               |
-       [Sunken Temple] ─(skeleton, wraith, animated armor; chests inc. ribbon)─
-               |
-            BOSS: Hollow King
-               |
-       (Aila found → warps party east through cracked-crystal charm)
-               |
-       [Mountain Pass] ─(harpy, stormcaller, crag drake; chests: tincture, steel spear)─
-               |       └─ Tessera (Dragoon) joins
-            (north)
-               |
-        [Storm Aerie] ─(chests: mythril sword, mythril plate)─
-               |
-            BOSS: Stormwyrm  (HP 880, weak to Ice, immune to Wind / Thunder)
-               |
-            ENDING: three roots cut → "to be continued"
+   Ch 1: [Plaza] → [Outskirts] → [Crystal Cave Entrance] → [Crystal Cave Deep]
+                                                              └─ BOSS: Crystal Wraith
+                                                              └─ Kael (Rogue) joins
+   Ch 2: [Whispering Wood]
+   Ch 3: [Brighthollow] (shop / inn / Mira [Cleric] joins) → [Sunken Temple]
+                                                              └─ BOSS: Hollow King
+                                                              └─ Aila found
+   Ch 4: [Mountain Pass] (Tessera [Dragoon] joins) → [Storm Aerie]
+                                                              └─ BOSS: Stormwyrm
+                                                                "three roots cut" — but the seal is gone
+   Ch 5: [Ashen Coast]
+                       └─ BOSS: Drowned Choir
+                          ("the seal is broken... thank you")
+   Ch 6: [Hollow Court]
+                       └─ BOSS: The Pretender
+                          (the throne hides a wound)
+   Ch 7: [World's Wound]
+                       └─ BOSS: The First Plague
+                          ("...thank you. Tell him I am tired.")
+   Ch 8: [Where the King Waits]
+                       └─ FINAL BOSS: The Sovereign Eternal
+                          — Auren's first king, who became the Plague to seal himself away
+                          ENDING: a sunrise across Auren
 ```
 
 ## Roadmap
@@ -62,7 +46,8 @@ A Final Fantasy–inspired JRPG built in **Godot 4**, designed to ship to **itch
 | 7 | Chapter 2: Rogue class, Kael, Whispering Wood, status framework deepening | ✅ done |
 | 8 | Chapter 3: Cleric class, Mira, Brighthollow, Sunken Temple, Hollow King | ✅ done |
 | 9 | Chapter 4: Dragoon class, Tessera, Mountain Pass, Storm Aerie, Stormwyrm | ✅ done |
-| 10+ | Music & SFX, Chapter 5+, real art swap (see [`CONTENT.md`](CONTENT.md) and [`assets/audio/README.md`](assets/audio/README.md)) | ⏳ |
+| 10 | Chapters 5–8: full main story arc (Drowned Choir → Pretender → First Plague → Sovereign Eternal) | ✅ done |
+| 11+ | Side content, music & SFX, real art swap (see [`CONTENT.md`](CONTENT.md) and [`assets/audio/README.md`](assets/audio/README.md)) | ⏳ |
 
 See [`/root/.claude/plans/i-want-to-create-enchanted-nygaard.md`](../../root/.claude/plans/i-want-to-create-enchanted-nygaard.md) for the full plan (local file).
 

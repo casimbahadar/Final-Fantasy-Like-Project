@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" shape-rendering="crispEdges">
+  <!-- Throne backdrop -->
+  <rect x="6" y="14" width="6" height="46" fill="#3a2030"/>
+  <rect x="52" y="14" width="6" height="46" fill="#3a2030"/>
+  <rect x="6" y="10" width="10" height="6" fill="#3a2030"/>
+  <rect x="48" y="10" width="10" height="6" fill="#3a2030"/>
+  <!-- Crooked, oversized crown -->
+  <rect x="20" y="2" width="24" height="6" fill="#a06028"/>
+  <rect x="20" y="0" width="3" height="4" fill="#a06028"/>
+  <rect x="26" y="0" width="3" height="4" fill="#a06028"/>
+  <rect x="32" y="0" width="3" height="6" fill="#a06028"/>
+  <rect x="38" y="0" width="3" height="4" fill="#a06028"/>
+  <rect x="41" y="0" width="3" height="4" fill="#a06028"/>
+  <rect x="22" y="0" width="2" height="2" fill="#ff3030"/>
+  <rect x="32" y="0" width="2" height="3" fill="#ff3030"/>
+  <rect x="40" y="0" width="2" height="2" fill="#ff3030"/>
+  <!-- Mask (golden, expressionless) -->
+  <rect x="20" y="8" width="24" height="14" fill="#e0c060"/>
+  <rect x="22" y="9" width="20" height="2" fill="#f5d76e"/>
+  <!-- Mask eye-slits glowing red -->
+  <rect x="23" y="13" width="5" height="3" fill="#1a1015"/>
+  <rect x="36" y="13" width="5" height="3" fill="#1a1015"/>
+  <rect x="24" y="14" width="3" height="1" fill="#ff3030"/>
+  <rect x="37" y="14" width="3" height="1" fill="#ff3030"/>
+  <!-- Mask mouth (sealed line) -->
+  <rect x="22" y="19" width="20" height="1" fill="#806020"/>
+  <!-- Royal robe with high collar -->
+  <rect x="14" y="20" width="36" height="22" fill="#3a0a18"/>
+  <rect x="16" y="22" width="32" height="4" fill="#5a1028"/>
+  <rect x="18" y="20" width="28" height="3" fill="#a02030"/>
+  <!-- Ermine fur trim (white with black spots) -->
+  <rect x="14" y="20" width="36" height="3" fill="#e0e0d0"/>
+  <rect x="18" y="21" width="2" height="2" fill="#1a1015"/>
+  <rect x="24" y="21" width="2" height="2" fill="#1a1015"/>
+  <rect x="32" y="21" width="2" height="2" fill="#1a1015"/>
+  <rect x="40" y="21" width="2" height="2" fill="#1a1015"/>
+  <!-- Sceptre -->
+  <rect x="48" y="22" width="3" height="22" fill="#a06028"/>
+  <rect x="46" y="20" width="7" height="4" fill="#f5d76e"/>
+  <rect x="48" y="22" width="3" height="2" fill="#ff3030"/>
+  <!-- Skeletal hands -->
+  <rect x="10" y="26" width="6" height="4" fill="#e8e0d0"/>
+  <rect x="48" y="34" width="6" height="4" fill="#e8e0d0"/>
+  <!-- Belt -->
+  <rect x="14" y="42" width="36" height="3" fill="#3a2010"/>
+  <rect x="28" y="41" width="8" height="5" fill="#f5d76e"/>
+  <!-- Robe lower -->
+  <rect x="14" y="45" width="36" height="13" fill="#3a0a18"/>
+  <rect x="14" y="56" width="36" height="2" fill="#a02030"/>
+  <!-- Floor markers (royal seal) -->
+  <rect x="20" y="60" width="24" height="3" fill="#5a4030"/>
+  <rect x="28" y="61" width="8" height="2" fill="#f5d76e"/>
+</svg>

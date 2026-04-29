@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Troop" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Troop.gd" id="1_script"]
+[ext_resource type="Script" path="res://scripts/resources/TroopMember.gd" id="2_member"]
+[ext_resource type="Resource" path="res://data/enemies/courtier_ghost.tres" id="3_courtier"]
+[ext_resource type="Resource" path="res://data/enemies/dead_knight.tres" id="4_knight"]
+
+[sub_resource type="Resource" id="Member1"]
+script = ExtResource("2_member")
+enemy = ExtResource("3_courtier")
+screen_position = Vector2(120, 100)
+
+[sub_resource type="Resource" id="Member2"]
+script = ExtResource("2_member")
+enemy = ExtResource("4_knight")
+screen_position = Vector2(170, 130)
+
+[resource]
+script = ExtResource("1_script")
+members = Array[Resource]([SubResource("Member1"), SubResource("Member2")])
+id = &"courtier_knight"
+no_escape = false
