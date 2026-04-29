@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="Actor" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Actor.gd" id="1_script"]
+[ext_resource type="Resource" path="res://data/classes/berserker.tres" id="2_class"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/player_berserker.svg" id="3_overworld"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/player_berserker.svg" id="4_battle"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"bram"
+display_name = "Bram the Wild"
+bio = "A masterless raider whose blade has outlived three armies."
+char_class = ExtResource("2_class")
+starting_level = 3
+base_max_hp = 140
+base_max_mp = 12
+base_atk = 16
+base_def = 8
+base_mag = 4
+base_res = 5
+base_spd = 9
+base_luk = 4
+grow_max_hp = 11
+grow_max_mp = 1
+grow_atk = 4
+grow_def = 1
+grow_mag = 1
+grow_res = 1
+grow_spd = 1
+grow_luk = 1
+overworld_sprite = ExtResource("3_overworld")
+battle_sprite = ExtResource("4_battle")

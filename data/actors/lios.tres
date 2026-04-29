@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="Actor" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Actor.gd" id="1_script"]
+[ext_resource type="Resource" path="res://data/classes/bard.tres" id="2_class"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/player_bard.svg" id="3_overworld"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/player_bard.svg" id="4_battle"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"lios"
+display_name = "Lios the Wanderer"
+bio = "A bard whose old patron was the last queen — and whose new patron is the road."
+char_class = ExtResource("2_class")
+starting_level = 10
+base_max_hp = 100
+base_max_mp = 30
+base_atk = 10
+base_def = 9
+base_mag = 9
+base_res = 11
+base_spd = 11
+base_luk = 8
+grow_max_hp = 8
+grow_max_mp = 3
+grow_atk = 2
+grow_def = 2
+grow_mag = 2
+grow_res = 2
+grow_spd = 1
+grow_luk = 2
+overworld_sprite = ExtResource("3_overworld")
+battle_sprite = ExtResource("4_battle")

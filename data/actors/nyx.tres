@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="Actor" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Actor.gd" id="1_script"]
+[ext_resource type="Resource" path="res://data/classes/assassin.tres" id="2_class"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/player_assassin.svg" id="3_overworld"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/player_assassin.svg" id="4_battle"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"nyx"
+display_name = "Nyx"
+bio = "A killer for hire who took an interest in the king's hidden door."
+char_class = ExtResource("2_class")
+starting_level = 18
+base_max_hp = 90
+base_max_mp = 20
+base_atk = 14
+base_def = 6
+base_mag = 7
+base_res = 6
+base_spd = 16
+base_luk = 9
+grow_max_hp = 7
+grow_max_mp = 2
+grow_atk = 3
+grow_def = 1
+grow_mag = 1
+grow_res = 1
+grow_spd = 2
+grow_luk = 2
+overworld_sprite = ExtResource("3_overworld")
+battle_sprite = ExtResource("4_battle")

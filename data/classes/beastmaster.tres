@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="CharClass" load_steps=16 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/CharClass.gd" id="1_script"]
+[ext_resource type="Script" path="res://scripts/resources/LearnEntry.gd" id="2_learn"]
+[ext_resource type="Resource" path="res://data/skills/attack.tres" id="3_attack"]
+[ext_resource type="Resource" path="res://data/skills/battle_cry.tres" id="4_battle_cry"]
+[ext_resource type="Resource" path="res://data/skills/beast_howl.tres" id="5_beast_howl"]
+[ext_resource type="Resource" path="res://data/skills/champion_cleave.tres" id="6_champion_cleave"]
+[ext_resource type="Resource" path="res://data/skills/pack_strike.tres" id="7_pack_strike"]
+[ext_resource type="Resource" path="res://data/skills/rally_pack.tres" id="8_rally_pack"]
+
+[sub_resource type="Resource" id="Learn1"]
+script = ExtResource("2_learn")
+level = 1
+skill = ExtResource("3_attack")
+
+[sub_resource type="Resource" id="Learn2"]
+script = ExtResource("2_learn")
+level = 1
+skill = ExtResource("5_beast_howl")
+
+[sub_resource type="Resource" id="Learn3"]
+script = ExtResource("2_learn")
+level = 3
+skill = ExtResource("8_rally_pack")
+
+[sub_resource type="Resource" id="Learn4"]
+script = ExtResource("2_learn")
+level = 5
+skill = ExtResource("7_pack_strike")
+
+[sub_resource type="Resource" id="Learn5"]
+script = ExtResource("2_learn")
+level = 7
+skill = ExtResource("4_battle_cry")
+
+[sub_resource type="Resource" id="Learn6"]
+script = ExtResource("2_learn")
+level = 9
+skill = ExtResource("6_champion_cleave")
+
+[resource]
+script = ExtResource("1_script")
+id = &"beastmaster"
+display_name = "Beastmaster"
+description = "Calls phantom hounds and rallies the pack. Buffs self and shreds groups."
+learnset = Array[Resource]([SubResource("Learn1"), SubResource("Learn2"), SubResource("Learn3"), SubResource("Learn4"), SubResource("Learn5"), SubResource("Learn6")])
+xp_curve = PackedInt32Array()

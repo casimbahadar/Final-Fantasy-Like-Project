@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="CharClass" load_steps=16 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/CharClass.gd" id="1_script"]
+[ext_resource type="Script" path="res://scripts/resources/LearnEntry.gd" id="2_learn"]
+[ext_resource type="Resource" path="res://data/skills/aimed_shot.tres" id="3_aimed_shot"]
+[ext_resource type="Resource" path="res://data/skills/attack.tres" id="4_attack"]
+[ext_resource type="Resource" path="res://data/skills/dagger_throw.tres" id="5_dagger_throw"]
+[ext_resource type="Resource" path="res://data/skills/hunters_mark.tres" id="6_hunters_mark"]
+[ext_resource type="Resource" path="res://data/skills/hunters_volley.tres" id="7_hunters_volley"]
+[ext_resource type="Resource" path="res://data/skills/sneak_attack.tres" id="8_sneak_attack"]
+
+[sub_resource type="Resource" id="Learn1"]
+script = ExtResource("2_learn")
+level = 1
+skill = ExtResource("4_attack")
+
+[sub_resource type="Resource" id="Learn2"]
+script = ExtResource("2_learn")
+level = 1
+skill = ExtResource("3_aimed_shot")
+
+[sub_resource type="Resource" id="Learn3"]
+script = ExtResource("2_learn")
+level = 3
+skill = ExtResource("6_hunters_mark")
+
+[sub_resource type="Resource" id="Learn4"]
+script = ExtResource("2_learn")
+level = 5
+skill = ExtResource("5_dagger_throw")
+
+[sub_resource type="Resource" id="Learn5"]
+script = ExtResource("2_learn")
+level = 7
+skill = ExtResource("7_hunters_volley")
+
+[sub_resource type="Resource" id="Learn6"]
+script = ExtResource("2_learn")
+level = 9
+skill = ExtResource("8_sneak_attack")
+
+[resource]
+script = ExtResource("1_script")
+id = &"ranger"
+display_name = "Ranger"
+description = "Long-range hunter. Bow and trap; consistent ranged damage."
+learnset = Array[Resource]([SubResource("Learn1"), SubResource("Learn2"), SubResource("Learn3"), SubResource("Learn4"), SubResource("Learn5"), SubResource("Learn6")])
+xp_curve = PackedInt32Array()

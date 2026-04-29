@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="CharClass" load_steps=16 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/CharClass.gd" id="1_script"]
+[ext_resource type="Script" path="res://scripts/resources/LearnEntry.gd" id="2_learn"]
+[ext_resource type="Resource" path="res://data/skills/attack.tres" id="3_attack"]
+[ext_resource type="Resource" path="res://data/skills/crystal_strike.tres" id="4_crystal_strike"]
+[ext_resource type="Resource" path="res://data/skills/crystal_ward.tres" id="5_crystal_ward"]
+[ext_resource type="Resource" path="res://data/skills/iron_wall.tres" id="6_iron_wall"]
+[ext_resource type="Resource" path="res://data/skills/prism_burst.tres" id="7_prism_burst"]
+[ext_resource type="Resource" path="res://data/skills/smite.tres" id="8_smite"]
+
+[sub_resource type="Resource" id="Learn1"]
+script = ExtResource("2_learn")
+level = 1
+skill = ExtResource("3_attack")
+
+[sub_resource type="Resource" id="Learn2"]
+script = ExtResource("2_learn")
+level = 1
+skill = ExtResource("4_crystal_strike")
+
+[sub_resource type="Resource" id="Learn3"]
+script = ExtResource("2_learn")
+level = 3
+skill = ExtResource("5_crystal_ward")
+
+[sub_resource type="Resource" id="Learn4"]
+script = ExtResource("2_learn")
+level = 5
+skill = ExtResource("6_iron_wall")
+
+[sub_resource type="Resource" id="Learn5"]
+script = ExtResource("2_learn")
+level = 7
+skill = ExtResource("7_prism_burst")
+
+[sub_resource type="Resource" id="Learn6"]
+script = ExtResource("2_learn")
+level = 9
+skill = ExtResource("8_smite")
+
+[resource]
+script = ExtResource("1_script")
+id = &"crystal_knight"
+display_name = "Crystal Knight"
+description = "A warrior of crystal-touched steel. Holy element + tank-style buffs."
+learnset = Array[Resource]([SubResource("Learn1"), SubResource("Learn2"), SubResource("Learn3"), SubResource("Learn4"), SubResource("Learn5"), SubResource("Learn6")])
+xp_curve = PackedInt32Array()

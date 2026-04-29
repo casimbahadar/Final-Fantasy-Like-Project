@@ -21,7 +21,7 @@ grid_string = "####################
 #,,####,,,,,,####,,#
 #,,####,,,,,,####,,#
 #,,,,,,,,,,,,,,,,,,#
-#,,,,,,,,,,,,,,,,,D#
+D,,,,,,,,,,,,,,,,,D#
 #,,####,,,,,,####,,#
 #,,####,,,,,,####,,#
 #,,####,,,,,,####,,#
@@ -70,6 +70,20 @@ grid_size = Vector2i(1, 1)
 target_map_id = &"bounty_pit"
 target_spawn_id = &"from_brighthollow"
 requires_flag = &"bounty_pit_unlocked"
+
+[node name="SpawnFromWayhouse" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+spawn_id = &"from_wayhouse"
+grid_position = Vector2i(2, 7)
+facing = 2
+
+[node name="ExitToWayhouse" type="Node2D" parent="."]
+script = ExtResource("3_warp")
+grid_position = Vector2i(1, 7)
+grid_size = Vector2i(1, 1)
+target_map_id = &"wayhouse"
+target_spawn_id = &"from_brighthollow"
+requires_flag = &"crystal_wraith_defeated"
 
 [node name="Shopkeeper" parent="." instance=ExtResource("4_npc")]
 npc_name = "Wenn the Stocker"

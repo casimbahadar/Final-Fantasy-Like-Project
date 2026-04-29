@@ -15,6 +15,14 @@ var last_save_slot: int = -1
 ## enemy stats and shown on the title screen + status panel.
 var ng_plus_count: int = 0
 
+## Difficulty index: 0 Easy, 1 Normal, 2 Hard, 3 Sovereign.
+## Picked at New Game; combined with ng_plus_count by BattleUnit's stat scaling.
+var difficulty: int = 1
+
+const DIFFICULTY_LABELS := ["Easy", "Normal", "Hard", "Sovereign"]
+const DIFFICULTY_HP_MULT := [0.7, 1.0, 1.3, 1.7]
+const DIFFICULTY_ATK_MULT := [0.7, 1.0, 1.2, 1.5]
+
 # When a save is loaded, these hold the exact tile position to drop the player
 # at (overrides spawn_point_id if has_loaded_position is true). Cleared by
 # OverworldMap after consumption.

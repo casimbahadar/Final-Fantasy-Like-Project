@@ -1,0 +1,147 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/OverworldMap.gd" id="1_map"]
+[ext_resource type="Script" path="res://scripts/world/SpawnPoint.gd" id="2_spawn"]
+[ext_resource type="Script" path="res://scripts/world/WarpTrigger.gd" id="3_warp"]
+[ext_resource type="Script" path="res://scripts/world/EncounterTrigger.gd" id="4_encounter"]
+[ext_resource type="Script" path="res://scripts/world/EndingTrigger.gd" id="5_reward"]
+
+[node name="BossRush" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_map")
+grid_string = "######################################
+#....................................#
+#....................................#
+#....................................#
+#....................................#
+#....................................#
+#....................................#
+#....................................#
+#....................................#
+#....................................#
+#....................................#
+#....................................#
+#,,,,,,,,,,,,,,,,,DD,,,,,,,,,,,,,,,,,#
+######################################"
+map_id = &"boss_rush"
+
+[node name="SpawnFromPlaza" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+spawn_id = &"from_plaza"
+grid_position = Vector2i(18, 12)
+facing = 3
+
+[node name="ExitToPlaza" type="Node2D" parent="."]
+script = ExtResource("3_warp")
+grid_position = Vector2i(17, 12)
+grid_size = Vector2i(2, 1)
+target_map_id = &"plaza"
+target_spawn_id = &"from_rush"
+
+[node name="Rush1" type="Node2D" parent="."]
+script = ExtResource("4_encounter")
+grid_position = Vector2i(18, 11)
+troop_id = &"crystal_wraith_boss"
+defeated_flag = &"bossrush_1_clear"
+intro_lines = PackedStringArray("\"Round 1 of 12: the Crystal Wraith.\"")
+intro_speaker = "Match Caller"
+
+[node name="Rush2" type="Node2D" parent="."]
+script = ExtResource("4_encounter")
+grid_position = Vector2i(18, 10)
+troop_id = &"treant_mini"
+defeated_flag = &"bossrush_2_clear"
+intro_lines = PackedStringArray("\"Round 2 of 12: the Treant of the Heart.\"")
+intro_speaker = "Match Caller"
+
+[node name="Rush3" type="Node2D" parent="."]
+script = ExtResource("4_encounter")
+grid_position = Vector2i(18, 9)
+troop_id = &"hollow_king_boss"
+defeated_flag = &"bossrush_3_clear"
+intro_lines = PackedStringArray("\"Round 3 of 12: the Hollow King.\"")
+intro_speaker = "Match Caller"
+
+[node name="Rush4" type="Node2D" parent="."]
+script = ExtResource("4_encounter")
+grid_position = Vector2i(18, 8)
+troop_id = &"mirage_king_boss"
+defeated_flag = &"bossrush_4_clear"
+intro_lines = PackedStringArray("\"Round 4 of 12: the Mirage King.\"")
+intro_speaker = "Match Caller"
+
+[node name="Rush5" type="Node2D" parent="."]
+script = ExtResource("4_encounter")
+grid_position = Vector2i(18, 7)
+troop_id = &"stormwyrm_boss"
+defeated_flag = &"bossrush_5_clear"
+intro_lines = PackedStringArray("\"Round 5 of 12: the Stormwyrm.\"")
+intro_speaker = "Match Caller"
+
+[node name="Rush6" type="Node2D" parent="."]
+script = ExtResource("4_encounter")
+grid_position = Vector2i(18, 6)
+troop_id = &"wind_singer_boss"
+defeated_flag = &"bossrush_6_clear"
+intro_lines = PackedStringArray("\"Round 6 of 12: the Wind That Sings.\"")
+intro_speaker = "Match Caller"
+
+[node name="Rush7" type="Node2D" parent="."]
+script = ExtResource("4_encounter")
+grid_position = Vector2i(18, 5)
+troop_id = &"drowned_choir_boss"
+defeated_flag = &"bossrush_7_clear"
+intro_lines = PackedStringArray("\"Round 7 of 12: the Drowned Choir.\"")
+intro_speaker = "Match Caller"
+
+[node name="Rush8" type="Node2D" parent="."]
+script = ExtResource("4_encounter")
+grid_position = Vector2i(18, 4)
+troop_id = &"pyre_lord_boss"
+defeated_flag = &"bossrush_8_clear"
+intro_lines = PackedStringArray("\"Round 8 of 12: the Pyre Lord.\"")
+intro_speaker = "Match Caller"
+
+[node name="Rush9" type="Node2D" parent="."]
+script = ExtResource("4_encounter")
+grid_position = Vector2i(18, 3)
+troop_id = &"pretender_king_boss"
+defeated_flag = &"bossrush_9_clear"
+intro_lines = PackedStringArray("\"Round 9 of 12: the Pretender.\"")
+intro_speaker = "Match Caller"
+
+[node name="Rush10" type="Node2D" parent="."]
+script = ExtResource("4_encounter")
+grid_position = Vector2i(18, 2)
+troop_id = &"last_queen_boss"
+defeated_flag = &"bossrush_10_clear"
+intro_lines = PackedStringArray("\"Round 10 of 12: the Last Queen.\"")
+intro_speaker = "Match Caller"
+
+[node name="Rush11" type="Node2D" parent="."]
+script = ExtResource("4_encounter")
+grid_position = Vector2i(18, 1)
+troop_id = &"first_plague_boss"
+defeated_flag = &"bossrush_11_clear"
+intro_lines = PackedStringArray("\"Round 11 of 12: the First Plague.\"")
+intro_speaker = "Match Caller"
+
+[node name="Rush12" type="Node2D" parent="."]
+script = ExtResource("4_encounter")
+grid_position = Vector2i(15, 1)
+troop_id = &"sovereign_eternal_boss"
+defeated_flag = &"bossrush_12_clear"
+intro_lines = PackedStringArray("\"Final round of 12: the Sovereign Eternal.\"", "\"...do not lose.\"")
+intro_speaker = "Match Caller"
+
+[node name="ChampionWreathReward" type="Node2D" parent="."]
+script = ExtResource("5_reward")
+grid_position = Vector2i(12, 1)
+requires_flag = &"bossrush_12_clear"
+sets_flag = &"boss_rush_cleared"
+grants_item = &"champion_band"
+grants_item_count = 1
+grants_gold = 20000
+speaker = "Match Caller"
+lines = PackedStringArray("\"Twelve in a row. The kingdom watched the whole way.\"", "A bronze wreath, woven by hand, on a velvet cushion that nobody seems to have set down.", "(Got Champion's Wreath! +20000 gold.)")
+lines_locked = PackedStringArray("The match isn't over yet. Walk back to the line.")

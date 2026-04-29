@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="CharClass" load_steps=16 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/CharClass.gd" id="1_script"]
+[ext_resource type="Script" path="res://scripts/resources/LearnEntry.gd" id="2_learn"]
+[ext_resource type="Resource" path="res://data/skills/attack.tres" id="3_attack"]
+[ext_resource type="Resource" path="res://data/skills/blade_pulse.tres" id="4_blade_pulse"]
+[ext_resource type="Resource" path="res://data/skills/blizzard.tres" id="5_blizzard"]
+[ext_resource type="Resource" path="res://data/skills/bolt.tres" id="6_bolt"]
+[ext_resource type="Resource" path="res://data/skills/element_edge.tres" id="7_element_edge"]
+[ext_resource type="Resource" path="res://data/skills/fire.tres" id="8_fire"]
+
+[sub_resource type="Resource" id="Learn1"]
+script = ExtResource("2_learn")
+level = 1
+skill = ExtResource("3_attack")
+
+[sub_resource type="Resource" id="Learn2"]
+script = ExtResource("2_learn")
+level = 1
+skill = ExtResource("8_fire")
+
+[sub_resource type="Resource" id="Learn3"]
+script = ExtResource("2_learn")
+level = 3
+skill = ExtResource("4_blade_pulse")
+
+[sub_resource type="Resource" id="Learn4"]
+script = ExtResource("2_learn")
+level = 5
+skill = ExtResource("7_element_edge")
+
+[sub_resource type="Resource" id="Learn5"]
+script = ExtResource("2_learn")
+level = 7
+skill = ExtResource("5_blizzard")
+
+[sub_resource type="Resource" id="Learn6"]
+script = ExtResource("2_learn")
+level = 9
+skill = ExtResource("6_bolt")
+
+[resource]
+script = ExtResource("1_script")
+id = &"spellblade"
+display_name = "Spellblade"
+description = "Half-mage, half-warrior. Coats the blade in elemental power."
+learnset = Array[Resource]([SubResource("Learn1"), SubResource("Learn2"), SubResource("Learn3"), SubResource("Learn4"), SubResource("Learn5"), SubResource("Learn6")])
+xp_curve = PackedInt32Array()

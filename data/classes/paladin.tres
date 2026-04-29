@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="CharClass" load_steps=16 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/CharClass.gd" id="1_script"]
+[ext_resource type="Script" path="res://scripts/resources/LearnEntry.gd" id="2_learn"]
+[ext_resource type="Resource" path="res://data/skills/aegis.tres" id="3_aegis"]
+[ext_resource type="Resource" path="res://data/skills/attack.tres" id="4_attack"]
+[ext_resource type="Resource" path="res://data/skills/holy_sweep.tres" id="5_holy_sweep"]
+[ext_resource type="Resource" path="res://data/skills/light_word.tres" id="6_light_word"]
+[ext_resource type="Resource" path="res://data/skills/shield_bash.tres" id="7_shield_bash"]
+[ext_resource type="Resource" path="res://data/skills/smite.tres" id="8_smite"]
+
+[sub_resource type="Resource" id="Learn1"]
+script = ExtResource("2_learn")
+level = 1
+skill = ExtResource("4_attack")
+
+[sub_resource type="Resource" id="Learn2"]
+script = ExtResource("2_learn")
+level = 1
+skill = ExtResource("7_shield_bash")
+
+[sub_resource type="Resource" id="Learn3"]
+script = ExtResource("2_learn")
+level = 3
+skill = ExtResource("6_light_word")
+
+[sub_resource type="Resource" id="Learn4"]
+script = ExtResource("2_learn")
+level = 5
+skill = ExtResource("3_aegis")
+
+[sub_resource type="Resource" id="Learn5"]
+script = ExtResource("2_learn")
+level = 7
+skill = ExtResource("5_holy_sweep")
+
+[sub_resource type="Resource" id="Learn6"]
+script = ExtResource("2_learn")
+level = 9
+skill = ExtResource("8_smite")
+
+[resource]
+script = ExtResource("1_script")
+id = &"paladin"
+display_name = "Paladin"
+description = "Holy knight. Tanks for the party, heals modestly, burns the unholy."
+learnset = Array[Resource]([SubResource("Learn1"), SubResource("Learn2"), SubResource("Learn3"), SubResource("Learn4"), SubResource("Learn5"), SubResource("Learn6")])
+xp_curve = PackedInt32Array()

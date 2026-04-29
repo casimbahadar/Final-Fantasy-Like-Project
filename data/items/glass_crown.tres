@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Item.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"glass_crown_item"
+display_name = "Glass Crown"
+description = "A crown left at the top of the Tower. Worn, it grants a measure of every weight the kingdom carried."
+kind = 3
+equip_slot = 3
+stackable = false
+max_stack = 1
+buy_price = 0
+sell_price = 2500
+bonus_max_hp = 80
+bonus_max_mp = 50
+bonus_atk = 8
+bonus_def = 10
+bonus_mag = 8
+bonus_res = 10
+bonus_spd = 5
+bonus_luk = 5

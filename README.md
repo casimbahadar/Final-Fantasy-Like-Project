@@ -2,7 +2,7 @@
 
 A Final Fantasy–inspired JRPG built in **Godot 4**, designed to ship to **itch.io (Web)**, **Android**, and **iOS** from a single codebase. Visual style targets the GBA era (FF1–6, FFTA) with a clear upgrade path to 2D-HD (Octopath, FF Pixel Remaster).
 
-> **Status:** Phase 14 — **rebalance + content expansion.** All 12 chapter bosses and most random encounters have been re-tuned against expected party levels (see *Stat & level analysis* below). Two new bonus dungeons (Sealed Aerie post-Ch 4, Crypt Below post-Ch 6), a 5-wave Bounty Pit at Brighthollow that unlocks after Edda's contract, three more sidequests in Plaza/Brighthollow, a 3-stage postgame chain (Eternal Echo → Hollow Lyra → Sovereign Reborn), New Game+ with carryover party + scaled enemy stats, and a Brighthollow Guildmaster who lets any character switch class after Stormwyrm. A completionist run with NG+ now lands at **~22–28 hours**. 50 enemies, 23 bosses (12 main + 7 mini + 4 bonus/postgame), 31 maps.
+> **Status:** Phase 15 — **massive job and postgame expansion.** **23 classes** total (the 5 originals plus all the FF classics — Berserker, Monk, Necromancer, Paladin, Bard, Ranger, Samurai, Geomancer, Beastmaster, Time Mage, Spellblade, Assassin, Dark Knight, Summoner, Chemist, Dancer — and two unique twists, Crystal Knight and Grave Singer). **Subclass system** lets each character merge a second class's learnset into their action menu. **7 new recruitable characters** (Bram, Sera, Vael, Lios, Wren, Nyx, Calen) wait at the Wayhouse east of Brighthollow, each gated by their own chapter milestone. Postgame adds the **5-floor Glass Tower** (Tomb Mix → Crypt Lord echo → Hollow Lyra echo → Sovereign Reborn echo → **The First Day** apex; rewards Sun Blade and Glass Crown) and **Boss Rush** (all 12 main bosses back to back; rewards Champion's Wreath). **Difficulty selector** (Easy/Normal/Hard/Sovereign) layers on top of NG+. A completionist run with NG+ now lands at **~30–40 hours**. 51 enemies, 24 bosses, 34 maps, 23 classes, 12 playable characters.
 
 ## Chapter map
 
@@ -30,8 +30,12 @@ A Final Fantasy–inspired JRPG built in **Godot 4**, designed to ship to **itch
                                                        (post-credits: a portal hums in the Plaza...)
 
    POSTGAME (after the credits flag is set):
-       Plaza west portal → ETERNAL ARENA (3-stage gauntlet)
+       Plaza west portal  → ETERNAL ARENA (3-stage gauntlet)
                                                        └─ ECHO  →  HOLLOW LYRA  →  SOVEREIGN REBORN  +  Auren's Remembrance
+       Plaza glass portal → GLASS TOWER (5 floors)
+                                                       └─ Tomb Mix → Crypt Lord echo → Hollow Lyra echo → Sovereign Reborn echo → THE FIRST DAY  +  Sun Blade + Glass Crown
+       Plaza rush portal  → BOSS RUSH (all 12 main bosses back-to-back)
+                                                       └─ Wraith → Treant → Hollow King → Mirage King → Stormwyrm → Wind Singer → Drowned Choir → Pyre Lord → Pretender → Last Queen → First Plague → Sovereign Eternal  +  Champion's Wreath
    SIDE (any time after Chapter 1):
        Plaza east trapdoor → SUNKEN CELLAR (Cellar Warden + Votive Chime)
        Mountain Peak east door → SEALED AERIE (Sealed Cyclone + Cyclone Ring) — post-Stormwyrm
@@ -71,7 +75,27 @@ A Final Fantasy–inspired JRPG built in **Godot 4**, designed to ship to **itch
 | 12 | Insertion pass: 4 new chapters (Sun-Dried Wastes, Sky Islands, Cinder Marsh, Royal Crypt) | ✅ done |
 | 13 | Side-content layer: town sidequests (4), Sunken Cellar bonus dungeon, Hunt log + bounty system, Eternal Echo postgame superboss | ✅ done |
 | 14 | Rebalance pass + 2 more bonus dungeons + Bounty Pit + 3-stage postgame + NG+ + class change + 3 more sidequests | ✅ done |
-| 15+ | Music & SFX, real art swap (see [`CONTENT.md`](CONTENT.md) and [`assets/audio/README.md`](assets/audio/README.md)) | ⏳ |
+| 15 | 18 new classes (23 total) + subclass + 7 new recruits at the Wayhouse + Glass Tower postgame + Boss Rush + difficulty selector | ✅ done |
+| 16+ | Music & SFX, real art swap (see [`CONTENT.md`](CONTENT.md) and [`assets/audio/README.md`](assets/audio/README.md)) | ⏳ |
+
+## Class roster (23)
+
+Original five: **Warrior**, **Mage**, **Rogue**, **Cleric**, **Dragoon**.
+
+FF classic additions: **Berserker** (raw atk, low def), **Monk** (martial-arts, no weapon needed), **Necromancer** (dark magic, status), **Paladin** (tanky holy hybrid), **Bard** (party buffs/debuffs), **Ranger** (bow + traps), **Samurai** (single-target devastators), **Geomancer** (every element on tap), **Beastmaster** (phantom hounds + howls), **Time Mage** (haste/slow/stop/gravity), **Spellblade** (phys + elemental edge), **Assassin** (crit, sleep, instant-kill chance), **Dark Knight** (HP-cost dark blade), **Summoner** (calls Ifrit/Shiva/Ramuh/Titan/Bahamut), **Chemist** (elixirs + potion-spell hybrid), **Dancer** (battlefield buffs and stuns).
+
+Unique to Auren: **Crystal Knight** (holy/crystal hybrid that buffs the line) and **Grave Singer** (necromancer/bard cross — songs to the dead).
+
+The Brighthollow Guildmaster reassigns any character's primary or subclass; both persist across saves.
+
+## Recruitable cast (12)
+
+Story core (5): **Aldric** (Warrior), **Lyra** (Mage), **Kael** (Rogue), **Mira** (Cleric), **Tessera** (Dragoon).
+
+Optional, from the **Wayhouse** east of Brighthollow (each gated by a chapter milestone):
+**Bram** the Wild (Berserker, post-Ch 1), **Wren** of the Wood (Ranger, post-Treant), **Sera** the Quiet (Monk, post-Wyvern), **Vael** the Listener (Necromancer, post-Hollow King), **Lios** the Wanderer (Bard, post-Mira), **Nyx** (Assassin, post-Pretender), **Calen** the Astrologer (Summoner, post-credits).
+
+Combined with subclassing, that's 12 characters × 23 primary classes × 23 subclass options ≈ 6300 unique builds before equipment.
 
 ## Stat & level analysis (Phase 14 rebalance)
 

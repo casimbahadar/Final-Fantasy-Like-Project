@@ -52,15 +52,18 @@ func bind_enemy(enemy_data: Enemy) -> void:
 	mp = enemy_data.max_mp
 
 
-## NG+ enemy scaling. Each successive NG+ run multiplies enemy HP and atk
-## (via the stat() override below) so the curve still feels fresh against a
-## carryover party. 0 → 1.0x, 1 → 1.5x, 2 → 2.0x, ... capped at +200%.
+## Enemy HP scale = difficulty (Easy 0.7× / Normal 1.0× / Hard 1.3× / Sovereign 1.7×)
+## × NG+ stack (+50%/run, capped at 4 stacks).
 func _ng_hp_scale() -> float:
-	return 1.0 + 0.5 * float(mini(GameState.ng_plus_count, 4))
+	var diff := clampi(GameState.difficulty, 0, GameState.DIFFICULTY_HP_MULT.size() - 1)
+	return GameState.DIFFICULTY_HP_MULT[diff] * (1.0 + 0.5 * float(mini(GameState.ng_plus_count, 4)))
 
 
+## Enemy atk/mag scale = difficulty (Easy 0.7× / Normal 1.0× / Hard 1.2× / Sovereign 1.5×)
+## × NG+ stack (+30%/run, capped at 4 stacks).
 func _ng_atk_scale() -> float:
-	return 1.0 + 0.3 * float(mini(GameState.ng_plus_count, 4))
+	var diff := clampi(GameState.difficulty, 0, GameState.DIFFICULTY_ATK_MULT.size() - 1)
+	return GameState.DIFFICULTY_ATK_MULT[diff] * (1.0 + 0.3 * float(mini(GameState.ng_plus_count, 4)))
 
 
 func display_name() -> String:
@@ -172,13 +175,26 @@ func restore_mp(amount: int) -> int:
 func available_skills() -> Array[Skill]:
 	var out: Array[Skill] = []
 	if party_member != null:
+		var seen: Dictionary = {}
 		var cls: CharClass = party_member.effective_class()
 		if cls != null:
 			for entry in cls.learnset:
 				if entry == null or entry.skill == null:
 					continue
-				if entry.level <= party_member.level:
+				if entry.level <= party_member.level and not seen.has(entry.skill.id):
+					seen[entry.skill.id] = true
 					out.append(entry.skill)
+		# Subclass merge — pulls in the secondary class's skills the player
+		# would have at their current level. Doesn't double up duplicates.
+		if party_member.subclass != &"":
+			var sub: CharClass = Database.classes.get(party_member.subclass)
+			if sub != null:
+				for entry in sub.learnset:
+					if entry == null or entry.skill == null:
+						continue
+					if entry.level <= party_member.level and not seen.has(entry.skill.id):
+						seen[entry.skill.id] = true
+						out.append(entry.skill)
 		return out
 	for sk in enemy.skills:
 		if sk != null:

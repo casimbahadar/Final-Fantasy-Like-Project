@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Skill.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"jab"
+display_name = "Jab"
+description = "A quick punch — fast and reliable."
+mp_cost = 2
+target_kind = 0
+damage_kind = 0
+element = 0
+power = 12
+accuracy = 1.0
+crit_bonus = 0.05
+inflicts_status = &""
+status_chance = 0.0

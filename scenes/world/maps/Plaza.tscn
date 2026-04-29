@@ -123,6 +123,34 @@ target_map_id = &"eternal_arena"
 target_spawn_id = &"from_plaza"
 requires_flag = &"game_complete"
 
+[node name="SpawnFromTower" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+spawn_id = &"from_tower"
+grid_position = Vector2i(7, 9)
+facing = 3
+
+[node name="TowerPortal" type="Node2D" parent="."]
+script = ExtResource("3_warp")
+grid_position = Vector2i(7, 10)
+grid_size = Vector2i(1, 1)
+target_map_id = &"glass_tower"
+target_spawn_id = &"from_plaza"
+requires_flag = &"game_complete"
+
+[node name="SpawnFromRush" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+spawn_id = &"from_rush"
+grid_position = Vector2i(12, 9)
+facing = 3
+
+[node name="RushPortal" type="Node2D" parent="."]
+script = ExtResource("3_warp")
+grid_position = Vector2i(12, 10)
+grid_size = Vector2i(1, 1)
+target_map_id = &"boss_rush"
+target_spawn_id = &"from_plaza"
+requires_flag = &"game_complete"
+
 [node name="Huntmaster" parent="." instance=ExtResource("4_npc")]
 npc_name = "Huntmaster Roen"
 grid_position = Vector2i(13, 4)

@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="CharClass" load_steps=16 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/CharClass.gd" id="1_script"]
+[ext_resource type="Script" path="res://scripts/resources/LearnEntry.gd" id="2_learn"]
+[ext_resource type="Resource" path="res://data/skills/attack.tres" id="3_attack"]
+[ext_resource type="Resource" path="res://data/skills/cleave.tres" id="4_cleave"]
+[ext_resource type="Resource" path="res://data/skills/iaido.tres" id="5_iaido"]
+[ext_resource type="Resource" path="res://data/skills/kenjutsu_focus.tres" id="6_kenjutsu_focus"]
+[ext_resource type="Resource" path="res://data/skills/power_strike.tres" id="7_power_strike"]
+[ext_resource type="Resource" path="res://data/skills/zantetsuken.tres" id="8_zantetsuken"]
+
+[sub_resource type="Resource" id="Learn1"]
+script = ExtResource("2_learn")
+level = 1
+skill = ExtResource("3_attack")
+
+[sub_resource type="Resource" id="Learn2"]
+script = ExtResource("2_learn")
+level = 1
+skill = ExtResource("5_iaido")
+
+[sub_resource type="Resource" id="Learn3"]
+script = ExtResource("2_learn")
+level = 3
+skill = ExtResource("6_kenjutsu_focus")
+
+[sub_resource type="Resource" id="Learn4"]
+script = ExtResource("2_learn")
+level = 5
+skill = ExtResource("7_power_strike")
+
+[sub_resource type="Resource" id="Learn5"]
+script = ExtResource("2_learn")
+level = 7
+skill = ExtResource("8_zantetsuken")
+
+[sub_resource type="Resource" id="Learn6"]
+script = ExtResource("2_learn")
+level = 9
+skill = ExtResource("4_cleave")
+
+[resource]
+script = ExtResource("1_script")
+id = &"samurai"
+display_name = "Samurai"
+description = "Master swordsman. Devastating single-target strikes with perfect form."
+learnset = Array[Resource]([SubResource("Learn1"), SubResource("Learn2"), SubResource("Learn3"), SubResource("Learn4"), SubResource("Learn5"), SubResource("Learn6")])
+xp_curve = PackedInt32Array()

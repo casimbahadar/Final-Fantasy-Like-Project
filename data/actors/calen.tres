@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="Actor" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Actor.gd" id="1_script"]
+[ext_resource type="Resource" path="res://data/classes/summoner.tres" id="2_class"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/player_summoner.svg" id="3_overworld"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/player_summoner.svg" id="4_battle"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"calen"
+display_name = "Calen the Astrologer"
+bio = "An old summoner who still hears the eidolons singing."
+char_class = ExtResource("2_class")
+starting_level = 30
+base_max_hp = 85
+base_max_mp = 60
+base_atk = 6
+base_def = 7
+base_mag = 16
+base_res = 14
+base_spd = 9
+base_luk = 7
+grow_max_hp = 6
+grow_max_mp = 8
+grow_atk = 1
+grow_def = 1
+grow_mag = 4
+grow_res = 3
+grow_spd = 1
+grow_luk = 1
+overworld_sprite = ExtResource("3_overworld")
+battle_sprite = ExtResource("4_battle")

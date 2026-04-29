@@ -35,6 +35,7 @@ func save_to(slot: int) -> bool:
 		"members": _serialize_members(),
 		"hunt": Hunt.to_dict(),
 		"ng_plus_count": GameState.ng_plus_count,
+		"difficulty": GameState.difficulty,
 	}
 	var f := FileAccess.open(slot_path(slot), FileAccess.WRITE)
 	if f == null:
@@ -96,12 +97,14 @@ func load_from(slot: int) -> bool:
 		pm.equip_armor = StringName(m.get("equip_armor", ""))
 		pm.equip_accessory = StringName(m.get("equip_accessory", ""))
 		pm.class_override = StringName(m.get("class_override", ""))
+		pm.subclass = StringName(m.get("subclass", ""))
 		for s in m.get("statuses", []):
 			pm.statuses.append(StringName(s))
 		Party.members.append(pm)
 
 	Hunt.from_dict(parsed.get("hunt", {}))
 	GameState.ng_plus_count = int(parsed.get("ng_plus_count", 0))
+	GameState.difficulty = int(parsed.get("difficulty", 1))
 
 	GameState.last_save_slot = slot
 	loaded.emit(slot)
@@ -161,6 +164,7 @@ func _serialize_members() -> Array:
 			"equip_armor": String(pm.equip_armor),
 			"equip_accessory": String(pm.equip_accessory),
 			"class_override": String(pm.class_override),
+			"subclass": String(pm.subclass),
 			"statuses": pm.statuses.map(func(s): return String(s)),
 		})
 	return arr

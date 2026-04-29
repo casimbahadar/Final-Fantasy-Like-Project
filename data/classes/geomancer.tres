@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="CharClass" load_steps=16 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/CharClass.gd" id="1_script"]
+[ext_resource type="Script" path="res://scripts/resources/LearnEntry.gd" id="2_learn"]
+[ext_resource type="Resource" path="res://data/skills/aqua_pulse.tres" id="3_aqua_pulse"]
+[ext_resource type="Resource" path="res://data/skills/attack.tres" id="4_attack"]
+[ext_resource type="Resource" path="res://data/skills/breath.tres" id="5_breath"]
+[ext_resource type="Resource" path="res://data/skills/gust.tres" id="6_gust"]
+[ext_resource type="Resource" path="res://data/skills/terra_smash.tres" id="7_terra_smash"]
+[ext_resource type="Resource" path="res://data/skills/wave.tres" id="8_wave"]
+
+[sub_resource type="Resource" id="Learn1"]
+script = ExtResource("2_learn")
+level = 1
+skill = ExtResource("4_attack")
+
+[sub_resource type="Resource" id="Learn2"]
+script = ExtResource("2_learn")
+level = 1
+skill = ExtResource("7_terra_smash")
+
+[sub_resource type="Resource" id="Learn3"]
+script = ExtResource("2_learn")
+level = 3
+skill = ExtResource("6_gust")
+
+[sub_resource type="Resource" id="Learn4"]
+script = ExtResource("2_learn")
+level = 5
+skill = ExtResource("3_aqua_pulse")
+
+[sub_resource type="Resource" id="Learn5"]
+script = ExtResource("2_learn")
+level = 7
+skill = ExtResource("5_breath")
+
+[sub_resource type="Resource" id="Learn6"]
+script = ExtResource("2_learn")
+level = 9
+skill = ExtResource("8_wave")
+
+[resource]
+script = ExtResource("1_script")
+id = &"geomancer"
+display_name = "Geomancer"
+description = "Reads the land — calls fire, water, earth, and wind without spellbooks."
+learnset = Array[Resource]([SubResource("Learn1"), SubResource("Learn2"), SubResource("Learn3"), SubResource("Learn4"), SubResource("Learn5"), SubResource("Learn6")])
+xp_curve = PackedInt32Array()

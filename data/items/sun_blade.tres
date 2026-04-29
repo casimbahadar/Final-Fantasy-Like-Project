@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Item.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"sun_blade"
+display_name = "Sun Blade"
+description = "A blade forged from the kingdom's first dawn. The grip is warm and the edge is brighter than steel."
+kind = 1
+equip_slot = 1
+stackable = false
+max_stack = 1
+buy_price = 0
+sell_price = 2000
+bonus_atk = 38
+bonus_mag = 12
+bonus_max_hp = 60
+bonus_luk = 6

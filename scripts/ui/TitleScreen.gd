@@ -6,6 +6,7 @@ extends Control
 @onready var new_game_button: Button = %NewGameButton
 @onready var continue_button: Button = %ContinueButton
 @onready var new_game_plus_button: Button = %NewGamePlusButton
+@onready var difficulty_button: Button = %DifficultyButton
 @onready var quit_button: Button = %QuitButton
 @onready var version_label: Label = %VersionLabel
 
@@ -14,7 +15,9 @@ func _ready() -> void:
 	new_game_button.pressed.connect(_on_new_game)
 	continue_button.pressed.connect(_on_continue)
 	new_game_plus_button.pressed.connect(_on_new_game_plus)
+	difficulty_button.pressed.connect(_on_cycle_difficulty)
 	quit_button.pressed.connect(_on_quit)
+	_refresh_difficulty_label()
 
 	# Hide quit on web/mobile builds (no real "quit" there).
 	if OS.has_feature("web") or OS.has_feature("mobile"):
@@ -29,7 +32,7 @@ func _ready() -> void:
 	else:
 		continue_button.grab_focus()
 
-	version_label.text = "v0.1.4 — rebalance + arena + 2 bonus dungeons + 3-stage postgame + NG+"
+	version_label.text = "v0.1.5 — 23 classes, subclass, 7 recruits, Boss Rush, Glass Tower, difficulty"
 
 
 func _any_save_exists() -> bool:
@@ -121,6 +124,15 @@ func _on_new_game_plus() -> void:
 		pm.hp = pm.max_hp()
 		pm.mp = pm.max_mp()
 	await SceneRouter.go_to_map(&"plaza", &"default")
+
+
+func _on_cycle_difficulty() -> void:
+	GameState.difficulty = (GameState.difficulty + 1) % GameState.DIFFICULTY_LABELS.size()
+	_refresh_difficulty_label()
+
+
+func _refresh_difficulty_label() -> void:
+	difficulty_button.text = "Difficulty: %s" % GameState.DIFFICULTY_LABELS[GameState.difficulty]
 
 
 func _on_quit() -> void:

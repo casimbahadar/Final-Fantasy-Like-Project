@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="CharClass" load_steps=16 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/CharClass.gd" id="1_script"]
+[ext_resource type="Script" path="res://scripts/resources/LearnEntry.gd" id="2_learn"]
+[ext_resource type="Resource" path="res://data/skills/assassinate.tres" id="3_assassinate"]
+[ext_resource type="Resource" path="res://data/skills/attack.tres" id="4_attack"]
+[ext_resource type="Resource" path="res://data/skills/dagger_throw.tres" id="5_dagger_throw"]
+[ext_resource type="Resource" path="res://data/skills/shadowstep.tres" id="6_shadowstep"]
+[ext_resource type="Resource" path="res://data/skills/smoke_bomb.tres" id="7_smoke_bomb"]
+[ext_resource type="Resource" path="res://data/skills/sneak_attack.tres" id="8_sneak_attack"]
+
+[sub_resource type="Resource" id="Learn1"]
+script = ExtResource("2_learn")
+level = 1
+skill = ExtResource("4_attack")
+
+[sub_resource type="Resource" id="Learn2"]
+script = ExtResource("2_learn")
+level = 1
+skill = ExtResource("8_sneak_attack")
+
+[sub_resource type="Resource" id="Learn3"]
+script = ExtResource("2_learn")
+level = 3
+skill = ExtResource("6_shadowstep")
+
+[sub_resource type="Resource" id="Learn4"]
+script = ExtResource("2_learn")
+level = 5
+skill = ExtResource("7_smoke_bomb")
+
+[sub_resource type="Resource" id="Learn5"]
+script = ExtResource("2_learn")
+level = 7
+skill = ExtResource("5_dagger_throw")
+
+[sub_resource type="Resource" id="Learn6"]
+script = ExtResource("2_learn")
+level = 9
+skill = ExtResource("3_assassinate")
+
+[resource]
+script = ExtResource("1_script")
+id = &"assassin"
+display_name = "Assassin"
+description = "A killer in shadow. Crits, evasion, and one strike that may end a foe."
+learnset = Array[Resource]([SubResource("Learn1"), SubResource("Learn2"), SubResource("Learn3"), SubResource("Learn4"), SubResource("Learn5"), SubResource("Learn6")])
+xp_curve = PackedInt32Array()

@@ -22,6 +22,13 @@ extends Node2D
 ## (skipped if they're already in the party). Pair with conversation_flag so
 ## the recruit only happens once.
 @export var recruit_actor_id: StringName = &""
+## Optional gate: only actually recruit when this GameState flag is set. When
+## the gate isn't met, the NPC plays `recruit_locked_lines` (or normal `lines`
+## if those are empty) and the recruit is deferred. Used to scatter optional
+## recruits across the world and only let them join once the player is far
+## enough into the story for that recruit to make sense.
+@export var recruit_required_flag: StringName = &""
+@export var recruit_locked_lines: PackedStringArray = PackedStringArray()
 
 @export_group("Quest")
 ## If non-empty, the quest is hidden until this flag is set on GameState.
@@ -105,7 +112,14 @@ func interact(player) -> void:
 			return
 
 	var to_say: PackedStringArray = lines
-	if post_quest_greet and quest_done_lines.size() > 0:
+	# Recruit-locked greeting takes priority over normal greeting if the recruit
+	# isn't yet eligible to join.
+	var recruit_locked := recruit_actor_id != &"" \
+		and recruit_required_flag != &"" \
+		and not GameState.get_flag(recruit_required_flag, false)
+	if recruit_locked and recruit_locked_lines.size() > 0:
+		to_say = recruit_locked_lines
+	elif post_quest_greet and quest_done_lines.size() > 0:
 		to_say = quest_done_lines
 	elif conversation_flag != &"" and GameState.get_flag(conversation_flag, false):
 		if lines_after_first.size() > 0:
@@ -118,11 +132,16 @@ func interact(player) -> void:
 	if to_say.size() > 0:
 		await Dialogue.say(Array(to_say), npc_name)
 
-	if conversation_flag != &"":
+	# Setting conversation_flag is the "I've talked to this NPC" mark. For
+	# recruit-locked NPCs we hold off so they keep showing their locked lines
+	# every visit until the unlock — at which point the next conversation will
+	# count as the first one and the recruit will fire.
+	if conversation_flag != &"" and not recruit_locked:
 		GameState.set_flag(conversation_flag, true)
 
-	# Recruit on first conversation (idempotent — won't re-add).
-	if first_time and recruit_actor_id != &"":
+	# Recruit on first conversation (idempotent — won't re-add). Skipped if the
+	# recruit is gated by a flag that isn't yet set.
+	if first_time and recruit_actor_id != &"" and not recruit_locked:
 		var already := false
 		for pm in Party.members:
 			if pm.actor_id == recruit_actor_id:

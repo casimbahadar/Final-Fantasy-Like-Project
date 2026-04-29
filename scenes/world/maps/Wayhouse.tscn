@@ -1,0 +1,122 @@
+[gd_scene load_steps=12 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/OverworldMap.gd" id="1_map"]
+[ext_resource type="Script" path="res://scripts/world/SpawnPoint.gd" id="2_spawn"]
+[ext_resource type="Script" path="res://scripts/world/WarpTrigger.gd" id="3_warp"]
+[ext_resource type="PackedScene" path="res://scenes/world/NPC.tscn" id="4_npc"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/player_berserker.svg" id="5_bram"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/player_monk.svg" id="6_sera"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/player_necromancer.svg" id="7_vael"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/player_bard.svg" id="8_lios"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/player_ranger.svg" id="9_wren"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/player_assassin.svg" id="10_nyx"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/player_summoner.svg" id="11_calen"]
+
+[node name="Wayhouse" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_map")
+grid_string = "####################
+#..................#
+#..####......####..#
+#..####......####..#
+#..................#
+#..................#
+#..................#
+#..................#
+#..................#
+#..####......####..#
+#..####......####..#
+#..................#
+#,,,,,,,,DD,,,,,,,,#
+####################"
+map_id = &"wayhouse"
+
+[node name="SpawnFromBrighthollow" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+spawn_id = &"from_brighthollow"
+grid_position = Vector2i(9, 12)
+facing = 3
+
+[node name="ExitToBrighthollow" type="Node2D" parent="."]
+script = ExtResource("3_warp")
+grid_position = Vector2i(8, 12)
+grid_size = Vector2i(2, 1)
+target_map_id = &"brighthollow"
+target_spawn_id = &"from_wayhouse"
+
+[node name="Bram" parent="." instance=ExtResource("4_npc")]
+npc_name = "Bram the Wild"
+grid_position = Vector2i(2, 6)
+recruit_actor_id = &"bram"
+conversation_flag = &"recruited_bram"
+recruit_required_flag = &"crystal_wraith_defeated"
+sprite_texture = ExtResource("5_bram")
+lines = PackedStringArray("Heard you killed something at the heart of the cave. Killing things is a hobby of mine. Take me along, why don't you.", "(Bram joined the party.)")
+lines_after_first = PackedStringArray("My axe is your axe. The bigger the foe the better.")
+recruit_locked_lines = PackedStringArray("You haven't put down anything worth following yet, friend. Come back when you have.")
+
+[node name="Wren" parent="." instance=ExtResource("4_npc")]
+npc_name = "Wren of the Wood"
+grid_position = Vector2i(5, 6)
+recruit_actor_id = &"wren"
+conversation_flag = &"recruited_wren"
+recruit_required_flag = &"treant_defeated"
+sprite_texture = ExtResource("9_wren")
+lines = PackedStringArray("The wood listens. It said you spoke nicely to the Treant before you put it down. I'd come along, if you'll have me.", "(Wren joined the party.)")
+lines_after_first = PackedStringArray("My bow draws longer than most. The wood asked me to make sure you live.")
+recruit_locked_lines = PackedStringArray("The wood hasn't decided about you yet. Walk in it a while.")
+
+[node name="Sera" parent="." instance=ExtResource("4_npc")]
+npc_name = "Sera the Quiet"
+grid_position = Vector2i(8, 6)
+recruit_actor_id = &"sera"
+conversation_flag = &"recruited_sera"
+recruit_required_flag = &"wyvern_defeated"
+sprite_texture = ExtResource("6_sera")
+lines = PackedStringArray("You walked the high passes and a wyvern died for it. I came down because of that — I'd been waiting for someone who could.", "(Sera joined the party.)")
+lines_after_first = PackedStringArray("Hands and feet do the work blades pretend to.")
+recruit_locked_lines = PackedStringArray("The high passes are still living, friend. Come back to me when one of them isn't.")
+
+[node name="Vael" parent="." instance=ExtResource("4_npc")]
+npc_name = "Vael the Listener"
+grid_position = Vector2i(11, 6)
+recruit_actor_id = &"vael"
+conversation_flag = &"recruited_vael"
+recruit_required_flag = &"hollow_king_defeated"
+sprite_texture = ExtResource("7_vael")
+lines = PackedStringArray("You silenced the Hollow King. The dead I read have been wanting to thank someone. They'd send me, if you'll have me.", "(Vael joined the party.)")
+lines_after_first = PackedStringArray("They are louder around you, you know. They like you.")
+recruit_locked_lines = PackedStringArray("The dead are still talking, child. Quiet them first, and we'll speak.")
+
+[node name="Lios" parent="." instance=ExtResource("4_npc")]
+npc_name = "Lios the Wanderer"
+grid_position = Vector2i(14, 6)
+recruit_actor_id = &"lios"
+conversation_flag = &"recruited_lios"
+recruit_required_flag = &"mira_joined"
+sprite_texture = ExtResource("8_lios")
+lines = PackedStringArray("Sister Mira said you were the kind of folk worth a song. I write the songs after. Easier to write them with you alive — let me come.", "(Lios joined the party.)")
+lines_after_first = PackedStringArray("A song needs a chorus. I prefer to be the chorus.")
+recruit_locked_lines = PackedStringArray("Brighthollow's chapel hasn't sent anyone yet — and I don't follow strangers without a song between us.")
+
+[node name="Nyx" parent="." instance=ExtResource("4_npc")]
+npc_name = "Nyx"
+grid_position = Vector2i(17, 6)
+recruit_actor_id = &"nyx"
+conversation_flag = &"recruited_nyx"
+recruit_required_flag = &"pretender_king_defeated"
+sprite_texture = ExtResource("10_nyx")
+lines = PackedStringArray("My contract was on the Pretender. You spoiled it. The next contract is yours — and so am I, free of charge, until it's done.", "(Nyx joined the party.)")
+lines_after_first = PackedStringArray("There's always one more door we don't want to open. I open them for a living.")
+recruit_locked_lines = PackedStringArray("There's a man on the throne calling himself a king. Until he isn't, we have nothing to talk about.")
+
+[node name="Calen" parent="." instance=ExtResource("4_npc")]
+npc_name = "Calen the Astrologer"
+grid_position = Vector2i(9, 3)
+recruit_actor_id = &"calen"
+conversation_flag = &"recruited_calen"
+recruit_required_flag = &"game_complete"
+sprite_texture = ExtResource("11_calen")
+lines = PackedStringArray("The eidolons remember now. They didn't, before — they were sleeping under the seal. Now I can call them, and so can you, if you'll have me.", "(Calen joined the party.)")
+lines_after_first = PackedStringArray("The eidolons don't speak words, exactly. Try Ifrit. You'll see.")
+recruit_locked_lines = PackedStringArray("The seal still holds enough for me to keep my hands quiet. Come back when the king is properly dead.")

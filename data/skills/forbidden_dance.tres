@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Skill.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"forbidden_dance"
+display_name = "Forbidden Dance"
+description = "A dance the elders banned — every foe sleeps if it lands."
+mp_cost = 14
+target_kind = 1
+damage_kind = 3
+element = 0
+power = 0
+accuracy = 0.85
+crit_bonus = 0.0
+inflicts_status = &"sleep"
+status_chance = 0.5

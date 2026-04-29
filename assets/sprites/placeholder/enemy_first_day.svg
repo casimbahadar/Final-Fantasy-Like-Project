@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges">
+  <!-- Solar halo -->
+  <rect x="2" y="2" width="28" height="28" fill="#fff8d8" opacity="0.2"/>
+  <rect x="0" y="14" width="32" height="4" fill="#ffe060" opacity="0.4"/>
+  <rect x="14" y="0" width="4" height="32" fill="#ffe060" opacity="0.3"/>
+  <!-- Tall figure made of golden bands -->
+  <rect x="9" y="4" width="14" height="24" fill="#a87020"/>
+  <rect x="9" y="4" width="14" height="2" fill="#ffe080"/>
+  <rect x="9" y="14" width="14" height="2" fill="#ffe080"/>
+  <rect x="9" y="22" width="14" height="2" fill="#ffe080"/>
+  <rect x="7" y="8" width="2" height="18" fill="#a87020"/>
+  <rect x="23" y="8" width="2" height="18" fill="#a87020"/>
+  <!-- Sun-disc head -->
+  <rect x="11" y="0" width="10" height="10" fill="#fff080"/>
+  <rect x="13" y="-1" width="6" height="2" fill="#ffe060"/>
+  <!-- Solar rays around head -->
+  <rect x="9" y="2" width="2" height="2" fill="#ffd040"/>
+  <rect x="21" y="2" width="2" height="2" fill="#ffd040"/>
+  <rect x="13" y="-2" width="6" height="1" fill="#ffd040"/>
+  <!-- Black-hole eyes -->
+  <rect x="13" y="3" width="2" height="2" fill="#000000"/>
+  <rect x="17" y="3" width="2" height="2" fill="#000000"/>
+  <!-- Crown of thrones (Light's diadem) -->
+  <rect x="11" y="-1" width="10" height="2" fill="#ffd040"/>
+  <rect x="13" y="-2" width="2" height="3" fill="#ffd040"/>
+  <rect x="17" y="-2" width="2" height="3" fill="#ffd040"/>
+</svg>

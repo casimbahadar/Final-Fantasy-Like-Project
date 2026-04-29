@@ -30,6 +30,10 @@ class PartyMember extends RefCounted:
 	# this character uses the named class for XP curves and learnset instead of
 	# their actor's default class. Empty = use the actor's class as authored.
 	var class_override: StringName = &""
+	# Optional secondary "subclass" — if set, the character's available skills
+	# are merged with skills from this class's learnset (gated by their level).
+	# Subclass does NOT change XP curves; it just adds skill access.
+	var subclass: StringName = &""
 
 	func _init(actor: Actor) -> void:
 		actor_id = actor.id

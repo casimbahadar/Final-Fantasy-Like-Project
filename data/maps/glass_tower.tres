@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MapData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/MapData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"glass_tower"
+display_name = "The Glass Tower"
+scene_path = "res://scenes/world/maps/GlassTower.tscn"
+encounter_troops = Array[StringName]([&"tomb_mix", &"spectral_pair", &"twin_pair", &"spawn_swarm"])
+encounter_steps = 6

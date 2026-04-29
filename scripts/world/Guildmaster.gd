@@ -12,7 +12,12 @@ extends Node2D
 ## Quest gate — class change unlocks once this flag is set.
 @export var requires_flag: StringName = &"stormwyrm_defeated"
 
-const CLASS_OPTIONS: Array[StringName] = [&"warrior", &"mage", &"rogue", &"cleric", &"dragoon"]
+const CLASS_OPTIONS: Array[StringName] = [
+	&"warrior", &"mage", &"rogue", &"cleric", &"dragoon",
+	&"berserker", &"monk", &"necromancer", &"paladin",
+	&"bard", &"ranger", &"samurai", &"geomancer",
+	&"beastmaster", &"time_mage", &"spellblade", &"assassin",
+]
 
 @onready var sprite: Sprite2D = $Sprite2D
 

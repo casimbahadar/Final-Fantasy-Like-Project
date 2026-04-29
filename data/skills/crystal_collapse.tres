@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Skill.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"crystal_collapse"
+display_name = "Crystal Collapse"
+description = "The crystal heart shatters — massive non-elemental damage, may stun."
+mp_cost = 0
+target_kind = 1
+damage_kind = 1
+element = 0
+power = 36
+accuracy = 0.92
+crit_bonus = 0.05
+inflicts_status = &"stun"
+status_chance = 0.2
