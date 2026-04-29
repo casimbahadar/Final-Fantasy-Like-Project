@@ -1,0 +1,76 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/OverworldMap.gd" id="1_map"]
+[ext_resource type="Script" path="res://scripts/world/SpawnPoint.gd" id="2_spawn"]
+[ext_resource type="Script" path="res://scripts/world/WarpTrigger.gd" id="3_warp"]
+[ext_resource type="Script" path="res://scripts/world/EncounterTrigger.gd" id="4_encounter"]
+[ext_resource type="Script" path="res://scripts/world/EndingTrigger.gd" id="5_story"]
+[ext_resource type="PackedScene" path="res://scenes/world/Chest.tscn" id="6_chest"]
+
+[node name="SunkenTemple" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_map")
+grid_string = "####################
+#,,,,,,,,,,,,,,,,,,#
+#,,##############,,#
+#,,#............#,,#
+#,,#............#,,#
+#,,#............#,,#
+#,,#............#,,#
+#,,######..######,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,####,,,,,,,,,,#
+#,,,,####,,,,####,,#
+#,,,,,,,,,,,,####,,#
+#,,,,,,,,DD,,,,,,,,#
+####################"
+map_id = &"sunken_temple"
+
+[node name="SpawnFromTown" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+spawn_id = &"from_town"
+grid_position = Vector2i(9, 11)
+facing = 3
+
+[node name="ExitToTown" type="Node2D" parent="."]
+script = ExtResource("3_warp")
+grid_position = Vector2i(8, 12)
+grid_size = Vector2i(2, 1)
+target_map_id = &"brighthollow"
+target_spawn_id = &"from_temple"
+
+[node name="ChestPhoenix" parent="." instance=ExtResource("6_chest")]
+chest_id = &"temple_phoenix"
+grid_position = Vector2i(2, 8)
+item_id = &"phoenix_down"
+item_count = 1
+
+[node name="ChestEther" parent="." instance=ExtResource("6_chest")]
+chest_id = &"temple_ether"
+grid_position = Vector2i(17, 8)
+item_id = &"ether"
+item_count = 3
+
+[node name="ChestRibbon" parent="." instance=ExtResource("6_chest")]
+chest_id = &"temple_ribbon"
+grid_position = Vector2i(2, 1)
+item_id = &"ribbon"
+item_count = 1
+
+[node name="HollowKing" type="Node2D" parent="."]
+script = ExtResource("4_encounter")
+grid_position = Vector2i(9, 5)
+troop_id = &"hollow_king_boss"
+defeated_flag = &"hollow_king_defeated"
+intro_lines = PackedStringArray("On a throne of bone-white stone sits the long-dead king of Eyl.", "He raises his head as you enter. His eyes are two pits of cold green light.", "\"You found me. The Heart found me. I have been waiting so long...\"", "\"Then come. Come and lay your sovereign down.\"")
+intro_speaker = "The Hollow King"
+
+[node name="Aila" type="Node2D" parent="."]
+script = ExtResource("5_story")
+grid_position = Vector2i(9, 3)
+requires_flag = &"hollow_king_defeated"
+sets_flag = &"aila_found"
+is_ending = true
+speaker = "Sister Mira"
+lines = PackedStringArray("Behind the throne, a small figure curls — pale, breathing, alive.", "Mira drops to her knees. \"Aila. Aila, I have you. I have you.\"", "Aila's eyes flutter open. She speaks, but her voice carries something older than her years —", "\"...the Plague had three roots. You've cut two. The third is in the Whispering above the world.\"", "Mira looks up at you, fierce. \"Then we go up.\"", "", "— END OF DEMO (Phase 8: through Chapter 3) —", "Press confirm to return to the title.")
+lines_locked = PackedStringArray("A small figure stirs in the shadows behind the throne — but it cannot be reached while the King yet lives.")

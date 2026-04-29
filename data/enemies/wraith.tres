@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Enemy.gd" id="1_script"]
+[ext_resource type="Resource" path="res://data/skills/attack.tres" id="2_attack"]
+[ext_resource type="Resource" path="res://data/skills/silence_spell.tres" id="3_silence"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/enemy_wraith.svg" id="4_sprite"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"wraith"
+display_name = "Wraith"
+battle_sprite = ExtResource("4_sprite")
+max_hp = 80
+max_mp = 30
+atk = 9
+def = 5
+mag = 16
+res = 14
+spd = 11
+luk = 3
+xp_reward = 26
+gold_reward = 14
+drop_chance = 0.0
+skills = Array[Resource]([ExtResource("2_attack"), ExtResource("3_silence")])
+element_modifiers = {7: 2.0, 8: 0.0}

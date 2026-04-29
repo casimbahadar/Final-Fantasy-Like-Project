@@ -18,6 +18,10 @@ extends Node2D
 @export var shop_inventory: Array[StringName] = []
 ## If > 0, interacting offers an inn stay (full heal) for this many gold.
 @export var inn_cost: int = 0
+## If set, the actor with this id joins the party after the first conversation
+## (skipped if they're already in the party). Pair with conversation_flag so
+## the recruit only happens once.
+@export var recruit_actor_id: StringName = &""
 
 @onready var sprite: Sprite2D = $Sprite2D
 
@@ -57,11 +61,25 @@ func interact(player) -> void:
 		if lines_after_first.size() > 0:
 			to_say = lines_after_first
 
+	# Capture whether this is the very first conversation BEFORE we set the
+	# flag, so a one-shot recruit fires exactly once.
+	var first_time := conversation_flag != &"" and not GameState.get_flag(conversation_flag, false)
+
 	if to_say.size() > 0:
 		await Dialogue.say(Array(to_say), npc_name)
 
 	if conversation_flag != &"":
 		GameState.set_flag(conversation_flag, true)
+
+	# Recruit on first conversation (idempotent — won't re-add).
+	if first_time and recruit_actor_id != &"":
+		var already := false
+		for pm in Party.members:
+			if pm.actor_id == recruit_actor_id:
+				already = true
+				break
+		if not already:
+			Party.add_member(recruit_actor_id)
 
 	# After the greeting (if any), branch into shop or inn flow if configured.
 	if shop_inventory.size() > 0:

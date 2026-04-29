@@ -48,7 +48,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.7)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
 theme_override_font_sizes/font_size = 28
-text = "Final Fantasy Like"
+text = "LAST LIGHT OF EYL"
 horizontal_alignment = 1
 
 [node name="SubtitleLabel" type="Label" parent="Layout"]
@@ -56,7 +56,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.7, 0.7, 0.85, 1)
 theme_override_font_sizes/font_size = 10
-text = "a JRPG project"
+text = "a JRPG of crystal and withering"
 horizontal_alignment = 1
 
 [node name="Spacer" type="Control" parent="Layout"]

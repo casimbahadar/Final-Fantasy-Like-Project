@@ -1,0 +1,85 @@
+[gd_scene load_steps=10 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/OverworldMap.gd" id="1_map"]
+[ext_resource type="Script" path="res://scripts/world/SpawnPoint.gd" id="2_spawn"]
+[ext_resource type="Script" path="res://scripts/world/WarpTrigger.gd" id="3_warp"]
+[ext_resource type="PackedScene" path="res://scenes/world/NPC.tscn" id="4_npc"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/npc_shopkeeper.svg" id="5_shop_tex"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/npc_innkeeper.svg" id="6_inn_tex"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/npc_villager.svg" id="7_villager_tex"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/player_cleric.svg" id="8_mira_tex"]
+[ext_resource type="Script" path="res://scripts/world/EndingTrigger.gd" id="9_story"]
+
+[node name="Brighthollow" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_map")
+grid_string = "####################
+#,,,,,,,,DD,,,,,,,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,####,,,,,,####,,#
+#,,####,,,,,,####,,#
+#,,####,,,,,,####,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,####,,,,,,####,,#
+#,,####,,,,,,####,,#
+#,,####,,,,,,####,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,,,,,DD,,,,,,,,#
+####################"
+map_id = &"brighthollow"
+
+[node name="SpawnFromForest" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+spawn_id = &"from_forest"
+grid_position = Vector2i(9, 11)
+facing = 3
+
+[node name="SpawnFromTemple" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+spawn_id = &"from_temple"
+grid_position = Vector2i(9, 2)
+facing = 0
+
+[node name="ExitToForest" type="Node2D" parent="."]
+script = ExtResource("3_warp")
+grid_position = Vector2i(8, 12)
+grid_size = Vector2i(2, 1)
+target_map_id = &"forest_path"
+target_spawn_id = &"from_town"
+
+[node name="ExitToTemple" type="Node2D" parent="."]
+script = ExtResource("3_warp")
+grid_position = Vector2i(8, 1)
+grid_size = Vector2i(2, 1)
+target_map_id = &"sunken_temple"
+target_spawn_id = &"from_town"
+requires_flag = &"mira_joined"
+
+[node name="Shopkeeper" parent="." instance=ExtResource("4_npc")]
+npc_name = "Wenn the Stocker"
+grid_position = Vector2i(4, 6)
+lines = PackedStringArray("Word of the Crystal Heart's awakening reached us this morning.", "I've ordered up better gear. The road ahead is rougher than the cave.", "Take a look — and stay sharp.")
+shop_inventory = Array[StringName]([&"hi_potion", &"ether", &"antidote", &"eye_drops", &"echo_herb", &"soft", &"phoenix_down", &"iron_sword", &"silver_wand", &"chain_mail", &"silk_robe", &"ribbon"])
+sprite_texture = ExtResource("5_shop_tex")
+
+[node name="Innkeeper" parent="." instance=ExtResource("4_npc")]
+npc_name = "Tomas of the Hollow"
+grid_position = Vector2i(4, 11)
+lines = PackedStringArray("Brighthollow's been a way-stop since the kingdom's first roads were laid.", "A bed costs 50 gold — no haggling. Heals you to full.")
+inn_cost = 50
+sprite_texture = ExtResource("6_inn_tex")
+
+[node name="Villager" parent="." instance=ExtResource("4_npc")]
+npc_name = "Old Maren"
+grid_position = Vector2i(15, 11)
+lines = PackedStringArray("They say the King's tomb breathes again. Hollow as an empty barrel and twice as cold.", "If you mean to go in there, take Sister Mira from the chapel. She has cause.")
+
+[node name="Mira" parent="." instance=ExtResource("4_npc")]
+npc_name = "Sister Mira"
+grid_position = Vector2i(15, 6)
+lines = PackedStringArray("My sister Aila went into the tomb three nights ago. She hasn't come back.", "The Plague's roots are there, deeper than any of us reckoned. The Hollow King has woken.", "I will go with you, if you'll have me. Lay him to rest, and perhaps Aila too.", "(Sister Mira has joined the party!)")
+lines_after_first = PackedStringArray("The chapel's bell rings every hour I'm not in it. We should go — soon.")
+conversation_flag = &"mira_joined"
+recruit_actor_id = &"mira"
+sprite_texture = ExtResource("8_mira_tex")

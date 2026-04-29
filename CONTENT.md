@@ -151,6 +151,26 @@ Examples:
 
 ---
 
+## Add music / SFX
+
+`assets/audio/` is empty by design — Godot autoimports `.ogg` files dropped in there. Once you have one:
+
+1. Drop the file into `assets/audio/bgm/` (or `sfx/` / `jingles/`).
+2. Double-click it in Godot's FileSystem dock. In the Import tab, set **Loop = true** for BGM, then **Reimport**.
+3. Drag it onto the relevant slot:
+   - **Map music** → `data/maps/<map_id>.tres` → `bgm`
+   - **Battle music** → `data/troops/<troop_id>.tres` → `battle_bgm`
+   - **Victory jingle** → `data/troops/<troop_id>.tres` → `victory_jingle`
+4. Update `CREDITS.md` with the source + license.
+
+Curated free sources for fantasy/RPG tracks: see `assets/audio/README.md`.
+
+## Add a recruit (party member who joins via dialogue)
+
+1. Create the actor + class as documented above.
+2. Place an NPC in the world with `conversation_flag` set (e.g. `&"mira_joined"`) AND `recruit_actor_id` set to the actor id (e.g. `&"mira"`). The first conversation sets the flag and adds them to the party. Subsequent talks fall through to `lines_after_first`.
+3. To gate later content on the recruit, set `WarpTrigger.requires_flag = &"<flag_name>"` on warps that should only open after the recruit.
+
 ## Where the limits are
 
 A few things that are NOT yet data-driven and currently require code changes:
@@ -159,5 +179,6 @@ A few things that are NOT yet data-driven and currently require code changes:
 - New status **field types** (e.g. "reflect magic back at caster" needs DamageCalculator awareness).
 - New input actions / control schemes (touch button targets are hand-coded).
 - Battle scene layout (fighter positions are computed in `BattleManager._build_units`; for big custom encounters, edit there).
+- Per-enemy-type AI (e.g. "always cast Cure if HP < 30%") — the current AI picks uniformly among usable skills.
 
-Everything else — story arcs, towns, dungeons, quests, balance — is `.tres`.
+Everything else — story arcs, towns, dungeons, quests, balance, music, art — is `.tres` or asset drop.

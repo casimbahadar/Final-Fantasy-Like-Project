@@ -25,7 +25,7 @@ func _ready() -> void:
 	else:
 		continue_button.grab_focus()
 
-	version_label.text = "v0.0.1 - Phase 0 foundation"
+	version_label.text = "v0.0.8 — Chapter 3 demo"
 
 
 func _any_save_exists() -> bool:

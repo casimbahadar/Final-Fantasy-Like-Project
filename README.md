@@ -1,8 +1,42 @@
-# Final-Fantasy-Like-Project
+# Last Light of Eyl
 
 A Final Fantasy–inspired JRPG built in **Godot 4**, designed to ship to **itch.io (Web)**, **Android**, and **iOS** from a single codebase. Visual style targets the GBA era (FF1–6, FFTA) with a clear upgrade path to 2D-HD (Octopath, FF Pixel Remaster).
 
-> **Status:** Phase 7 — content expansion. 16 status effects, 13 new skills, a Rogue class, third party member (Kael), Chapter 2 starter area (Whispering Wood), 3 new enemies. See [`CONTENT.md`](CONTENT.md) for the content-authoring guide.
+> **Status:** Phase 8 — three full chapters. Plaza → Outskirts → Crystal Cave (Crystal Wraith boss + Kael recruit) → Whispering Wood → Brighthollow (shop / inn / Mira recruit) → Sunken Temple (Hollow King boss + Aila reunion). 17 status effects, 27 skills, 4 playable characters across 3 classes, 9 enemies. See [`CONTENT.md`](CONTENT.md) to keep building.
+
+## Chapter map
+
+```
+            [Plaza]
+               |
+            (south)
+               |
+         [Outskirts] ─(grass encounters: slime, goblin)─
+               |
+            (east)
+               |
+       [Crystal Cave Entrance] ─(chests: iron sword, hi-potions, silk robe)─
+               |
+            (east)
+               |
+        [Crystal Cave Deep] ─── BOSS: Crystal Wraith
+               |             └─ Kael (Rogue) joins here
+            (north — opens after boss)
+               |
+       [Whispering Wood] ─(forest_pair, wisp_trio, bandit_pair)─
+               |
+            (north)
+               |
+         [Brighthollow] ─(shop: full Chapter 3 gear; inn 50g)─
+               |       └─ Sister Mira (Cleric) joins here
+            (north — opens after Mira joins)
+               |
+       [Sunken Temple] ─(skeleton, wraith, animated armor; chests: phoenix down, ether, ribbon)─
+               |
+            BOSS: Hollow King
+               |
+            ENDING: Aila reunion → "to be continued"
+```
 
 ## Roadmap
 
@@ -15,8 +49,9 @@ A Final Fantasy–inspired JRPG built in **Godot 4**, designed to ship to **itch
 | 4 | Vertical slice: town, shop, inn, dungeon with chests, boss, ending | ✅ done |
 | 5 | Mobile touch controls, audio settings, export targets | ✅ done |
 | 6 | Status effects + battle polish (hit flash, screen shake, status badges) | ✅ done |
-| 7 | Content expansion: 16 statuses, 22 skills, Rogue class, third party member, Chapter 2 starter | ✅ done |
-| 8+ | More chapters / dungeons / bosses / story (data-driven; see [`CONTENT.md`](CONTENT.md)) | ⏳ |
+| 7 | Chapter 2: Rogue class, Kael, Whispering Wood, status framework deepening | ✅ done |
+| 8 | Chapter 3: Cleric class, Mira, Brighthollow, Sunken Temple, Hollow King | ✅ done |
+| 9+ | Music & SFX, Chapter 4+, real art swap (see [`CONTENT.md`](CONTENT.md) and [`assets/audio/README.md`](assets/audio/README.md)) | ⏳ |
 
 See [`/root/.claude/plans/i-want-to-create-enchanted-nygaard.md`](../../root/.claude/plans/i-want-to-create-enchanted-nygaard.md) for the full plan (local file).
 

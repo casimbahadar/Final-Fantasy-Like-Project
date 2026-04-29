@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="Actor" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Actor.gd" id="1_script"]
+[ext_resource type="Resource" path="res://data/classes/cleric.tres" id="2_cleric"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/player_cleric.svg" id="3_overworld"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/player_cleric.svg" id="4_battle"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"mira"
+display_name = "Sister Mira"
+bio = "A cleric of Brighthollow's chapel. The Plague took her sister into the Sunken Temple — and she means to bring her back."
+char_class = ExtResource("2_cleric")
+starting_level = 4
+base_max_hp = 95
+base_max_mp = 40
+base_atk = 8
+base_def = 9
+base_mag = 13
+base_res = 14
+base_spd = 8
+base_luk = 7
+grow_max_hp = 7
+grow_max_mp = 5
+grow_atk = 1
+grow_def = 2
+grow_mag = 3
+grow_res = 3
+grow_spd = 1
+grow_luk = 1
+overworld_sprite = ExtResource("3_overworld")
+battle_sprite = ExtResource("4_battle")

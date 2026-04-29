@@ -1,0 +1,66 @@
+[gd_resource type="Resource" script_class="CharClass" load_steps=24 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/CharClass.gd" id="1_script"]
+[ext_resource type="Script" path="res://scripts/resources/LearnEntry.gd" id="2_learn"]
+[ext_resource type="Resource" path="res://data/skills/attack.tres" id="3_attack"]
+[ext_resource type="Resource" path="res://data/skills/cure.tres" id="4_cure"]
+[ext_resource type="Resource" path="res://data/skills/protect.tres" id="5_protect"]
+[ext_resource type="Resource" path="res://data/skills/cura.tres" id="6_cura"]
+[ext_resource type="Resource" path="res://data/skills/shell_spell.tres" id="7_shell"]
+[ext_resource type="Resource" path="res://data/skills/banish.tres" id="8_banish"]
+[ext_resource type="Resource" path="res://data/skills/regen_spell.tres" id="9_regen"]
+[ext_resource type="Resource" path="res://data/skills/holy.tres" id="10_holy"]
+[ext_resource type="Resource" path="res://data/skills/curaga.tres" id="11_curaga"]
+
+[sub_resource type="Resource" id="LearnAttack"]
+script = ExtResource("2_learn")
+level = 1
+skill = ExtResource("3_attack")
+
+[sub_resource type="Resource" id="LearnCure"]
+script = ExtResource("2_learn")
+level = 1
+skill = ExtResource("4_cure")
+
+[sub_resource type="Resource" id="LearnProtect"]
+script = ExtResource("2_learn")
+level = 1
+skill = ExtResource("5_protect")
+
+[sub_resource type="Resource" id="LearnCura"]
+script = ExtResource("2_learn")
+level = 3
+skill = ExtResource("6_cura")
+
+[sub_resource type="Resource" id="LearnShell"]
+script = ExtResource("2_learn")
+level = 4
+skill = ExtResource("7_shell")
+
+[sub_resource type="Resource" id="LearnBanish"]
+script = ExtResource("2_learn")
+level = 5
+skill = ExtResource("8_banish")
+
+[sub_resource type="Resource" id="LearnRegen"]
+script = ExtResource("2_learn")
+level = 6
+skill = ExtResource("9_regen")
+
+[sub_resource type="Resource" id="LearnHoly"]
+script = ExtResource("2_learn")
+level = 8
+skill = ExtResource("10_holy")
+
+[sub_resource type="Resource" id="LearnCuraga"]
+script = ExtResource("2_learn")
+level = 10
+skill = ExtResource("11_curaga")
+
+[resource]
+script = ExtResource("1_script")
+id = &"cleric"
+display_name = "Cleric"
+description = "Holy caster. Healer and undead-bane. High RES, modest HP."
+learnset = Array[Resource]([SubResource("LearnAttack"), SubResource("LearnCure"), SubResource("LearnProtect"), SubResource("LearnCura"), SubResource("LearnShell"), SubResource("LearnBanish"), SubResource("LearnRegen"), SubResource("LearnHoly"), SubResource("LearnCuraga")])
+xp_curve = PackedInt32Array()

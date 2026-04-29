@@ -5,7 +5,7 @@ config_version=5
 
 [application]
 
-config/name="Final Fantasy Like Project"
+config/name="Last Light of Eyl"
 config/description="A Final Fantasy-inspired JRPG built in Godot 4. Targets itch.io (Web), Android, and iOS."
 run/main_scene="res://scenes/ui/TitleScreen.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")

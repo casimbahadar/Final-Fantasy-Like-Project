@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Enemy.gd" id="1_script"]
+[ext_resource type="Resource" path="res://data/skills/attack.tres" id="2_attack"]
+[ext_resource type="Resource" path="res://data/skills/wail.tres" id="3_wail"]
+[ext_resource type="Resource" path="res://data/skills/death_grip.tres" id="4_grip"]
+[ext_resource type="Resource" path="res://data/skills/dark_pulse.tres" id="5_dark"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/enemy_hollow_king.svg" id="6_sprite"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"hollow_king"
+display_name = "Hollow King"
+battle_sprite = ExtResource("6_sprite")
+max_hp = 580
+max_mp = 100
+atk = 22
+def = 14
+mag = 22
+res = 16
+spd = 11
+luk = 6
+xp_reward = 240
+gold_reward = 600
+drop_chance = 0.0
+skills = Array[Resource]([ExtResource("2_attack"), ExtResource("3_wail"), ExtResource("4_grip"), ExtResource("5_dark")])
+element_modifiers = {7: 1.75, 8: 0.0}

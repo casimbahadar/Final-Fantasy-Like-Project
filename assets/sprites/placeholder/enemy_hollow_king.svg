@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" shape-rendering="crispEdges">
+  <!-- Throne shadow -->
+  <rect x="8" y="58" width="48" height="6" fill="#1a1015" opacity="0.5"/>
+  <!-- Throne behind -->
+  <rect x="8" y="14" width="6" height="44" fill="#3a2030"/>
+  <rect x="50" y="14" width="6" height="44" fill="#3a2030"/>
+  <rect x="6" y="10" width="10" height="6" fill="#3a2030"/>
+  <rect x="48" y="10" width="10" height="6" fill="#3a2030"/>
+  <!-- Crown -->
+  <rect x="20" y="2" width="24" height="4" fill="#704028"/>
+  <rect x="20" y="0" width="3" height="4" fill="#704028"/>
+  <rect x="26" y="0" width="3" height="4" fill="#704028"/>
+  <rect x="32" y="0" width="3" height="4" fill="#704028"/>
+  <rect x="38" y="0" width="3" height="4" fill="#704028"/>
+  <rect x="41" y="0" width="3" height="4" fill="#704028"/>
+  <rect x="22" y="0" width="2" height="2" fill="#a8e860"/>
+  <rect x="32" y="0" width="2" height="2" fill="#a8e860"/>
+  <rect x="40" y="0" width="2" height="2" fill="#a8e860"/>
+  <!-- Skull-face -->
+  <rect x="20" y="6" width="24" height="14" fill="#d8d0c0"/>
+  <rect x="22" y="7" width="20" height="2" fill="#ffffff"/>
+  <!-- Eye sockets glowing -->
+  <rect x="23" y="11" width="5" height="5" fill="#0a0510"/>
+  <rect x="36" y="11" width="5" height="5" fill="#0a0510"/>
+  <rect x="24" y="12" width="3" height="3" fill="#a8e860"/>
+  <rect x="37" y="12" width="3" height="3" fill="#a8e860"/>
+  <rect x="25" y="13" width="1" height="1" fill="#ffffff"/>
+  <rect x="38" y="13" width="1" height="1" fill="#ffffff"/>
+  <!-- Cheekbones / nose hole -->
+  <rect x="30" y="14" width="4" height="4" fill="#1a1015"/>
+  <!-- Teeth -->
+  <rect x="22" y="18" width="20" height="2" fill="#1a1015"/>
+  <rect x="24" y="18" width="2" height="2" fill="#d8d0c0"/>
+  <rect x="28" y="18" width="2" height="2" fill="#d8d0c0"/>
+  <rect x="32" y="18" width="2" height="2" fill="#d8d0c0"/>
+  <rect x="36" y="18" width="2" height="2" fill="#d8d0c0"/>
+  <rect x="40" y="18" width="2" height="2" fill="#d8d0c0"/>
+  <!-- Royal mantle (cape over shoulders) -->
+  <rect x="14" y="20" width="36" height="22" fill="#2a0a18"/>
+  <rect x="16" y="22" width="32" height="4" fill="#3a1028"/>
+  <rect x="18" y="20" width="28" height="2" fill="#a04030"/>
+  <!-- Skeletal chest plate -->
+  <rect x="22" y="24" width="20" height="16" fill="#a8a090"/>
+  <rect x="24" y="26" width="4" height="14" fill="#1a1015"/>
+  <rect x="36" y="26" width="4" height="14" fill="#1a1015"/>
+  <rect x="29" y="28" width="6" height="3" fill="#1a1015"/>
+  <rect x="29" y="33" width="6" height="3" fill="#1a1015"/>
+  <!-- Belt -->
+  <rect x="14" y="42" width="36" height="3" fill="#3a2010"/>
+  <rect x="28" y="41" width="8" height="5" fill="#f5d76e"/>
+  <rect x="30" y="42" width="4" height="3" fill="#a04030"/>
+  <!-- Skirt of mantle -->
+  <rect x="14" y="45" width="36" height="13" fill="#2a0a18"/>
+  <rect x="16" y="46" width="32" height="2" fill="#3a1028"/>
+  <rect x="14" y="56" width="36" height="2" fill="#a04030"/>
+  <!-- Skeletal hand on throne arm -->
+  <rect x="6" y="36" width="6" height="4" fill="#d8d0c0"/>
+  <!-- Sword resting -->
+  <rect x="52" y="30" width="3" height="20" fill="#5a606f"/>
+  <rect x="50" y="28" width="7" height="3" fill="#5a3210"/>
+  <!-- Glow halo -->
+  <rect x="18" y="4" width="28" height="2" fill="#a8e860" opacity="0.3"/>
+  <rect x="14" y="6" width="36" height="14" fill="#a8e860" opacity="0.15"/>
+</svg>
