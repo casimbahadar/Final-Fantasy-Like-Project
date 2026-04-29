@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Skill.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"blasphemous_cure"
+display_name = "Blasphemous Cure"
+description = "Heals the caster massively — a corrupted version of the spell that saved them once."
+mp_cost = 24
+target_kind = 4
+damage_kind = 2
+element = 0
+power = 200
+accuracy = 1.0

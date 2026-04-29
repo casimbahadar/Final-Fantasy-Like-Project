@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Item.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"iron_brace"
+display_name = "Iron Bracer"
+description = "Bracer awarded for clearing the third wave of the Bounty Pit."
+kind = 3
+equip_slot = 3
+stackable = false
+max_stack = 1
+buy_price = 0
+sell_price = 250
+bonus_atk = 4
+bonus_def = 6
+bonus_max_hp = 30
+bonus_spd = 1

@@ -134,6 +134,18 @@ npc_name = "Old Hild"
 grid_position = Vector2i(7, 4)
 lines = PackedStringArray("There used to be a cellar under the Plaza chapel — flooded years ago when the river shifted.", "Nobody goes down there anymore. Nobody who comes back, anyway.")
 sprite_texture = ExtResource("9_villager_tex")
+quest_required_flag = &"talked_to_sage"
+quest_accept_flag = &"hild_quest_accepted"
+quest_required_kill_enemy = &"goblin"
+quest_required_kill_count = 8
+quest_reward_flag = &"hild_quest_done"
+quest_reward_gold = 400
+quest_reward_item = &"antidote"
+quest_reward_item_count = 6
+quest_offer_lines = PackedStringArray("Goblins from the Outskirts have been at my chickens. I'd ask the guard but the guard's all gone south.", "Eight of them less and I'd sleep a whole night. Four hundred gold and a half-dozen antidotes from the shed if you'll do it.")
+quest_progress_lines = PackedStringArray("Eight goblins. The chickens are still nervous.")
+quest_complete_lines = PackedStringArray("Bless you, child. Eight is enough — the rest will think twice.", "Four hundred gold and the antidotes. Go safe.")
+quest_done_lines = PackedStringArray("The chickens are calm. You did well by us.")
 
 [node name="Intro" type="Node" parent="."]
 script = ExtResource("8_intro")

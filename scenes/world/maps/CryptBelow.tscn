@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/OverworldMap.gd" id="1_map"]
+[ext_resource type="Script" path="res://scripts/world/SpawnPoint.gd" id="2_spawn"]
+[ext_resource type="Script" path="res://scripts/world/WarpTrigger.gd" id="3_warp"]
+[ext_resource type="Script" path="res://scripts/world/EncounterTrigger.gd" id="4_encounter"]
+[ext_resource type="PackedScene" path="res://scenes/world/Chest.tscn" id="5_chest"]
+
+[node name="CryptBelow" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_map")
+grid_string = "####################
+#,,,,,,,,DD,,,,,,,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,####,,,,,,####,,#
+#,,####,,,,,,####,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,####,,####,,,,#
+#,,,,####,,####,,,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,####,,,,,,####,,#
+#,,####,,,,,,####,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,,,,,,,,,,,,,,,#
+####################"
+map_id = &"crypt_below"
+
+[node name="SpawnFromCrypt" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+spawn_id = &"from_crypt"
+grid_position = Vector2i(9, 2)
+facing = 0
+
+[node name="ExitToCrypt" type="Node2D" parent="."]
+script = ExtResource("3_warp")
+grid_position = Vector2i(8, 1)
+grid_size = Vector2i(2, 1)
+target_map_id = &"royal_crypt"
+target_spawn_id = &"from_below"
+
+[node name="ChestEthers" parent="." instance=ExtResource("5_chest")]
+chest_id = &"crypt_below_ethers"
+grid_position = Vector2i(2, 8)
+item_id = &"ether"
+item_count = 6
+
+[node name="ChestPhoenix" parent="." instance=ExtResource("5_chest")]
+chest_id = &"crypt_below_phoenix"
+grid_position = Vector2i(17, 8)
+item_id = &"phoenix_down"
+item_count = 4
+
+[node name="ChestRibbon" parent="." instance=ExtResource("5_chest")]
+chest_id = &"crypt_below_ribbon"
+grid_position = Vector2i(2, 12)
+item_id = &"ribbon"
+item_count = 1
+
+[node name="ChestCirclet" parent="." instance=ExtResource("5_chest")]
+chest_id = &"crypt_below_grave_circlet"
+grid_position = Vector2i(17, 12)
+item_id = &"grave_circlet"
+item_count = 1
+
+[node name="CryptLordTrigger" type="Node2D" parent="."]
+script = ExtResource("4_encounter")
+grid_position = Vector2i(9, 11)
+troop_id = &"crypt_lord_boss"
+defeated_flag = &"crypt_lord_defeated"
+intro_lines = PackedStringArray("The stair descends past where any crypt should descend. The walls stop being walls and become rows of names — every name a king has ever borne.", "At the bottom, a robed figure stands beside a coffin too long for any single body. Twin scepters at his sides.", "\"None come down past the queen,\" he says, mildly. \"None come down past me.\"", "Aldric, after a long pause: \"...we did, though.\"", "\"Then we will see whether you go up.\"")
+intro_speaker = "The Crypt Lord"

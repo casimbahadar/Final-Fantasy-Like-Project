@@ -34,6 +34,7 @@ func save_to(slot: int) -> bool:
 		"key_items": _stringify_keys(Party.key_items),
 		"members": _serialize_members(),
 		"hunt": Hunt.to_dict(),
+		"ng_plus_count": GameState.ng_plus_count,
 	}
 	var f := FileAccess.open(slot_path(slot), FileAccess.WRITE)
 	if f == null:
@@ -94,11 +95,13 @@ func load_from(slot: int) -> bool:
 		pm.equip_weapon = StringName(m.get("equip_weapon", ""))
 		pm.equip_armor = StringName(m.get("equip_armor", ""))
 		pm.equip_accessory = StringName(m.get("equip_accessory", ""))
+		pm.class_override = StringName(m.get("class_override", ""))
 		for s in m.get("statuses", []):
 			pm.statuses.append(StringName(s))
 		Party.members.append(pm)
 
 	Hunt.from_dict(parsed.get("hunt", {}))
+	GameState.ng_plus_count = int(parsed.get("ng_plus_count", 0))
 
 	GameState.last_save_slot = slot
 	loaded.emit(slot)
@@ -113,12 +116,15 @@ func slot_summary(slot: int) -> Dictionary:
 	f.close()
 	if typeof(parsed) != TYPE_DICTIONARY:
 		return {}
+	var flags: Dictionary = parsed.get("flags", {})
 	return {
 		"timestamp": parsed.get("timestamp", 0),
 		"playtime": parsed.get("playtime", 0.0),
 		"map_id": parsed.get("current_map_id", ""),
 		"member_count": (parsed.get("members", []) as Array).size(),
 		"gold": parsed.get("gold", 0),
+		"game_complete": bool(flags.get("game_complete", false)),
+		"ng_plus_count": int(parsed.get("ng_plus_count", 0)),
 	}
 
 
@@ -154,6 +160,7 @@ func _serialize_members() -> Array:
 			"equip_weapon": String(pm.equip_weapon),
 			"equip_armor": String(pm.equip_armor),
 			"equip_accessory": String(pm.equip_accessory),
+			"class_override": String(pm.class_override),
 			"statuses": pm.statuses.map(func(s): return String(s)),
 		})
 	return arr

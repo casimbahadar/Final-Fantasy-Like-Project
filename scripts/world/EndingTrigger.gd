@@ -42,6 +42,12 @@ func _ready() -> void:
 	if _map == null:
 		return
 	position = OverworldMap.grid_to_world(grid_position)
+	# If this is a one-shot reward/portal that has already fired (sets_flag is
+	# set), hide it and don't register — otherwise the tile would stay blocked
+	# forever after the reward was claimed.
+	if sets_flag != &"" and GameState.get_flag(sets_flag, false):
+		hide()
+		return
 	_map.register_occupant(grid_position, self)
 
 
@@ -84,6 +90,11 @@ func _fire() -> void:
 		Party.add_gold(grants_gold)
 	if sets_flag != &"":
 		GameState.set_flag(sets_flag, true)
+		# Free the tile so the player can walk past after claiming a one-shot
+		# reward (matters for in-line reward chains like the Bounty Pit).
+		if _map != null:
+			_map.unregister_occupant(grid_position)
+		hide()
 	if warp_target_map != &"":
 		# Chapter transition — keep state, go to the next map.
 		await SceneRouter.go_to_map(warp_target_map, warp_target_spawn)

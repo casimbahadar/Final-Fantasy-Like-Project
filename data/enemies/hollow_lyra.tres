@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Enemy.gd" id="1_script"]
+[ext_resource type="Resource" path="res://data/skills/attack.tres" id="2_attack"]
+[ext_resource type="Resource" path="res://data/skills/twin_flame.tres" id="3_flame"]
+[ext_resource type="Resource" path="res://data/skills/blasphemous_cure.tres" id="4_cure"]
+[ext_resource type="Resource" path="res://data/skills/blizzard.tres" id="5_blizzard"]
+[ext_resource type="Resource" path="res://data/skills/dark_pulse.tres" id="6_dark"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/enemy_hollow_lyra.svg" id="7_sprite"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"hollow_lyra"
+display_name = "Hollow Lyra"
+battle_sprite = ExtResource("7_sprite")
+max_hp = 14000
+max_mp = 1500
+atk = 32
+def = 30
+mag = 56
+res = 42
+spd = 17
+luk = 11
+xp_reward = 9999
+gold_reward = 9999
+drop_chance = 0.0
+skills = Array[Resource]([ExtResource("2_attack"), ExtResource("3_flame"), ExtResource("4_cure"), ExtResource("5_blizzard"), ExtResource("6_dark")])
+element_modifiers = {1: 0.0, 2: 0.5, 3: 1.5, 4: 0.5, 5: 1.25, 6: 0.5, 7: 0.5, 8: 0.5}

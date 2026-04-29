@@ -48,8 +48,19 @@ func bind_ally(member) -> void:
 func bind_enemy(enemy_data: Enemy) -> void:
 	side = Side.ENEMY
 	enemy = enemy_data
-	hp = enemy_data.max_hp
+	hp = int(round(enemy_data.max_hp * _ng_hp_scale()))
 	mp = enemy_data.max_mp
+
+
+## NG+ enemy scaling. Each successive NG+ run multiplies enemy HP and atk
+## (via the stat() override below) so the curve still feels fresh against a
+## carryover party. 0 → 1.0x, 1 → 1.5x, 2 → 2.0x, ... capped at +200%.
+func _ng_hp_scale() -> float:
+	return 1.0 + 0.5 * float(mini(GameState.ng_plus_count, 4))
+
+
+func _ng_atk_scale() -> float:
+	return 1.0 + 0.3 * float(mini(GameState.ng_plus_count, 4))
 
 
 func display_name() -> String:
@@ -61,7 +72,7 @@ func display_name() -> String:
 func max_hp() -> int:
 	if party_member != null:
 		return party_member.max_hp()
-	return enemy.max_hp
+	return int(round(enemy.max_hp * _ng_hp_scale()))
 
 
 func max_mp() -> int:
@@ -73,7 +84,12 @@ func max_mp() -> int:
 func _base_stat(stat_name: String) -> int:
 	if party_member != null:
 		return party_member.stat(stat_name)
-	return enemy.get(stat_name)
+	var raw: int = enemy.get(stat_name)
+	# Scale offensive stats on NG+. Defensive stats stay so basic attacks still
+	# bite at higher levels — only HP and aggression go up.
+	if stat_name == "atk" or stat_name == "mag":
+		return int(round(raw * _ng_atk_scale()))
+	return raw
 
 
 func stat(stat_name: String) -> int:
@@ -156,7 +172,7 @@ func restore_mp(amount: int) -> int:
 func available_skills() -> Array[Skill]:
 	var out: Array[Skill] = []
 	if party_member != null:
-		var cls: CharClass = party_member.actor_data().char_class
+		var cls: CharClass = party_member.effective_class()
 		if cls != null:
 			for entry in cls.learnset:
 				if entry == null or entry.skill == null:

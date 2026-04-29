@@ -1,0 +1,133 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/OverworldMap.gd" id="1_map"]
+[ext_resource type="Script" path="res://scripts/world/SpawnPoint.gd" id="2_spawn"]
+[ext_resource type="Script" path="res://scripts/world/WarpTrigger.gd" id="3_warp"]
+[ext_resource type="Script" path="res://scripts/world/EncounterTrigger.gd" id="4_encounter"]
+[ext_resource type="Script" path="res://scripts/world/EndingTrigger.gd" id="5_reward"]
+
+[node name="BountyPit" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_map")
+grid_string = "####################
+#..................#
+#..................#
+#..................#
+#..................#
+#..................#
+#..................#
+#..................#
+#..................#
+#..................#
+#..................#
+#..................#
+#,,,,,,,,DD,,,,,,,,#
+####################"
+map_id = &"bounty_pit"
+
+[node name="SpawnFromBrighthollow" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+spawn_id = &"from_brighthollow"
+grid_position = Vector2i(9, 12)
+facing = 3
+
+[node name="ExitToBrighthollow" type="Node2D" parent="."]
+script = ExtResource("3_warp")
+grid_position = Vector2i(8, 12)
+grid_size = Vector2i(2, 1)
+target_map_id = &"brighthollow"
+target_spawn_id = &"from_pit"
+
+[node name="Wave1" type="Node2D" parent="."]
+script = ExtResource("4_encounter")
+grid_position = Vector2i(9, 11)
+troop_id = &"pit_wave_1"
+defeated_flag = &"pit_wave_1_clear"
+intro_lines = PackedStringArray("The Pit Master raises a hand. \"Wave one — bandits and a pair of wood-sprites. The kingdom has paid coin on these. Survive, and you'll see two.\"", "Iron gates rattle open along the pit's far wall.")
+intro_speaker = "Pit Master"
+
+[node name="Reward1" type="Node2D" parent="."]
+script = ExtResource("5_reward")
+grid_position = Vector2i(9, 10)
+requires_flag = &"pit_wave_1_clear"
+sets_flag = &"pit_wave_1_reward"
+grants_gold = 250
+speaker = "Pit Master"
+lines = PackedStringArray("\"Cleanly done. Two hundred and fifty gold for the work.\"")
+lines_locked = PackedStringArray("The gate stays closed. Step back to the line.")
+
+[node name="Wave2" type="Node2D" parent="."]
+script = ExtResource("4_encounter")
+grid_position = Vector2i(9, 9)
+troop_id = &"pit_wave_2"
+defeated_flag = &"pit_wave_2_clear"
+intro_lines = PackedStringArray("\"Wave two. Three skeletons and a wraith dragged from the temple ruins. They are not dead, exactly. Make them less so.\"")
+intro_speaker = "Pit Master"
+
+[node name="Reward2" type="Node2D" parent="."]
+script = ExtResource("5_reward")
+grid_position = Vector2i(9, 8)
+requires_flag = &"pit_wave_2_clear"
+sets_flag = &"pit_wave_2_reward"
+grants_gold = 600
+grants_item = &"copper_band"
+grants_item_count = 1
+speaker = "Pit Master"
+lines = PackedStringArray("\"Six hundred gold and a copper band. Wear it. The kingdom recognises you now.\"")
+
+[node name="Wave3" type="Node2D" parent="."]
+script = ExtResource("4_encounter")
+grid_position = Vector2i(9, 7)
+troop_id = &"pit_wave_3"
+defeated_flag = &"pit_wave_3_clear"
+intro_lines = PackedStringArray("\"Wave three. From the high passes — two harpies and a drake. They have no interest in your gold. They have interest in your throats.\"")
+intro_speaker = "Pit Master"
+
+[node name="Reward3" type="Node2D" parent="."]
+script = ExtResource("5_reward")
+grid_position = Vector2i(9, 6)
+requires_flag = &"pit_wave_3_clear"
+sets_flag = &"pit_wave_3_reward"
+grants_gold = 1200
+grants_item = &"iron_brace"
+grants_item_count = 1
+speaker = "Pit Master"
+lines = PackedStringArray("\"Twelve hundred gold and an iron bracer. The third wave breaks most contestants. You're not most contestants.\"")
+
+[node name="Wave4" type="Node2D" parent="."]
+script = ExtResource("4_encounter")
+grid_position = Vector2i(9, 5)
+troop_id = &"pit_wave_4"
+defeated_flag = &"pit_wave_4_clear"
+intro_lines = PackedStringArray("\"Wave four. Mire-wretches and ember-crows — what crawled north from the marsh after the cinder fell. The kingdom would like very much for fewer of these to be alive.\"")
+intro_speaker = "Pit Master"
+
+[node name="Reward4" type="Node2D" parent="."]
+script = ExtResource("5_reward")
+grid_position = Vector2i(9, 4)
+requires_flag = &"pit_wave_4_clear"
+sets_flag = &"pit_wave_4_reward"
+grants_gold = 2400
+grants_item = &"phoenix_down"
+grants_item_count = 5
+speaker = "Pit Master"
+lines = PackedStringArray("\"Twenty-four hundred gold, and five Phoenix Downs out of the chapel stores. You'll need them.\"")
+
+[node name="Wave5" type="Node2D" parent="."]
+script = ExtResource("4_encounter")
+grid_position = Vector2i(9, 3)
+troop_id = &"pit_wave_5"
+defeated_flag = &"pit_wave_5_clear"
+intro_lines = PackedStringArray("\"Wave five. The last we have. A hollow twin — caught in the descent — and two of the spawn from the wound itself.\"", "The Pit Master's voice goes very quiet. \"Should you live through this, you will be the Pit's champion. The kingdom will know your name.\"")
+intro_speaker = "Pit Master"
+
+[node name="ChampionReward" type="Node2D" parent="."]
+script = ExtResource("5_reward")
+grid_position = Vector2i(9, 2)
+requires_flag = &"pit_wave_5_clear"
+sets_flag = &"pit_champion"
+grants_gold = 6000
+grants_item = &"champion_cloak"
+grants_item_count = 1
+speaker = "Pit Master"
+lines = PackedStringArray("The Pit Master walks the length of the floor for the first time tonight. He kneels — actually kneels — and lays a long bundle at your feet.", "\"Champion's Cloak. Threads from every monster you and the others before you put down. Six thousand gold besides — the office voted to triple it after the fourth wave fell so cleanly.\"", "He stands. \"You'll see the gate again. The Pit has no more for you.\"")

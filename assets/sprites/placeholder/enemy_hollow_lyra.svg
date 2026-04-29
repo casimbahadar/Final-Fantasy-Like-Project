@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges">
+  <!-- Pale dark robe -->
+  <rect x="8" y="10" width="16" height="18" fill="#3a1a4a"/>
+  <rect x="6" y="14" width="2" height="14" fill="#3a1a4a"/>
+  <rect x="24" y="14" width="2" height="14" fill="#3a1a4a"/>
+  <rect x="9" y="11" width="14" height="2" fill="#601a8a"/>
+  <!-- Tattered hem with embers -->
+  <rect x="8" y="28" width="3" height="2" fill="#3a1a4a"/>
+  <rect x="14" y="28" width="3" height="2" fill="#3a1a4a"/>
+  <rect x="20" y="28" width="3" height="2" fill="#3a1a4a"/>
+  <rect x="10" y="29" width="1" height="1" fill="#ff60a0"/>
+  <rect x="22" y="29" width="1" height="1" fill="#ff60a0"/>
+  <!-- Hood -->
+  <rect x="8" y="2" width="16" height="8" fill="#1a0a28"/>
+  <rect x="10" y="1" width="12" height="2" fill="#1a0a28"/>
+  <!-- Pale face inside hood -->
+  <rect x="11" y="5" width="10" height="6" fill="#a87890"/>
+  <!-- White-out eyes (mage gone wrong) -->
+  <rect x="13" y="7" width="2" height="2" fill="#ffe0f0"/>
+  <rect x="17" y="7" width="2" height="2" fill="#ffe0f0"/>
+  <rect x="13" y="8" width="1" height="1" fill="#ff60c0"/>
+  <rect x="18" y="8" width="1" height="1" fill="#ff60c0"/>
+  <!-- Mouth -->
+  <rect x="14" y="10" width="4" height="1" fill="#1a0a28"/>
+  <!-- Dark staff with fire orb -->
+  <rect x="3" y="3" width="2" height="22" fill="#2a1a3a"/>
+  <rect x="2" y="2" width="4" height="4" fill="#ff4080"/>
+  <rect x="3" y="3" width="2" height="2" fill="#ffa0c0"/>
+</svg>

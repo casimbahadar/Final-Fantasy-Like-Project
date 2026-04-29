@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="Troop" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Troop.gd" id="1_script"]
+[ext_resource type="Script" path="res://scripts/resources/TroopMember.gd" id="2_member"]
+[ext_resource type="Resource" path="res://data/enemies/doppelganger.tres" id="3_dop"]
+[ext_resource type="Resource" path="res://data/enemies/plague_spawn.tres" id="4_spawn"]
+
+[sub_resource type="Resource" id="Member1"]
+script = ExtResource("2_member")
+enemy = ExtResource("3_dop")
+screen_position = Vector2(150, 140)
+
+[sub_resource type="Resource" id="Member2"]
+script = ExtResource("2_member")
+enemy = ExtResource("4_spawn")
+screen_position = Vector2(105, 165)
+
+[sub_resource type="Resource" id="Member3"]
+script = ExtResource("2_member")
+enemy = ExtResource("4_spawn")
+screen_position = Vector2(200, 165)
+
+[resource]
+script = ExtResource("1_script")
+id = &"pit_wave_5"
+members = Array[Resource]([SubResource("Member1"), SubResource("Member2"), SubResource("Member3")])
+no_escape = true

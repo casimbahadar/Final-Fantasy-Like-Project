@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Skill.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"dawn_and_dusk"
+display_name = "Dawn-and-Dusk"
+description = "Light and dark woven together. Massive non-elemental damage to the entire party."
+mp_cost = 0
+target_kind = 1
+damage_kind = 1
+element = 0
+power = 38
+accuracy = 0.95
+crit_bonus = 0.05

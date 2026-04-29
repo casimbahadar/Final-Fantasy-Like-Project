@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="Troop" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Troop.gd" id="1_script"]
+[ext_resource type="Script" path="res://scripts/resources/TroopMember.gd" id="2_member"]
+[ext_resource type="Resource" path="res://data/enemies/bandit.tres" id="3_bandit"]
+[ext_resource type="Resource" path="res://data/enemies/wood_sprite.tres" id="4_sprite"]
+
+[sub_resource type="Resource" id="Member1"]
+script = ExtResource("2_member")
+enemy = ExtResource("3_bandit")
+screen_position = Vector2(110, 130)
+
+[sub_resource type="Resource" id="Member2"]
+script = ExtResource("2_member")
+enemy = ExtResource("3_bandit")
+screen_position = Vector2(140, 160)
+
+[sub_resource type="Resource" id="Member3"]
+script = ExtResource("2_member")
+enemy = ExtResource("4_sprite")
+screen_position = Vector2(180, 140)
+
+[sub_resource type="Resource" id="Member4"]
+script = ExtResource("2_member")
+enemy = ExtResource("4_sprite")
+screen_position = Vector2(210, 165)
+
+[resource]
+script = ExtResource("1_script")
+id = &"pit_wave_1"
+members = Array[Resource]([SubResource("Member1"), SubResource("Member2"), SubResource("Member3"), SubResource("Member4")])
+no_escape = true

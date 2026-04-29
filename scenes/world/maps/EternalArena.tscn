@@ -40,19 +40,35 @@ target_spawn_id = &"from_arena"
 
 [node name="EchoTrigger" type="Node2D" parent="."]
 script = ExtResource("4_encounter")
-grid_position = Vector2i(9, 5)
+grid_position = Vector2i(9, 9)
 troop_id = &"eternal_echo_boss"
 defeated_flag = &"eternal_echo_defeated"
 intro_lines = PackedStringArray("The plain has not entirely closed.", "At its centre, the Sovereign stands again — but there is more of him this time, and less. The mask is back on. The crown is glass. The light leaks at the seams.", "\"You ended me. Yet I remember being ended.\" His voice is doubled, tripled, four-and-five-fold. \"Memory is a kind of standing. So I stand.\"", "Lyra, gripping her staff: \"This isn't him.\"", "Aldric: \"It doesn't have to be him.\"", "Tessera: \"Then we put him down again. Properly.\"", "The Echo answers them all at once: \"Try.\"")
 intro_speaker = "The Eternal Echo"
 
+[node name="HollowLyraTrigger" type="Node2D" parent="."]
+script = ExtResource("4_encounter")
+grid_position = Vector2i(9, 7)
+troop_id = &"hollow_lyra_boss"
+defeated_flag = &"hollow_lyra_defeated"
+intro_lines = PackedStringArray("The Echo's body unmakes itself, and the plain narrows.", "From the haze a figure walks forward — Lyra's shape, Lyra's robes, Lyra's staff. The face inside the hood is white-eyed and pleased.", "\"You let him in,\" she says, in Lyra's voice. \"You opened the door so wide, and then you just... walked back through it.\"", "The real Lyra steps past Aldric, very pale. \"That's me. Or what I'd be, if I'd believed him for one more breath.\"", "She raises her staff. \"Then we end her too.\"")
+intro_speaker = "Hollow Lyra"
+
+[node name="SovereignRebornTrigger" type="Node2D" parent="."]
+script = ExtResource("4_encounter")
+grid_position = Vector2i(9, 5)
+troop_id = &"sovereign_reborn_boss"
+defeated_flag = &"sovereign_reborn_defeated"
+intro_lines = PackedStringArray("The plain is gone. There is only a tall figure on a step that should not exist.", "He wears the king's crown — and your friends' faces, layered like masks one over the next.", "\"You ended me twice. You ended my echo. You ended my reflection. There is one of me you have not yet ended.\"", "His voice is no longer doubled. It is one voice, very tired, very old.", "\"The me that would have been, if I had only been brave enough to die clean. Step up. Let us finish.\"", "Aldric draws his sword. The party stands behind him, all five.", "Lyra: \"Together, then.\"")
+intro_speaker = "The Sovereign Reborn"
+
 [node name="RemembranceReward" type="Node2D" parent="."]
 script = ExtResource("5_story")
 grid_position = Vector2i(9, 3)
-requires_flag = &"eternal_echo_defeated"
+requires_flag = &"sovereign_reborn_defeated"
 sets_flag = &"eternal_echo_remembrance_claimed"
 grants_item = &"aurens_remembrance"
 grants_item_count = 1
 speaker = "Lyra"
-lines = PackedStringArray("As the Echo collapses, the air leaves a single object on the ground — a small, dark medallion that glows faintly even in shadow.", "Lyra picks it up. It is warm. \"This is... all of them. Everyone we lost. Everyone we saved.\"", "Aldric closes her hand around it. \"Then carry it. The next time the world tries to end, we'll have a head start.\"", "(Got Auren's Remembrance!)")
-lines_locked = PackedStringArray("The plain is silent. The Echo waits at its centre.")
+lines = PackedStringArray("As the Reborn falls, the plain folds quietly inward, and the air returns one last object to the ground — a small, dark medallion that glows even in shadow.", "Lyra picks it up. It is warm. \"...this is all of them. Everyone we lost. Everyone we saved. Everyone he was, and everyone he wasn't.\"", "Aldric closes her hand around it. \"Then carry it. If the world ever tries to end again, we'll have a head start.\"", "Tessera, very softly: \"It won't.\"", "Mira: \"It might.\"", "Kael: \"...we'll be ready.\"", "(Got Auren's Remembrance!)")
+lines_locked = PackedStringArray("The plain is silent. There are still figures at its centre.")

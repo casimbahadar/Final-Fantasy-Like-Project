@@ -2,7 +2,7 @@
 
 A Final Fantasy–inspired JRPG built in **Godot 4**, designed to ship to **itch.io (Web)**, **Android**, and **iOS** from a single codebase. Visual style targets the GBA era (FF1–6, FFTA) with a clear upgrade path to 2D-HD (Octopath, FF Pixel Remaster).
 
-> **Status:** Phase 13 — **side-content layer.** Town sidequests (Brenna's locket, Garrick's slime bounty, Father Cinric's chime, Edda's wisp contract), an optional bonus dungeon (Sunken Cellar with the Cellar Warden), kill-tracking Hunt log feeding the bounty system, and a postgame superboss (the Eternal Echo) reachable via a portal that opens in the Plaza after the credits roll. The main story remains 12 chapters (~8–9 h). With sidequests and postgame, a completionist run lands at **~14–18 hours**. 44 enemies, 20 bosses (12 main + 7 mini + 1 postgame) plus the Cellar Warden, 29 maps. See [`CONTENT.md`](CONTENT.md) for side-content authoring.
+> **Status:** Phase 14 — **rebalance + content expansion.** All 12 chapter bosses and most random encounters have been re-tuned against expected party levels (see *Stat & level analysis* below). Two new bonus dungeons (Sealed Aerie post-Ch 4, Crypt Below post-Ch 6), a 5-wave Bounty Pit at Brighthollow that unlocks after Edda's contract, three more sidequests in Plaza/Brighthollow, a 3-stage postgame chain (Eternal Echo → Hollow Lyra → Sovereign Reborn), New Game+ with carryover party + scaled enemy stats, and a Brighthollow Guildmaster who lets any character switch class after Stormwyrm. A completionist run with NG+ now lands at **~22–28 hours**. 50 enemies, 23 bosses (12 main + 7 mini + 4 bonus/postgame), 31 maps.
 
 ## Chapter map
 
@@ -30,16 +30,26 @@ A Final Fantasy–inspired JRPG built in **Godot 4**, designed to ship to **itch
                                                        (post-credits: a portal hums in the Plaza...)
 
    POSTGAME (after the credits flag is set):
-       Plaza west portal → ETERNAL ARENA
-                                                       └─ SUPERBOSS: The Eternal Echo  +  Auren's Remembrance
+       Plaza west portal → ETERNAL ARENA (3-stage gauntlet)
+                                                       └─ ECHO  →  HOLLOW LYRA  →  SOVEREIGN REBORN  +  Auren's Remembrance
    SIDE (any time after Chapter 1):
-       Plaza east trapdoor → SUNKEN CELLAR
-                                                       └─ BOSS: Cellar Warden  +  Votive Chime (Father Cinric)
+       Plaza east trapdoor → SUNKEN CELLAR (Cellar Warden + Votive Chime)
+       Mountain Peak east door → SEALED AERIE (Sealed Cyclone + Cyclone Ring) — post-Stormwyrm
+       Royal Crypt west stair → CRYPT BELOW (Crypt Lord + Grave Circlet) — post-Last Queen
+       Brighthollow east door → BOUNTY PIT (5 escalating waves) — after Edda's wisp contract
    QUESTS (turn-in NPCs in Plaza / Brighthollow):
-       Brenna's Locket (Plaza Inn)            → Silver Pendant + 200 gold
-       Garrick's Slime Bounty (Plaza Trader)  → Hunter's Band + 500 gold (kill 5 Slimes)
-       Father Cinric's Chime (Brighthollow)   → Cleric's Circlet + 800 gold (clear Sunken Cellar)
-       Edda's Wisp Contract (Brighthollow)    → 3× Phoenix Down + 1200 gold (kill 8 Forest Wisps)
+       Brenna's Locket (Plaza Inn)                  → Silver Pendant + 200 gold
+       Garrick's Slime Bounty (Plaza Trader)        → Hunter's Band + 500 gold (kill 5 Slimes)
+       Old Hild's Goblin Bounty (Plaza Townie)      → Antidotes + 400 gold (kill 8 Goblins)
+       Father Cinric's Chime (Brighthollow)         → Cleric's Circlet + 800 gold (clear Sunken Cellar)
+       Edda's Wisp Contract (Brighthollow)          → 3× Phoenix Down + 1200 gold (kill 8 Forest Wisps), unlocks Bounty Pit
+       Old Maren's Wraith Vigil (Brighthollow)      → Ribbon + 800 gold (kill 6 Wraiths)
+       Tomas's Ether Run (Brighthollow Inn)         → 8× Hi-Potion + 600 gold (deliver 5 Ethers)
+   GUILD (Brighthollow, post-Stormwyrm):
+       Guildmaster Veris — change any character's class. Levels carry; new learnset applies.
+   NEW GAME+ (after credits):
+       Title screen → New Game+. Party levels, gear, inventory, Hunt log carry. Story flags reset.
+                       Enemy HP +50%/run, atk +30%/run (capped at +200% / +120%).
 ```
 
 ## Roadmap
@@ -60,7 +70,26 @@ A Final Fantasy–inspired JRPG built in **Godot 4**, designed to ship to **itch
 | 11 | Deepening pass: mid-floor mini-boss in every chapter (Sentinel, Treant, Champion, Wyvern, Tide Beast, Inquisitor, Hollow Twin) | ✅ done |
 | 12 | Insertion pass: 4 new chapters (Sun-Dried Wastes, Sky Islands, Cinder Marsh, Royal Crypt) | ✅ done |
 | 13 | Side-content layer: town sidequests (4), Sunken Cellar bonus dungeon, Hunt log + bounty system, Eternal Echo postgame superboss | ✅ done |
-| 14+ | Music & SFX, real art swap (see [`CONTENT.md`](CONTENT.md) and [`assets/audio/README.md`](assets/audio/README.md)) | ⏳ |
+| 14 | Rebalance pass + 2 more bonus dungeons + Bounty Pit + 3-stage postgame + NG+ + class change + 3 more sidequests | ✅ done |
+| 15+ | Music & SFX, real art swap (see [`CONTENT.md`](CONTENT.md) and [`assets/audio/README.md`](assets/audio/README.md)) | ⏳ |
+
+## Stat & level analysis (Phase 14 rebalance)
+
+Damage formula: `damage = max(1, atk*2 − def) × power/10 × variance(0.85–1.15)`. Basic Attack = power 10, so basic damage = `atk*2 − def`. Bosses are tuned for ~10–15 player rounds; random encounters for 1–3 hits to kill at the player's expected gear tier.
+
+| Ch | Expected party level (end) | Expected weapon (atk bonus) | Aldric basic dmg | Boss HP | Boss atk | Boss element pattern |
+|----|----------------------------|------------------------------|------------------|---------|----------|---------------------|
+| 1 | 4–5 | Bronze (5) | ~40 | 240 (Wraith) | 16 | weak holy 2.0× |
+| 2 | 6–8 | Iron (9) | ~55 | 720 (Treant) | 24 | weak fire 1.75× |
+| 3 | 10–13 | Mythril (14) | ~80 | 850 (Hollow King) / 1900 (Mirage King side) | 24 / 26 | weak fire/holy |
+| 4 | 14–18 | Sandblasted (10) → Mythril | ~110 | 1400 (Stormwyrm) / 2100 (Wind Singer side) | 30 / 26 | wind imm., earth/water weak |
+| 5 | 19–23 | Aetherite Lance (16) | ~140 | 1700 (Drowned Choir) / 2300 (Pyre Lord side) | 28 / 30 | water imm. / fire imm. |
+| 6 | 24–28 | Tide Sword (17) | ~175 | 2200 (Pretender) / 2700 (Last Queen side) | 32 / 30 | holy weak 1.5× / weak holy |
+| 7 | 29–33 | Royal Saber (21) | ~210 | 3400 (First Plague) | 36 | weak holy 2.0×, dark imm. |
+| 8 | 34–38 | Crystal Edge / Royal Saber | ~250 | 6500 (Sovereign Eternal) | 42 | resists everything; wind 1.25× |
+| post | 38–42 | Eternal Blade (32) | ~290 | 12000 (Echo) → 14000 (Hollow Lyra) → 18000 (Sovereign Reborn) | 50/32/60 | wind weak on Echo, thunder weak on Lyra, no weakness on Reborn |
+
+NG+ multiplies enemy HP by `1 + 0.5 × ng_plus_count` (capped at +200%) and atk/mag by `1 + 0.3 × ng_plus_count`. Party levels and gear carry over; story flags reset.
 
 See [`/root/.claude/plans/i-want-to-create-enchanted-nygaard.md`](../../root/.claude/plans/i-want-to-create-enchanted-nygaard.md) for the full plan (local file).
 

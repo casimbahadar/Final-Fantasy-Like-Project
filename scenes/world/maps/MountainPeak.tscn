@@ -14,7 +14,7 @@ grid_string = "####################
 #,,,,,,,,,,,,,,,,,,#
 #,,####,,,,,,,####,#
 #,,####,,,,,,,####,#
-#,,,,,,,,,,,,,,,,,,#
+#,,,,,,,,,,,,,,,,,D#
 #,,,,,,,,,,,,,,,,,,#
 #,,,,####,,,,####,,#
 #,,,,####,,,,####,,#
@@ -51,6 +51,20 @@ grid_size = Vector2i(2, 1)
 target_map_id = &"storm_aerie"
 target_spawn_id = &"from_pass"
 requires_flag = &"wyvern_defeated"
+
+[node name="SpawnFromAerieDungeon" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+spawn_id = &"from_aerie_dungeon"
+grid_position = Vector2i(17, 5)
+facing = 1
+
+[node name="ExitToSealedAerie" type="Node2D" parent="."]
+script = ExtResource("3_warp")
+grid_position = Vector2i(18, 5)
+grid_size = Vector2i(1, 1)
+target_map_id = &"sealed_aerie"
+target_spawn_id = &"from_peak"
+requires_flag = &"stormwyrm_defeated"
 
 [node name="ChestTinctures" parent="." instance=ExtResource("5_chest")]
 chest_id = &"peak_tinctures"

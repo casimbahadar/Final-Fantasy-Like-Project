@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Enemy.gd" id="1_script"]
+[ext_resource type="Resource" path="res://data/skills/attack.tres" id="2_attack"]
+[ext_resource type="Resource" path="res://data/skills/twin_blades.tres" id="3_blades"]
+[ext_resource type="Resource" path="res://data/skills/dawn_and_dusk.tres" id="4_dawn"]
+[ext_resource type="Resource" path="res://data/skills/eternal_judgment.tres" id="5_judgment"]
+[ext_resource type="Resource" path="res://data/skills/world_devour.tres" id="6_devour"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/enemy_sovereign_reborn.svg" id="7_sprite"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"sovereign_reborn"
+display_name = "The Sovereign Reborn"
+battle_sprite = ExtResource("7_sprite")
+max_hp = 18000
+max_mp = 2000
+atk = 60
+def = 44
+mag = 56
+res = 40
+spd = 19
+luk = 16
+xp_reward = 9999
+gold_reward = 9999
+drop_chance = 0.0
+skills = Array[Resource]([ExtResource("2_attack"), ExtResource("3_blades"), ExtResource("4_dawn"), ExtResource("5_judgment"), ExtResource("6_devour")])
+element_modifiers = {1: 0.5, 2: 0.5, 3: 0.5, 4: 0.5, 5: 0.5, 6: 0.5, 7: 0.0, 8: 0.0}

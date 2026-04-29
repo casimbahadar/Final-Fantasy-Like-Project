@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Item.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"champion_cloak"
+display_name = "Champion's Cloak"
+description = "A cloak woven from threads of every felled monster — given to the Pit's champion."
+kind = 3
+equip_slot = 3
+stackable = false
+max_stack = 1
+buy_price = 0
+sell_price = 800
+bonus_max_hp = 50
+bonus_max_mp = 20
+bonus_atk = 5
+bonus_def = 8
+bonus_mag = 4
+bonus_res = 6
+bonus_spd = 3
+bonus_luk = 3

@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/OverworldMap.gd" id="1_map"]
+[ext_resource type="Script" path="res://scripts/world/SpawnPoint.gd" id="2_spawn"]
+[ext_resource type="Script" path="res://scripts/world/WarpTrigger.gd" id="3_warp"]
+[ext_resource type="Script" path="res://scripts/world/EncounterTrigger.gd" id="4_encounter"]
+[ext_resource type="PackedScene" path="res://scenes/world/Chest.tscn" id="5_chest"]
+
+[node name="SealedAerie" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_map")
+grid_string = "####################
+#,,,,,,,,,,,,,,,,,,#
+#,,,####,,,,####,,,#
+#,,,####,,,,####,,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,####,,,,,,####,,#
+#,,####,,,,,,####,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,####,,,,####,,,#
+#,,,####,,,,####,,,#
+D,,,,,,,,,,,,,,,,,,#
+####################"
+map_id = &"sealed_aerie"
+
+[node name="SpawnFromPeak" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+spawn_id = &"from_peak"
+grid_position = Vector2i(1, 12)
+facing = 2
+
+[node name="ExitToPeak" type="Node2D" parent="."]
+script = ExtResource("3_warp")
+grid_position = Vector2i(0, 12)
+grid_size = Vector2i(1, 1)
+target_map_id = &"mountain_peak"
+target_spawn_id = &"from_aerie_dungeon"
+
+[node name="ChestEthers" parent="." instance=ExtResource("5_chest")]
+chest_id = &"aerie_ethers"
+grid_position = Vector2i(2, 5)
+item_id = &"ether"
+item_count = 5
+
+[node name="ChestPhoenix" parent="." instance=ExtResource("5_chest")]
+chest_id = &"aerie_phoenix"
+grid_position = Vector2i(17, 5)
+item_id = &"phoenix_down"
+item_count = 3
+
+[node name="ChestRing" parent="." instance=ExtResource("5_chest")]
+chest_id = &"aerie_cyclone_ring"
+grid_position = Vector2i(9, 2)
+item_id = &"cyclone_ring"
+item_count = 1
+
+[node name="CycloneTrigger" type="Node2D" parent="."]
+script = ExtResource("4_encounter")
+grid_position = Vector2i(9, 5)
+troop_id = &"sealed_cyclone_boss"
+defeated_flag = &"sealed_cyclone_defeated"
+intro_lines = PackedStringArray("Past iron-bound doors the air goes still — and then a slow, vast spiral begins to draw itself out of the air at the room's centre.", "It is not a creature. It is the wind, given a face. Eyes of lightning, arms of pulled cloud.", "Tessera's spear lifts on its own. \"That's not bound any more. We are.\"")
+intro_speaker = "Sealed Cyclone"

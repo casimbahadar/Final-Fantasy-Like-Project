@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges">
+  <!-- Dark aura -->
+  <rect x="2" y="2" width="28" height="28" fill="#1a0a2a" opacity="0.3"/>
+  <!-- Long robe -->
+  <rect x="6" y="6" width="20" height="22" fill="#0a0a18"/>
+  <rect x="4" y="10" width="2" height="18" fill="#0a0a18"/>
+  <rect x="26" y="10" width="2" height="18" fill="#0a0a18"/>
+  <rect x="7" y="8" width="18" height="1" fill="#3a2a4a"/>
+  <rect x="7" y="22" width="18" height="1" fill="#3a2a4a"/>
+  <!-- Ragged hem with bone shards -->
+  <rect x="8" y="28" width="2" height="2" fill="#0a0a18"/>
+  <rect x="14" y="28" width="2" height="2" fill="#0a0a18"/>
+  <rect x="20" y="28" width="2" height="2" fill="#0a0a18"/>
+  <rect x="8" y="29" width="1" height="1" fill="#d8d0b8"/>
+  <rect x="22" y="29" width="1" height="1" fill="#d8d0b8"/>
+  <!-- Skull crown -->
+  <rect x="9" y="0" width="14" height="3" fill="#1a1a1a"/>
+  <rect x="11" y="1" width="2" height="2" fill="#a8a8a8"/>
+  <rect x="15" y="1" width="2" height="2" fill="#a8a8a8"/>
+  <rect x="19" y="1" width="2" height="2" fill="#a8a8a8"/>
+  <!-- Bare skull face -->
+  <rect x="11" y="3" width="10" height="7" fill="#d8d0b8"/>
+  <rect x="13" y="5" width="2" height="2" fill="#0a0a0a"/>
+  <rect x="17" y="5" width="2" height="2" fill="#0a0a0a"/>
+  <rect x="13" y="6" width="2" height="1" fill="#a040a0"/>
+  <rect x="17" y="6" width="2" height="1" fill="#a040a0"/>
+  <rect x="14" y="8" width="4" height="1" fill="#0a0a0a"/>
+  <!-- Twin black scepters -->
+  <rect x="3" y="6" width="2" height="20" fill="#3a1a3a"/>
+  <rect x="2" y="5" width="4" height="3" fill="#a040a0"/>
+  <rect x="27" y="6" width="2" height="20" fill="#3a1a3a"/>
+  <rect x="26" y="5" width="4" height="3" fill="#a040a0"/>
+</svg>

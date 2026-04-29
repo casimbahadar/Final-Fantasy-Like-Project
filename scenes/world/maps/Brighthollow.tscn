@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3]
+[gd_scene load_steps=11 format=3]
 
 [ext_resource type="Script" path="res://scripts/world/OverworldMap.gd" id="1_map"]
 [ext_resource type="Script" path="res://scripts/world/SpawnPoint.gd" id="2_spawn"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" path="res://assets/sprites/placeholder/npc_villager.svg" id="7_villager_tex"]
 [ext_resource type="Texture2D" path="res://assets/sprites/placeholder/player_cleric.svg" id="8_mira_tex"]
 [ext_resource type="Script" path="res://scripts/world/EndingTrigger.gd" id="9_story"]
+[ext_resource type="Script" path="res://scripts/world/Guildmaster.gd" id="10_guild"]
 
 [node name="Brighthollow" type="Node2D"]
 y_sort_enabled = true
@@ -20,7 +21,7 @@ grid_string = "####################
 #,,####,,,,,,####,,#
 #,,####,,,,,,####,,#
 #,,,,,,,,,,,,,,,,,,#
-#,,,,,,,,,,,,,,,,,,#
+#,,,,,,,,,,,,,,,,,D#
 #,,####,,,,,,####,,#
 #,,####,,,,,,####,,#
 #,,####,,,,,,####,,#
@@ -56,6 +57,20 @@ target_map_id = &"sun_dried_wastes"
 target_spawn_id = &"from_town"
 requires_flag = &"mira_joined"
 
+[node name="SpawnFromPit" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+spawn_id = &"from_pit"
+grid_position = Vector2i(17, 7)
+facing = 1
+
+[node name="ExitToBountyPit" type="Node2D" parent="."]
+script = ExtResource("3_warp")
+grid_position = Vector2i(18, 7)
+grid_size = Vector2i(1, 1)
+target_map_id = &"bounty_pit"
+target_spawn_id = &"from_brighthollow"
+requires_flag = &"bounty_pit_unlocked"
+
 [node name="Shopkeeper" parent="." instance=ExtResource("4_npc")]
 npc_name = "Wenn the Stocker"
 grid_position = Vector2i(4, 6)
@@ -75,6 +90,36 @@ npc_name = "Old Maren"
 grid_position = Vector2i(15, 11)
 lines = PackedStringArray("They say the King's tomb breathes again. Hollow as an empty barrel and twice as cold.", "If you mean to go in there, take Sister Mira from the chapel. She has cause.")
 sprite_texture = ExtResource("7_villager_tex")
+quest_required_flag = &"mira_joined"
+quest_accept_flag = &"maren_quest_accepted"
+quest_required_kill_enemy = &"wraith"
+quest_required_kill_count = 6
+quest_reward_flag = &"maren_quest_done"
+quest_reward_item = &"ribbon"
+quest_reward_item_count = 1
+quest_reward_gold = 800
+quest_offer_lines = PackedStringArray("My husband stayed in the temple too long, the night before he died. The wraiths there speak in his voice now.", "If you make six of them silent, I'll give you the ribbon I was going to bury him in. He doesn't need it. I'd like someone alive to wear it.")
+quest_progress_lines = PackedStringArray("Six wraiths. They speak in voices we should not hear.")
+quest_complete_lines = PackedStringArray("Six. Thank you, child.", "Take the ribbon. He'd have liked you.")
+quest_done_lines = PackedStringArray("The temple is quieter now. Thank you.")
+
+[node name="InnkeeperQuest" parent="." instance=ExtResource("4_npc")]
+npc_name = "Tomas of the Hollow"
+grid_position = Vector2i(7, 11)
+lines = PackedStringArray("The cellar's run dry on tinctures. Nothing for fevers, nothing for the children with the cough.")
+sprite_texture = ExtResource("6_inn_tex")
+quest_required_flag = &"crystal_wraith_defeated"
+quest_accept_flag = &"tomas_quest_accepted"
+quest_required_item = &"ether"
+quest_required_item_count = 5
+quest_reward_flag = &"tomas_quest_done"
+quest_reward_item = &"hi_potion"
+quest_reward_item_count = 8
+quest_reward_gold = 600
+quest_offer_lines = PackedStringArray("I'm short on tinctures. I can't trade for them — the alchemists are all in Brighthollow, and so is the road south. But ethers from the wood will do, in a pinch.", "Five Ethers, and I'll give you eight Hi-Potions out of my own stash and six hundred gold for the trouble.")
+quest_progress_lines = PackedStringArray("Five Ethers when you find them. The cough's getting bad in the back rooms.")
+quest_complete_lines = PackedStringArray("Five — thank you. Hi-Potions are yours, and the gold.")
+quest_done_lines = PackedStringArray("The children sleep again. Stay the night any time, on the house.")
 
 [node name="FatherCinric" parent="." instance=ExtResource("4_npc")]
 npc_name = "Father Cinric"
@@ -109,10 +154,24 @@ quest_reward_flag = &"edda_bounty_done"
 quest_reward_item = &"phoenix_down"
 quest_reward_item_count = 3
 quest_reward_gold = 1200
+quest_unlock_flag = &"bounty_pit_unlocked"
 quest_offer_lines = PackedStringArray("New posting. Eight forest wisps, north of the Whispering Wood — they're spooking the trade caravans bad enough to choke the road.", "Bring me eight kills and I'll cover three Phoenix Downs out of the chapel stores, and twelve hundred gold besides.")
 quest_progress_lines = PackedStringArray("Eight forest wisps. The road's still choked.")
 quest_complete_lines = PackedStringArray("Eight on the dot. The caravans will breathe easier.", "Three Phoenix Downs and twelve hundred. Spend it on something hard-edged.")
-quest_done_lines = PackedStringArray("Bounty's settled. Check back if a new contract's posted.")
+quest_done_lines = PackedStringArray("Bounty's settled. Check back if you need a sterner test — the office runs a five-wave bounty pit east of the chapel for any with a strong stomach.")
+
+[node name="Guildmaster" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("10_guild")
+grid_position = Vector2i(4, 7)
+npc_name = "Guildmaster Veris"
+sprite_texture = ExtResource("5_shop_tex")
+requires_flag = &"stormwyrm_defeated"
+
+[node name="Sprite2D" type="Sprite2D" parent="Guildmaster"]
+texture_filter = 1
+position = Vector2(8, 4)
+texture = ExtResource("5_shop_tex")
 
 [node name="Mira" parent="." instance=ExtResource("4_npc")]
 npc_name = "Sister Mira"

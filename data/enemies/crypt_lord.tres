@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Enemy.gd" id="1_script"]
+[ext_resource type="Resource" path="res://data/skills/attack.tres" id="2_attack"]
+[ext_resource type="Resource" path="res://data/skills/grave_command.tres" id="3_grave"]
+[ext_resource type="Resource" path="res://data/skills/dark_pulse.tres" id="4_dark"]
+[ext_resource type="Resource" path="res://data/skills/queen_curse.tres" id="5_curse"]
+[ext_resource type="Resource" path="res://data/skills/silence_spell.tres" id="6_silence"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/enemy_crypt_lord.svg" id="7_sprite"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"crypt_lord"
+display_name = "The Crypt Lord"
+battle_sprite = ExtResource("7_sprite")
+max_hp = 4200
+max_mp = 600
+atk = 38
+def = 28
+mag = 38
+res = 26
+spd = 12
+luk = 8
+xp_reward = 1400
+gold_reward = 1800
+drop_chance = 0.0
+skills = Array[Resource]([ExtResource("2_attack"), ExtResource("3_grave"), ExtResource("4_dark"), ExtResource("5_curse"), ExtResource("6_silence")])
+element_modifiers = {7: 1.75, 8: 0.0, 1: 1.25, 5: 0.5}

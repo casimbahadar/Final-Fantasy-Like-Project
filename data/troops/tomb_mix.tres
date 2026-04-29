@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="Troop" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Troop.gd" id="1_script"]
+[ext_resource type="Script" path="res://scripts/resources/TroopMember.gd" id="2_member"]
+[ext_resource type="Resource" path="res://data/enemies/tomb_champion.tres" id="3_champ"]
+[ext_resource type="Resource" path="res://data/enemies/spectral_maiden.tres" id="4_maid"]
+
+[sub_resource type="Resource" id="Member1"]
+script = ExtResource("2_member")
+enemy = ExtResource("3_champ")
+screen_position = Vector2(115, 135)
+
+[sub_resource type="Resource" id="Member2"]
+script = ExtResource("2_member")
+enemy = ExtResource("4_maid")
+screen_position = Vector2(155, 155)
+
+[sub_resource type="Resource" id="Member3"]
+script = ExtResource("2_member")
+enemy = ExtResource("4_maid")
+screen_position = Vector2(195, 135)
+
+[resource]
+script = ExtResource("1_script")
+id = &"tomb_mix"
+members = Array[Resource]([SubResource("Member1"), SubResource("Member2"), SubResource("Member3")])
+no_escape = false

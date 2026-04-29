@@ -26,6 +26,10 @@ class PartyMember extends RefCounted:
 	var equip_weapon: StringName = &""
 	var equip_armor: StringName = &""
 	var equip_accessory: StringName = &""
+	# Optional class override set by the Brighthollow guildmaster — when set,
+	# this character uses the named class for XP curves and learnset instead of
+	# their actor's default class. Empty = use the actor's class as authored.
+	var class_override: StringName = &""
 
 	func _init(actor: Actor) -> void:
 		actor_id = actor.id
@@ -35,6 +39,14 @@ class PartyMember extends RefCounted:
 
 	func actor_data() -> Actor:
 		return Database.actor(actor_id)
+
+	func effective_class() -> CharClass:
+		if class_override != &"":
+			var cls: CharClass = Database.classes.get(class_override)
+			if cls != null:
+				return cls
+		var actor := actor_data()
+		return actor.char_class if actor != null else null
 
 	func max_hp() -> int:
 		var a := actor_data()
@@ -66,7 +78,7 @@ class PartyMember extends RefCounted:
 	func gain_xp(amount: int) -> int:
 		xp += amount
 		var levels_gained := 0
-		var cls: CharClass = actor_data().char_class
+		var cls: CharClass = effective_class()
 		while level < 99:
 			var needed: int
 			if cls != null and cls.xp_curve.size() > level + 1:
