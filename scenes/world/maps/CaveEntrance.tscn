@@ -30,9 +30,9 @@ spawn_id = &"from_outskirts"
 grid_position = Vector2i(2, 6)
 facing = 2
 
-[node name="SpawnFromDeep" type="Node2D" parent="."]
+[node name="SpawnFromTunnels" type="Node2D" parent="."]
 script = ExtResource("2_spawn")
-spawn_id = &"from_deep"
+spawn_id = &"from_tunnels"
 grid_position = Vector2i(17, 6)
 facing = 1
 
@@ -43,11 +43,11 @@ grid_size = Vector2i(1, 1)
 target_map_id = &"outskirts"
 target_spawn_id = &"from_cave"
 
-[node name="ExitToDeep" type="Node2D" parent="."]
+[node name="ExitToTunnels" type="Node2D" parent="."]
 script = ExtResource("3_warp")
 grid_position = Vector2i(18, 6)
 grid_size = Vector2i(1, 1)
-target_map_id = &"cave_deep"
+target_map_id = &"cave_tunnels"
 target_spawn_id = &"from_entrance"
 
 [node name="ChestSword" parent="." instance=ExtResource("4_chest")]

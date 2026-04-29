@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Enemy.gd" id="1_script"]
+[ext_resource type="Resource" path="res://data/skills/attack.tres" id="2_attack"]
+[ext_resource type="Resource" path="res://data/skills/entangling_roots.tres" id="3_roots"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/enemy_treant.svg" id="4_sprite"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"treant"
+display_name = "Treant"
+battle_sprite = ExtResource("4_sprite")
+max_hp = 540
+max_mp = 80
+atk = 22
+def = 16
+mag = 12
+res = 10
+spd = 6
+luk = 4
+xp_reward = 200
+gold_reward = 130
+drop_chance = 0.0
+skills = Array[Resource]([ExtResource("2_attack"), ExtResource("3_roots")])
+element_modifiers = {1: 2.0, 2: 1.5}

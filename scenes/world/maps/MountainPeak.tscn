@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/OverworldMap.gd" id="1_map"]
+[ext_resource type="Script" path="res://scripts/world/SpawnPoint.gd" id="2_spawn"]
+[ext_resource type="Script" path="res://scripts/world/WarpTrigger.gd" id="3_warp"]
+[ext_resource type="Script" path="res://scripts/world/EncounterTrigger.gd" id="4_encounter"]
+[ext_resource type="PackedScene" path="res://scenes/world/Chest.tscn" id="5_chest"]
+
+[node name="MountainPeak" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_map")
+grid_string = "####################
+#,,,,,,,,DD,,,,,,,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,####,,,,,,,####,#
+#,,####,,,,,,,####,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,####,,,,####,,#
+#,,,,####,,,,####,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,####,,,,,,,####,#
+#,,####,,,,,,,####,#
+#,,,,,,,,DD,,,,,,,,#
+####################"
+map_id = &"mountain_peak"
+
+[node name="SpawnFromPass" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+spawn_id = &"from_pass"
+grid_position = Vector2i(9, 12)
+facing = 3
+
+[node name="SpawnFromAerie" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+spawn_id = &"from_aerie"
+grid_position = Vector2i(9, 2)
+facing = 0
+
+[node name="ExitToPass" type="Node2D" parent="."]
+script = ExtResource("3_warp")
+grid_position = Vector2i(8, 12)
+grid_size = Vector2i(2, 1)
+target_map_id = &"mountain_pass"
+target_spawn_id = &"from_aerie"
+
+[node name="ExitToAerie" type="Node2D" parent="."]
+script = ExtResource("3_warp")
+grid_position = Vector2i(8, 1)
+grid_size = Vector2i(2, 1)
+target_map_id = &"storm_aerie"
+target_spawn_id = &"from_pass"
+requires_flag = &"wyvern_defeated"
+
+[node name="ChestTinctures" parent="." instance=ExtResource("5_chest")]
+chest_id = &"peak_tinctures"
+grid_position = Vector2i(2, 6)
+item_id = &"tincture"
+item_count = 5
+
+[node name="ChestPhoenix" parent="." instance=ExtResource("5_chest")]
+chest_id = &"peak_phoenix"
+grid_position = Vector2i(17, 6)
+item_id = &"phoenix_down"
+item_count = 2
+
+[node name="WyvernTrigger" type="Node2D" parent="."]
+script = ExtResource("4_encounter")
+grid_position = Vector2i(9, 5)
+troop_id = &"wyvern_mini"
+defeated_flag = &"wyvern_defeated"
+intro_lines = PackedStringArray("Snow scoured by ash. The path narrows to a knife-edge — and a vast scaled shadow uncoils from the rocks above.", "A Wyvern. Tessera tightens her grip on her spear. \"This one's mine first. Watch the wings.\"")
+intro_speaker = "Wyvern"

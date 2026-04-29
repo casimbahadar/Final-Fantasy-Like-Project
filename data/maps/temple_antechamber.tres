@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MapData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/MapData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"temple_antechamber"
+display_name = "Temple Antechamber"
+scene_path = "res://scenes/world/maps/TempleAntechamber.tscn"
+encounter_troops = Array[StringName]([&"skeleton_pair", &"wraith_skeleton", &"lone_armor", &"skeleton_pair"])
+encounter_steps = 7

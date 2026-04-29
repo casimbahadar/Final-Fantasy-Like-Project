@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Enemy.gd" id="1_script"]
+[ext_resource type="Resource" path="res://data/skills/attack.tres" id="2_attack"]
+[ext_resource type="Resource" path="res://data/skills/prismatic_beam.tres" id="3_beam"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/enemy_crystal_sentinel.svg" id="4_sprite"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"crystal_sentinel"
+display_name = "Crystal Sentinel"
+battle_sprite = ExtResource("4_sprite")
+max_hp = 380
+max_mp = 60
+atk = 14
+def = 14
+mag = 18
+res = 14
+spd = 8
+luk = 4
+xp_reward = 120
+gold_reward = 80
+drop_chance = 0.0
+skills = Array[Resource]([ExtResource("2_attack"), ExtResource("3_beam")])
+element_modifiers = {1: 1.5, 2: 0.5}

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Item.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"crystal_charm"
+display_name = "Crystal Charm"
+description = "A shard cut from a Sentinel. Hums when worn close."
+kind = 3
+equip_slot = 3
+stackable = false
+max_stack = 1
+buy_price = 0
+sell_price = 200
+bonus_max_mp = 12
+bonus_mag = 4
+bonus_res = 4

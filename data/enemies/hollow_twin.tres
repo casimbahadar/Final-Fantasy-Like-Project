@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Enemy.gd" id="1_script"]
+[ext_resource type="Resource" path="res://data/skills/attack.tres" id="2_attack"]
+[ext_resource type="Resource" path="res://data/skills/hollow_strike.tres" id="3_strike"]
+[ext_resource type="Resource" path="res://data/skills/mirror_strike.tres" id="4_mirror"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/enemy_hollow_twin.svg" id="5_sprite"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"hollow_twin_aldric"
+display_name = "Hollow Aldric"
+battle_sprite = ExtResource("5_sprite")
+max_hp = 1100
+max_mp = 60
+atk = 28
+def = 18
+mag = 12
+res = 12
+spd = 11
+luk = 5
+xp_reward = 540
+gold_reward = 420
+drop_chance = 0.0
+skills = Array[Resource]([ExtResource("2_attack"), ExtResource("3_strike"), ExtResource("4_mirror")])
+element_modifiers = {7: 1.5, 8: 0.5}

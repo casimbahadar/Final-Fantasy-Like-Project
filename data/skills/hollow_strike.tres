@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Skill.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"hollow_strike"
+display_name = "Hollow Strike"
+description = "Your own strike, returned. Every blow they take, the party feels too."
+mp_cost = 0
+target_kind = 0
+damage_kind = 0
+element = 8
+power = 22
+accuracy = 0.95
+crit_bonus = 0.15

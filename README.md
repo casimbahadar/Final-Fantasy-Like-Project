@@ -2,34 +2,31 @@
 
 A Final Fantasy–inspired JRPG built in **Godot 4**, designed to ship to **itch.io (Web)**, **Android**, and **iOS** from a single codebase. Visual style targets the GBA era (FF1–6, FFTA) with a clear upgrade path to 2D-HD (Octopath, FF Pixel Remaster).
 
-> **Status:** Phase 10 — **the main story is complete.** All 8 chapters playable end-to-end with a real final boss and ending. The party of five takes on the three roots of the Plague (Chs 1–4), discovers the seal it was holding back (Chs 5–6), descends into the world's wound (Ch 7), and finally faces the Sovereign Eternal — Auren's first king, who created the Plague to seal himself away. 19 statuses, 50+ skills, 5 playable characters across 4 classes, 21 enemies, 8 bosses, 13 maps. See [`CONTENT.md`](CONTENT.md) for side-content authoring.
+> **Status:** Phase 11 — **deepening pass.** Every chapter now has a mid-floor with a mini-boss, doubling each dungeon's length and turning the main story from ~3 hours into ~5–6. 28 enemies, 15 bosses (8 main + 7 mini), 20 maps. The full main-story arc (Chapters 1–8) is intact; this pass added intermediate dungeons inside each chapter rather than new chapters. See [`CONTENT.md`](CONTENT.md) for side-content authoring.
 
 ## Chapter map
 
 ```
-   Ch 1: [Plaza] → [Outskirts] → [Crystal Cave Entrance] → [Crystal Cave Deep]
-                                                              └─ BOSS: Crystal Wraith
-                                                              └─ Kael (Rogue) joins
-   Ch 2: [Whispering Wood]
-   Ch 3: [Brighthollow] (shop / inn / Mira [Cleric] joins) → [Sunken Temple]
-                                                              └─ BOSS: Hollow King
-                                                              └─ Aila found
-   Ch 4: [Mountain Pass] (Tessera [Dragoon] joins) → [Storm Aerie]
-                                                              └─ BOSS: Stormwyrm
-                                                                "three roots cut" — but the seal is gone
-   Ch 5: [Ashen Coast]
-                       └─ BOSS: Drowned Choir
-                          ("the seal is broken... thank you")
-   Ch 6: [Hollow Court]
-                       └─ BOSS: The Pretender
-                          (the throne hides a wound)
-   Ch 7: [World's Wound]
-                       └─ BOSS: The First Plague
-                          ("...thank you. Tell him I am tired.")
-   Ch 8: [Where the King Waits]
-                       └─ FINAL BOSS: The Sovereign Eternal
-                          — Auren's first king, who became the Plague to seal himself away
-                          ENDING: a sunrise across Auren
+   Ch 1: Plaza → Outskirts → Crystal Cave Entrance → CRYSTAL TUNNELS (mini: Crystal Sentinel)
+                                                  → Crystal Cave Deep
+                                                       └─ BOSS: Crystal Wraith  +  Kael joins
+   Ch 2: Forest Path → FOREST HEART (mini: Treant)
+   Ch 3: Brighthollow → TEMPLE ANTECHAMBER (mini: Skeletal Champion)
+                       → Sunken Temple
+                                                       └─ BOSS: Hollow King  +  Aila found
+   Ch 4: Mountain Pass (Tessera joins) → MOUNTAIN PEAK (mini: Wyvern)
+                       → Storm Aerie
+                                                       └─ BOSS: Stormwyrm
+                                                              "three roots cut" — but the seal is gone
+   Ch 5: TIDAL REEF (mini: Tide Beast) → Ashen Coast
+                                                       └─ BOSS: Drowned Choir
+   Ch 6: HOLLOW GATE (mini: Inquisitor) → Hollow Court
+                                                       └─ BOSS: The Pretender
+   Ch 7: WOUND DESCENT (mini: Hollow Aldric) → World's Wound
+                                                       └─ BOSS: The First Plague
+   Ch 8: Where the King Waits
+                                                       └─ FINAL BOSS: The Sovereign Eternal
+                                                              ENDING: a sunrise across Auren
 ```
 
 ## Roadmap
@@ -47,7 +44,10 @@ A Final Fantasy–inspired JRPG built in **Godot 4**, designed to ship to **itch
 | 8 | Chapter 3: Cleric class, Mira, Brighthollow, Sunken Temple, Hollow King | ✅ done |
 | 9 | Chapter 4: Dragoon class, Tessera, Mountain Pass, Storm Aerie, Stormwyrm | ✅ done |
 | 10 | Chapters 5–8: full main story arc (Drowned Choir → Pretender → First Plague → Sovereign Eternal) | ✅ done |
-| 11+ | Side content, music & SFX, real art swap (see [`CONTENT.md`](CONTENT.md) and [`assets/audio/README.md`](assets/audio/README.md)) | ⏳ |
+| 11 | Deepening pass: mid-floor mini-boss in every chapter (Sentinel, Treant, Champion, Wyvern, Tide Beast, Inquisitor, Hollow Twin) | ✅ done |
+| 12 | Insert mid-game chapters between existing ones (desert, sub-aquatic, etc.) | ⏳ |
+| 13 | Side-content layer: town quests, optional dungeons, hunt log, postgame | ⏳ |
+| 14+ | Music & SFX, real art swap (see [`CONTENT.md`](CONTENT.md) and [`assets/audio/README.md`](assets/audio/README.md)) | ⏳ |
 
 See [`/root/.claude/plans/i-want-to-create-enchanted-nygaard.md`](../../root/.claude/plans/i-want-to-create-enchanted-nygaard.md) for the full plan (local file).
 

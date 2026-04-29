@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" shape-rendering="crispEdges">
+  <!-- Tall pointed mitre -->
+  <rect x="20" y="0" width="8" height="8" fill="#8a1020"/>
+  <rect x="22" y="0" width="4" height="2" fill="#a02030"/>
+  <rect x="18" y="6" width="12" height="4" fill="#8a1020"/>
+  <rect x="22" y="0" width="2" height="2" fill="#f5d76e"/>
+  <!-- Face hidden (just shadow + glowing eyes) -->
+  <rect x="17" y="10" width="14" height="8" fill="#0a0510"/>
+  <rect x="19" y="13" width="3" height="2" fill="#ff3030"/>
+  <rect x="26" y="13" width="3" height="2" fill="#ff3030"/>
+  <!-- Heavy black robes -->
+  <rect x="10" y="18" width="28" height="20" fill="#1a1015"/>
+  <rect x="8" y="22" width="32" height="16" fill="#1a1015"/>
+  <!-- Gold trim -->
+  <rect x="10" y="18" width="28" height="2" fill="#a08020"/>
+  <rect x="14" y="20" width="20" height="2" fill="#a08020"/>
+  <rect x="10" y="36" width="28" height="2" fill="#a08020"/>
+  <!-- Crucifix-like emblem -->
+  <rect x="22" y="24" width="4" height="10" fill="#f5d76e"/>
+  <rect x="20" y="27" width="8" height="3" fill="#f5d76e"/>
+  <!-- Sleeves -->
+  <rect x="4" y="22" width="6" height="14" fill="#1a1015"/>
+  <rect x="38" y="22" width="6" height="14" fill="#1a1015"/>
+  <rect x="4" y="22" width="6" height="2" fill="#a08020"/>
+  <rect x="38" y="22" width="6" height="2" fill="#a08020"/>
+  <!-- Gloved hands -->
+  <rect x="4" y="36" width="4" height="4" fill="#3a2030"/>
+  <rect x="40" y="36" width="4" height="4" fill="#3a2030"/>
+  <!-- Censer (right hand, smoking) -->
+  <rect x="42" y="38" width="4" height="6" fill="#a08020"/>
+  <rect x="40" y="42" width="8" height="2" fill="#a08020"/>
+  <rect x="44" y="44" width="2" height="3" fill="#7a6068" opacity="0.7"/>
+  <!-- Gospel book (left hand) -->
+  <rect x="2" y="40" width="6" height="6" fill="#3a1010"/>
+  <rect x="3" y="41" width="4" height="4" fill="#5a2020"/>
+  <rect x="4" y="42" width="2" height="2" fill="#f5d76e"/>
+  <!-- Skirt of robe -->
+  <rect x="10" y="38" width="28" height="10" fill="#0a0510"/>
+  <rect x="14" y="40" width="20" height="2" fill="#3a2010"/>
+</svg>

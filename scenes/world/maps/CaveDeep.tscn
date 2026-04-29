@@ -26,9 +26,9 @@ grid_string = "####################
 ####################"
 map_id = &"cave_deep"
 
-[node name="SpawnFromEntrance" type="Node2D" parent="."]
+[node name="SpawnFromTunnels" type="Node2D" parent="."]
 script = ExtResource("2_spawn")
-spawn_id = &"from_entrance"
+spawn_id = &"from_tunnels"
 grid_position = Vector2i(2, 6)
 facing = 2
 
@@ -38,11 +38,11 @@ spawn_id = &"from_forest"
 grid_position = Vector2i(9, 9)
 facing = 3
 
-[node name="ExitToEntrance" type="Node2D" parent="."]
+[node name="ExitToTunnels" type="Node2D" parent="."]
 script = ExtResource("3_warp")
 grid_position = Vector2i(1, 6)
 grid_size = Vector2i(1, 1)
-target_map_id = &"cave_entrance"
+target_map_id = &"cave_tunnels"
 target_spawn_id = &"from_deep"
 
 [node name="ExitToForest" type="Node2D" parent="."]

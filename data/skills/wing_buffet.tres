@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Skill.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"wing_buffet"
+display_name = "Wing Buffet"
+description = "A storm of wing-strokes that batters the entire party."
+mp_cost = 0
+target_kind = 1
+damage_kind = 0
+element = 6
+power = 12
+accuracy = 0.95

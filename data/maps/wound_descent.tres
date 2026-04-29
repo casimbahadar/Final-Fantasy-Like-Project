@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MapData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/MapData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"wound_descent"
+display_name = "The Descent"
+scene_path = "res://scenes/world/maps/WoundDescent.tscn"
+encounter_troops = Array[StringName]([&"twin_pair", &"spawn_swarm", &"twin_spawn", &"twin_pair"])
+encounter_steps = 6

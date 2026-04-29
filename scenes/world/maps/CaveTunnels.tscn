@@ -1,0 +1,74 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/OverworldMap.gd" id="1_map"]
+[ext_resource type="Script" path="res://scripts/world/SpawnPoint.gd" id="2_spawn"]
+[ext_resource type="Script" path="res://scripts/world/WarpTrigger.gd" id="3_warp"]
+[ext_resource type="Script" path="res://scripts/world/EncounterTrigger.gd" id="4_encounter"]
+[ext_resource type="Script" path="res://scripts/world/EndingTrigger.gd" id="5_story"]
+[ext_resource type="PackedScene" path="res://scenes/world/Chest.tscn" id="6_chest"]
+
+[node name="CaveTunnels" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_map")
+grid_string = "####################
+#,,,,,,,,DD,,,,,,,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,~~,,,,,,,,,~~,,,#
+#,,~~,,,,,,,,,~~,,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,####,,,,####,,#
+#,,,,####,,,,####,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,~~,,,,,,,,,~~,,,#
+#,,~~,,,,,,,,,~~,,,#
+#,,,,,,,,DD,,,,,,,,#
+####################"
+map_id = &"cave_tunnels"
+
+[node name="SpawnFromEntrance" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+spawn_id = &"from_entrance"
+grid_position = Vector2i(9, 11)
+facing = 3
+
+[node name="SpawnFromDeep" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+spawn_id = &"from_deep"
+grid_position = Vector2i(9, 2)
+facing = 0
+
+[node name="ExitToEntrance" type="Node2D" parent="."]
+script = ExtResource("3_warp")
+grid_position = Vector2i(8, 12)
+grid_size = Vector2i(2, 1)
+target_map_id = &"cave_entrance"
+target_spawn_id = &"from_tunnels"
+
+[node name="ExitToDeep" type="Node2D" parent="."]
+script = ExtResource("3_warp")
+grid_position = Vector2i(8, 1)
+grid_size = Vector2i(2, 1)
+target_map_id = &"cave_deep"
+target_spawn_id = &"from_tunnels"
+requires_flag = &"crystal_sentinel_defeated"
+
+[node name="ChestCharm" parent="." instance=ExtResource("6_chest")]
+chest_id = &"tunnels_charm"
+grid_position = Vector2i(2, 6)
+item_id = &"crystal_charm"
+item_count = 1
+
+[node name="ChestPotion" parent="." instance=ExtResource("6_chest")]
+chest_id = &"tunnels_potions"
+grid_position = Vector2i(17, 6)
+item_id = &"hi_potion"
+item_count = 3
+
+[node name="SentinelTrigger" type="Node2D" parent="."]
+script = ExtResource("4_encounter")
+grid_position = Vector2i(9, 5)
+troop_id = &"crystal_sentinel_mini"
+defeated_flag = &"crystal_sentinel_defeated"
+intro_lines = PackedStringArray("In a wider chamber, sealed crystal-shards drift unnaturally — a half-formed thing taking shape from the cave walls.", "It pulses, then resolves into a vaguely person-shaped sculpture. \"This place is mine. The Heart's voice forbade visitors. The Heart's voice... has not spoken for a long while.\"", "It steps forward, and the air sings.")
+intro_speaker = "Crystal Sentinel"

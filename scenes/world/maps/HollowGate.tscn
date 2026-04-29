@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/OverworldMap.gd" id="1_map"]
+[ext_resource type="Script" path="res://scripts/world/SpawnPoint.gd" id="2_spawn"]
+[ext_resource type="Script" path="res://scripts/world/WarpTrigger.gd" id="3_warp"]
+[ext_resource type="Script" path="res://scripts/world/EncounterTrigger.gd" id="4_encounter"]
+[ext_resource type="PackedScene" path="res://scenes/world/Chest.tscn" id="5_chest"]
+
+[node name="HollowGate" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_map")
+grid_string = "####################
+#,,,,,,,,DD,,,,,,,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,####,,,,,,,####,#
+#,,####,,,,,,,####,#
+#,,####,,,,,,,####,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,####,,,,,,,####,#
+#,,####,,,,,,,####,#
+#,,####,,,,,,,####,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,,,,,DD,,,,,,,,#
+####################"
+map_id = &"hollow_gate"
+
+[node name="SpawnFromCoast" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+spawn_id = &"from_coast"
+grid_position = Vector2i(9, 12)
+facing = 3
+
+[node name="SpawnFromCourt" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+spawn_id = &"from_court"
+grid_position = Vector2i(9, 2)
+facing = 0
+
+[node name="ExitToCoast" type="Node2D" parent="."]
+script = ExtResource("3_warp")
+grid_position = Vector2i(8, 12)
+grid_size = Vector2i(2, 1)
+target_map_id = &"ashen_coast"
+target_spawn_id = &"from_gate"
+
+[node name="ExitToCourt" type="Node2D" parent="."]
+script = ExtResource("3_warp")
+grid_position = Vector2i(8, 1)
+grid_size = Vector2i(2, 1)
+target_map_id = &"hollow_court"
+target_spawn_id = &"from_coast"
+requires_flag = &"inquisitor_defeated"
+
+[node name="ChestRoyal" parent="." instance=ExtResource("5_chest")]
+chest_id = &"gate_royal_saber"
+grid_position = Vector2i(2, 7)
+item_id = &"royal_saber"
+item_count = 1
+
+[node name="ChestPotions" parent="." instance=ExtResource("5_chest")]
+chest_id = &"gate_potions"
+grid_position = Vector2i(17, 7)
+item_id = &"hi_potion"
+item_count = 5
+
+[node name="InquisitorTrigger" type="Node2D" parent="."]
+script = ExtResource("4_encounter")
+grid_position = Vector2i(9, 7)
+troop_id = &"inquisitor_mini"
+defeated_flag = &"inquisitor_defeated"
+intro_lines = PackedStringArray("Past iron gates, a tall figure stands before the throne road. Robes black, mitre red, eyes sealed shut and burning anyway.", "\"None pass without absolution. Recite the king's seventeen names.\"", "Mira, very softly: \"He doesn't have seventeen.\"", "The Inquisitor smiles without lips. \"He never did. Then by my office I deliver penance instead.\"")
+intro_speaker = "Inquisitor"

@@ -32,11 +32,17 @@ spawn_id = &"from_pass"
 grid_position = Vector2i(9, 11)
 facing = 3
 
-[node name="ExitToPass" type="Node2D" parent="."]
+[node name="SpawnFromReef" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+spawn_id = &"from_reef"
+grid_position = Vector2i(9, 7)
+facing = 0
+
+[node name="ExitToPeak" type="Node2D" parent="."]
 script = ExtResource("3_warp")
 grid_position = Vector2i(8, 12)
 grid_size = Vector2i(2, 1)
-target_map_id = &"mountain_pass"
+target_map_id = &"mountain_peak"
 target_spawn_id = &"from_aerie"
 
 [node name="ChestPlate" parent="." instance=ExtResource("6_chest")]
@@ -64,7 +70,7 @@ script = ExtResource("5_story")
 grid_position = Vector2i(9, 3)
 requires_flag = &"stormwyrm_defeated"
 sets_flag = &"chapter_4_complete"
-warp_target_map = &"ashen_coast"
+warp_target_map = &"tidal_reef"
 warp_target_spawn = &"from_aerie"
 speaker = "The Wind"
 lines = PackedStringArray("As the Stormwyrm settles, the wind takes on a softer voice — almost a song.", "Across Auren, the dimming Crystals flicker. Some catch. A few — far below — begin to glow again.", "Tessera kneels beside the great wyrm and lays a hand on its skull. \"Sleep,\" she murmurs. \"You did your work.\"", "Three roots, cut.", "But the wind does not stop singing — and Mira's eyes are open, and they are afraid.", "\"...something else is awake. The seal is gone, and something the Plague was holding back is loose.\"", "Lyra looks east, where the cliffs fall away to a black coast.", "\"Then we go to it. Down to the coast first.\"")

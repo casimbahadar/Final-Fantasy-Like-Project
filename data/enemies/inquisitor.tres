@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/Enemy.gd" id="1_script"]
+[ext_resource type="Resource" path="res://data/skills/attack.tres" id="2_attack"]
+[ext_resource type="Resource" path="res://data/skills/excommunicate.tres" id="3_exc"]
+[ext_resource type="Resource" path="res://data/skills/holy.tres" id="4_holy"]
+[ext_resource type="Texture2D" path="res://assets/sprites/placeholder/enemy_inquisitor.svg" id="5_sprite"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"inquisitor"
+display_name = "Inquisitor"
+battle_sprite = ExtResource("5_sprite")
+max_hp = 980
+max_mp = 200
+atk = 18
+def = 14
+mag = 26
+res = 18
+spd = 10
+luk = 5
+xp_reward = 460
+gold_reward = 360
+drop_chance = 0.0
+skills = Array[Resource]([ExtResource("2_attack"), ExtResource("3_exc"), ExtResource("4_holy")])
+element_modifiers = {8: 1.75, 7: 0.5}

@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/OverworldMap.gd" id="1_map"]
+[ext_resource type="Script" path="res://scripts/world/SpawnPoint.gd" id="2_spawn"]
+[ext_resource type="Script" path="res://scripts/world/WarpTrigger.gd" id="3_warp"]
+[ext_resource type="Script" path="res://scripts/world/EncounterTrigger.gd" id="4_encounter"]
+[ext_resource type="PackedScene" path="res://scenes/world/Chest.tscn" id="5_chest"]
+
+[node name="ForestHeart" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_map")
+grid_string = "####################
+#,,,,,,,,DD,,,,,,,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,####,,,,,,,####,#
+#,,####,,,,,,,####,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,####,,,,,,,,,,#
+#,,,,####,,,,####,,#
+#,,,,,,,,,,,,####,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,,,,,DD,,,,,,,,#
+####################"
+map_id = &"forest_heart"
+
+[node name="SpawnFromForest" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+spawn_id = &"from_forest"
+grid_position = Vector2i(9, 12)
+facing = 3
+
+[node name="SpawnFromTown" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+spawn_id = &"from_town"
+grid_position = Vector2i(9, 2)
+facing = 0
+
+[node name="ExitToForest" type="Node2D" parent="."]
+script = ExtResource("3_warp")
+grid_position = Vector2i(8, 12)
+grid_size = Vector2i(2, 1)
+target_map_id = &"forest_path"
+target_spawn_id = &"from_town"
+
+[node name="ExitToTown" type="Node2D" parent="."]
+script = ExtResource("3_warp")
+grid_position = Vector2i(8, 1)
+grid_size = Vector2i(2, 1)
+target_map_id = &"brighthollow"
+target_spawn_id = &"from_forest"
+requires_flag = &"treant_defeated"
+
+[node name="ChestPotion" parent="." instance=ExtResource("5_chest")]
+chest_id = &"forestheart_potions"
+grid_position = Vector2i(2, 6)
+item_id = &"hi_potion"
+item_count = 3
+
+[node name="ChestEther" parent="." instance=ExtResource("5_chest")]
+chest_id = &"forestheart_ethers"
+grid_position = Vector2i(17, 6)
+item_id = &"ether"
+item_count = 2
+
+[node name="TreantTrigger" type="Node2D" parent="."]
+script = ExtResource("4_encounter")
+grid_position = Vector2i(9, 5)
+troop_id = &"treant_mini"
+defeated_flag = &"treant_defeated"
+intro_lines = PackedStringArray("The undergrowth thickens, then resolves into a shape — bark, branch, eyes the colour of old moss.", "The Treant blocks the path north. Its voice creaks like a door no one has opened in centuries.", "\"...you carry the Heart's song. The wood remembers. Pass, if you can.\"")
+intro_speaker = "Treant"

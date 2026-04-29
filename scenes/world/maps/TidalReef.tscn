@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/OverworldMap.gd" id="1_map"]
+[ext_resource type="Script" path="res://scripts/world/SpawnPoint.gd" id="2_spawn"]
+[ext_resource type="Script" path="res://scripts/world/WarpTrigger.gd" id="3_warp"]
+[ext_resource type="Script" path="res://scripts/world/EncounterTrigger.gd" id="4_encounter"]
+[ext_resource type="PackedScene" path="res://scenes/world/Chest.tscn" id="5_chest"]
+
+[node name="TidalReef" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_map")
+grid_string = "####################
+#,,,,,,,,DD,,,,,,,,#
+#~~,,,,,,,,,,,,,,~~#
+#~~,,,,,,,,,,,,,,~~#
+#,,,,~~~~,,~~~~,,,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,~~~~,,~~~~,,,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,,,,,,,,,,,,,,,#
+#~~,,,,,,,,,,,,,,~~#
+#~~,,,,,,,,,,,,,,~~#
+#,,,,,,,,DD,,,,,,,,#
+####################"
+map_id = &"tidal_reef"
+
+[node name="SpawnFromAerie" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+spawn_id = &"from_aerie"
+grid_position = Vector2i(9, 12)
+facing = 3
+
+[node name="SpawnFromCoast" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+spawn_id = &"from_coast"
+grid_position = Vector2i(9, 2)
+facing = 0
+
+[node name="ExitToAerie" type="Node2D" parent="."]
+script = ExtResource("3_warp")
+grid_position = Vector2i(8, 12)
+grid_size = Vector2i(2, 1)
+target_map_id = &"storm_aerie"
+target_spawn_id = &"from_reef"
+
+[node name="ExitToCoast" type="Node2D" parent="."]
+script = ExtResource("3_warp")
+grid_position = Vector2i(8, 1)
+grid_size = Vector2i(2, 1)
+target_map_id = &"ashen_coast"
+target_spawn_id = &"from_reef"
+requires_flag = &"tide_beast_defeated"
+
+[node name="ChestTideSword" parent="." instance=ExtResource("5_chest")]
+chest_id = &"reef_tide_sword"
+grid_position = Vector2i(2, 6)
+item_id = &"tide_sword"
+item_count = 1
+
+[node name="ChestEthers" parent="." instance=ExtResource("5_chest")]
+chest_id = &"reef_ethers"
+grid_position = Vector2i(17, 6)
+item_id = &"ether"
+item_count = 4
+
+[node name="TideBeastTrigger" type="Node2D" parent="."]
+script = ExtResource("4_encounter")
+grid_position = Vector2i(9, 5)
+troop_id = &"tide_beast_mini"
+defeated_flag = &"tide_beast_defeated"
+intro_lines = PackedStringArray("Coral spires rise from black water, flickering with bioluminescence that should have died with the kingdom.", "Something coils up out of the deep. Many-tentacled, many-eyed, much too smart for an animal.", "It speaks, in a slither of water. \"Tide ate the world once. Will eat it again. You smell of the surface. Fool.\"")
+intro_speaker = "Tide Beast"

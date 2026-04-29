@@ -38,11 +38,11 @@ spawn_id = &"from_aerie"
 grid_position = Vector2i(9, 2)
 facing = 0
 
-[node name="ExitToAerie" type="Node2D" parent="."]
+[node name="ExitToPeak" type="Node2D" parent="."]
 script = ExtResource("3_warp")
 grid_position = Vector2i(8, 1)
 grid_size = Vector2i(2, 1)
-target_map_id = &"storm_aerie"
+target_map_id = &"mountain_peak"
 target_spawn_id = &"from_pass"
 
 [node name="Tessera" parent="." instance=ExtResource("4_npc")]

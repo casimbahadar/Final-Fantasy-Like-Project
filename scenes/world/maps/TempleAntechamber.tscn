@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/OverworldMap.gd" id="1_map"]
+[ext_resource type="Script" path="res://scripts/world/SpawnPoint.gd" id="2_spawn"]
+[ext_resource type="Script" path="res://scripts/world/WarpTrigger.gd" id="3_warp"]
+[ext_resource type="Script" path="res://scripts/world/EncounterTrigger.gd" id="4_encounter"]
+[ext_resource type="PackedScene" path="res://scenes/world/Chest.tscn" id="5_chest"]
+
+[node name="TempleAntechamber" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_map")
+grid_string = "####################
+#,,,,,,,,DD,,,,,,,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,####,,,,,,,####,#
+#,,####,,,,,,,####,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,####,,,,,,,####,#
+#,,####,,,,,,,####,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,,,,,,,,,,,,,,,#
+#,,,,,,,,DD,,,,,,,,#
+####################"
+map_id = &"temple_antechamber"
+
+[node name="SpawnFromTown" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+spawn_id = &"from_town"
+grid_position = Vector2i(9, 12)
+facing = 3
+
+[node name="SpawnFromTemple" type="Node2D" parent="."]
+script = ExtResource("2_spawn")
+spawn_id = &"from_temple"
+grid_position = Vector2i(9, 2)
+facing = 0
+
+[node name="ExitToTown" type="Node2D" parent="."]
+script = ExtResource("3_warp")
+grid_position = Vector2i(8, 12)
+grid_size = Vector2i(2, 1)
+target_map_id = &"brighthollow"
+target_spawn_id = &"from_temple"
+
+[node name="ExitToTemple" type="Node2D" parent="."]
+script = ExtResource("3_warp")
+grid_position = Vector2i(8, 1)
+grid_size = Vector2i(2, 1)
+target_map_id = &"sunken_temple"
+target_spawn_id = &"from_antechamber"
+requires_flag = &"skeletal_champion_defeated"
+
+[node name="ChestPlate" parent="." instance=ExtResource("5_chest")]
+chest_id = &"antechamber_chain_mail"
+grid_position = Vector2i(2, 6)
+item_id = &"chain_mail"
+item_count = 1
+
+[node name="ChestEthers" parent="." instance=ExtResource("5_chest")]
+chest_id = &"antechamber_ethers"
+grid_position = Vector2i(17, 6)
+item_id = &"ether"
+item_count = 3
+
+[node name="ChampionTrigger" type="Node2D" parent="."]
+script = ExtResource("4_encounter")
+grid_position = Vector2i(9, 5)
+troop_id = &"skeletal_champion_mini"
+defeated_flag = &"skeletal_champion_defeated"
+intro_lines = PackedStringArray("In the temple's outer hall, a knight in plate stands at attention before the inner door — not undead so much as patient. Very patient.", "It lifts a greatsword that has not been moved in two hundred years. The metal sings faintly.", "\"...the king's sleep is sacred. Pass me first.\"")
+intro_speaker = "Skeletal Champion"

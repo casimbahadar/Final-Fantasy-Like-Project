@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" shape-rendering="crispEdges">
+  <!-- Water around -->
+  <rect x="0" y="36" width="48" height="12" fill="#2a4868" opacity="0.6"/>
+  <rect x="0" y="32" width="48" height="4" fill="#4a6888" opacity="0.4"/>
+  <!-- Many tentacles -->
+  <rect x="0" y="20" width="6" height="3" fill="#3a6868"/>
+  <rect x="2" y="23" width="4" height="6" fill="#3a6868"/>
+  <rect x="42" y="20" width="6" height="3" fill="#3a6868"/>
+  <rect x="42" y="23" width="4" height="6" fill="#3a6868"/>
+  <rect x="6" y="32" width="3" height="8" fill="#3a6868"/>
+  <rect x="39" y="32" width="3" height="8" fill="#3a6868"/>
+  <rect x="14" y="34" width="3" height="6" fill="#3a6868"/>
+  <rect x="31" y="34" width="3" height="6" fill="#3a6868"/>
+  <!-- Suckers -->
+  <rect x="3" y="25" width="1" height="1" fill="#a08068"/>
+  <rect x="3" y="27" width="1" height="1" fill="#a08068"/>
+  <rect x="44" y="25" width="1" height="1" fill="#a08068"/>
+  <rect x="44" y="27" width="1" height="1" fill="#a08068"/>
+  <!-- Body / mantle -->
+  <rect x="10" y="6" width="28" height="22" fill="#5a7878"/>
+  <rect x="8" y="10" width="32" height="16" fill="#5a7878"/>
+  <rect x="12" y="8" width="24" height="3" fill="#7a9898"/>
+  <!-- Crustacean armored ridges -->
+  <rect x="10" y="14" width="28" height="2" fill="#3a4848"/>
+  <rect x="10" y="20" width="28" height="2" fill="#3a4848"/>
+  <!-- Many eyes -->
+  <rect x="14" y="12" width="3" height="3" fill="#a8e860"/>
+  <rect x="22" y="10" width="3" height="3" fill="#a8e860"/>
+  <rect x="31" y="12" width="3" height="3" fill="#a8e860"/>
+  <rect x="15" y="13" width="1" height="1" fill="#1a1015"/>
+  <rect x="23" y="11" width="1" height="1" fill="#1a1015"/>
+  <rect x="32" y="13" width="1" height="1" fill="#1a1015"/>
+  <!-- Maw with teeth -->
+  <rect x="16" y="22" width="16" height="4" fill="#1a1015"/>
+  <rect x="17" y="23" width="2" height="3" fill="#e8e0d0"/>
+  <rect x="20" y="23" width="2" height="3" fill="#e8e0d0"/>
+  <rect x="23" y="23" width="2" height="3" fill="#e8e0d0"/>
+  <rect x="26" y="23" width="2" height="3" fill="#e8e0d0"/>
+  <rect x="29" y="23" width="2" height="3" fill="#e8e0d0"/>
+  <!-- Tongue -->
+  <rect x="22" y="24" width="4" height="3" fill="#902040"/>
+  <!-- Pearls / jewels embedded -->
+  <rect x="16" y="17" width="2" height="2" fill="#a8e8ff"/>
+  <rect x="22" y="17" width="2" height="2" fill="#ff80a8"/>
+  <rect x="28" y="17" width="2" height="2" fill="#a8e8ff"/>
+</svg>
